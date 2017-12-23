@@ -1,0 +1,17 @@
+bannieres: Licoti
+#Les personnes habilitées à gérer les bannières au dessus des articles. OLD FILE PLEASE DO NOT EDIT -- Neamar
+
+propositions: Domitille
+#Les personnes responsables de la gestion des propositions.
+
+accrocheurs: Tanguy Domitille Lagile
+#Les personnes qui se chargent de rajouter une accroche sur les articles incitant à la lecture.
+
+censeurs: Coralie Lagile Licoti Itello
+#Les personnes qui peuvent corriger un article en cas d'erreur.
+
+taggers: Jogo
+#Les personnes qui peuvent classifier un article dans les catégories de l'arbre
+
+admins: Neamar Anthony
+#Les super-utilisateurs, qui peuvent faire tout ce qui a été nommé plus haut, et valider / dévalider / invalider un article, forcer sa parution, gérer les utilisateurs, et plus encore !

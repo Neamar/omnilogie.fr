@@ -1,0 +1,166 @@
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|JPG|JPEG|PNG|GIF)$">
+Header set Expires "Thu, 15 Apr 2020 20:00:00 GMT"
+</FilesMatch>
+
+DirectorySlash Off
+
+
+
+
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+
+# Pas de WWW
+RewriteCond %{HTTP_HOST} ^www.omnilogie.fr$
+RewriteRule ^(.*) http://omnilogie.fr/$1 [QSA,L,R=301]
+
+# Pas depuis bêta
+RewriteCond %{HTTP_HOST} beta.omnilogie.fr$
+RewriteRule ^(.*) http://omnilogie.fr/$1 [L,R=301]
+
+
+#Pas d'accès depuis /o/
+RewriteRule ^o/(.*)$ /O/$1 [L,R=permanent]
+
+#Ajouter le trailing slash à la fin des URLs type "dossier" :
+RewriteRule ^(Liste|Omnilogistes|membres)$ /$1/ [L,R=permanent]
+RewriteRule ^(Liste|Omnilogistes)/([^/]+)$ /$1/$2/ [L,R=permanent]
+
+#Flux RSS
+#"temp" pour conserver le PR et ne pas le reporter sur le site externe.
+RewriteRule ^flux\.rss$ http://feeds.feedburner.com/Omnilogie [L,R=temp]
+RewriteRule ^fluxburner\.php$ /index.php?P=flux&Page=$1 [L]
+
+#Page 1 = accueil du répertoire
+RewriteRule ^(.+)/Page-1$ /$1/ [L,R=permanent]
+
+
+#--------------------------------------------------
+# Redirections pour assurer la compatibilité avec l'ancienne version
+#--------------------------------------------------
+RewriteRule ^membres/redactionArticle.php$ /membres/Redaction [L,R=permanent]
+
+#--------------------------------------------------
+#Récupération du Header authenticate pour les pages d'administration
+#--------------------------------------------------
+RewriteRule ^admin/(.*) - [E=LOGIN:%{HTTP:Authorization}]
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+RewriteRule ^O/$ /index.php?P=articles [L]
+RewriteRule ^O/Page-([0-9]+)$ /index.php?P=articles&Page=$1 [L]
+RewriteRule ^O/(.+) /index.php?P=showArticle&Titre=$1 [L]
+
+#Redirection ancienne URL en /Liste/Page-2
+RewriteRule ^Liste/Page-([0-9]+)/?$ /O/Page-$1 [L,R=permanent]
+
+RewriteRule ^Liste/$ /index.php?P=categories [L]
+RewriteRule ^Liste/(.+)/$ /index.php?P=showCategory&Categorie=$1 [L]
+RewriteRule ^Liste/(.+)/Page-([0-9]+)$ /index.php?P=showCategory&Categorie=$1&Page=$2 [L]
+
+RewriteRule ^Omnilogistes/$ /index.php?P=authors [L]
+RewriteRule ^Omnilogistes/(.+)/$ /index.php?P=showAuthor&Auteur=$1 [L]
+RewriteRule ^Omnilogistes/(.+)/Page-([0-9]+)$ /index.php?P=showAuthor&Auteur=$1&Page=$2 [L]
+
+
+#Règles pour les admins
+RewriteRule ^admin/Edit/$ /index.php?P=admin/correction [L]
+RewriteRule ^admin/Edit/(.+) /index.php?P=admin/showCorrection&Titre=$1 [L]
+RewriteRule ^admin/Ref/(.+) /index.php?P=admin/showRef&Titre=$1 [L]
+RewriteRule ^admin/RefSearch/(.+) /index.php?P=admin/showRef&Titre=$1&Search [L]
+RewriteRule ^admin/Tag/(.*) /index.php?P=admin/showTag&Titre=$1 [L]
+RewriteRule ^admin/Diff/([0-9]+) /index.php?P=admin/showDiff&Diff=$1 [L]
+RewriteRule ^admin/Propositions$ /index.php?P=admin/propositions [L]
+RewriteRule ^admin/Omnilogistes$ /index.php?P=admin/authors [L]
+RewriteRule ^admin/Arbre$ /index.php?P=admin/arbre [L]
+RewriteRule ^admin/flux\.(php|rss)$ /index.php?P=admin/flux [L]
+RewriteRule ^admin/passerPour-(.+)$ /index.php?P=admin/passerPour&Auteur=$1 [L]
+RewriteRule ^admin/Logs$ /index.php?P=admin/logs [L]
+RewriteRule ^admin/(.+) /index.php?P=admin/showArticle&Titre=$1 [L]
+RewriteRule ^admin/$ /index.php?P=admin/index [L]
+
+
+#Règles pour les membres
+RewriteRule ^membres/Inscription$ /index.php?P=membres/inscription [L]
+RewriteRule ^membres/Connexion$ /index.php?P=membres/connexion [L]
+RewriteRule ^membres/Stats$ /index.php?P=membres/stats [L]
+RewriteRule ^membres/Oubli /index.php?P=membres/oubli [L]
+RewriteRule ^membres/Redaction$ /index.php?P=membres/redaction [L]
+RewriteRule ^membres/Propositions(-([0-9]+))?$ /index.php?P=membres/propositions&Reserve=$2 [L]
+RewriteRule ^membres/Apercu$ /index.php?P=membres/apercu [L]
+RewriteRule ^membres/Edit/(.+) /index.php?P=membres/correction&Titre=$1 [L]
+RewriteRule ^membres/Lock/(.+) /index.php?P=membres/lock&Titre=$1 [L]
+RewriteRule ^membres/StopMail$ /index.php?P=membres/stopmail [L]
+RewriteRule ^membres/$ /index.php?P=membres/index [L]
+
+
+#Règles pour l'accès "automated" (via application)
+RewriteRule ^raw/articles\.json /index.php?P=raw/articles [QSA,L]
+RewriteRule ^raw/top\.json /index.php?P=raw/articles&top [QSA,L]
+RewriteRule ^raw/auteurs\.json /index.php?P=raw/auteurs [QSA,L]
+RewriteRule ^raw/auteurs/([0-9]+)\.json /index.php?P=raw/articles&author_id=$1 [QSA,L]
+RewriteRule ^raw/articles/([0-9]+)\.json /index.php?P=raw/showArticle&id=$1 [QSA,L]
+#Règle "spéciale" pour les accès directs via titre, "last" ou "random".
+RewriteRule ^raw/articles/(.+)\.json /index.php?P=raw/showArticle&titre=$1 [QSA,L]
+
+
+#Simplification des URLs
+RewriteRule ^Doc$ /index.php?P=doc [L]
+RewriteRule ^Ligne$ /index.php?P=ligne [L]
+RewriteRule ^TOC$ /index.php?P=toc [L]
+RewriteRule ^Contact$ /index.php?P=contact [L]
+RewriteRule ^Timeline$ /index.php?P=timeline [L]
+RewriteRule ^Random$ /index.php?P=random [L]
+RewriteRule ^Mail$ /index.php?P=mail [L]
+RewriteRule ^Partenaires$ /index.php?P=partenaires [L]
+RewriteRule ^Stats$ /index.php?P=stats [L]
+RewriteRule ^Vote$ /index.php?P=vote [L]
+RewriteRule ^Top$ /index.php?P=top [L]
+RewriteRule ^App$ /index.php?P=app [L]
+
+#Liens courts
+RewriteRule ^([A-Z0-9]{1,3})($|&.+$) /index.php?P=liencourt&Titre=$1 [L]
+
+#Favicon du site
+RewriteRule ^apple-touch-icon\.png /images/apple-touch-icon.png
+RewriteRule ^apple-touch-icon-precomposed\.png /images/apple-touch-icon-precomposed.png
+RewriteRule ^apple-touch-icon-114x114\.png /images/apple-touch-icon-114x114.png
+RewriteRule ^apple-touch-icon-114x114-precomposed\.png /images/apple-touch-icon-114x114-precomposed.png
+
+#--------------------------------------------------
+# Sauvegarde des anciennes URLs vers la nouvelle version
+#--------------------------------------------------
+RewriteRule ^Timeline\.php$ /Timeline [L,R=permanent]
+
+RewriteRule ^random\.php$ /Random [L,R=permanent]
+RewriteRule ^Arbre\.php$ /Liste/ [L,R=permanent]
+RewriteRule ^TOC.php$ /TOC [L,R=permanent]
+RewriteRule ^Ligne\.php$ /Ligne [L,R=permanent]
+RewriteRule ^membres/nouveauMembre\.php$ /membres/Inscription [L,R=permanent]
+RewriteRule ^membres/redactionArticle\.php$ /membres/Redaction [L,R=permanent]
+RewriteRule ^membres/propositionsArticles.php$ /membres/Propositions [L,R=permanent]
+RewriteRule ^Mail\.php$ /Mail [L,R=permanent]
+RewriteRule ^Partenaires\.php$ /Partenaires [L,R=permanent]
+RewriteRule ^Last\.png$ /index.php?P=images [L]
+RewriteRule ^Stats\.php$ /Stats [L,R=permanent]
+RewriteRule ^Log/(.+)$ /admin/$1 [L,R=permanent]
+RewriteRule ^/+flux\.rss$ /flux.rss [L,R=permanent]
+#RewriteRule ^images/O/(.+)$ http://omnilogie.fr/images/O/$1 [L,R=permanent]
+RewriteRule ^Img/(.+) /index.php?P=images&Titre=$1 [L]
+
+
+#--------------------------------------------------
+# Protection des données privées
+#--------------------------------------------------
+RewriteRule ^(M|V|C|E|L|Cache)/.* - [L,F]
+
+ErrorDocument 403 /index.php?P=erreur&Erreur=403
+ErrorDocument 404 /index.php?P=erreur&Erreur=404
+ErrorDocument 500 /index.php?P=erreur&Erreur=500
