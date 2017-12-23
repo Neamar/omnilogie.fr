@@ -14,7 +14,7 @@ class Sql
 	*/
 	public static function connect()
 	{
-		include(PATH . '/../../ConnectBDD.php');
+		include(PATH . '/../ConnectBDD.php');
 	}
 
 	/**
