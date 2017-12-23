@@ -87,9 +87,7 @@ class Event
 
 		$Ligne = date('H\hi\ms') . '	' . str_pad($_SERVER['REMOTE_ADDR'],15) . '	' . str_pad($Auteur,12) . '	' . $Event . "\n";
 
-		$f = fopen(PATH . '/L/' . date('Y-m-d') . '.log','a');
-		fputs($f,$Ligne);
-		fclose($f);
+		error_log($Ligne);
 	}
 
 	/**
