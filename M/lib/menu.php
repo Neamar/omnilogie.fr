@@ -29,33 +29,36 @@ function prependPod($ID,$Title,$Content)
 
 
 //Premier menu : les cinq derniers articles parus.
-$C['Pods']['lastArticles']['Title'] = 'Derniers articles parus';
-$C['Pods']['lastArticles']['Content'] = Cache::exists('Pods', 'lastArticles') ? Cache::get('Pods','lastArticles') : '';
-
+if(Cache::exists('Pods', 'lastArticles')) {
+	$C['Pods']['lastArticles']['Title'] = 'Derniers articles parus';
+	$C['Pods']['lastArticles']['Content'] = Cache::get('Pods','lastArticles');
+}
 
 
 //Second menu : nuage de catégories
+if(Cache::exists('Datas', 'catCloud')) {
+	$Datas = unserialize(Cache::get('Datas','catCloud'));
 
-$Datas = unserialize(Cache::get('Datas','catCloud'));
+	//Mélanger
+	shuffle($Datas);
 
-//Mélanger
-shuffle($Datas);
+	$Contenu='';
+	for($i=0;$i<CAT_CLOUD;$i++)
+		$Contenu .= $Datas[$i];
 
-$Contenu='';
-for($i=0;$i<CAT_CLOUD;$i++)
-	$Contenu .= $Datas[$i];
-
-$C['Pods']['catCloud']['Title'] = 'Nuage de catégories';
-$C['Pods']['catCloud']['Content'] = $Contenu;
+	$C['Pods']['catCloud']['Title'] = 'Nuage de catégories';
+	$C['Pods']['catCloud']['Content'] = $Contenu;
+}
 
 
 
 
 
 //Troisième menu : auteurs actifs récemment
-$C['Pods']['activeAuthor']['Title'] = 'Auteurs actifs récemment';
-$C['Pods']['activeAuthor']['Content'] = Cache::get('Pods','activeAuthor');
-
+if(Cache::exists('Pods', 'activeAuthor'))
+	$C['Pods']['activeAuthor']['Title'] = 'Auteurs actifs récemment';
+	$C['Pods']['activeAuthor']['Content'] = Cache::get('Pods','activeAuthor');
+}
 
 
 //Menu : un article au hasard
@@ -85,7 +88,7 @@ $C['Pods']['twitter']['Content'] = Cache::get('Pods','twitter');
 */
 
 $C['Footers']['about']['Title'] = 'À propos';
-$C['Footers']['about']['Content'] = Cache::get('Footers','about');
+$C['Footers']['about']['Content'] = file_get_contents(DATA_PATH . '/about');
 
 
 $ALire = array(
