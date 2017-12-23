@@ -30,7 +30,7 @@ function prependPod($ID,$Title,$Content)
 
 //Premier menu : les cinq derniers articles parus.
 $C['Pods']['lastArticles']['Title'] = 'Derniers articles parus';
-$C['Pods']['lastArticles']['Content'] = Cache::get('Pods','lastArticles');
+$C['Pods']['lastArticles']['Content'] = Cache::exists('Pods', 'lastArticles') ? Cache::get('Pods','lastArticles') : '';
 
 
 
