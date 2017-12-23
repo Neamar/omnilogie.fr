@@ -19,9 +19,8 @@ class Cache
 	*/
 	public static function set($namespace,$name,$content)
 	{
-		return;
-		if(!is_dir(PATH . '/Cache/' . $namespace))
-			mkdir(PATH . '/Cache/' . $namespace);
+		if(!is_dir('/tmp/' . $namespace))
+			mkdir('/tmp/' . $namespace);
 
 		file_put_contents(self::getPath($namespace,$name),$content);
 	}
@@ -71,8 +70,7 @@ class Cache
 	*/
 	public static function exists($namespace,$name)
 	{
-		return false;
-		// return is_file(self::getPath($namespace,$name));
+		return is_file(self::getPath($namespace,$name));
 	}
 
 	/**
@@ -117,6 +115,6 @@ class Cache
 
 	private static function getPath($namespace,$name)
 	{
-		return PATH . '/Cache/' . $namespace . '/' . preg_replace('`[^a-z0-9_.()=-]`i','',$name);
+		return '/tmp/' . $namespace . '/' . preg_replace('`[^a-z0-9_.()=-]`i','',$name);
 	}
 }
