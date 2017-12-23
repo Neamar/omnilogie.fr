@@ -30,4 +30,6 @@ Formatting::makePage($Param,'/O/');
 
 
 //Special pods : liste des statuts
-prependPod('status-nb','Statuts',Cache::get('Pods','status-nb'));
+if(Cache::exists('Pods', 'status-nb')) {
+  prependPod('status-nb','Statuts',Cache::get('Pods','status-nb'));
+}
