@@ -19,6 +19,7 @@ class Cache
 	*/
 	public static function set($namespace,$name,$content)
 	{
+		return;
 		if(!is_dir(PATH . '/Cache/' . $namespace))
 			mkdir(PATH . '/Cache/' . $namespace);
 
@@ -70,7 +71,8 @@ class Cache
 	*/
 	public static function exists($namespace,$name)
 	{
-		return is_file(self::getPath($namespace,$name));
+		return false;
+		// return is_file(self::getPath($namespace,$name));
 	}
 
 	/**
