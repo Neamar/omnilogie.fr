@@ -32,7 +32,7 @@ class Debug
 
 		$trace = self::getDebugLog();
 
-		if(isset($_SESSION['Membre']['Pseudo']) && $_SESSION['Membre']['Pseudo']=='Neamar')
+		if(getenv("DEBUG") == 1)
 		{
 			exit('<pre>' . $trace . '</pre>');
 		}
