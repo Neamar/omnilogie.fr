@@ -26,10 +26,10 @@ $C['PageTitle'] = 'Erreur ' . $C['CodeErreur'] . ' : ' . preg_replace('`\<.+>`U'
 $C['CanonicalURL'] = '';
 
 $Liens = array(
-'<a href="http://omnilogie.fr">Article du jour</a>',
-'<a href="http://omnilogie.fr/O/">Liste des articles</a>',
-'<a href="http://omnilogie.fr/Liste/">Catégories</a>',
-'<a href="http://omnilogie.fr/Omnilogistes/">Auteurs</a>',
+'<a href="/">Article du jour</a>',
+'<a href="/O/">Liste des articles</a>',
+'<a href="/Liste/">Catégories</a>',
+'<a href="/Omnilogistes/">Auteurs</a>',
 );
 
 if(isset($C['Liens']))

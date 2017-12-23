@@ -46,8 +46,8 @@ if(isset($_POST['mail']) && AUTHOR_ID==1)
 	Typo::setTexte(stripslashes($_POST['mail']));
 	$Patron = Typo::Parse() . '<hr />
 	<ul>
-		<li><a href="http://omnilogie.fr/membres/Redaction?membre=%Hash%">Rédiger un article</a></li>
-		<li><a href="http://omnilogie.fr/membres/Propositions?membre=%Hash%">Propositions d\'article</a></li>
+		<li><a href="/membres/Redaction?membre=%Hash%">Rédiger un article</a></li>
+		<li><a href="/membres/Propositions?membre=%Hash%">Propositions d\'article</a></li>
 	</ul>';
 
 	$NbMailsEnvoyes = 0;
