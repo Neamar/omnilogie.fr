@@ -11,7 +11,7 @@
 define('MODE_DEBUG',true);
 
 //Chemin vers les librairies
-define('LIB_PATH',PATH . '/../../lib');
+define('LIB_PATH','/app/lib/');
 
 //Chemin vers les données
 define('DATA_PATH','/app/raw/');
