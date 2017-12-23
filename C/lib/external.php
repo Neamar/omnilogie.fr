@@ -64,7 +64,7 @@ class External
 		$accessToken = "111340166-RgRkRq35zwpKeNgPps6O7OPQIqT0rAghB0q9bzT1";
 		$accessTokenSecret = "geGLiAcXuVxXYrPDmGiop5FXwtwbqzKJFU4OSQ6oTUg";
 		$twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
-		
+
 		$Message = utf8_encode($Message);
 		$Message = mb_substr($Message, 0, 135, 'utf-8');
 		$twitter->send($Message);
@@ -79,6 +79,8 @@ class External
 	*/
 	public static function mail($to,$subject,$message,$from='admin@omnilogie.fr')
 	{
+		// Disabled
+		return;
 		// Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
