@@ -19,4 +19,6 @@ while($Category = mysql_fetch_assoc($ListeCategorieSQL))
 $C['Categories']=Category::outputTree(Category::getTree($List));
 
 
-prependPod('last-added','Derniers ajouts sur l\'arbre',Cache::get('Pods','last-added'));
+if(Cache::exists('Pods', 'last-added')) {
+  prependPod('last-added','Derniers ajouts sur l\'arbre',Cache::get('Pods','last-added'));
+}
