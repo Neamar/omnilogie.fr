@@ -7,4 +7,5 @@
   mysql_connect($url["host"] . ":" . $url["port"], $url["user"], $url["pass"]); // Connexion à MySQL légèrement sécurisée.
   mysql_select_db("omnilogie"); // Sélection de la base de données
   mysql_set_charset('latin1');
+  mysql_query("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))")
 ?>
