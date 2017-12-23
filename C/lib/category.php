@@ -1,4 +1,4 @@
-&<?php
+<?php
 /**
 * But : offrir des primitives pour la manipulation des différents catégories et des arbres associés.
 *
