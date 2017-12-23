@@ -72,7 +72,8 @@ class Category
 	*/
 	public static function outputTree(array $Table)
 	{
-		$Lignes=self::linear(array(),$Table,0,0);
+		$Src=0;
+		$Lignes=self::linear(array(),$Table,0,$Src);
 		if(count($Lignes)==0)
 			return;
 
@@ -219,7 +220,7 @@ class Category
 	* @param Parent:int L'identifiant du parent.
 	* @return :Array Un tableau trié par profondeur.
 	*/
-	private static function linear(array $Tab,array &$Origine,&$Profondeur,&$Parent)
+	private static function linear(array $Tab,array &$Origine,$Profondeur,&$Parent)
 	{
 		$NewParent=$Parent;
 		foreach($Origine as $Item=>$CurLigne)
