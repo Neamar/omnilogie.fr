@@ -1,0 +1,7 @@
+# Wait 1s before starting
+WAIT=1
+# Timeout after 1s
+TIMEOUT=1
+ATTEMPTS=10
+
+/favicon.ico
