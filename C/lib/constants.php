@@ -14,7 +14,7 @@ define('MODE_DEBUG',true);
 define('LIB_PATH',PATH . '/../../lib');
 
 //Chemin vers les données
-define('DATA_PATH','/homepages/38/d222425658/htdocs/Omnilogie/admin/raw/');
+define('DATA_PATH','/app/raw/');
 
 //L'adresse sur laquelle le site est hébergé. Utile pour les redirections ou les liens qu'on doit placer en absolu.
 define('URL','http://omnilogie.fr');
