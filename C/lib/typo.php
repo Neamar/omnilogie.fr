@@ -8,7 +8,7 @@
 
 //Chargement des dépendances :
 include(LIB_PATH . '/Typo.php');
-include(PATH . '/../../Latex/regexp_callback.php');
+include(LIB_PATH . '/regexp_callback.php');
 
 //Personalisation de Typo selon nos besoins :
 Typo::addOption(PARSE_MATH);
