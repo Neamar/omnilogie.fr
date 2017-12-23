@@ -55,7 +55,7 @@ if(Cache::exists('Datas', 'catCloud')) {
 
 
 //Troisième menu : auteurs actifs récemment
-if(Cache::exists('Pods', 'activeAuthor'))
+if(Cache::exists('Pods', 'activeAuthor')) {
 	$C['Pods']['activeAuthor']['Title'] = 'Auteurs actifs récemment';
 	$C['Pods']['activeAuthor']['Content'] = Cache::get('Pods','activeAuthor');
 }
