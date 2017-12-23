@@ -85,7 +85,7 @@ class Event
 		else
 			$Auteur = '-----';
 
-		$Ligne = date('H\hi\ms') . '	' . str_pad($_SERVER['REMOTE_ADDR'],15) . '	' . str_pad($Auteur,12) . '	' . $Event . "\n";
+		$Ligne = "APPLOG" . '	' . str_pad($_SERVER['REMOTE_ADDR'],15) . '	' . str_pad($Auteur,12) . '	' . $Event . "\n";
 
 		error_log($Ligne);
 	}
