@@ -219,7 +219,7 @@ class Category
 	* @param Parent:int L'identifiant du parent.
 	* @return :Array Un tableau trié par profondeur.
 	*/
-	private static function linear(array $Tab,array &$Origine,$Profondeur,&$Parent)
+	private static function linear(array $Tab,array &$Origine,$Profondeur,$Parent)
 	{
 		$NewParent=$Parent;
 		foreach($Origine as $Item=>$CurLigne)
