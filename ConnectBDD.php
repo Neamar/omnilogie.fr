@@ -6,5 +6,5 @@
   //Fichier assez utile :-)
   mysql_connect($url["host"] . ":" . $url["port"], $url["user"], $url["pass"]); // Connexion à MySQL légèrement sécurisée.
   mysql_select_db("omnilogie"); // Sélection de la base de données
-  mysql_set_charset('latin1',$link);
+  mysql_set_charset('latin1');
 ?>
