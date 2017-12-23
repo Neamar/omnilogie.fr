@@ -1,6 +1,4 @@
 <?php
-phpinfo();
-die();
 /**
 * Fichier principal d'Omnilogie, appelé à chaque page.
 * Gère les pages selon une architecture type "MVC-customisée" :
