@@ -1,4 +1,4 @@
-<?php
+&<?php
 /**
 * But : offrir des primitives pour la manipulation des différents catégories et des arbres associés.
 *
@@ -60,7 +60,7 @@ class Category
 
 		$KeyWords=array();
 		foreach($Categories as $Category)
-			self::getTreeR($Category,&$KeyWords);
+			self::getTreeR($Category,$KeyWords);
 		return $KeyWords;
 	}
 
