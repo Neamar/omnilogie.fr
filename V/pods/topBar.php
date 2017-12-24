@@ -17,14 +17,14 @@ Bienvenue sur Omnilogie.fr ! <a href="/membres/Inscription">Devenez rédacteur !<
 else
 {
 ?>
-<a href="/membres/Connexion"><img src="/CSS/img/deco.PNG" alt="Déconnexion" />	</a> <a href="/membres/"><?php echo $_SESSION['Membre']['Pseudo']; ?></a> <a href="/membres/Redaction">Écrire un nouvel article</a>
+<a href="/membres/Connexion"><img src="/CSS/img/deco.png" alt="Déconnexion" />	</a> <a href="/membres/"><?php echo $_SESSION['Membre']['Pseudo']; ?></a> <a href="/membres/Redaction">Écrire un nouvel article</a>
 <?php
 if(Member::is($_SESSION['Membre']['Pseudo'],'any')){ ?><a href="/admin/" class="admin">Admin</a><?php }
 }
 ?>
 </p>
 
-<p id="social"><a href="http://twitter.com/Omnilogie"><img class="Top_l" alt="Twitter" title="Suivez @Omnilogie sur Twitter !" src="/CSS/img/twitter.PNG" width="32" height="31" /></a><a href="http://feeds.feedburner.com/Omnilogie"><img class="Top_l" alt="RSS" title="Restez informés des derniers articles avec le flux RSS !" src="/CSS/img/rss.PNG" width="32" height="31" /></a></p>
+<p id="social"><a href="http://twitter.com/Omnilogie"><img class="Top_l" alt="Twitter" title="Suivez @Omnilogie sur Twitter !" src="/CSS/img/twitter.png" width="32" height="31" /></a><a href="http://feeds.feedburner.com/Omnilogie"><img class="Top_l" alt="RSS" title="Restez informés des derniers articles avec le flux RSS !" src="/CSS/img/rss.png" width="32" height="31" /></a></p>
 
 <?php if(!isset($_SESSION['Membre']['ID']))
 { ?>
