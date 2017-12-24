@@ -85,7 +85,7 @@ class Sql
 			else
 			{
 				$Keys[] = $K;
-				$V = '"' . $V . '"';
+				$V = '"' . mysql_real_escape_string($V) . '"';
 			}
 		}
 
@@ -128,7 +128,7 @@ class Sql
 			if($K[0]=='_')
 				$Set[] = substr($K,1) . '=' . $V . '';
 			else
-				$Set[] = $K . '="' . $V . '"';
+				$Set[] = $K . '="' . mysql_real_escape_string($V) . '"';
 		}
 
 		return self::queryNoFail('UPDATE ' . $Table . ' SET ' . implode(',',$Set) . '
