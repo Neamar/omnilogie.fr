@@ -28,7 +28,7 @@ $C['Pods']['brouillons']['Content']=Formatting::makeList(Omni::getTrailers($Para
 
 
 
-$Standalone = unserialize(Cache::get('Datas','Events'));
+$Standalone = Cache:exists('Datas', 'Events') ? unserialize(Cache::get('Datas','Events')): array();
 
 $HTML = '
 <form method="post" action="">
