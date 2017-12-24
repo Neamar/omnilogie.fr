@@ -43,7 +43,7 @@ class Sql
 	*/
 	public static function queryNoFail($Query)
 	{
-		return mysql_query($Query);
+		return mysql_query($Query) or error_log(mysql_error());
 	}
 
 	/**
