@@ -23,6 +23,7 @@ if(isset($_POST['titre']))
 		'Auteur'=>AUTHOR_ID,
 		'Titre'=>$_POST['titre'],
 		'Omnilogisme'=>$_POST['article'],
+		'NbVues'=>0,
 	);
 
 	if(isset($_POST['brouillon']))
