@@ -137,8 +137,8 @@ if($Date<$time) //IL FAUT QU'ELLES S'EXECUTENT D'UN BLOC
 	}
 	else
 		External::mail('omni@neamar.fr','Erreur critique.','Impossible de faire paraître un article, la liste est vide. Réagissez !');
-	}
 }
+
 $DateParutionProchainArticle = $Date;
 $C['Snippet']['nextArticle'] = date('d/m/Y à G:i', $Date);
 $C['Snippet']['nextArticleDateTime'] = date('Y-m-d', $Date);
