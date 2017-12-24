@@ -127,23 +127,16 @@ if($Date<$time) //IL FAUT QU'ELLES S'EXECUTENT D'UN BLOC
 {
 	file_put_contents(DATA_PATH . '/prochain',$Date + 86400 * 2); //POUR ÉVITER LA PARUTION MULTIPLE
 
-	//Le premier du mois faire paraître le top du mois.
-	if(date("j",$time) == 1)
+	$Params = Admin::getProchains();
+	$AParaitre = Omni::get($Params);
+	$Article = array_shift($AParaitre);
+	if(!is_null($Article))
 	{
-		include(PATH . "/E/special/article_mois.php");
+		SQL::update('OMNI_Omnilogismes', $Article->ID, array('_Sortie'=>'FROM_UNIXTIME(' . $Date . ')'));
+		$Article->registerModif(Event::PARUTION,false,50);
 	}
 	else
-	{
-		$Params = Admin::getProchains();
-		$AParaitre = Omni::get($Params);
-		$Article = array_shift($AParaitre);
-		if(!is_null($Article))
-		{
-			SQL::update('OMNI_Omnilogismes', $Article->ID, array('_Sortie'=>'FROM_UNIXTIME(' . $Date . ')'));
-			$Article->registerModif(Event::PARUTION,false,50);
-		}
-		else
-			External::mail('omni@neamar.fr','Erreur critique.','Impossible de faire paraître un article, la liste est vide. Réagissez !');
+		External::mail('omni@neamar.fr','Erreur critique.','Impossible de faire paraître un article, la liste est vide. Réagissez !');
 	}
 }
 $DateParutionProchainArticle = $Date;

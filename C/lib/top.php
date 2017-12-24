@@ -57,8 +57,6 @@ class Top
 		self::$month = date('Y-m-%', $ts);
 		self::$monthAbridged = date('m/y', $ts);
 		self::$monthReadable = str_replace(array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'), date('M Y', $ts));
-
-		file_put_contents(PATH . '/_D/mois_top', implode("\n", array(self::$month, self::$monthAbridged, self::$monthReadable)));
 	}
 }
 
