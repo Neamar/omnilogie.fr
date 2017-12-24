@@ -26,6 +26,7 @@ if(isset($_POST['titre']))
 		'NbVues'=>0,
 		'NbVotes'=>0,
 		'Anecdote'=>"",
+		'SourceAnecdote'=>"",
 	);
 
 	if(isset($_POST['brouillon']))
