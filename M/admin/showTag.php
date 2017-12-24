@@ -22,7 +22,6 @@ unset(
 	$C['Pods']['activeAuthor'],
 	$C['Pods']['randomArticle'],
 	$C['Pods']['twitter'],
-	$C['Pods']['concours']
 );
 
 
