@@ -24,6 +24,7 @@ if(isset($_POST['titre']))
 		'Titre'=>$_POST['titre'],
 		'Omnilogisme'=>$_POST['article'],
 		'NbVues'=>0,
+		'NbVotes'=>0,
 	);
 
 	if(isset($_POST['brouillon']))
