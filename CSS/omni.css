@@ -849,11 +849,11 @@ z-index:30;
 /*-------------------------------------------------- 11. Les Titres ----------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 .est_corrige {
-background: url('img/corrige.PNG') left no-repeat;
+background: url('img/corrige.png') left no-repeat;
 padding-left:30px!important;
 }
 .indetermine {
-background: url('img/ind.png') left no-repeat;
+background: url('img/ind.PNG') left no-repeat;
 padding-left:30px!important;
 }
 .brouillon {

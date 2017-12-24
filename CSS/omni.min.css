@@ -210,8 +210,8 @@ p.more a {position:relative;top:-5px;left:8px;padding-left:70px;font-weight:bold
 #twitter p{position:relative;top:-10px}
 #content-g2 {position:relative;top:-35px;background:url('img/content-r.png') top repeat-y;float:right;width:710px;z-index:30}
 body section {padding-right:10px;padding-left:10px}
-.est_corrige {background:url('img/corrige.PNG') left no-repeat;padding-left:30px!important}
-.indetermine {background:url('img/ind.png') left no-repeat;padding-left:30px!important}
+.est_corrige {background:url('img/corrige.png') left no-repeat;padding-left:30px!important}
+.indetermine {background:url('img/ind.PNG') left no-repeat;padding-left:30px!important}
 .brouillon {background:url('img/brou.png') left no-repeat;padding-left:30px!important}
 @font-face {font-family:'AyitaPro-SemiBold';src:url('AyitaPro-SemiBold.ttf')}
 #content-g2 h1 {background:url('img/chevron03.jpg') no-repeat;margin:5px 0 0 -10px;padding:0 0 0 10px}
