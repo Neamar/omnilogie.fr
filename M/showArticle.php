@@ -6,17 +6,6 @@
 * Modèles particulièrement court, les données étant récupérées directement dans le contrôleur pour valider l'article.
 */
 
-Top::init();
-$monthData = explode('-', Top::$month);
-$StartTimestamp = mktime(0, 0, 0, $monthData[1], 1, $monthData[0]);
-$EndTimestamp = mktime(0, 0, 0, $monthData[1], date("t", $StartTimestamp), $monthData[0]);
-
-
-if(empty($Article->Message) && $Article->Timestamp >= $StartTimestamp && $Article->Timestamp <= $EndTimestamp)
-{
-	$Article->Message = 'Cet article est sélectionné pour les tops du mois de ' . Top::$monthReadable . ', \l[/Vote]{allez voter pour lui} !';
-}
-
 //Article
 Typo::setTexte($Article->Titre);
 $C['PageTitle'] = Typo::parseLinear() . " | Un article d'Omnilogie.fr";
