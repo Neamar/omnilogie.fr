@@ -1,0 +1,8 @@
+test:
+  override:
+    - echo "NO TESTS"
+deployment:
+  staging:
+    branch: master
+    commands:
+      - git push dokku@teamward.xyz:omnilogie master -f
