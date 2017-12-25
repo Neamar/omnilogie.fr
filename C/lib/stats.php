@@ -128,7 +128,7 @@ class Stats
 			$Settings['chd'] .=$Encodage[$Cell];
 
 		//Générer l'URL à partir des Settings
-		$URL='http://chart.apis.google.com/chart?1';
+		$URL='//chart.apis.google.com/chart?1';
 		foreach($Settings as $K=>$V)
 		{
 			if($V!='')

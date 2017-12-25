@@ -39,7 +39,7 @@ if(!isset($Param['chd']))
 
 $Param['chd'] = 't:' . $Param['chd'];
 
-$URL='http://chart.apis.google.com/chart?1';
+$URL='//chart.apis.google.com/chart?1';
 foreach($Param as $Opt=>$Val)
 	$URL .= '&amp;' . $Opt . '=' . str_replace('_','+',$Val);
 
