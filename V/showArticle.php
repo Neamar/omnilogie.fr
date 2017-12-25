@@ -36,7 +36,7 @@ if(isset($C['Adsense']))
 	google_color_url = "003366";
 	//--></script>
 
-	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 </div>
 <?php
 }
