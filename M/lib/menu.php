@@ -68,7 +68,6 @@ $RandomParams->Where = '!ISNULL(Sortie)';
 $RandomParams->Order = 'RAND()';
 $RandomParams->Limit = '1';
 $RandomArticle=Omni::getSingle($RandomParams);
-error_log("BANNER: " . PATH . '/images/Banner/Thumbs/' . $RandomArticle->ID . '.png');
 
 if(is_file(PATH . '/images/Banner/Thumbs/' . $RandomArticle->ID . '.png'))
 	$RandomImage = '<img src="/images/Banner/Thumbs/' . $RandomArticle->ID . '.png" alt="' . $RandomArticle->Titre . '" class="randomImage"/>';
