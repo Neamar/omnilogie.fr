@@ -9,7 +9,7 @@
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<link rel="canonical" href="http://omnilogie.fr<?php Template::put('CanonicalURL') ?>" />
+	<link rel="canonical" href="https://omnilogie.fr<?php Template::put('CanonicalURL') ?>" />
 	<script type="text/javascript">
 	var inits=[];
 	var _gaq = _gaq || [];

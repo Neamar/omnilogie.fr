@@ -51,7 +51,7 @@ while($article = mysql_fetch_assoc($articles))
 	// Ajouter la bannière si nécessaire
 	$bannerPath = '/images/Banner/Thumbs/' . $article['ID'] . '.png';
 	if(is_file(PATH . $bannerPath))
-		$article['B'] = 'http://omnilogie.fr' . $bannerPath;
+		$article['B'] = 'https://omnilogie.fr' . $bannerPath;
 	else
 		$article['B'] = null;
 

@@ -113,8 +113,4 @@ if(isset($_SESSION['Membre']['ID']))
 }
 
 
-$C['Pods']['concours']['Title'] = "Concours de la semaine";
-$C['Pods']['concours']['Content'] = '<p><a href="/Vote">Votez pour choisir le meilleur article de notre sélection</a> !</p>';
-
-
 unset($DerniersParams, $Datas, $Data, $Contenu, $RandomParams, $RandomArticle, $RandomImage, $Chemin, $Twitter, $XML, $XMLTwitter, $Entry, $Partners,$P,$Nb);

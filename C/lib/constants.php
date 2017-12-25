@@ -17,7 +17,7 @@ define('LIB_PATH','/app/lib/');
 define('DATA_PATH','/app/raw/');
 
 //L'adresse sur laquelle le site est hébergé. Utile pour les redirections ou les liens qu'on doit placer en absolu.
-define('URL','http://omnilogie.fr');
+define('URL','https://omnilogie.fr');
 
 //Le sel utilisé sur le site pour tous les hashages
 define('SALT','Omnilogie_bf9edb51f88dc31e');

@@ -11,7 +11,7 @@ Typo::setTexte($Article->Titre);
 $C['PageTitle'] = Typo::parseLinear() . " | Un article d'Omnilogie.fr";
 $C['CanonicalURL'] = Link::omni($Article->Titre);
 $C['Title'] = $Article->Titre;
-$C['ShortURL'] = 'http://omnilogie.fr' . Link::omniShort($Article->ID);
+$C['ShortURL'] = 'https://omnilogie.fr' . Link::omniShort($Article->ID);
 
 $C['Header'] = $Article->outputHeader();
 /*

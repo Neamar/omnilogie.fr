@@ -1,11 +1,11 @@
 <!-- jQuery -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <!-- markItUp! -->
-<script type="text/javascript" src="http://neamar.fr/lib/markitup/jquery.markitup.pack.typo.js" defer></script>
+<script type="text/javascript" src="//neamar.fr/lib/markitup/jquery.markitup.pack.typo.js" defer></script>
 <!-- markItUp! skin -->
-<link rel="stylesheet" type="text/css" href="http://neamar.fr/lib/markitup/style.typo.css" />
+<link rel="stylesheet" type="text/css" href="//neamar.fr/lib/markitup/style.typo.css" />
 <!--  markItUp! toolbar skin -->
-<link rel="stylesheet" type="text/css" href="http://neamar.fr/lib/markitup/sets/Typo/style.css" />
+<link rel="stylesheet" type="text/css" href="//neamar.fr/lib/markitup/sets/Typo/style.css" />
 
 
 <script type="text/javascript">

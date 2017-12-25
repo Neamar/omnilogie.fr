@@ -119,7 +119,7 @@ unset($article['Prev'], $article['Next']);
 // Ajouter la bannière si nécessaire
 $bannerPath = '/images/Banner/' . $article['ID'] . '.png';
 if(is_file(PATH . $bannerPath))
-	$article['B'] = 'http://omnilogie.fr' . $bannerPath;
+	$article['B'] = 'https://omnilogie.fr' . $bannerPath;
 else
 	$article['B'] = null;
 

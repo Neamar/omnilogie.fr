@@ -248,7 +248,7 @@ if(isset($_SERVER['HTTP_USER_AGENT']) && stripos($_SERVER['HTTP_USER_AGENT'], 'a
 {
 	if(!isset($_SESSION['Membre']['Pseudo']))
 	{
-		$C['SpecialPod'] = '<p>Omnilogie est un site collaboratif ouvert à tous&nbsp;: chaque jour, nous faisons paraître un court article de culture générale. Pour cela, nous avons besoin de rédacteurs : <a href="http://omnilogie.fr/membres/Inscription">n\'hésitez pas à participer</a>. Tous, nous avons quelque chose à partager&nbsp;!</p>
+		$C['SpecialPod'] = '<p>Omnilogie est un site collaboratif ouvert à tous&nbsp;: chaque jour, nous faisons paraître un court article de culture générale. Pour cela, nous avons besoin de rédacteurs : <a href="https://omnilogie.fr/membres/Inscription">n\'hésitez pas à participer</a>. Tous, nous avons quelque chose à partager&nbsp;!</p>
 		<p>&rarr; <a href="/membres/Inscription">Je m\'inscris !</a></p>';
 		prependPod('special-pod','Engagez-vous !','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
 	}

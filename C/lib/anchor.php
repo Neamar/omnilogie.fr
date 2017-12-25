@@ -37,7 +37,7 @@ class Anchor
 	public static function omniShort($ID)
 	{
 		$Encoding = Link::omniShort($ID);
-		return '<a href="' . $Encoding . '">http://omnilogie.fr' . $Encoding . '</a>';
+		return '<a href="' . $Encoding . '">https://omnilogie.fr' . $Encoding . '</a>';
 	}
 
 	/**
