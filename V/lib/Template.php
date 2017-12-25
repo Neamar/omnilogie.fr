@@ -58,7 +58,7 @@
 <div id="zoom">
 </div>
   <nav id="search">
-<form action="http://www.google.fr/cse" id="cse-search-box" role="search">
+<form action="//www.google.fr/cse" id="cse-search-box" role="search">
 	<input type="hidden" name="cx" value="partner-pub-4506683949348156:5njwqc-hgy2" />
 
 	<input type="hidden" name="ie" value="ISO-8859-1" />
