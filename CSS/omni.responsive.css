@@ -1,6 +1,6 @@
 /*********************************************************************************************
 
-Version : Révision 5.5.0.1
+Version : Révision 5.5.0.2
 Changements récents : responsive
 
 /***********************************************************************************************
@@ -1974,6 +1974,10 @@ margin-left:20px;
 
   #content .omnilogisme {
   	background: white;
+  }
+
+  aside#did-you-know p.source-anecdote {
+  	margin-left: 0;
   }
 }
 
