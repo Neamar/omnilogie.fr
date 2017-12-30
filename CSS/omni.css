@@ -1973,7 +1973,7 @@ margin-left:20px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 769px) {
   #menus, #banner {
     display: none;
   }
@@ -1995,7 +1995,7 @@ margin-left:20px;
   background: white
   }
 
-  hr {
+  hr, section hr {
     width: 100%;
     background: auto;
   }
@@ -2064,6 +2064,10 @@ margin-left:20px;
 
   #bas {
     display: none;
+  }
+
+  .nonflottant, .omnilogisme img {
+  	max-width: 90%
   }
 }
 

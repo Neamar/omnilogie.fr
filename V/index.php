@@ -33,7 +33,7 @@ Rédacteurs, n'hésitez pas à écrire pendant cette trêve hivernale !</p>
 
 <hr />
 
-<section>
+<section class="ad">
 <h3><span>Publicité</span></h3>
 
 <div style="text-align:center;">
