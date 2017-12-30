@@ -1,6 +1,7 @@
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|JPG|JPEG|PNG|GIF)$">
-Header set Expires "Thu, 15 Apr 2020 20:00:00 GMT"
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+  Header set Cache-Control "max-age=604800, public"
 </FilesMatch>
+
 
 DirectorySlash Off
 
