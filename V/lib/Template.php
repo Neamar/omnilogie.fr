@@ -24,7 +24,13 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
 	</script>
-	<script type="text/javascript" src="/images/script.js" defer="defer"></script>
+	<script type="text/javascript" src="/images/script.js" async></script>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['\\(','\\)']]}
+  });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 	<?php echo implode("\n", $C['head']); ?>
 </head>
 <body>
