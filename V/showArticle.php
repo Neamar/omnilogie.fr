@@ -14,33 +14,18 @@
 
 <article>
 <?php Template::put('Header') ?>
-<?php
-if(isset($C['Adsense']))
-{
-?>
-<div style="text-align:center;">
-	<script type="text/javascript"><!--
-	google_ad_client = "<?php echo $C['Adsense']; ?>";
 
-	google_ad_width = 468;
-	google_ad_height = 60;
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4506683949348156"
+     data-ad-slot="2991235901"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
-	google_ad_format = "468x60_as";
-	google_ad_type = "text";
-	google_ad_channel = "";
-	google_alternate_color = "FFFFFF";
-	google_color_border = "FFFFFF";
-	google_color_bg = "FFFFFF";
-	google_color_link = "003366";
-	google_color_text = "000000";
-	google_color_url = "003366";
-	//--></script>
-
-	<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-</div>
-<?php
-}
-?>
 <div role="main" class="omnilogisme">
 	<?php Template::put('Precedent') ?>
 	<?php Template::put('Contenu') ?>
@@ -123,4 +108,4 @@ if(isset($C['Lendemain'])) {?>
 <div class="fb-comments" data-href="omnilogie.fr<?php echo str_replace('?', '%3F', $C['CanonicalURL']) ?>" data-num-posts="50" data-width="690" og:title="<?php echo $C['Title'] ?>"></div>
 </section>
 
-<script src="https://connect.facebook.net/en_US/all.js#xfbml=1" defer></script>
+<script src="https://connect.facebook.net/en_US/all.js#xfbml=1" async></script>
