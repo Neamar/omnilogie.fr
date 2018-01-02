@@ -5,7 +5,7 @@
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
   <link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5503" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#c1ddda" />
+  <meta name="theme-color" content="#b1d5d1" />
 
 	<title><?php Template::put('PageTitle') ?></title>
 	<!--[if IE]>
