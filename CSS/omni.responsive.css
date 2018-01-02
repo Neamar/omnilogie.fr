@@ -1,6 +1,6 @@
 /*********************************************************************************************
 
-Version : Révision 5.5.0.2
+Version : Révision 5.5.0.3
 Changements récents : responsive
 
 /***********************************************************************************************
@@ -1978,6 +1978,10 @@ margin-left:20px;
 
   aside#did-you-know p.source-anecdote {
   	margin-left: 0;
+  }
+
+  .read-next-article:before {
+  	left: 0;
   }
 }
 
