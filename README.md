@@ -1,3 +1,5 @@
+# omnilogie.fr
+
 Hello there, wanderer.
 Before you read or do anything, keep in mind, **this codebase was built in 2007**.
 
