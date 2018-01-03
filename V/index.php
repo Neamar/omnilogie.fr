@@ -36,18 +36,16 @@ Rédacteurs, n'hésitez pas à écrire pendant cette trêve hivernale !</p>
 <section class="ad">
 <h3><span>Publicité</span></h3>
 
-<div style="text-align:center;">
-<script type="text/javascript"><!--
-google_ad_client = "pub-4506683949348156";
-google_ad_slot = "5567196542";
-google_ad_width = 468;
-google_ad_height = 60;
-//-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4506683949348156"
+     data-ad-slot="2991235901"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<script type="text/javascript"
-src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
 
 </section>
 
