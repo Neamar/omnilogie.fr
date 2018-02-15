@@ -7,8 +7,8 @@ if($_GET['code']==getenv("ACCESS_TOKEN_SECRET")) {
   $RandomArticle=Omni::getSingle($RandomParams);
 
   $texte = $RandomArticle->Accroche;
-  $texte .= " https://omnilogie.fr/" . Link::omni($RandomArticle->Titre);
-  // External::tweet("Oh. Bonjour ? Ça faisait longtemps ;)");
+  $texte .= " https://omnilogie.fr" . Link::omni($RandomArticle->Titre);
+  External::tweet($texte);
   echo $texte;
 } else {
   echo "ENOD";
