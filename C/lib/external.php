@@ -51,23 +51,14 @@ class External
 
 	/**
 	* Tweete le message demandé sur le compte défini par TWITTER_PSEUDO et TWITTER_PASSWORD.
-	* Le tweet se fait en fin de page, afin de ne pas ralentir l'affichage.
 	* NOTE: Message sera encodé en UTF-8.
-	* @param Message:String le message à envoyer. La taille sera tronquée si le message dépasse 135 caractères.
+	* @param Message:String le message à envoyer.
 	* @return
 	*/
 	public static function tweet($Message)
 	{
-		include_once(LIB_PATH . '/twitter/twitter.php');
-		$consumerKey = "ucE1c2KU33Tlzsp5CYIQ";
-		$consumerSecret = "04hubUqfRfMwR9VH7nhcUBYpbpEdXQuAPSNVEvpmXY";
-		$accessToken = "111340166-RgRkRq35zwpKeNgPps6O7OPQIqT0rAghB0q9bzT1";
-		$accessTokenSecret = getenv("ACCESS_TOKEN_SECRET");
-		$twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
-
-		$Message = utf8_encode($Message);
-		$Message = mb_substr($Message, 0, 270, 'utf-8');
-		$twitter->send($Message);
+		include_once(LIB_PATH . '/twitter.php');
+		postTweet($Message);
 	}
 
 	/**
