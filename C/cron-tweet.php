@@ -5,3 +5,5 @@ if($_GET['code']==getenv("ACCESS_TOKEN_SECRET")) {
 } else {
   echo "ENOD";
 }
+
+die();
