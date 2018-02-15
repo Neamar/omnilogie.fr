@@ -62,11 +62,11 @@ class External
 		$consumerKey = "ucE1c2KU33Tlzsp5CYIQ";
 		$consumerSecret = "04hubUqfRfMwR9VH7nhcUBYpbpEdXQuAPSNVEvpmXY";
 		$accessToken = "111340166-RgRkRq35zwpKeNgPps6O7OPQIqT0rAghB0q9bzT1";
-		$accessTokenSecret = "geGLiAcXuVxXYrPDmGiop5FXwtwbqzKJFU4OSQ6oTUg";
+		$accessTokenSecret = getenv("ACCESS_TOKEN_SECRET");
 		$twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
 		$Message = utf8_encode($Message);
-		$Message = mb_substr($Message, 0, 135, 'utf-8');
+		$Message = mb_substr($Message, 0, 270, 'utf-8');
 		$twitter->send($Message);
 	}
 
