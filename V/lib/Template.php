@@ -3,8 +3,8 @@
 <head>
 	<meta charset="iso-8859-1" />
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
-  <link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5504" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5504" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title><?php Template::put('PageTitle') ?></title>
 	<!--[if IE]>
@@ -25,20 +25,20 @@
 	</script>
 	<script type="text/javascript" src="/images/script.js" async></script>
 	<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {inlineMath: [['\\(','\\)']]}
-  });
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+	MathJax.Hub.Config({
+		tex2jax: {inlineMath: [['\\(','\\)']]}
+	});
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 	<?php echo implode("\n", $C['head']); ?>
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-   (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-4506683949348156",
-        enable_page_level_ads: true
-   });
-  </script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	 (adsbygoogle = window.adsbygoogle || []).push({
+				google_ad_client: "ca-pub-4506683949348156",
+				enable_page_level_ads: true
+	 });
+	</script>
 </head>
 <body>
 <!--En-tête du site-->
@@ -47,12 +47,12 @@
 	<div id="fond-top-c">
 <div id="top">
 <header role="banner" id="banner">
-    <a href="/">
+		<a href="/">
 	<hgroup id="logo">
-	  <h1>Omnilogie.fr</h1>
-	  <h2>Le manuel des castors seniors</h2>
+		<h1>Omnilogie.fr</h1>
+		<h2>Le manuel des castors seniors</h2>
 	</hgroup>
-    </a>
+		</a>
 </header>
 <?php flush() ?>
 
@@ -72,7 +72,7 @@
 <!--Outil de recherche-->
 <div id="zoom">
 </div>
-  <nav id="search">
+	<nav id="search">
 <form action="//www.google.fr/cse" id="cse-search-box" role="search">
 	<input type="hidden" name="cx" value="partner-pub-4506683949348156:5njwqc-hgy2" />
 
@@ -80,7 +80,7 @@
 	<input type="text" name="q" size="20" placeholder="Rechercher" accesskey="4" />
 	<input type="submit" name="sa" value="Go !" />
 </form>
-  </nav>
+	</nav>
 </div><!--fin du top-->
 	</div>
 </div>
@@ -90,7 +90,7 @@
 <!--Les menus de navigation-->
 <aside id="menus">
 	<?php Template::includeFile('lib/Pods.php'); ?>
-  <hr id="end_content2" />
+	<hr id="end_content2" />
 </aside>
 </div><!-- fin global-f -->
 <?php flush() ?>
@@ -106,16 +106,16 @@
 </div><!-- fin global -->
 
 <footer>
- <div id="footer-f"></div>
-  <div id="footer-g">
-	<aside id="footers">
-		<?php Template::includeFile('lib/Footers.php'); ?>
-	</aside>
-    <div id="bas">
-		<p id="ribbon"><small><a href="/Ligne" accesskey="8">Ligne éditoriale</a> | <a href="/Contact" accesskey="7">Contact</a> | <a href="http://omnilogie.fr/flux.rss">RSS</a> | <a href="/Mail">Recevoir l'article par mail</a> | <a href="/App">Applications smartphone Omnilogie</a></small></p>
-		<p id="html5-valid">HTML5 valid</p>
-    </div>
-  </div>
+ 	<div id="footer-f"></div>
+	<div id="footer-g">
+		<aside id="footers">
+			<?php Template::includeFile('lib/Footers.php'); ?>
+		</aside>
+		<div id="bas">
+			<p id="ribbon"><small><a href="/Ligne" accesskey="8">Ligne éditoriale</a> | <a href="/Contact" accesskey="7">Contact</a> | <a href="http://omnilogie.fr/flux.rss">RSS</a> | <a href="/Mail">Recevoir l'article par mail</a> | <a href="/App">Applications smartphone Omnilogie</a></small></p>
+			<p id="html5-valid">HTML5 valid</p>
+		</div>
+	</div>
 </footer>
 
 </body>
