@@ -31,6 +31,13 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 	<?php echo implode("\n", $C['head']); ?>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+   (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4506683949348156",
+        enable_page_level_ads: true
+   });
+  </script>
 </head>
 <body>
 <!--En-tête du site-->
