@@ -3,7 +3,7 @@
 <head>
 	<meta charset="iso-8859-1" />
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
-  <link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5503" />
+  <link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5504" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title><?php Template::put('PageTitle') ?></title>
