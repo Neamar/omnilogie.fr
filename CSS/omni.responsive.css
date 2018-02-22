@@ -1987,6 +1987,10 @@ margin-left:20px;
   .read-next-article:before {
   	left: 0;
   }
+
+  .desktop-ad {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 550px) {
