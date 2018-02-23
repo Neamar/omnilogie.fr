@@ -1397,8 +1397,11 @@ font: 16px/1.5em 'Georgia', 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Ti
 	font-size: 90%;
 }
 
-.desktop-ap {
+.desktop-ad {
 	display: block;
+	width: 670px;
+	height: 90px;
+	margin: auto;
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
