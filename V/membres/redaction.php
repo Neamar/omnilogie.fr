@@ -36,7 +36,7 @@ Typo::renderIDE(array('Name'=>'article','Rows'=>17,'Preview'=>array('URL'=>'/mem
 
 <p>Aperçu de votre texte :</p>
 <div id="Typo_preview">
-Cliquez sur l'icone <img src="http://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.
+Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.
 </div>
 
 <hr />

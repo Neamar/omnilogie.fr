@@ -23,7 +23,7 @@ Typo::renderIDE(array('Name'=>'mail','Rows'=>10,'Preview'=>array('URL'=>'/membre
 ?>
 
 <div id="Typo_preview">
-<p>Cliquez sur l'icone <img src="http://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br /></p>
+<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br /></p>
 </div>
 
 <input type="checkbox" name="test" id="test" checked="checked" /><label for="test">Envoyer juste pour test (uniquement à neamar@neamar.fr)</label>

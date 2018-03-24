@@ -40,7 +40,7 @@
 #menu ul, aside#menus
 {
 	z-index:5
-}	
+}
 </style>
 
 <h3><span>Modification d'article</span></h3>
@@ -65,9 +65,9 @@ Typo::renderIDE(array('Name'=>'article','Rows'=>17,'Preview'=>array('URL'=>'/mem
 
 <script type="text/javascript">
 $(function(){
-	var fullscreen = $('<li class="markItUpButton typo_fullscreen"><a title="Plein écran" href="#" style="background-image: url(http://neamar.fr/lib/markitup/sets/Typo/images/fullscreen.png)">Plein écran</a>');
+	var fullscreen = $('<li class="markItUpButton typo_fullscreen"><a title="Plein écran" href="#" style="background-image: url(https://neamar.fr/lib/markitup/sets/Typo/images/fullscreen.png)">Plein écran</a>');
 	$('#markItUpArticle ul:first').append(fullscreen);
-	
+
 	var isFullscreen = false;
 	fullscreen.click(function() {
 		$('aside.info').remove();
@@ -78,7 +78,7 @@ $(function(){
 			$('#global-f form:first').removeClass('fullscrenIDE');
 			$('#Typo_preview').removeClass('fullscreenPreview');
 		}
-		
+
 		isFullscreen = !isFullscreen;
 		return false;
 	});
@@ -100,7 +100,7 @@ $(function(){
 
 <p>Aperçu de l'article modifié :</p>
 <div id="Typo_preview">
-<p>Cliquez sur l'icone <img src="http://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au-dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br />
+<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au-dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br />
 Version actuelle :</p>
 <div class="omnilogisme">
 <?php Template::put('Apercu') ?>

@@ -7,7 +7,7 @@
 */
 ?>
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/start/jquery-ui.css" type="text/css" rel="stylesheet" />
-        
+
 
 <h3><span>Référencement d'article</span></h3>
 <p>Lien vers l'article tel qu'il sera affiché : <?php Template::put('LienDirect'); ?><br />
@@ -51,7 +51,7 @@ function insertAtCaret(txtarea,text)
 {
 	var scrollPos = txtarea.scrollTop; var strPos = 0; var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ? "ff" : (document.selection ? "ie" : false ) ); if (br == "ie") { txtarea.focus(); var range = document.selection.createRange(); range.moveStart ('character', -txtarea.value.length); strPos = range.text.length; } else if (br == "ff") strPos = txtarea.selectionStart; var front = (txtarea.value).substring(0,strPos); var back = (txtarea.value).substring(txtarea.selectionEnd,txtarea.value.length); txtarea.value=front+text+back; strPos = strPos + text.length; if (br == "ie") { txtarea.focus(); var range = document.selection.createRange(); range.moveStart ('character', -txtarea.value.length); range.moveStart ('character', strPos); range.moveEnd ('character', 0); range.select(); } else if (br == "ff") { txtarea.selectionStart = strPos; txtarea.selectionEnd = strPos; txtarea.focus(); } txtarea.scrollTop = scrollPos;
 }
-	
+
 $(function()
 {
 	$( "#modal-window" ).dialog({
@@ -70,7 +70,7 @@ $(function()
 				}
 			}
 		});
-		
+
 	var Texte = '';
 	$('textarea#article').select(function(e)
 	{
@@ -108,7 +108,7 @@ $(function()
 
 <p>Aperçu de l'article modifié :</p>
 <div id="Typo_preview">
-<p>Cliquez sur l'icone <img src="http://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br />
+<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br />
 Version actuelle :</p>
 <div class="omnilogisme">
 <?php Template::put('Apercu') ?>
