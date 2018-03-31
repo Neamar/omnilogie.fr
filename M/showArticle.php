@@ -22,8 +22,10 @@ $C['OpenGraph'] = array(
 	'og:description' => $Article->getAccroche(),
 	'og:type' => 'article',
 	'og:site_name' => 'Omnilogie',
-	'og:locale' => 'fr_FR'
+	'og:locale' => 'fr_FR',
+	'twitter:card' => 'summary',
 );
+
 /*
 //Twitter & facebook
 $C['Header'] = str_replace(
