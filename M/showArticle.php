@@ -23,7 +23,6 @@ $C['OpenGraph'] = array(
 	'og:type' => 'article',
 	'og:site_name' => 'Omnilogie',
 	'og:locale' => 'fr_FR',
-	'twitter:card' => 'summary',
 );
 
 /*
@@ -154,3 +153,5 @@ unset($Article);
 
 //Administration des commentaires
 $C['head'][] = '<meta property="fb:app_id" content="194500927293463"/>';
+$C['head'][] = '<meta name="twitter:card" content="summary" />';
+$C['head'][] = '<meta name="twitter:site" content="@Omnilogie" />';
