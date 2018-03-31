@@ -14,6 +14,15 @@ $C['Title'] = $Article->Titre;
 $C['ShortURL'] = 'https://omnilogie.fr' . Link::omniShort($Article->ID);
 
 $C['Header'] = $Article->outputHeader();
+
+$C['OpenGraph'] = array(
+	'og:title' => $C['Title'],
+	'og:url' => $C['CanonicalURL'],
+	'og:image' => $Article->getBannerUrl(),
+	'og:type' => 'article',
+	'og:site_name' => 'Omnilogie',
+	'og:locale' => 'fr_FR'
+);
 /*
 //Twitter & facebook
 $C['Header'] = str_replace(

@@ -39,6 +39,14 @@
       enable_page_level_ads: true
     });
 	</script>
+
+	<?php
+	if(isset($C['OpenGraph'])) {
+		foreach($C['OpenGraph'] as $property => $content) {
+			echo '<meta property="' . $property . '" content="' . $content . '" />';
+		}
+	}
+	?>
 </head>
 <body>
 <!--En-tête du site-->
