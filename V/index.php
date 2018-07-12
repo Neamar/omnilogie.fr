@@ -33,24 +33,6 @@ Rédacteurs, n'hésitez pas à écrire pendant cette trêve hivernale !</p>
 
 <hr />
 
-<section class="ad">
-<h3><span>Publicité</span></h3>
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-4506683949348156"
-     data-ad-slot="2991235901"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</section>
-
-<hr />
-
 <section id="previous-article">
 <h3><span>Les articles précédents</span></h3>
 <?php

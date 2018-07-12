@@ -15,17 +15,6 @@
 <article>
 <?php Template::put('Header') ?>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle desktop-ad"
-     style="text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-4506683949348156"
-     data-ad-slot="2991235901"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <div role="main" class="omnilogisme">
 	<?php Template::put('Precedent') ?>
 	<?php Template::put('Contenu') ?>
