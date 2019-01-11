@@ -19,7 +19,8 @@ $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 
 $Param->Where = '
 !ISNULL(Sortie)
-AND Statut="ACCEPTE"';
+AND Statut="ACCEPTE"
+AND Auteurs.Auteur != "Top"';
 
 $Param->Order = 'Omnilogismes.Sortie DESC';
 
