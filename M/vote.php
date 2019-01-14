@@ -8,7 +8,7 @@
 $C['PageTitle'] = 'Élisez le meilleur article du mois de ' . Top::$monthReadable;
 
 $C['CanonicalURL'] = '/Vote';
-
+/*
 
 //Récupérer tous les articles parus.
 //Utiliser le système de pagination
@@ -43,3 +43,4 @@ LIMIT 5';
 $articlesGraphique = Stats::GraphIt($VotesMois, array('cht'=>'bhs','chs'=>'240x150', 'chtt'=>'Articles les plus votés','chxt'=>'y','chxl'=>'0:|$ABSCISSES','chbh'=>'a'),false);
 
 prependPod("pod-votes", "Meilleurs votes actuels", Formatting::makeList(Omni::getTrailers($Param)) . $articlesGraphique);
+*/
