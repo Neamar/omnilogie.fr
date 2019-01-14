@@ -5,7 +5,7 @@
 * Données à charger : les articles du dernier mois, sous forme de teaser.
 */
 
-$C['PageTitle'] = 'Élisez le meilleur article du mois de ' . Top::$monthReadable;
+$C['PageTitle'] = 'Élisez le meilleur article';
 
 $C['CanonicalURL'] = '/Vote';
 /*
