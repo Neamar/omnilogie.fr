@@ -30,10 +30,7 @@ class Link
 		*/
 	public static function omniShort($ID)
 	{
-		if($ID > 35)
-			return '/' . strtoupper(base_convert($ID,10,35));
-		else
-			return '/:' . strtoupper(base_convert($ID,10,35));
+		return '/' . strtoupper(base_convert($ID,10,35));
 	}
 
 	/**
