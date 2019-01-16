@@ -1395,6 +1395,7 @@ font: 16px/1.5em 'Georgia', 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Ti
 .omnilogisme .footnote + ol li {
 	list-style-type: none;
 	font-size: 90%;
+	line-height: 1em;
 }
 
 .desktop-ad {
