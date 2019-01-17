@@ -33,7 +33,7 @@ if($C['Categories']!='')
 if(count($C['URLs'])!=0)
 {?>
 <aside role="note" class="more-links">
-<p>Sources, références et liens pour en savoir plus :</p>
+<p>Sources, références et liens pour en savoir plus&nbsp;:</p>
 <ul>
 <?php
 foreach($C['URLs'] as $URL=>$Title)
