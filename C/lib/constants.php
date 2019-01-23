@@ -15,6 +15,7 @@ define('LIB_PATH','/app/lib/');
 
 //Chemin vers les données
 define('DATA_PATH','/app/raw/');
+define('PROCHAIN_PATH','/app/prochain/prochain');
 
 //L'adresse sur laquelle le site est hébergé. Utile pour les redirections ou les liens qu'on doit placer en absolu.
 define('URL','https://omnilogie.fr');

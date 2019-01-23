@@ -122,10 +122,10 @@ if(preg_match('`membre=([0-9abcdef]{32})$`',$_SERVER['REQUEST_URI']))
 
 //Faut-il faire paraître un article ?
 $time = time();
-$Date=file_get_contents(DATA_PATH . '/prochain');//NE RIEN METTRE ENTRE CES TROIS LIGNES
+$Date=file_get_contents(PROCHAIN_PATH);//NE RIEN METTRE ENTRE CES TROIS LIGNES
 if($Date<$time) //IL FAUT QU'ELLES S'EXECUTENT D'UN BLOC
 {
-	file_put_contents(DATA_PATH . '/prochain',$Date + 86400 * 2); //POUR ÉVITER LA PARUTION MULTIPLE
+	file_put_contents(PROCHAIN_PATH,$Date + 86400 * 2); //POUR ÉVITER LA PARUTION MULTIPLE
 
 	$Params = Admin::getProchains();
 	$AParaitre = Omni::get($Params);

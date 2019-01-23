@@ -24,8 +24,9 @@ Import a database dump (there is one in my Dropbox, `/svg/DB/neamar.fr/`). Only 
 
 ### Setup the volumes
 `images/O`, `images/Banner` and `images/GD` are not stored in Git, since they're dynamic.
+Same for the `prochain` file (next article to be published)
 
-With dokku, you can just run
+With dokku, you can just run:
 
 ```
 mkdir /var/lib/dokku/data/storage/omnilogie
@@ -35,8 +36,7 @@ chown -R 32767:32767 /var/lib/dokku/data/storage/omnilogie
 dokku storage:mount omnilogie /var/lib/dokku/data/storage/omnilogie/images/O:/app/images/O
 dokku storage:mount omnilogie /var/lib/dokku/data/storage/omnilogie/images/Banner:/app/images/Banner
 dokku storage:mount omnilogie /var/lib/dokku/data/storage/omnilogie/images/GD:/app/images/GD
-
-
+dokku storage:mount omnilogie /var/lib/dokku/data/storage/omnilogie/prochain:/app/prochain
 ```
 * Set up the volumes
 * Push to Heroku / dokku / whatever
