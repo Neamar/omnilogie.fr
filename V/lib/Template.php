@@ -82,13 +82,11 @@
 <div id="zoom">
 </div>
 	<nav id="search">
-<form action="//www.google.fr/cse" id="cse-search-box" role="search">
-	<input type="hidden" name="cx" value="partner-pub-4506683949348156:5njwqc-hgy2" />
-
-	<input type="hidden" name="ie" value="ISO-8859-1" />
-	<input type="text" name="q" size="20" placeholder="Rechercher" accesskey="4" />
-	<input type="submit" name="sa" value="Go !" />
-</form>
+		<form action="//www.google.fr/cse" id="cse-search-box" role="search" accept-charset="utf-8">
+			<input type="hidden" name="cx" value="partner-pub-4506683949348156:5njwqc-hgy2" />
+			<input type="text" name="q" size="20" placeholder="Rechercher" accesskey="4" />
+			<input type="submit" name="sa" value="Go !" />
+		</form>
 	</nav>
 </div><!--fin du top-->
 	</div>
