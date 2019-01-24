@@ -70,7 +70,7 @@ $RandomParams->Limit = '1';
 $RandomArticle=Omni::getSingle($RandomParams);
 
 if(is_file(PATH . '/images/Banner/Thumbs/' . $RandomArticle->ID . '.png'))
-	$RandomImage = '<img src="/images/Banner/Thumbs/' . $RandomArticle->ID . '.png" alt="' . $RandomArticle->Titre . '" class="randomImage"/>';
+	$RandomImage = '<a href="' . Link::omni($RandomArticle->Titre). '"><img src="/images/Banner/Thumbs/' . $RandomArticle->ID . '.png" alt="' . $RandomArticle->Titre . '" class="randomImage"/></a>';
 else
 	$RandomImage = '';
 
