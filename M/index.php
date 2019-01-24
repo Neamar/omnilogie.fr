@@ -17,7 +17,7 @@ unset($C['Pods']['lastArticles']);
 
 //Récupérer les derniers articles
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
-$Param->Where = 'Sortie <> ""';
+$Param->Where = 'Sortie <> "" AND Auteurs.Auteur != "Top"';
 $Param->Order = 'RAND() DESC';
 $Param->Limit = '4';
 $Articles = Omni::get($Param);
