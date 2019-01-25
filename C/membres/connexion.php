@@ -15,13 +15,13 @@ if((!empty($_POST['pseudo']) && !empty($_POST['password'])) || isset($_GET['memb
 {
 	//Personnes tentant de se connecter à l'ancienne, avec un hash directement dans l'URL (venant d'un mail probablement)
 	if(isset($_GET['membre']))
-		$Where ='Hash="' . $_GET['membre'] . '"';
+		$Where ='Hash="' . mysql_real_escape_string($_GET['membre']) . '"';
 	//Personnes authentifiées par HTTP (cf Authenticate::)
 	elseif(isset($_SERVER['REMOTE_USER']) && isset($_SERVER['SAFE_LOG']))
-		$Where = 'Auteur="' . $_SERVER['REMOTE_USER'] . '"';
+		$Where = 'Auteur="' . mysql_real_escape_string($_SERVER['REMOTE_USER']) . '"';
 	//Authentification POST depuis /membres/connexion
 	else
-		$Where ='Auteur="' . $_POST['pseudo'] . '" AND Pass="' . sha1($_POST['password']) . '"';
+		$Where ='Auteur="' . mysql_real_escape_string($_POST['pseudo']) . '" AND Pass="' . sha1($_POST['password']) . '"';
 
 
 	$Auteur=SQL::singleQuery('SELECT ID, Auteur, Hash
