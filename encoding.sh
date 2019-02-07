@@ -6,7 +6,7 @@ TO_ENCODING="UTF-8"
 #convert
 CONVERT="iconv -f $FROM_ENCODING -t $TO_ENCODING"
 #loop to convert multiple files
-for  file  in  raw/.groupes; do
+for  file  in  raw/categories; do
   if [ ! -d $file ]; then
     iconv -f $FROM_ENCODING -t $TO_ENCODING $file -o ${file}.new
     rm ${file}
