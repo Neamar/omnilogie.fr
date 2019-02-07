@@ -1,10 +1,10 @@
 em em
-{/*Deux mises en emphase ramènenent à l'état standard*/
+{/*Deux mises en emphase ramÃ¨nenent Ã  l'Ã©tat standard*/
 	font-style:normal;
 }
 
 em em em, em.italique
-{/*Trois mises en emphase : retour à l'italique ou forçage de l'italique.*/
+{/*Trois mises en emphase : retour Ã  l'italique ou forÃ§age de l'italique.*/
 	font-style:italic;
 }
 
@@ -56,7 +56,7 @@ li
 .abstract:before
 {
 	display:block;
-	content:"RÉSUMÉ";
+	content:"RÃ‰SUMÃ‰";
 	text-align:center;
 }
 
@@ -128,7 +128,7 @@ form.qcm div.qcm_answer
 }
 
 
-/* Classes sur quelques éléments. */
+/* Classes sur quelques Ã©lÃ©ments. */
 span.quickref
 {
 	border:1px dotted green;
@@ -154,20 +154,20 @@ hr.court
 }
 
 hr.footnote
-{/*La barre de séparation des notes de bas de page.*/
+{/*La barre de sÃ©paration des notes de bas de page.*/
 	margin-left:0;
 	margin-bottom:0;
 }
 
 hr.footnote + ol
-{/*Le contenu des notes est légérement plus petit que le reste du texte.*/
+{/*Le contenu des notes est lÃ©gÃ©rement plus petit que le reste du texte.*/
 	font-size:85%;
 	margin-top:1px;
 	list-style-type: none;
 }
 
 hr.footnote + ol li
-{/*Le contenu des notes est légérement plus petit que le reste du texte.*/
+{/*Le contenu des notes est lÃ©gÃ©rement plus petit que le reste du texte.*/
 	line-height:1em;
 }
 
@@ -186,7 +186,7 @@ hr.footnote + ol li
 }
 
 .ms
-{/*Fonte monospace (espacement constant). Obsolet (remplacé par <tt>) mais gardé pour compatibilité*/
+{/*Fonte monospace (espacement constant). Obsolet (remplacÃ© par <tt>) mais gardÃ© pour compatibilitÃ©*/
 	font-family:monospace;
 }
 
