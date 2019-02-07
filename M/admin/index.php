@@ -34,7 +34,7 @@ if(Cache::exists('Datas', 'Events'))
 else
 	$Standalone = array(
 		'generique' => array(
-			'evenements_cache.php' => array(
+			'/E/generique/evenements_cache.php' => array(
 				'Access' => array('any'),
 				'Description' => 'Générer la liste des évènements'
 			)
