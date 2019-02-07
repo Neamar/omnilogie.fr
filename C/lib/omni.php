@@ -71,7 +71,7 @@ class Omni
 		$Modifs=array(
 			'Auteur'=>$Author,
 			'Reference'=>$this->ID,
-			'Modification'=>addslashes($Action),
+			'Modification'=>$Action,
 			'_Date'=>'NOW()'
 			);
 
