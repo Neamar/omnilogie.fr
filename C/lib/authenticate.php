@@ -24,6 +24,10 @@ class Authenticate
 		else
 		{
 			error_log("OMNI Not connected");
+			ob_start();
+			var_dump($_SERVER);
+			$result = ob_get_clean();
+			error_log($result);
 			//Est-on connecté ?
 			if(empty($_SERVER['REDIRECT_REDIRECT_LOGIN']))
 				self::askForLogin();
