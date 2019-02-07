@@ -18,7 +18,7 @@ $Texte = str_replace
 	$_POST['Texte']
 );
 
-Typo::setTexte(stripslashes($Texte));
+Typo::setTexte($Texte);
 
 //Parsage. (cas des guillemets typographiques standards)
 $Texte = str_replace
