@@ -19,16 +19,16 @@ class Authenticate
 	*/
 	public static function login(array $roles)
 	{
-		if(isset($_SESSION['Membre']['Pseudo']) && empty($_SERVER['REDIRECT_REDIRECT_LOGIN']))
+		if(isset($_SESSION['Membre']['Pseudo']) && empty($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
 			$Login = $_SESSION['Membre']['Pseudo'];
 		else
 		{
 			//Est-on connecté ?
-			if(empty($_SERVER['REDIRECT_REDIRECT_LOGIN']))
+			if(empty($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
 				self::askForLogin();
 
 			//Récupérer les infos de connexion entrées :
-			$Login = base64_decode(substr($_SERVER['REDIRECT_REDIRECT_LOGIN'],5));
+			$Login = base64_decode(substr($_SERVER['REDIRECT_HTTP_AUTHORIZATION'],5));
 
 			$Infos = explode(':',$Login,2);
 
@@ -42,13 +42,14 @@ class Authenticate
 					continue;//Sauter les commentaires
 
 				$Membre = explode(':',$Membre);
+
 				if($Membre[0]==$Login)
 					break;
 			}
 
 			//A-t-il entré le bon mot de passe ?
 			//Pour cela, on crypte en salant avec le hash en mémoire, et on compare avec ce même hash : les résultats doivent être similaires.
-			if($Membre[0]==$Login && crypt($Infos[1],$Membre[1])==$Membre[1])
+			if($Membre[0]==$Login && password_verify($Infos[1],$Membre[1])==true)
 			{
 				$_SERVER['REMOTE_USER'] = $Login;
 				$_SERVER['SAFE_LOG'] = true;
@@ -60,7 +61,7 @@ class Authenticate
 			if(!isset($_SESSION['Membre']['Pseudo']) || $Login != $_SESSION['Membre']['Pseudo'])
 			{
 				//Si tout est OK, le connecter en tant que membre (en plus d'admin)
-				$_SESSION['Membre']['RedirectTo'] = $_SERVER['SCRIPT_URL'];
+				$_SESSION['Membre']['RedirectTo'] = $_SERVER['REQUEST_URI'];
 				include(PATH . '/C/membres/connexion.php');
 			}
 		}
