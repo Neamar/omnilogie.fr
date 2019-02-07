@@ -23,14 +23,12 @@ class Authenticate
 			$Login = $_SESSION['Membre']['Pseudo'];
 		else
 		{
-			error_log("OMNI Not connected");
 			//Est-on connecté ?
 			if(empty($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
 				self::askForLogin();
 
 			//Récupérer les infos de connexion entrées :
 			$Login = base64_decode(substr($_SERVER['REDIRECT_HTTP_AUTHORIZATION'],5));
-			error_log("OMNI " . $Login);
 
 			$Infos = explode(':',$Login,2);
 
@@ -44,7 +42,6 @@ class Authenticate
 					continue;//Sauter les commentaires
 
 				$Membre = explode(':',$Membre);
-				error_log("OMNI Membres " . $Membre[0]);
 
 				if($Membre[0]==$Login)
 					break;
@@ -52,11 +49,8 @@ class Authenticate
 
 			//A-t-il entré le bon mot de passe ?
 			//Pour cela, on crypte en salant avec le hash en mémoire, et on compare avec ce même hash : les résultats doivent être similaires.
-			error_log("OMNI PWD " . $Membre[1]);
-
 			if($Membre[0]==$Login && password_verify($Infos[1],$Membre[1])==true)
 			{
-				error_log("OMNI LOGGED IN");
 				$_SERVER['REMOTE_USER'] = $Login;
 				$_SERVER['SAFE_LOG'] = true;
 			}
@@ -67,7 +61,7 @@ class Authenticate
 			if(!isset($_SESSION['Membre']['Pseudo']) || $Login != $_SESSION['Membre']['Pseudo'])
 			{
 				//Si tout est OK, le connecter en tant que membre (en plus d'admin)
-				$_SESSION['Membre']['RedirectTo'] = $_SERVER['SCRIPT_URL'];
+				$_SESSION['Membre']['RedirectTo'] = $_SERVER['REQUEST_URI'];
 				include(PATH . '/C/membres/connexion.php');
 			}
 		}
