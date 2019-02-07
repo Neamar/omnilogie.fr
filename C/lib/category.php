@@ -16,7 +16,7 @@ class Category
 	private static function buildInitialTree()
 	{
 		if(is_null(self::$Datas))
-			self::$Datas = unserialize(file_get_contents(DATA_PATH . '/categories'));
+			self::$Datas = unserialize(utf8_encode(file_get_contents(DATA_PATH . '/categories')));
 	}
 
 	/**
