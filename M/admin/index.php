@@ -35,7 +35,7 @@ else
 	$Standalone = array(
 		'generique' => array(
 			'evenements_cache.php' => array(
-				'Access' => 'any'
+				'Access' => 'any',
 				'Description' => 'Générer la liste des évènements'
 			)
 		)
