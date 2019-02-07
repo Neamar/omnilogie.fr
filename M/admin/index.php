@@ -91,9 +91,6 @@ if(Member::is(AUTHOR,'propositions'))
 if(Member::is(AUTHOR,'censeurs'))
 	$Autre[] = '<a href="/admin/Omnilogistes">Informations sur les membres</a>';
 
-if(Member::is(AUTHOR,'admins'))
-	$Autre[] = '<a href="/admin/Logs">Infos techniques et connexions</a>';
-
 if(Member::is(AUTHOR,'censeurs'))
 	$Autre[] = '<a href="/admin/Edit/">Accueil des censeurs</a>';
 
