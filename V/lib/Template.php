@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="iso-8859-1" />
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
 	<link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5509" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
