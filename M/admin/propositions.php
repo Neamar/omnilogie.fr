@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : admin/propositions
+* ModÃ¨le : admin/propositions
 * But : administrer les propositions
-* Page spéciale directement basée sur EasySQL.
+* Page spÃ©ciale directement basÃ©e sur EasySQL.
 */
 
 $C['PageTitle']='Administration des propositions';

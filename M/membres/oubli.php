@@ -1,7 +1,7 @@
 <?php
 /**
-* Modèle : membres/oubli
-* But : récupérer son mot de passe
+* ModÃ¨le : membres/oubli
+* But : rÃ©cupÃ©rer son mot de passe
 *
 */
 

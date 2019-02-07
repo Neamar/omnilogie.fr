@@ -1,12 +1,12 @@
 <?php
 /**
-* Modèle : membres/Propositions
-* But : ajouter une proposition, afficher la lsite des propositions, afficher la liste des propositions réservées
-* Données à charger : liste des propositions
+* ModÃ¨le : membres/Propositions
+* But : ajouter une proposition, afficher la lsite des propositions, afficher la liste des propositions rÃ©servÃ©es
+* DonnÃ©es Ã  charger : liste des propositions
 *
 */
 
-$C['PageTitle']='Propositions d\'articles à rédiger';
+$C['PageTitle']='Propositions d\'articles Ã  rÃ©diger';
 $C['CanonicalURL']='/membres/Propositions';
 
 function getProp($Where,$Prefixe)
@@ -28,7 +28,7 @@ function getProp($Where,$Prefixe)
 
 if(defined('NOOB_MODE') && !isset($C['Message']))
 {
-	$C['Message'] = 'Cette page liste des propositions d\'articles. Si vous êtes intéressé, n\'hésitez pas à en réserver une pour écrire l\'article !';
+	$C['Message'] = 'Cette page liste des propositions d\'articles. Si vous Ãªtes intÃ©ressÃ©, n\'hÃ©sitez pas Ã  en rÃ©server une pour Ã©crire l\'article !';
 }
 
 

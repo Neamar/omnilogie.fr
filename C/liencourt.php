@@ -5,7 +5,7 @@
 $ID = intval(base_convert(preg_replace('`[^A-Z0-9]`','',$_GET['Titre']),35,10));
 
 if($ID==0)
-	Debug::fail('Erreur de contrôle.');
+	Debug::fail('Erreur de contrÃ´le.');
 
 $Param = Omni::buildParam();
 $Param->Where = 'ID = ' . $ID;

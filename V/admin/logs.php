@@ -6,7 +6,7 @@
 ?>
 
 <form method="post" action="">
-<label for="file">Sélectionnez une date : </label>
+<label for="file">SÃ©lectionnez une date : </label>
 <select name="file" id="file" onchange="this.parentNode.submit()">
 <?php
 foreach($C['LogsFile'] as $File=>$Caption)

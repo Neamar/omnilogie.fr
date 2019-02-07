@@ -1,45 +1,45 @@
 <?php
 /**
-* Contrôleur : membres/generic.php
-* But : Vérifier que le membre est bien connecté, sinon le rediriger vers la page de connexion en faisant en sorte qu'il retombe sur la page initiale une fois loggé.
+* ContrÃ´leur : membres/generic.php
+* But : VÃ©rifier que le membre est bien connectÃ©, sinon le rediriger vers la page de connexion en faisant en sorte qu'il retombe sur la page initiale une fois loggÃ©.
 * Structure des informations de sesssions membres :
 * ID, Pseudo.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 $PageNonProtegees=array('membres/connexion','membres/inscription','membres/apercu','membres/oubli');
 
 
-//Personnes non connectées tentant d'accéder à des pages restreintes.
+//Personnes non connectÃ©es tentant d'accÃ©der Ã  des pages restreintes.
 if(!in_array($_GET['P'],$PageNonProtegees) && !isset($_SESSION['Membre']['ID']))
 {
 	$_SESSION['Membre']['RedirectTo'] = $_SERVER['REQUEST_URI'];
-	//Sauvegarder les données POST (si on a été déconnecté pendant l'envoi d'un article par exemple)
+	//Sauvegarder les donnÃ©es POST (si on a Ã©tÃ© dÃ©connectÃ© pendant l'envoi d'un article par exemple)
 	if(count($_POST)>0)
 	{
 		$_SESSION['PostData'] = $_POST;
-		External::mail('neamar@neamar.fr','Dump de déconnexion',serialize($_POST));
+		External::mail('neamar@neamar.fr','Dump de dÃ©connexion',serialize($_POST));
 	}
 	Debug::redirect('/membres/Connexion',302);
 }
-//Personnes connectées.
+//Personnes connectÃ©es.
 elseif(isset($_SESSION['Membre']['ID']))
 {
 	define('AUTHOR',$_SESSION['Membre']['Pseudo']);
 	define('AUTHOR_ID',$_SESSION['Membre']['ID']);
 
-	//Créer le menu avec les liens admins
+	//CrÃ©er le menu avec les liens admins
 	$C['Pods']['connected']['Title']='Liens pour ' . AUTHOR;
 	$C['Pods']['connected']['Content']=Formatting::makeList(array(
 		'<a href="/membres/">Espace membre</a>',
-		'<a href="/membres/Redaction">Rédaction d\'un article</a>',
+		'<a href="/membres/Redaction">RÃ©daction d\'un article</a>',
 		'<a href="/membres/Propositions">Propositions d\'articles</a>',
-		'<a href="/membres/Connexion">Déconnexion</a>',
-		'<a href="/membres/?membre=' . $_SESSION['Membre']['Hash'] . '">Lien de connexion directe</a> (à glisser dans les favoris)',
+		'<a href="/membres/Connexion">DÃ©connexion</a>',
+		'<a href="/membres/?membre=' . $_SESSION['Membre']['Hash'] . '">Lien de connexion directe</a> (Ã  glisser dans les favoris)',
 		));
 
-	//Articles éditables
+	//Articles Ã©ditables
 	$Param = Omni::buildParam(OMNI_TRAILER_PARAM);
 	$Param->Where = 'Auteur = ' . AUTHOR_ID . ' AND ISNULL(Sortie)';
 
@@ -49,19 +49,19 @@ elseif(isset($_SESSION['Membre']['ID']))
 
 	if(count($C['Editables'])!=0)
 	{
-		$C['Pods']['modifiable']['Title']='Articles éditables';
+		$C['Pods']['modifiable']['Title']='Articles Ã©ditables';
 		$C['Pods']['modifiable']['Content']=Formatting::makeList($C['Editables']);
 	}
 
 	//Stats sur les articles du membre
 	$Stats = SQL::singleQuery('SELECT COUNT(*) AS Nb, SUM(NbVues) AS Somme FROM OMNI_Omnilogismes WHERE Auteur=' . AUTHOR_ID);
 	$C['Pods']['author-stats']['Title']='Statistiques rapides';
-	$C['Pods']['author-stats']['Content']=Formatting::makeList(array($Stats['Nb'] . ' article' . ($Stats['Nb']>1?'s':'') . ' écrit' . ($Stats['Nb']>1?'s':'') . ' par ' . AUTHOR . '&nbsp;;',Formatting::makeNumber($Stats['Somme']) . ' articles visionnés&nbsp;','<a href="/membres/Stats">Plus de stats !</a>'));
+	$C['Pods']['author-stats']['Content']=Formatting::makeList(array($Stats['Nb'] . ' article' . ($Stats['Nb']>1?'s':'') . ' Ã©crit' . ($Stats['Nb']>1?'s':'') . ' par ' . AUTHOR . '&nbsp;;',Formatting::makeNumber($Stats['Somme']) . ' articles visionnÃ©s&nbsp;','<a href="/membres/Stats">Plus de stats !</a>'));
 
 	if($Stats['Nb']==0)
 		define('NOOB_MODE',true);
 
-	//Rétablir les données POST si nécessaires (elles ont été enregistrées plus haut sur cette page):
+	//RÃ©tablir les donnÃ©es POST si nÃ©cessaires (elles ont Ã©tÃ© enregistrÃ©es plus haut sur cette page):
 	if(isset($_SESSION['PostData']))
 	{
 		$_POST=$_SESSION['PostData'];
@@ -70,7 +70,7 @@ elseif(isset($_SESSION['Membre']['ID']))
 
 }
 
-//Gestion des messages différés.
+//Gestion des messages diffÃ©rÃ©s.
 if(isset($_SESSION['FutureMessage']) && !isset($C['Message']))
 {
 	$C['Message']=$_SESSION['FutureMessage'];

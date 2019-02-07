@@ -1,7 +1,7 @@
 <?php
 /**
-* Modèle : arbre
-* But : ajouter une catégorie
+* ModÃ¨le : arbre
+* But : ajouter une catÃ©gorie
 */
 
 $C['PageTitle']='Gestion de l\'arbre';

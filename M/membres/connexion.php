@@ -1,21 +1,21 @@
 <?php
 /**
-* Modèle : membres/Connexion
+* ModÃ¨le : membres/Connexion
 * But : offir un formulaire de connexion au membre.
-* Données à charger : Rien.
+* DonnÃ©es Ã  charger : Rien.
 *
 */
 
-$C['PageTitle']='Connexion à Omnilogie';
+$C['PageTitle']='Connexion Ã  Omnilogie';
 $C['CanonicalURL']='/membres/Connexion';
 
 if(defined('AUTHOR'))
 {
 	unset($C['SpecialPods']);
 	$_SESSION['Membre']=array();
-	$C['Message'] = 'Vous avez été déconnecté de votre identité ' . AUTHOR . '.';
+	$C['Message'] = 'Vous avez Ã©tÃ© dÃ©connectÃ© de votre identitÃ© ' . AUTHOR . '.';
 	$C['MessageClass'] = 'info';
 }
 
 if(isset($_SESSION['PostData']))
-	$C['Message'] = 'Vous avez été déconnecté pour inactivité, merci de vous réidentifier pour valider l\'enregistrement de ces données.';
+	$C['Message'] = 'Vous avez Ã©tÃ© dÃ©connectÃ© pour inactivitÃ©, merci de vous rÃ©identifier pour valider l\'enregistrement de ces donnÃ©es.';

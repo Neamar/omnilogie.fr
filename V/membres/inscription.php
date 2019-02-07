@@ -9,12 +9,12 @@
 
 <h3><span>Inscription au site</span></h3>
 
-<p><strong>Omnilogie</strong> fonctionne grâce aux articles des membres.<br />
-En vous inscrivant vous avez la possibilité d'écrire des articles et de partager votre culture avec le monde &ndash; comme défini dans la <a href="/Ligne">ligne éditoriale</a> du site.</p>
+<p><strong>Omnilogie</strong> fonctionne grÃ¢ce aux articles des membres.<br />
+En vous inscrivant vous avez la possibilitÃ© d'Ã©crire des articles et de partager votre culture avec le monde &ndash; comme dÃ©fini dans la <a href="/Ligne">ligne Ã©ditoriale</a> du site.</p>
 
-<p>L'inscription n'engage à rien ; vous pouvez n'écrire qu'un article, des dizaines... nous les accueillerons avec le même plaisir !</p>
+<p>L'inscription n'engage Ã  rien ; vous pouvez n'Ã©crire qu'un article, des dizaines... nous les accueillerons avec le mÃªme plaisir !</p>
 
-<p>L'inscription est simple et rapide, alors n'hésitez pas !</p>
+<p>L'inscription est simple et rapide, alors n'hÃ©sitez pas !</p>
 
 <?php if(!isset($C['Message'])) { ?>
 
@@ -36,4 +36,4 @@ En vous inscrivant vous avez la possibilité d'écrire des articles et de partager
 
 <?php } ?>
 
-<p><a href="/membres/Connexion">Déjà inscrit ?</a></p>
+<p><a href="/membres/Connexion">DÃ©jÃ  inscrit ?</a></p>

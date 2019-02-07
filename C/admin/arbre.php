@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : admin/arbre.php
-* But : enregistrer les nouvelles catégories
+* ContrÃ´leur : admin/arbre.php
+* But : enregistrer les nouvelles catÃ©gories
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 if(isset($_POST['parent']) && !empty($_POST['enfant']))
 {
@@ -27,13 +27,13 @@ if(isset($_POST['parent']) && !empty($_POST['enfant']))
 	\'' . $Categorie . '\'
 	)');
 
-	$C['Message'] = 'Catégorie ajoutée !';
+	$C['Message'] = 'CatÃ©gorie ajoutÃ©e !';
 
 	Event::dispatch(Event::NOUVELLE_CATEGORIE);
 }
 
-//Récupérer tous les articles parus.
-//Utiliser le système de pagination
+//RÃ©cupÃ©rer tous les articles parus.
+//Utiliser le systÃ¨me de pagination
 $Param = Omni::buildParam(Omni::FULL_PARAM);
 $Param->Select = 'Omnilogismes.ID, Omnilogismes.Statut, Omnilogismes.Titre, Omnilogismes.Accroche, Omnilogismes.Omnilogisme';
 

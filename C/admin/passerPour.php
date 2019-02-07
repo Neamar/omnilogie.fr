@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : admin/passerPour.php
-* But :déconnecter l'admin et le reconnecter comme le membre choisi.
+* ContrÃ´leur : admin/passerPour.php
+* But :dÃ©connecter l'admin et le reconnecter comme le membre choisi.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 $Membre = SQL::singleQuery('SELECT Hash FROM OMNI_Auteurs WHERE Auteur="' . $_GET['Auteur'] . '"');
 
 Debug::redirect('/membres/?membre=' . $Membre['Hash']);

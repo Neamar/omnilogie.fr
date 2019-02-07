@@ -4,7 +4,7 @@
 * - Code Erreur
 * - Explication
 * Aller plus loin
-* Menu : répartition par statut
+* Menu : rÃ©partition par statut
 */
 //Afficher les articles
 
@@ -17,7 +17,7 @@
 </header>
 
 <hr />
-<p>Mais tout n'est pas perdu ! Pourquoi ne pas recommencer à naviguer depuis ces liens ?</p>
+<p>Mais tout n'est pas perdu ! Pourquoi ne pas recommencer Ã  naviguer depuis ces liens ?</p>
 <?php echo Formatting::makeList($C['Liens']); ?>
 
-<p>Si vous tenez vraiment à trouver cette page, utilisez l'outil de recherche dans le coin en haut à droite ;)</p>
+<p>Si vous tenez vraiment Ã  trouver cette page, utilisez l'outil de recherche dans le coin en haut Ã  droite ;)</p>

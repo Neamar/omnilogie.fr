@@ -1,11 +1,11 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::NOUVELLE_CATEGORIE
 *
 * @standalone
 * @access taggers
-* Mettre à jour le pod "dernières catégories crées"
+* Mettre Ã  jour le pod "derniÃ¨res catÃ©gories crÃ©es"
 */
 //Derniers ajouts dans l'arbre
 $ListeCategorieSQL=SQL::query('SELECT Categorie FROM OMNI_Categories ORDER BY ID DESC LIMIT 5');

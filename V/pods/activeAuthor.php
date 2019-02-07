@@ -1,5 +1,5 @@
 <section id="activeAuthor" class="menu">
-<h3>Auteurs actifs récemment</h3>
+<h3>Auteurs actifs rÃ©cemment</h3>
 
 <?php
 echo Formatting::makeList($C['Menus']['activeAuthor']);

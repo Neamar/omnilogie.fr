@@ -1,12 +1,12 @@
 <?php
 /**
-* But : récupérer un lien à partir d'un titre d'article, d'une catégorie...
+* But : rÃ©cupÃ©rer un lien Ã  partir d'un titre d'article, d'une catÃ©gorie...
 *
 */
 //Link
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 
 class Link
@@ -14,9 +14,9 @@ class Link
 	private static $Replacements=array(' '=>CESURE,'&'=>'%26');
 
 	/**
-	* Renvoie un lien absolu à partir du titre d'un article
+	* Renvoie un lien absolu Ã  partir du titre d'un article
 	* @param Titre:String le titre de l'article
-	* @return :String le lien /O/Titre_modifié
+	* @return :String le lien /O/Titre_modifiÃ©
 	*/
 	public static function omni($Title,$Prefix='/O/')
 	{
@@ -24,7 +24,7 @@ class Link
 	}
 
 	/**
-	* Renvoie un lien absolu à partir du titre d'un article, vers l'adresse raccourcie d'un article
+	* Renvoie un lien absolu Ã  partir du titre d'un article, vers l'adresse raccourcie d'un article
 	* @param ID:int l'identifiant de l'article
 	* @return :String le lien /IDenbase35
 		*/
@@ -34,9 +34,9 @@ class Link
 	}
 
 	/**
-	* Renvoie un lien absolu à partir du nom d'un auteur
+	* Renvoie un lien absolu Ã  partir du nom d'un auteur
 	* @param Author:String le nom de l'auteur
-	* @return :String le lien /Omnilogistes/Auteur_modifié
+	* @return :String le lien /Omnilogistes/Auteur_modifiÃ©
 	*/
 	public static function author($Author)
 	{
@@ -44,9 +44,9 @@ class Link
 	}
 
 	/**
-	* Renvoie un lien absolu à partir du nom d'une catégorie
-	* @param Category:String le nom de la catégorie
-	* @return :String le lien /Liste/Categorie_modifiée
+	* Renvoie un lien absolu Ã  partir du nom d'une catÃ©gorie
+	* @param Category:String le nom de la catÃ©gorie
+	* @return :String le lien /Liste/Categorie_modifiÃ©e
 	*/
 	public static function category($Category)
 	{
@@ -54,7 +54,7 @@ class Link
 	}
 
 	/**
-	* Récupère la classe CSS associée à un statut.
+	* RÃ©cupÃ¨re la classe CSS associÃ©e Ã  un statut.
 	* @param Status:String le statut
 	* @return :String le statut sous forme de classe.
 	*/
@@ -64,10 +64,10 @@ class Link
 	}
 
 	/**
-	* Récupère l'hôte d'un lien à partir d'une adresse web.
+	* RÃ©cupÃ¨re l'hÃ´te d'un lien Ã  partir d'une adresse web.
 	* Exemple : http://neamar.fr/Res => neamar.fr
-	* @param URL:String l'adresse à analyser
-	* @return :String l'hôte
+	* @param URL:String l'adresse Ã  analyser
+	* @return :String l'hÃ´te
 	*/
 	public static function getHost($URL)
 	{
@@ -79,10 +79,10 @@ class Link
 	}
 
 	/**
-	* Échappe les caractères spéciaux qui pourraient gérer lors de l'échappement d'une URL.
-	* Ces caractères sont stockés dans le tableau $Remplacements
-	* @param $Str:String la chaîne à échapper
-	* @return :String la chaîne échappée
+	* Ã‰chappe les caractÃ¨res spÃ©ciaux qui pourraient gÃ©rer lors de l'Ã©chappement d'une URL.
+	* Ces caractÃ¨res sont stockÃ©s dans le tableau $Remplacements
+	* @param $Str:String la chaÃ®ne Ã  Ã©chapper
+	* @return :String la chaÃ®ne Ã©chappÃ©e
 	*/
 	private static function escape($Str)
 	{
@@ -90,8 +90,8 @@ class Link
 	}
 
 	/**
-	* Déséchappe les caractères spéciaux.
-	* Fonctionne à l'exact inverse de self::escape()
+	* DÃ©sÃ©chappe les caractÃ¨res spÃ©ciaux.
+	* Fonctionne Ã  l'exact inverse de self::escape()
 	*/
 	public static function unescape($Str)
 	{

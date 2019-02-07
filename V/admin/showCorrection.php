@@ -44,10 +44,10 @@
 </style>
 
 <h3><span>Modification d'article</span></h3>
-<p>Lien vers l'article tel qu'il sera affiché : <?php Template::put('LienDirect'); ?><br />
-<p><a href="/admin/Edit/">Liste des articles à modifier</a></p>
+<p>Lien vers l'article tel qu'il sera affichÃ© : <?php Template::put('LienDirect'); ?><br />
+<p><a href="/admin/Edit/">Liste des articles Ã  modifier</a></p>
 <p><a href="<?php echo Link::omni($C['Titre'],'/admin/'); ?>">Administrer l'article</a></p>
-<p><a href="<?php echo Link::omni($C['Titre'],'/admin/Ref/'); ?>">Référencer l'article</a></p>
+<p><a href="<?php echo Link::omni($C['Titre'],'/admin/Ref/'); ?>">RÃ©fÃ©rencer l'article</a></p>
 </section>
 
 <section>
@@ -65,7 +65,7 @@ Typo::renderIDE(array('Name'=>'article','Rows'=>17,'Preview'=>array('URL'=>'/mem
 
 <script type="text/javascript">
 $(function(){
-	var fullscreen = $('<li class="markItUpButton typo_fullscreen"><a title="Plein écran" href="#" style="background-image: url(https://neamar.fr/lib/markitup/sets/Typo/images/fullscreen.png)">Plein écran</a>');
+	var fullscreen = $('<li class="markItUpButton typo_fullscreen"><a title="Plein Ã©cran" href="#" style="background-image: url(https://neamar.fr/lib/markitup/sets/Typo/images/fullscreen.png)">Plein Ã©cran</a>');
 	$('#markItUpArticle ul:first').append(fullscreen);
 
 	var isFullscreen = false;
@@ -98,9 +98,9 @@ $(function(){
 
 <hr />
 
-<p>Aperçu de l'article modifié :</p>
+<p>AperÃ§u de l'article modifiÃ© :</p>
 <div id="Typo_preview">
-<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au-dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br />
+<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="FlÃ¨che" class="TexPic"> au-dessus de l'interface d'Ã©dition pour afficher ici un aperÃ§u de votre texte.<br />
 Version actuelle :</p>
 <div class="omnilogisme">
 <?php Template::put('Apercu') ?>

@@ -2,22 +2,22 @@
 /**
 * Layout :
 * - Article
-* Menu : répartition par statut
+* Menu : rÃ©partition par statut
 */
 //Afficher les articles
 
 ?>
 <h3 id="h3_toc"><span>Liste des articles <?php Template::put('PageActuelle');?></span></h3>
-<p>Vous trouverez dans ces pages la liste des articles parus, classés par date de sortie.<br />
-Si vous recherchez un article en particulier, nous vous conseillons le formulaire de recherche, disponible à droite de cet encadré !</p>
+<p>Vous trouverez dans ces pages la liste des articles parus, classÃ©s par date de sortie.<br />
+Si vous recherchez un article en particulier, nous vous conseillons le formulaire de recherche, disponible Ã  droite de cet encadrÃ© !</p>
 
 <?php
-//Module de pagination (si nécessaire)
+//Module de pagination (si nÃ©cessaire)
 Template::put('Pager');
 //Articles
 foreach($C['Articles'] as $Article)
 {
 	echo $Article['Teaser'];
 }
-//Module de pagination (si nécessaire)
+//Module de pagination (si nÃ©cessaire)
 Template::put('Pager');

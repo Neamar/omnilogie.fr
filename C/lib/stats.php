@@ -1,6 +1,6 @@
 <?php
 /**
-* But : Faire des statistiques sur un échantillon de données.
+* But : Faire des statistiques sur un Ã©chantillon de donnÃ©es.
 *
 */
 //
@@ -8,13 +8,13 @@ define('STATS_ADD_OTHER_COLUMN',true);
 define('STATS_NO_OTHER_COLUMN',false);
 define('STATS_LIMIT_AT',11);
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Stats
 {
 	/**
-	* Effectue la requête SQL demandée et renvoie le résultat dans la phrase Code.
-	* @param SQL:String La requête
+	* Effectue la requÃªte SQL demandÃ©e et renvoie le rÃ©sultat dans la phrase Code.
+	* @param SQL:String La requÃªte
 	* @param Code:String la phrase template
 	* @return :String la phrase avec les valeurs.
 	* @example
@@ -34,16 +34,16 @@ class Stats
 	}
 
 	/**
-	* Effectue la requête SQL, puis affiche dans une liste chacune des lignes mise en forme selon $Code.
-	* @param SQL:String la requête.
-	* @param Code:String le template à utiliser pour chaque ligne (voir l'exemple de StatIt)
-	* @param Autres:String Valeur numérique qui sert pour le ROLLUP (dernière ligne, "autres")
-	* @param Default:String template à utiliser pour le total autres. Si nul, toutes les lignes sont affichées.
+	* Effectue la requÃªte SQL, puis affiche dans une liste chacune des lignes mise en forme selon $Code.
+	* @param SQL:String la requÃªte.
+	* @param Code:String le template Ã  utiliser pour chaque ligne (voir l'exemple de StatIt)
+	* @param Autres:String Valeur numÃ©rique qui sert pour le ROLLUP (derniÃ¨re ligne, "autres")
+	* @param Default:String template Ã  utiliser pour le total autres. Si nul, toutes les lignes sont affichÃ©es.
 	*/
 	public static function Its($SQL,$Code,$Autres='',$Default='')
 	{
-		//Si $Default valent '', toutes les données sont affichée.
-		//Sinon, on récupère les LIMIT_AT premiers enregistrements, puis on fait la somme des restants que l'on ajoute dans une ligne 'Autres'.
+		//Si $Default valent '', toutes les donnÃ©es sont affichÃ©e.
+		//Sinon, on rÃ©cupÃ¨re les LIMIT_AT premiers enregistrements, puis on fait la somme des restants que l'on ajoute dans une ligne 'Autres'.
 		$Ds=SQL::query($SQL) or die(mysql_error());
 		$Items=array();
 		$Rollup=0;
@@ -53,20 +53,20 @@ class Stats
 			{
 				if($Autres!='')
 					$D[$Autres]=Formatting::makeNumber($D[$Autres]);
-				$Items[]=str_replace(array_map("Stats::Dollar",array_keys($D)),array_values($D),$Code) . '&nbsp;;';//Insérer dans la liste
+				$Items[]=str_replace(array_map("Stats::Dollar",array_keys($D)),array_values($D),$Code) . '&nbsp;;';//InsÃ©rer dans la liste
 			}
 			else
 				$Rollup +=$D[$Autres];//Faire la somme
 		}
 		if($Default!='')
-			$Items[]=str_replace('$' . $Autres,Formatting::makeNumber($Rollup),$Default) . '.';//Insérer le dernier item dans la liste.
+			$Items[]=str_replace('$' . $Autres,Formatting::makeNumber($Rollup),$Default) . '.';//InsÃ©rer le dernier item dans la liste.
 		return Formatting::makeList($Items);
 	}
 
 	/**
-	* Permet d'afficher un graphique représentant les données renvoyées par SQL.
-	* @param SQL:String La requête pour récupérer les données
-	* @param Settings:array Un tableau d'options paramètrant le graphique
+	* Permet d'afficher un graphique reprÃ©sentant les donnÃ©es renvoyÃ©es par SQL.
+	* @param SQL:String La requÃªte pour rÃ©cupÃ©rer les donnÃ©es
+	* @param Settings:array Un tableau d'options paramÃ¨trant le graphique
 	* @param Autres:enum(STATS_ADD_OTHER_COLUMN,...) Faut-il ajouter une colonne "Autres" contenant le reste des enregistrements ?
 	*/
 	public static function GraphIt($SQL,array $Settings,$Autres=STATS_ADD_OTHER_COLUMN)
@@ -79,14 +79,14 @@ class Stats
 	{
 		//Si $Autres vaut ADD_OTHER_COLUMN, on ne prend que les LIMIT_AT premiers enregistrements et on ajoute une colonne "Autres".
 		$Encodage=str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789');
-		//Valeurs par défaut
+		//Valeurs par dÃ©faut
 		$Default=array(
 		'cht'=>'lc',
 		'chtt'=>'Statistiques',
 		'chs'=>'700x200',
 		'chco'=>'88AAD6',
 		);
-		//Combiner les valeurs demandées avec les valeurs par défaut
+		//Combiner les valeurs demandÃ©es avec les valeurs par dÃ©faut
 		$Settings=array_merge($Default,$Settings);
 
 		$Ds=mysql_query($SQL) or die(mysql_error());
@@ -99,7 +99,7 @@ class Stats
 			if(!$Autres || count($Tab)<STATS_LIMIT_AT)
 			{
 				$Tab[]=$D['Ordonnee'];
-				$Abscisses[]=$D['Abscisse'];//str_replace(str_split('éèêàù'),str_split('eeeau'),$D['Abscisse']);
+				$Abscisses[]=$D['Abscisse'];//str_replace(str_split('Ã©Ã¨ÃªÃ Ã¹'),str_split('eeeau'),$D['Abscisse']);
 			}
 			else
 				$Rollup +=$D['Ordonnee'];
@@ -114,7 +114,7 @@ class Stats
 
 		$Max=self::Normalize($Tab);
 
-		//Bug Google API : les histogrammes horizontaux doivent voir les labels inversés.
+		//Bug Google API : les histogrammes horizontaux doivent voir les labels inversÃ©s.
 		if($Settings['cht'] == 'bhs')
 		{
 			$Abscisses = array_reverse($Abscisses);
@@ -122,12 +122,12 @@ class Stats
 
 		$Abscisses=utf8_encode(implode('|',$Abscisses));
 
-		//Rentrer les données
+		//Rentrer les donnÃ©es
 		$Settings['chd']='s:';
 		foreach($Tab as $Cell)
 			$Settings['chd'] .=$Encodage[$Cell];
 
-		//Générer l'URL à partir des Settings
+		//GÃ©nÃ©rer l'URL Ã  partir des Settings
 		$URL='//chart.apis.google.com/chart?1';
 		foreach($Settings as $K=>$V)
 		{
@@ -139,9 +139,9 @@ class Stats
 	}
 
 	/**
-	* Ajoute un $ devant la variable passée en paramètre.
-	* @param Texte:String la variable à préfixer
-	* @return :String la variable préfixée.
+	* Ajoute un $ devant la variable passÃ©e en paramÃ¨tre.
+	* @param Texte:String la variable Ã  prÃ©fixer
+	* @return :String la variable prÃ©fixÃ©e.
 	*/
 	private static function Dollar($Texte)
 	{
@@ -150,15 +150,15 @@ class Stats
 
 
 	/**
-	* Normalise le tableau passé en paramètre pour avoir des valeurs entre 0 et $Max
-	* @param Tab:array le tableau à normaliser, qui sera modifié par référence. Par défaut 61, le nombre de caractères disponibles pour l'encodage.
+	* Normalise le tableau passÃ© en paramÃ¨tre pour avoir des valeurs entre 0 et $Max
+	* @param Tab:array le tableau Ã  normaliser, qui sera modifiÃ© par rÃ©fÃ©rence. Par dÃ©faut 61, le nombre de caractÃ¨res disponibles pour l'encodage.
 	* @param Max:int la valeur maximum.
 	*/
 	private static function Normalize(array &$Tab,$Max=61)
 	{
 		if(empty($Tab))
 		{
-			exit('Impossible de générer des statistiques, aucune donnée disponible.');
+			exit('Impossible de gÃ©nÃ©rer des statistiques, aucune donnÃ©e disponible.');
 		}
 
 		$MaxTab=max(1,max($Tab));

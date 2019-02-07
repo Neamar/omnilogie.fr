@@ -1,16 +1,16 @@
 <?php
 /**
-* Contrôleur : vote
+* ContrÃ´leur : vote
 * But : Enregistrer le vote du visiteur
 *
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 if(isset($_POST['vote']) && $_POST['vote'] != 0 && !isset($_SESSION['hasVoted']))
 {
-	//Ajouter un vote à l'article
+	//Ajouter un vote Ã  l'article
 	SQL::update('OMNI_Omnilogismes', (int) $_POST['vote'], array('_NbVotes'=>'NbVotes+1'), 'AND Sortie LIKE "' . Top::$month . '"');
 
 	if(mysql_affected_rows() == 1)

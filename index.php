@@ -1,39 +1,39 @@
 <?php
 /**
-* Fichier principal d'Omnilogie, appelÈ ‡ chaque page.
-* GËre les pages selon une architecture type "MVC-customisÈe" :
-* Au dÈmarrage, le contrÙleur prÈpare ‡ la mise en cache si nÈcessaire, fait des redirections, vÈrifie la cohÈrence de la page, commite les modifications en BDD s'il y en a. Il bÈnÈficie donc d'ores et dÈj‡ d'une connexion ‡ la Base de donnÈes.
-* Ensuite, le modËle charge les donnÈes qui devront Ítre affichÈes. Toutes ces donnÈes sont placÈes dans le tableau $C (comme Content).
-* On appelle ensuite le template gÈnÈrique, et on le remplit avec les informations de la vue associÈe ‡ la page en cours.
+* Fichier principal d'Omnilogie, appel√© √† chaque page.
+* G√®re les pages selon une architecture type "MVC-customis√©e" :
+* Au d√©marrage, le contr√¥leur pr√©pare √† la mise en cache si n√©cessaire, fait des redirections, v√©rifie la coh√©rence de la page, commite les modifications en BDD s'il y en a. Il b√©n√©ficie donc d'ores et d√©j√† d'une connexion √† la Base de donn√©es.
+* Ensuite, le mod√®le charge les donn√©es qui devront √™tre affich√©es. Toutes ces donn√©es sont plac√©es dans le tableau $C (comme Content).
+* On appelle ensuite le template g√©n√©rique, et on le remplit avec les informations de la vue associ√©e √† la page en cours.
 */
 
 /**
 * Conventions de nommage :
-* Les fonctions gÈnÈriques sont placÈes dans le dossier C/lib/
-* Les fonctions gÈnÈriques sont du type type_Nom, par exemple formatting_ShowColumn()
+* Les fonctions g√©n√©riques sont plac√©es dans le dossier C/lib/
+* Les fonctions g√©n√©riques sont du type type_Nom, par exemple formatting_ShowColumn()
 * Les noms de fonction sont en lowerCamelCase
 * Les noms de variable sont en UpperCamelCase
 * Les noms sont en anglais.
-* Les vues gÈnÈriques sont dans le dossier V/lib/
+* Les vues g√©n√©riques sont dans le dossier V/lib/
 */
 
 /////////////////////////////////////////////////////////////
-//PARTIE CONTR‘LE
+//PARTIE CONTR√îLE
 /////////////////////////////////////////////////////////////
 //error_reporting(-1); //Inutile, un module set_error_handler se chargera de traiter ces exceptions.
 
 define('PATH',substr(__FILE__,0,strrpos(__FILE__,'/')));
 date_default_timezone_set("Europe/Paris");
 
-$C=array('menus'=>array(), 'head'=>array());//Contiendra tout le contenu des pages, la variable est chargÈe par le contrÙleur pour le titre et le modËle pour le reste.
+$C=array('menus'=>array(), 'head'=>array());//Contiendra tout le contenu des pages, la variable est charg√©e par le contr√¥leur pour le titre et le mod√®le pour le reste.
 
 
 
 
 /**
-* On utilise un systËme d'include '‡ la volÈe', pour ne pas avoir ‡ marquer manuellement les dÈpendances de chaque fichier.
-* Cette fonction est appelÈe automatiquement par PHP lorsqu'il renconctre un appel ‡ une classe qu'il ne connait pas encore.
-* @param Class:String la classe recherchÈe
+* On utilise un syst√®me d'include '√† la vol√©e', pour ne pas avoir √† marquer manuellement les d√©pendances de chaque fichier.
+* Cette fonction est appel√©e automatiquement par PHP lorsqu'il renconctre un appel √† une classe qu'il ne connait pas encore.
+* @param Class:String la classe recherch√©e
 */
 function __autoload($Class)
 {
@@ -50,28 +50,28 @@ function __autoload($Class)
 		Debug::fail('Impossible de charger dynamiquement ' . $Class . ' dans ' . $File);
 }
 
-//Si rien n'est spÈcifiÈ, on demande l'index
+//Si rien n'est sp√©cifi√©, on demande l'index
 if(empty($_GET['P']))
 	$_GET['P']='index';
 
 //Charger les constantes utiles au site.
 Constants::load();
 
-//VÈrifier qu'au moins un des fichiers MVC existe
+//V√©rifier qu'au moins un des fichiers MVC existe
 if(!is_file('M/' . $_GET['P'] . '.php') && !is_file('V/' . $_GET['P'] . '.php') && !is_file('C/' . $_GET['P'] . '.php'))
 	Debug::fail('Page inconnue : ' . $_GET['P']);
 
 
-//On dÈmarre la session
+//On d√©marre la session
 session_start();
 
-//DÈmarrer le serveur SQL
+//D√©marrer le serveur SQL
 Sql::connect();
 
-//DÈmarrer le gestionnaire d'erreurs
+//D√©marrer le gestionnaire d'erreurs
 set_error_handler('Debug::err_handler',-1);
 
-//PrÈparer l'affichage des messages diffÈrÈs
+//Pr√©parer l'affichage des messages diff√©r√©s
 if(isset($_SESSION['FutureMessage']))
 {
 	$C['Message'] = $_SESSION['FutureMessage'];
@@ -81,7 +81,7 @@ if(isset($_SESSION['FutureMessage']))
 }
 
 
-//Personnes tentant de se connecter ‡ l'ancienne, avec un hash directement dans l'URL (venant d'un mail probablement)
+//Personnes tentant de se connecter √† l'ancienne, avec un hash directement dans l'URL (venant d'un mail probablement)
 if(preg_match('`membre=([0-9abcdef]{32})$`',$_SERVER['REQUEST_URI']))
 {
 	$_SESSION['Membre']['RedirectTo'] = $_SERVER['SCRIPT_URL'];
@@ -120,12 +120,12 @@ if(preg_match('`membre=([0-9abcdef]{32})$`',$_SERVER['REQUEST_URI']))
 
 
 
-//Faut-il faire paraÓtre un article ?
+//Faut-il faire para√Ætre un article ?
 $time = time();
 $Date=file_get_contents(PROCHAIN_PATH);//NE RIEN METTRE ENTRE CES TROIS LIGNES
 if($Date<$time) //IL FAUT QU'ELLES S'EXECUTENT D'UN BLOC
 {
-	file_put_contents(PROCHAIN_PATH,$Date + 86400 * 2); //POUR …VITER LA PARUTION MULTIPLE
+	file_put_contents(PROCHAIN_PATH,$Date + 86400 * 2); //POUR √âVITER LA PARUTION MULTIPLE
 
 	$Params = Admin::getProchains();
 	$AParaitre = Omni::get($Params);
@@ -136,11 +136,11 @@ if($Date<$time) //IL FAUT QU'ELLES S'EXECUTENT D'UN BLOC
 		$Article->registerModif(Event::PARUTION,false,50);
 	}
 	else
-		External::mail('omni@neamar.fr','Erreur critique.','Impossible de faire paraÓtre un article, la liste est vide. RÈagissez !');
+		External::mail('omni@neamar.fr','Erreur critique.','Impossible de faire para√Ætre un article, la liste est vide. R√©agissez !');
 }
 
 $DateParutionProchainArticle = $Date;
-$C['Snippet']['nextArticle'] = date('d/m/Y ‡ G:i', $Date);
+$C['Snippet']['nextArticle'] = date('d/m/Y √† G:i', $Date);
 $C['Snippet']['nextArticleDateTime'] = date('Y-m-d', $Date);
 
 
@@ -188,10 +188,10 @@ $C['Snippet']['nextArticleDateTime'] = date('Y-m-d', $Date);
 
 
 
-//On inclut le contrÙleur du dossier s'il existe
+//On inclut le contr√¥leur du dossier s'il existe
 if (is_file('C/' . dirname($_GET['P']) . '/generic.php'))
     include 'C/' . dirname($_GET['P']) . '/generic.php';
-//On inclut le contrÙleur s'il existe
+//On inclut le contr√¥leur s'il existe
 if (is_file('C/' . $_GET['P'] . '.php'))
     include 'C/' . $_GET['P'] . '.php';
 
@@ -228,12 +228,12 @@ if (is_file('C/' . $_GET['P'] . '.php'))
 
 
 /////////////////////////////////////////////////////////////
-//PARTIE MOD»LE
+//PARTIE MOD√àLE
 /////////////////////////////////////////////////////////////
 //On charge les menus
 include 'M/lib/menu.php';
 
-//On inclut le modËle
+//On inclut le mod√®le
 include 'M/' . $_GET['P'] . '.php';
 SQL::disconnect();
 
@@ -248,16 +248,16 @@ if(isset($_SERVER['HTTP_USER_AGENT']) && stripos($_SERVER['HTTP_USER_AGENT'], 'a
 {
 	if(!isset($_SESSION['Membre']['Pseudo']))
 	{
-		$C['SpecialPod'] = '<p>Omnilogie est un site collaboratif ouvert ‡ tous&nbsp;: chaque jour, nous faisons paraÓtre un court article de culture gÈnÈrale. Pour cela, nous avons besoin de rÈdacteurs : <a href="https://omnilogie.fr/membres/Inscription">n\'hÈsitez pas ‡ participer</a>. Tous, nous avons quelque chose ‡ partager&nbsp;!</p>
+		$C['SpecialPod'] = '<p>Omnilogie est un site collaboratif ouvert √† tous&nbsp;: chaque jour, nous faisons para√Ætre un court article de culture g√©n√©rale. Pour cela, nous avons besoin de r√©dacteurs : <a href="https://omnilogie.fr/membres/Inscription">n\'h√©sitez pas √† participer</a>. Tous, nous avons quelque chose √† partager&nbsp;!</p>
 		<p>&rarr; <a href="/membres/Inscription">Je m\'inscris !</a></p>';
 		prependPod('special-pod','Engagez-vous !','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
 	}
 }
 else
 {
-	//Menu spÈcial pour Android
-	$C['SpecialPod'] = '<p style="text-align:center"><img src="/images/app/android.png" alt="Market" /><p>Vous pouvez aussi consulter Omnilogie depuis l\'application Android dÈdiÈe</p>
-	<p>&rarr; <a href="https://market.android.com/details?id=fr.omnilogie.app">Je la tÈlÈcharge !</a></p>';
+	//Menu sp√©cial pour Android
+	$C['SpecialPod'] = '<p style="text-align:center"><img src="/images/app/android.png" alt="Market" /><p>Vous pouvez aussi consulter Omnilogie depuis l\'application Android d√©di√©e</p>
+	<p>&rarr; <a href="https://market.android.com/details?id=fr.omnilogie.app">Je la t√©l√©charge !</a></p>';
 
 	prependPod('special-pod','Le saviez-vous ?','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
 }
@@ -300,5 +300,5 @@ else
 //PARTIE VUE
 /////////////////////////////////////////////////////////////
 
-//On inclut le template gÈnÈral.
+//On inclut le template g√©n√©ral.
 include('V/lib/Template.php');

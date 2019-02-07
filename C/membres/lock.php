@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : membres/lock.php
-* But : Récupérer un verrou en écriture sur la ressource désignée
+* ContrÃ´leur : membres/lock.php
+* But : RÃ©cupÃ©rer un verrou en Ã©criture sur la ressource dÃ©signÃ©e
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 $TitreOmni = Encoding::decodeFromGet('Titre');
 
@@ -19,5 +19,5 @@ $Article = Omni::get($Param);
 if(count($Article)==0)
 	exit();
 
-//Sinon, l'article existe. L'enregistrer, puis passer au modèle.
+//Sinon, l'article existe. L'enregistrer, puis passer au modÃ¨le.
 $Article = $Article[0];

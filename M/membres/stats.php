@@ -1,8 +1,8 @@
 <?php
 /**
-* ModËle : membres/Stats
+* Mod√®le : membres/Stats
 * But : Afficher des statistiques sur l'article
-* DonnÈes ‡ charger : Rien.
+* Donn√©es √† charger : Rien.
 *
 */
 
@@ -10,7 +10,7 @@ $C['PageTitle']='Statistiques de ' . AUTHOR;
 $C['CanonicalURL']='/membres/Stats';
 
 if(defined('NOOB_MODE') && !isset($C['Message']))
-	$C['Message'] = 'Vous trouverez ici des statistiques intÈressantes... dËs que vous aurez rÈdigÈ votre premier article :)';
+	$C['Message'] = 'Vous trouverez ici des statistiques int√©ressantes... d√®s que vous aurez r√©dig√© votre premier article :)';
 else
 {
 	//Liste des articles avec nombre de vues
@@ -33,15 +33,15 @@ else
 		'SELECT COUNT(*) AS Somme, COUNT(DISTINCT Statut) AS Statuts, SUM(NbVues)/COUNT(*) AS Moyenne
 		FROM OMNI_Omnilogismes
 		WHERE Auteur=' . AUTHOR_ID,
-		'Vous avez Ècrit $Somme articles sur le site, actuellement rÈpartis dans $Statuts statut(s).<br />
-		En moyenne, chacun de vos articles a ÈtÈ vu $Moyenne fois.');
+		'Vous avez √©crit $Somme articles sur le site, actuellement r√©partis dans $Statuts statut(s).<br />
+		En moyenne, chacun de vos articles a √©t√© vu $Moyenne fois.');
 
 	$C['StatsAuteur2'] = Stats::It(
-		'SELECT COUNT(*) AS NbAction, DATE_FORMAT(MIN(Date), "%d/%m/%Y ‡ %T") AS Min, DATE_FORMAT(MAX(Date), "%d/%m/%Y ‡ %T") AS Max
+		'SELECT COUNT(*) AS NbAction, DATE_FORMAT(MIN(Date), "%d/%m/%Y √† %T") AS Min, DATE_FORMAT(MAX(Date), "%d/%m/%Y √† %T") AS Max
 		FROM OMNI_Modifs
 		WHERE Auteur=' . AUTHOR_ID,
-		'Vous avez effectuÈ $NbAction actions sur le site.<br />
-		La premiËre action remonte au $Min, et la derniËre action Ètait le $Max.');
+		'Vous avez effectu√© $NbAction actions sur le site.<br />
+		La premi√®re action remonte au $Min, et la derni√®re action √©tait le $Max.');
 
 	$C['HeureModif'] = Stats::GraphIt(
 		'SELECT CONCAT(HOUR(Date),"h") As Abscisse,COUNT(*) AS Ordonnee

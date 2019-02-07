@@ -1,7 +1,7 @@
 <?php
 /**
-* Modèle : admin/datas
-* But : afficher tout plein de donn�es inutiles :D
+* ModÃ¨le : admin/datas
+* But : afficher tout plein de données inutiles :D
 */
 $C['PageTitle']='Liste des membres';
 $C['CanonicalURL']='/admin/Omnilogistes';

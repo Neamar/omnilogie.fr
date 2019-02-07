@@ -1,29 +1,29 @@
 <?php
 /**
-* Modèle : membres/Redaction
-* But : créer un nouvel article
-* Données à charger : liste des propositions réservées
+* ModÃ¨le : membres/Redaction
+* But : crÃ©er un nouvel article
+* DonnÃ©es Ã  charger : liste des propositions rÃ©servÃ©es
 *
 */
 
-$C['PageTitle']='Écriture d\'un nouvel article';
+$C['PageTitle']='Ã‰criture d\'un nouvel article';
 $C['CanonicalURL']='/membres/Redaction';
 
 if(defined('NOOB_MODE') && !isset($C['Message']))
 {
-	$C['Message'] = 'Voilà la page la plus importante pour les membres : c\'est d\'ici que vous pouvez rédiger vos articles.';
+	$C['Message'] = 'VoilÃ  la page la plus importante pour les membres : c\'est d\'ici que vous pouvez rÃ©diger vos articles.';
 }
 
 
-//Valeurs par défaut du formulaire:
+//Valeurs par dÃ©faut du formulaire:
 $C['Valeurs']=array(
 'titre'=>'',
 'article'=>'',
 'sources'=>'',
 'prop-id'=>'no');
 
-//Si il y a une erreur lors de l'enregistrement, on va réafficher l'ancienne valeur.
-//Il faut donc déséchapper $_POST.
+//Si il y a une erreur lors de l'enregistrement, on va rÃ©afficher l'ancienne valeur.
+//Il faut donc dÃ©sÃ©chapper $_POST.
 if(isset($_POST['titre']))
 {
 	$_POST=array_map('stripslashes',$_POST);

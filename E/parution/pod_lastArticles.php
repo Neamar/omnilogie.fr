@@ -1,10 +1,10 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::PARUTION
 *
 * @standalone
-* Mettre à jour le pod "Derniers articles parus"
+* Mettre Ã  jour le pod "Derniers articles parus"
 */
 
 $DerniersParams=Omni::buildParam();

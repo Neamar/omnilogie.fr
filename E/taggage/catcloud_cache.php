@@ -1,12 +1,12 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::TAGGAGE
 *
 * @standalone
 * @access taggers
-* Recalcule le tableau contenant la taille des différentes catégories dans le pod "nuage de catégories"
-* Mettre à jour le pod "nuage de catégories"
+* Recalcule le tableau contenant la taille des diffÃ©rentes catÃ©gories dans le pod "nuage de catÃ©gories"
+* Mettre Ã  jour le pod "nuage de catÃ©gories"
 */
 
 $Datas = SQL::query(

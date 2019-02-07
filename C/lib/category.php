@@ -1,6 +1,6 @@
 <?php
 /**
-* But : offrir des primitives pour la manipulation des différents catégories et des arbres associés.
+* But : offrir des primitives pour la manipulation des diffÃ©rents catÃ©gories et des arbres associÃ©s.
 *
 */
 //Category
@@ -10,8 +10,8 @@ class Category
 	private static $Datas=null;
 
 	/**
-	* Construire l'arbre des catégories pour une utilisation ultérieure
-	* Fonction appelée automatiquement au premier appel d'une méthode de la classe.
+	* Construire l'arbre des catÃ©gories pour une utilisation ultÃ©rieure
+	* Fonction appelÃ©e automatiquement au premier appel d'une mÃ©thode de la classe.
 	*/
 	private static function buildInitialTree()
 	{
@@ -20,9 +20,9 @@ class Category
 	}
 
 	/**
-	* Fonction permettant de savoir si une catégorie existe. Renvoie true si la catégorie existe, false sinon
-	* @param Category:String la catégorie à tester
-	* @return :bool true si la catégorie existe.
+	* Fonction permettant de savoir si une catÃ©gorie existe. Renvoie true si la catÃ©gorie existe, false sinon
+	* @param Category:String la catÃ©gorie Ã  tester
+	* @return :bool true si la catÃ©gorie existe.
 	*/
 	public static function exists($Category)
 	{
@@ -31,9 +31,9 @@ class Category
 	}
 
 	/**
-	* Échappe l'élément pour pouvoir être utilisé en BDD sans problème.
-	* @param Category:String l'élément à échapper
-	* @return :String la catégorie échappée
+	* Ã‰chappe l'Ã©lÃ©ment pour pouvoir Ãªtre utilisÃ© en BDD sans problÃ¨me.
+	* @param Category:String l'Ã©lÃ©ment Ã  Ã©chapper
+	* @return :String la catÃ©gorie Ã©chappÃ©e
 	*/
 	public static function escape($Category)
 	{
@@ -41,9 +41,9 @@ class Category
 	}
 
 	/**
-	* Échappe l'élément pour pouvoir être utilisé en BDD sans problème, ajoute des guillemets autour.
-	* @param Category:String l'élément à échapper
-	* @return :String la catégorie échappée
+	* Ã‰chappe l'Ã©lÃ©ment pour pouvoir Ãªtre utilisÃ© en BDD sans problÃ¨me, ajoute des guillemets autour.
+	* @param Category:String l'Ã©lÃ©ment Ã  Ã©chapper
+	* @return :String la catÃ©gorie Ã©chappÃ©e
 	*/
 	public static function escapeAndQuote($Category)
 	{
@@ -51,8 +51,8 @@ class Category
 	}
 
 	/**
-	* Construit un arbre entourant les catégories fournies en paramètres.
-	* @param Categories:array une liste de mots clés autour desquels on construira l'arbre.
+	* Construit un arbre entourant les catÃ©gories fournies en paramÃ¨tres.
+	* @param Categories:array une liste de mots clÃ©s autour desquels on construira l'arbre.
 	*/
 	public static function getTree(array $Categories)
 	{
@@ -67,7 +67,7 @@ class Category
 	/**
 	* Transformer le tableau PHP en tableau affichable en HTML.
 	* Il s'agit d'un tableau HTML assez complexe avec de multiples rowspan.
-	* @param Table:array Le tableau à transformer.
+	* @param Table:array Le tableau Ã  transformer.
 	* @return :String le tableau HTML.
 	*/
 	public static function outputTree(array $Table)
@@ -77,7 +77,7 @@ class Category
 		if(count($Lignes)==0)
 			return;
 
-		$Table=array_fill(0,10,array());//10 est une constante arbitraire définissant l'indentation maximale de l'arbre.
+		$Table=array_fill(0,10,array());//10 est une constante arbitraire dÃ©finissant l'indentation maximale de l'arbre.
 		$NbColonnes=count($Lignes);
 		$NbLignes=1;
 
@@ -95,7 +95,7 @@ class Category
 					$Start=$Parent[$Item['P']]['S'];
 				}
 
-				$Item['N']=self::getMaxSiblings($Item['ID'],$Lignes);//Calculer "l'épaisseur"
+				$Item['N']=self::getMaxSiblings($Item['ID'],$Lignes);//Calculer "l'Ã©paisseur"
 				$Item['S']=$Start;
 				$Table[$ID][$Start]=$Item;//Remplir le tableau
 
@@ -104,7 +104,7 @@ class Category
 
 				$NbLignes=max($NbLignes,$Start);
 
-				$Parent[$Item['ID']]=$Item;//enregistrer les infos dans un tableau linéaire en fonction de l'ID pour plus de simplicité.
+				$Parent[$Item['ID']]=$Item;//enregistrer les infos dans un tableau linÃ©aire en fonction de l'ID pour plus de simplicitÃ©.
 			}
 		}
 
@@ -134,9 +134,9 @@ class Category
 	}
 
 	/**
-	* Renvoie la liste des mots clés contenus dans le tableau $Categorie, et place le résultat dans $Items.
-	* NOTE : Les catégories sont échappées pour être utilisées dans une requête SQL.
-	* @param Categorie:array Un tableau tel que renvoyé par  getTree()
+	* Renvoie la liste des mots clÃ©s contenus dans le tableau $Categorie, et place le rÃ©sultat dans $Items.
+	* NOTE : Les catÃ©gories sont Ã©chappÃ©es pour Ãªtre utilisÃ©es dans une requÃªte SQL.
+	* @param Categorie:array Un tableau tel que renvoyÃ© par  getTree()
 	* @param Items:array le tableau final.
 	*/
 	public static function getUnidimensional(array $Categories,array &$Items)
@@ -153,7 +153,7 @@ class Category
 
 	/**
 	* Renvoie les enfants de $Category.
-	* @param Parent:String la catégorie à analyser
+	* @param Parent:String la catÃ©gorie Ã  analyser
 	* @return :array Un tableau avec tous les enfants.
 	*/
 	public static function getSiblings($Category)
@@ -162,10 +162,10 @@ class Category
 	}
 
 	/**
-	* Récupérer les derniers articles d'une catégorie.
-	* Ne récupère que le titre des articles, avec l'accroche.
-	* @param Categorie:String la catégorie à rechercher. Contrainte : doit être une catégorie de bas niveau !
-	* @param Nb:int le nombre d'article à récupérer, SAGA_NB_SHOW par défaut.
+	* RÃ©cupÃ©rer les derniers articles d'une catÃ©gorie.
+	* Ne rÃ©cupÃ¨re que le titre des articles, avec l'accroche.
+	* @param Categorie:String la catÃ©gorie Ã  rechercher. Contrainte : doit Ãªtre une catÃ©gorie de bas niveau !
+	* @param Nb:int le nombre d'article Ã  rÃ©cupÃ©rer, SAGA_NB_SHOW par dÃ©faut.
 	* @return :array<Omni> un tableau de Nb articles maximum.
 	*/
 	public static function getOmni($Category,$Nb=SAGA_NB_SHOW)
@@ -179,10 +179,10 @@ class Category
 	}
 
 	/**
-	* Construire les menus spéciaux de catégorie pour les sagas.
-	* fonction récursive supportant les imbrications de sagas.
-	* Utilisé pour : les articles dans une saga, l'affichage d'une catégorie qui est une saga.
-	* @param Arbre:array L'arbre de départ, tel que retourné par Category::getTree
+	* Construire les menus spÃ©ciaux de catÃ©gorie pour les sagas.
+	* fonction rÃ©cursive supportant les imbrications de sagas.
+	* UtilisÃ© pour : les articles dans une saga, l'affichage d'une catÃ©gorie qui est une saga.
+	* @param Arbre:array L'arbre de dÃ©part, tel que retournÃ© par Category::getTree
 	* @return :void Remplit le tableau $C.
 	*/
 	public static function buildSaga(array $Arbre)
@@ -204,21 +204,21 @@ class Category
 
 			prependPod('saga-' . count($C['Pods']),$Saga,Cache::get('Sagas',md5($Saga)));
 
-			//Appel récursif.
+			//Appel rÃ©cursif.
 			if(is_array($Child))
 				self::buildSaga($Child);
 		}
 	}
 
 	/**
-	* Met toutes les clés de premier niveau dans un même tableau, puis toutes les clés de second niveau, et ainsi de suite...
-	* Puis renvoie le tableau global. Ajoute des méta-informations pour pouvoir s'y retrouver :)
-	* Fonction récursive (forcément !)
-	* @param Tab:array le tableau des calculs précédents.
-	* @param Origine:array Le tableau de départ, trié selon l'ordre logique.
-	* @param Profondeur:int La profondeur du moment. 0 au début, puis +1 à chaque appel.
+	* Met toutes les clÃ©s de premier niveau dans un mÃªme tableau, puis toutes les clÃ©s de second niveau, et ainsi de suite...
+	* Puis renvoie le tableau global. Ajoute des mÃ©ta-informations pour pouvoir s'y retrouver :)
+	* Fonction rÃ©cursive (forcÃ©ment !)
+	* @param Tab:array le tableau des calculs prÃ©cÃ©dents.
+	* @param Origine:array Le tableau de dÃ©part, triÃ© selon l'ordre logique.
+	* @param Profondeur:int La profondeur du moment. 0 au dÃ©but, puis +1 Ã  chaque appel.
 	* @param Parent:int L'identifiant du parent.
-	* @return :Array Un tableau trié par profondeur.
+	* @return :Array Un tableau triÃ© par profondeur.
 	*/
 	private static function linear(array $Tab,array &$Origine,$Profondeur,&$Parent)
 	{
@@ -235,9 +235,9 @@ class Category
 	}
 
 	/**
-	* Renvoie la colonne avec le plus d'élements ayant comme parent $ID
-	* @param ID:int L'identifiant de la colonne pour laquelle on fait la requête.
-	* @param $Tab:array Le sous tableau à analyser.
+	* Renvoie la colonne avec le plus d'Ã©lements ayant comme parent $ID
+	* @param ID:int L'identifiant de la colonne pour laquelle on fait la requÃªte.
+	* @param $Tab:array Le sous tableau Ã  analyser.
 	*/
 	private static function getMaxSiblings($ID,array $Tab)
 	{
@@ -257,23 +257,23 @@ class Category
 	}
 
 	/**
-	* Construit étape par étape l'arbre, en ajoutant $Category et sa descendance au tableau déjà formé dans $Base.
-	* Fonction récursive.
-	* @param Category:String la catégorie à ajouter à l'arbre Base
-	* @param Base:array le tableau déjà crée.
+	* Construit Ã©tape par Ã©tape l'arbre, en ajoutant $Category et sa descendance au tableau dÃ©jÃ  formÃ© dans $Base.
+	* Fonction rÃ©cursive.
+	* @param Category:String la catÃ©gorie Ã  ajouter Ã  l'arbre Base
+	* @param Base:array le tableau dÃ©jÃ  crÃ©e.
 	* @return :array Le tableau final
 	*/
 	private static function getTreeR($Category,array &$Base)
 	{
-		//Catégorie vide, rien à faire.
+		//CatÃ©gorie vide, rien Ã  faire.
 		if($Category=='')
 			return $Base;
 
-		//Préparation de l'algorithme
+		//PrÃ©paration de l'algorithme
 		$A_Examiner=array();
 		$Depart=&$Base;
 
-		//S'il s'agit d'une catégorie maitresse (du type Science, Au quotidien) qui n'a pas de parents.
+		//S'il s'agit d'une catÃ©gorie maitresse (du type Science, Au quotidien) qui n'a pas de parents.
 		if(self::$Datas[$Category]==array() && !isset($Base[$Category]))
 			$Base[$Category]=1;
 
@@ -299,9 +299,9 @@ class Category
 	}
 
 	/**
-	* Récupère les enfants de $Siblings récursivement.
-	* @param Parent:String la catégorie à analyser
-	* @param Base:array le tableau construit jusqu'à présent.
+	* RÃ©cupÃ¨re les enfants de $Siblings rÃ©cursivement.
+	* @param Parent:String la catÃ©gorie Ã  analyser
+	* @param Base:array le tableau construit jusqu'Ã  prÃ©sent.
 	*/
 	private static function getSiblingsR($Parent,array $Base=array())
 	{

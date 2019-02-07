@@ -19,5 +19,5 @@
 	<p><input type="submit" value="Connexion" /></p>
 </form>
 
-<p><a href="/membres/Inscription">Pas encore inscrit ? Cliquez ici pour créer un compte et commencer à rédiger des articles !</a></p>
-<p><a href="/membres/Oubli">Mot de passe oublié ?</a></p>
+<p><a href="/membres/Inscription">Pas encore inscrit ? Cliquez ici pour crÃ©er un compte et commencer Ã  rÃ©diger des articles !</a></p>
+<p><a href="/membres/Oubli">Mot de passe oubliÃ© ?</a></p>

@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : membres/lock.php
-* But : tenter de récupérer un verrou en écriture sur l'article.
-* Bypasse le système de vue, renvoie 'OK' si possible de récupérer un lock, un message d'erreur sinon.
+* ModÃ¨le : membres/lock.php
+* But : tenter de rÃ©cupÃ©rer un verrou en Ã©criture sur l'article.
+* Bypasse le systÃ¨me de vue, renvoie 'OK' si possible de rÃ©cupÃ©rer un lock, un message d'erreur sinon.
 */
 
 if(!Member::is(AUTHOR,'any') && !isset($_SESSION['Membre']['Articles'][$Article->ID]))

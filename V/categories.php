@@ -10,6 +10,6 @@
 
 //Afficher l'arbre
 ?>
-<h3 id="h3_tree"><span>Arbre des catégories</span></h3>
-<p>Voici l'arbre qui contient toutes les catégories ; pour lire les articles par thème !</p>
+<h3 id="h3_tree"><span>Arbre des catÃ©gories</span></h3>
+<p>Voici l'arbre qui contient toutes les catÃ©gories ; pour lire les articles par thÃ¨me !</p>
 <?php Template::put('Categories') ?>

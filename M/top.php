@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : Articles
+* ModÃ¨le : Articles
 * But : Afficher la liste des articles
-* Données à charger : tous les articles, sous forme de teaser.
+* DonnÃ©es Ã  charger : tous les articles, sous forme de teaser.
 * Liste des statuts en specialPods
 */
 $C['PageTitle'] = 'Meilleurs articles d\'Omnilogie.fr';

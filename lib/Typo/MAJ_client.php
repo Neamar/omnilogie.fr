@@ -4,7 +4,7 @@ define('MASTER','http://neamar.fr/lib/Typo/');
 error_reporting(E_ALL);
 $Mute=false;
 
-//Ne pas effectuer la Màj sur le serveur maitre
+//Ne pas effectuer la MÃ j sur le serveur maitre
 if($_SERVER['SERVER_NAME']=='neamar.fr')
 	exit();
 
@@ -28,15 +28,15 @@ function browseFiles($Dir,&$Tree)
 	}
 }
 
-//Télécharge $URL avec les données $POST demandées.
+//TÃ©lÃ©charge $URL avec les donnÃ©es $POST demandÃ©es.
 function download($URL,$POST=array())
 {
-	$POST_str="";//La chaine de caractères du POST mis à plat
+	$POST_str="";//La chaine de caractÃ¨res du POST mis Ã  plat
 	foreach($POST as $k=>$v)
 		$POST_str .= urlencode($k) . '=' . urlencode($v) . '&';
-	rtrim($POST_str,'&');//Supprimer la dernière Esperluette
+	rtrim($POST_str,'&');//Supprimer la derniÃ¨re Esperluette
 
-	//Intialiser une connexion avec CURL pour récupérer les données demandées
+	//Intialiser une connexion avec CURL pour rÃ©cupÃ©rer les donnÃ©es demandÃ©es
 	$Connexion = curl_init();
 	curl_setopt($Connexion, CURLOPT_URL,MASTER . $URL);
 	curl_setopt($Connexion, CURLOPT_RETURNTRANSFER, 1);
@@ -56,41 +56,41 @@ function Out($texte)
 		echo '<p>' . preg_replace('#{(.+)}#','<strong>$1</strong>',$texte) . "</p>\n";
 }
 
-Out("Lancement de la mise à jour du {Typographe}.");
+Out("Lancement de la mise Ã  jour du {Typographe}.");
 //Liste des fichiers actuellement sur le serveur
 $Tree=array();
 browseFiles('.',$Tree);
 asort($Tree);
 
 
-///PREMIÈRE ÉTAPE : fichiers modifiés.
-//Préparer une requête POST :
+///PREMIÃˆRE Ã‰TAPE : fichiers modifiÃ©s.
+//PrÃ©parer une requÃªte POST :
 $Files=unserialize(download('MAJ_server.php?CheckNewVersion',$Tree));
-//La requête renvoie la liste des fichiers plus récents que ceux actuellement sur le serveur
+//La requÃªte renvoie la liste des fichiers plus rÃ©cents que ceux actuellement sur le serveur
 if(count($Files)!=0)
-{//Il y a eu des modifs, il va falloir télécharger tout ça.
-	Out('Le script va effectuer la mise à jour de ' . count($Files) .  ' fichier(s) (' . implode(', ',$Files) . ')');
-	///SECONDE ÉTAPE : repartir sur une arborescence saine
+{//Il y a eu des modifs, il va falloir tÃ©lÃ©charger tout Ã§a.
+	Out('Le script va effectuer la mise Ã  jour de ' . count($Files) .  ' fichier(s) (' . implode(', ',$Files) . ')');
+	///SECONDE Ã‰TAPE : repartir sur une arborescence saine
 	$Dirs=unserialize(download('MAJ_server.php?GetDirs'));
-	Out("Liste des dossiers récupérée");
-	//Récupérer tous les nouveaux dossiers et les créer si nécessaire.
+	Out("Liste des dossiers rÃ©cupÃ©rÃ©e");
+	//RÃ©cupÃ©rer tous les nouveaux dossiers et les crÃ©er si nÃ©cessaire.
 	foreach($Dirs as $Dir)
 	{
 		if(!is_dir($Dir))
 		{
-			Out("Création d'un nouveau répértoire : {" . $Dir . '}');
+			Out("CrÃ©ation d'un nouveau rÃ©pÃ©rtoire : {" . $Dir . '}');
 			mkdir($Dir);
 		}
 	}
 
-	///TROISIÈME PARTIE : charger chacune des pages nécessaires.
+	///TROISIÃˆME PARTIE : charger chacune des pages nÃ©cessaires.
 	foreach($Files as $File)
 	{
-		Out('Téléchargement du fichier {' . $File . '}');
+		Out('TÃ©lÃ©chargement du fichier {' . $File . '}');
 		file_put_contents($File,download('MAJ_server.php?GetCode',array('File'=>$File)));
-		Out("Fichier {" . $File . '} enregistré.');
+		Out("Fichier {" . $File . '} enregistrÃ©.');
 	}
-	Out("Fin de la mise à jour.");
+	Out("Fin de la mise Ã  jour.");
 }
 else
-	Out('La version du Typographe installée sur le serveur {' . $_SERVER['SERVER_NAME'] . '} est à jour.');
+	Out('La version du Typographe installÃ©e sur le serveur {' . $_SERVER['SERVER_NAME'] . '} est Ã  jour.');

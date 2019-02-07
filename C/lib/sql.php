@@ -1,16 +1,16 @@
 <?php
 /**
-* But : offrir une interface centralisée d'accès à la BDD, pour pouvoir changer facilement de méthode d'accès ou de système de BDD.
+* But : offrir une interface centralisÃ©e d'accÃ¨s Ã  la BDD, pour pouvoir changer facilement de mÃ©thode d'accÃ¨s ou de systÃ¨me de BDD.
 */
 //Sql
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Sql
 {
 	/**
-	* Ouvrir une connexion à la base de données.
+	* Ouvrir une connexion Ã  la base de donnÃ©es.
 	*/
 	public static function connect()
 	{
@@ -18,7 +18,7 @@ class Sql
 	}
 
 	/**
-	* Ferme la connexion. Normalement implicite et non appelé par les scripts.
+	* Ferme la connexion. Normalement implicite et non appelÃ© par les scripts.
 	*/
 	public static function disconnect()
 	{
@@ -26,9 +26,9 @@ class Sql
 	}
 
 	/**
-	* Exécute une requête sur la base
-	* @param Query:String la requête à effectuer
-	* @return :SQLResource le résultat de la requête.
+	* ExÃ©cute une requÃªte sur la base
+	* @param Query:String la requÃªte Ã  effectuer
+	* @return :SQLResource le rÃ©sultat de la requÃªte.
 	*/
 	public static function query($Query)
 	{
@@ -37,9 +37,9 @@ class Sql
 	}
 
 	/**
-	* Exécute une requête sur la base. En cas d'erreur, le script n'est pas interrompu et la fonction appelante peut traiter l'exception.
-	* @param Query:String la requête à effectuer
-	* @return :SQLResource le résultat de la requête.
+	* ExÃ©cute une requÃªte sur la base. En cas d'erreur, le script n'est pas interrompu et la fonction appelante peut traiter l'exception.
+	* @param Query:String la requÃªte Ã  effectuer
+	* @return :SQLResource le rÃ©sultat de la requÃªte.
 	*/
 	public static function queryNoFail($Query)
 	{
@@ -47,10 +47,10 @@ class Sql
 	}
 
 	/**
-	* Exécute une requête sur la base et ne renvoie que le premier résultat
-	* @param Query:String la requête à effectuer
-	* @param Type:String le type de l'objet de retour. Si null (par défaut), on renvoie un tableau.
-	* @return :(Object|array) le premier résultat de la requête. Si aucun résultat, la fonction renvoie null.
+	* ExÃ©cute une requÃªte sur la base et ne renvoie que le premier rÃ©sultat
+	* @param Query:String la requÃªte Ã  effectuer
+	* @param Type:String le type de l'objet de retour. Si null (par dÃ©faut), on renvoie un tableau.
+	* @return :(Object|array) le premier rÃ©sultat de la requÃªte. Si aucun rÃ©sultat, la fonction renvoie null.
 	*/
 	public static function singleQuery($Query,$Type=null)
 	{
@@ -64,19 +64,19 @@ class Sql
 	}
 
 	/**
-	* Insère un tuple dans une table de la base de données.
-	* En cas d'erreurs (duplicate), l'erreur n'est pas traitée et est renvoyée à l'appelant pour gestion.
-	* NOTE: Les clés du tableau Datas commençant par un "_" indiquent que la valeur associée ne doit pas être échappée. Le "_" est ensuite supprimé lors de l'update sur la table. Voir le deuxième exemple.
-	* @param Table:String la table dans laquelle insérer les données.
-	* @param Datas:array un tableau associatif sous la forme clé=>valeur dans la table. Les valeurs doivent être échappées ! Elle n'ont cependant pas à être quotées, des guillemets seront ajoutés sauf si la clé commence par un _ (cf. note).
-	* @return :SQLResource le résultat de la requête.
+	* InsÃ¨re un tuple dans une table de la base de donnÃ©es.
+	* En cas d'erreurs (duplicate), l'erreur n'est pas traitÃ©e et est renvoyÃ©e Ã  l'appelant pour gestion.
+	* NOTE: Les clÃ©s du tableau Datas commenÃ§ant par un "_" indiquent que la valeur associÃ©e ne doit pas Ãªtre Ã©chappÃ©e. Le "_" est ensuite supprimÃ© lors de l'update sur la table. Voir le deuxiÃ¨me exemple.
+	* @param Table:String la table dans laquelle insÃ©rer les donnÃ©es.
+	* @param Datas:array un tableau associatif sous la forme clÃ©=>valeur dans la table. Les valeurs doivent Ãªtre Ã©chappÃ©es ! Elle n'ont cependant pas Ã  Ãªtre quotÃ©es, des guillemets seront ajoutÃ©s sauf si la clÃ© commence par un _ (cf. note).
+	* @return :SQLResource le rÃ©sultat de la requÃªte.
 	* @example
 	*	$ToInsert = array('Reference'=>$ArticleID,'URL'=>'http://neamar.fr');
 	*	SQL::insert('More',$ToInsert);
 	*/
 	public static function insert($Table,array $Valeurs)
 	{
-		//On ne peut pas simplement utiliser array_keys, car on peut avoir à modifier les clés (règle de l'underscore)
+		//On ne peut pas simplement utiliser array_keys, car on peut avoir Ã  modifier les clÃ©s (rÃ¨gle de l'underscore)
 		$Keys=array();
 		foreach($Valeurs as $K=>&$V)
 		{
@@ -94,30 +94,30 @@ class Sql
 	}
 
 	/**
-	* Met à jour un tuple dans une table de la base de données selon l'identifiant spécifié.
-	* En cas d'erreurs, l'erreur n'est pas traitée et est renvoyée à l'appelant pour gestion.
-	* NOTE: Les clés du tableau Datas commençant par un "_" indiquent que la valeur associée ne doit pas être échappée. Le "_" est ensuite supprimé lors de l'update sur la table. Voir le deuxième exemple.
-	* @param Table:String la table dans laquelle insérer les données.
-	* @param ID:int l'identifiant du tuple à mettre à jour. Forcément l'ID.
-	* @param Datas:array un tableau associatif sous la forme clé=>valeur dans la table. Les valeurs doivent être échappées ! Elle n'ont cependant pas à être quotées, des guillemets seront ajoutés sauf si la clé commence par un _ (cf. note).
-	* @param And:String des contraintes supplémentaires permettant de valider la mise à jour (exemple : "AND Auteur.ID=2" pour empêcher la modification de n'importe quoi)
-	* @param Limit:int nombre maximal d'enregistrements à modifier
-	* @return :SQLResource le résultat de la requête.
+	* Met Ã  jour un tuple dans une table de la base de donnÃ©es selon l'identifiant spÃ©cifiÃ©.
+	* En cas d'erreurs, l'erreur n'est pas traitÃ©e et est renvoyÃ©e Ã  l'appelant pour gestion.
+	* NOTE: Les clÃ©s du tableau Datas commenÃ§ant par un "_" indiquent que la valeur associÃ©e ne doit pas Ãªtre Ã©chappÃ©e. Le "_" est ensuite supprimÃ© lors de l'update sur la table. Voir le deuxiÃ¨me exemple.
+	* @param Table:String la table dans laquelle insÃ©rer les donnÃ©es.
+	* @param ID:int l'identifiant du tuple Ã  mettre Ã  jour. ForcÃ©ment l'ID.
+	* @param Datas:array un tableau associatif sous la forme clÃ©=>valeur dans la table. Les valeurs doivent Ãªtre Ã©chappÃ©es ! Elle n'ont cependant pas Ã  Ãªtre quotÃ©es, des guillemets seront ajoutÃ©s sauf si la clÃ© commence par un _ (cf. note).
+	* @param And:String des contraintes supplÃ©mentaires permettant de valider la mise Ã  jour (exemple : "AND Auteur.ID=2" pour empÃªcher la modification de n'importe quoi)
+	* @param Limit:int nombre maximal d'enregistrements Ã  modifier
+	* @return :SQLResource le rÃ©sultat de la requÃªte.
 	* @example
-	* //Notez la réalisation de la proposition si nécessaire :
+	* //Notez la rÃ©alisation de la proposition si nÃ©cessaire :
 	*	if(is_numeric($_POST['proposition']))
 	*		SQL::update('Propositions',$_POST['proposition'],array('OmniID'=>mysql_insert_id()),'AND ReservePar=' . AUTHOR_ID);
 	* @example
 	* //Explicitation du _
 	*
-	* //Incorrect : le now() sera updaté sous la forme "NOW()" (guillemets compris, ce qui sera invalidé car la chaîne de caractères "NOW()" n'est pas de type DATE.
+	* //Incorrect : le now() sera updatÃ© sous la forme "NOW()" (guillemets compris, ce qui sera invalidÃ© car la chaÃ®ne de caractÃ¨res "NOW()" n'est pas de type DATE.
 	* SQL::update('Propositions',$_POST['proposition'],array('Date'=>'NOW()');
 	*
-	* //Correct : pour indiquer qu'il s'agit d'un appel à une fonction / expression, précédez votre clé d'un _ :
+	* //Correct : pour indiquer qu'il s'agit d'un appel Ã  une fonction / expression, prÃ©cÃ©dez votre clÃ© d'un _ :
 	* SQL::update('Propositions',$_POST['proposition'],array('_Date'=>'NOW()');
 	* @example
 	* //Explicitation du $And
-	* //Petit "hack" pour mettre à jour un tuple dont on ne connaît pas l'ID :
+	* //Petit "hack" pour mettre Ã  jour un tuple dont on ne connaÃ®t pas l'ID :
 	* SQL::update('Propositions',-1,array('Titre'=>'Lol'),'OR ID=(SELECT MAX(ID) FROM Propositions)'
 	*/
 	public static function update($Table,$ID, array $Valeurs,$And='',$Limit=1)
@@ -136,11 +136,11 @@ class Sql
 	}
 
 	/**
-	* Supprime un tuple basé sur les contraintes spécifiées.
-	* @param Table:String la table dans laquelle supprimer les données.
-	* @param ID:int l'identifiant du tuple à détruire. Forcément l'ID.
-	* @param $And:String des contraintes supplémentaires permettant de valider la mise à jour (exemple : "AND Auteur.ID=2" pour empêcher la modification de n'importe quoi)
-	* @return :SQLResource le résultat de la requête.
+	* Supprime un tuple basÃ© sur les contraintes spÃ©cifiÃ©es.
+	* @param Table:String la table dans laquelle supprimer les donnÃ©es.
+	* @param ID:int l'identifiant du tuple Ã  dÃ©truire. ForcÃ©ment l'ID.
+	* @param $And:String des contraintes supplÃ©mentaires permettant de valider la mise Ã  jour (exemple : "AND Auteur.ID=2" pour empÃªcher la modification de n'importe quoi)
+	* @return :SQLResource le rÃ©sultat de la requÃªte.
 	*/
 	public static function delete($Table,$ID,$And)
 	{
@@ -149,7 +149,7 @@ class Sql
 }
 
 /**
-* Classe générique de paramètre d'appel à la base de donnée.
+* Classe gÃ©nÃ©rique de paramÃ¨tre d'appel Ã  la base de donnÃ©e.
 */
 class SqlParam
 {
@@ -161,14 +161,14 @@ class SqlParam
 	public $Order;
 
 	/**
-	* Construit un objet SQLParam avec les paramètres demandés.
+	* Construit un objet SQLParam avec les paramÃ¨tres demandÃ©s.
 	*/
 	public function __construct(array &$Param=null)
 	{
 		if(is_null($Param))
 			return;
 
-		//Construire l'objet avec les propriétés par défaut et les valeurs spécifiées.
+		//Construire l'objet avec les propriÃ©tÃ©s par dÃ©faut et les valeurs spÃ©cifiÃ©es.
 		static $Defaut = array
 		(
 			'Select'=>'*',
@@ -187,7 +187,7 @@ class SqlParam
 	}
 
 	/**
-	* Récupère les éléments.
+	* RÃ©cupÃ¨re les Ã©lÃ©ments.
 	*/
 	public function getSelect()
 	{

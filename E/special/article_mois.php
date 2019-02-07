@@ -1,21 +1,21 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::SPECIAL
 *
 * @standalone
 * @access admins
 *
 * PUBLIE un nouvel article avec les informations sur le concours du mois.
-* ATTENTION : l'article est directement PUBLIÉ !
+* ATTENTION : l'article est directement PUBLIÃ‰ !
 */
-//Identifiant de l'auteur faisant paraître les top
+//Identifiant de l'auteur faisant paraÃ®tre les top
 $authorTopId = 240;
 
 /*
- * Récupérer les données utiles :
+ * RÃ©cupÃ©rer les donnÃ©es utiles :
  */
-//Récupérer l'article du mois
+//RÃ©cupÃ©rer l'article du mois
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 $Param->Where = 'Sortie LIKE "' . Top::$month . '" AND NbVotes = (SELECT MAX(NbVotes) FROM OMNI_Omnilogismes WHERE Sortie LIKE "' . Top::$month . '")';
 $Param->Limit = 1;
@@ -34,13 +34,13 @@ WHERE Sortie LIKE "' . Top::$month . '"
 ORDER BY NbVotes DESC
 LIMIT 5';
 
-$articlesGraphique = Stats::GraphItUrl($VotesMois, array('cht'=>'bhs','chs'=>'675x200', 'chtt'=>'Articles les plus votés','chxt'=>'y,x','chxl'=>'0:|$ABSCISSES|1:|0|$MAX','chbh'=>'a'),false);
+$articlesGraphique = Stats::GraphItUrl($VotesMois, array('cht'=>'bhs','chs'=>'675x200', 'chtt'=>'Articles les plus votÃ©s','chxt'=>'y,x','chxl'=>'0:|$ABSCISSES|1:|0|$MAX','chbh'=>'a'),false);
 
-//Les données du "concours" :
+//Les donnÃ©es du "concours" :
 $mois = Top::$monthReadable;
 
 /*
- * Mettre à jour le concours pour se faire sur le prochain mois
+ * Mettre Ã  jour le concours pour se faire sur le prochain mois
  */
 Top::goNextMonth();
 
@@ -48,7 +48,7 @@ Top::goNextMonth();
  * Contenu de l'article
  */
 $template = "
-Voici venu le temps de donner les résultats ! Après une semaine de vote, \b{l'article du mois de " . $mois . "} a été sélectionné.
+Voici venu le temps de donner les rÃ©sultats ! AprÃ¨s une semaine de vote, \b{l'article du mois de " . $mois . "} a Ã©tÃ© sÃ©lectionnÃ©.
 
 Sans plus attendre, le vainqueur est...
 
@@ -68,11 +68,11 @@ foreach($articlesMois as $article)
 }
 
 $template .= "\n
-\image[Répartition des votes pour le concours de " . $mois . "]{" . $articlesGraphique . "}";
+\image[RÃ©partition des votes pour le concours de " . $mois . "]{" . $articlesGraphique . "}";
 
 //Lien vers le concours du prochain mois :
 $template .= "\n\n
-\l[/Vote]{Les votes sont maintenant ouverts pour élire l'article du mois de " . Top::$monthReadable . "}. Les résultats seront annoncés dimanche prochain.";
+\l[/Vote]{Les votes sont maintenant ouverts pour Ã©lire l'article du mois de " . Top::$monthReadable . "}. Les rÃ©sultats seront annoncÃ©s dimanche prochain.";
 /*
  * Enregistrement et publication de l'article
  */
@@ -82,8 +82,8 @@ $newOmniData = array(
 	'Statut' => 'ACCEPTE',
 	'Titre' => 'Top article du mois de ' . $mois,
 	'Omnilogisme' => Input::sanitize(addslashes($template)),
-	'Accroche' => 'Découvrez les résultats du vote pour le meilleur article de ' . $mois,
-	'Message' => 'Cet article spécial récapitule les résultats du vote élisant le meilleur article du mois de ' . $mois . '.'
+	'Accroche' => 'DÃ©couvrez les rÃ©sultats du vote pour le meilleur article de ' . $mois,
+	'Message' => 'Cet article spÃ©cial rÃ©capitule les rÃ©sultats du vote Ã©lisant le meilleur article du mois de ' . $mois . '.'
 );
 
 Sql::insert('OMNI_Omnilogismes', $newOmniData);
@@ -99,7 +99,7 @@ Sql::insert('OMNI_Modifs', array('Auteur'=>50			,'Reference'=>$id, '_Date'=>'NOW
 //$NouvelArticle->registerModif(Event::ACCEPTE, false, 50);
 $NouvelArticle->registerModif(Event::PARUTION, false, 50);
 
-// Ajouter la bannière
+// Ajouter la banniÃ¨re
 $i = imagecreatetruecolor(690, 95);
 
 function imageadd($id, $on, $x, $y)

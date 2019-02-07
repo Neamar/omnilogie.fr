@@ -1,18 +1,18 @@
 <?php
 /**
-* But : gérer le template de sortie.
+* But : gÃ©rer le template de sortie.
 * Voir le fichier V/lib/Template.php
 */
 //Template
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Template
 {
 	/**
 	* Affiche le contenu de la variable $C[$Var] si elle existe.
-	* @param Var:String la variable à remplacer
+	* @param Var:String la variable Ã  remplacer
 	* @return :HTML
 	*/
 	public static function put($Var,$Prefix=null)
@@ -23,20 +23,20 @@ class Template
 			if(isset($C[$Var]))
 				echo $C[$Var];
 			else
-				Debug::fail('Template : élément ' . $Var . ' inconnu.');
+				Debug::fail('Template : Ã©lÃ©ment ' . $Var . ' inconnu.');
 		}
 		else
 		{
 			if(isset($C[$Prefix][$Var]))
 				echo $C[$Prefix][$Var];
 			else
-				Debug::fail('Template : élément ' . $Var . ' du tableau ' . $Prefix . ' inconnu.');
+				Debug::fail('Template : Ã©lÃ©ment ' . $Var . ' du tableau ' . $Prefix . ' inconnu.');
 		}
 	}
 
 	/**
-	* Inclut le fichier $Path demandé s'il existe.
-	* @param Path:String le chemin du fichier à inclure, relatif à /V/
+	* Inclut le fichier $Path demandÃ© s'il existe.
+	* @param Path:String le chemin du fichier Ã  inclure, relatif Ã  /V/
 	* @return :HTML
 	*/
 	public static function includeFile($Path)

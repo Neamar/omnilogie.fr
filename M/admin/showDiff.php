@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : admin/showDiff
-* But : afficher les différences entre deux versions d'un article
-* Pré-requis : $Article chargé par le contrôleur
+* ModÃ¨le : admin/showDiff
+* But : afficher les diffÃ©rences entre deux versions d'un article
+* PrÃ©-requis : $Article chargÃ© par le contrÃ´leur
 */
 
 $C['PageTitle']='Logs';
@@ -15,16 +15,16 @@ $C['CanonicalURL']='/admin/Logs/';
 //Virer certains pods pour gagner de la place :
 unset($C['Pods']['author-stats'],$C['Pods']['modifiable'],$C['Pods']['publiable']);
 
-//Affichage des dernières actions
+//Affichage des derniÃ¨res actions
 $C['Pods']['lastactions']['Content']=Formatting::makeList(Event::getLast(150,'Reference=' . $Article->ID,'%DATE% %MODIF% par %AUTEUR% %DIFF%'));
 
-//Récupérer la version à comparer
+//RÃ©cupÃ©rer la version Ã  comparer
 $Origine=mysql_fetch_assoc(mysql_query('SELECT Reference,Sauvegarde,Date, OMNI_Auteurs.Auteur
 FROM OMNI_Modifs
 LEFT JOIN OMNI_Auteurs ON (OMNI_Modifs.Auteur=OMNI_Auteurs.ID)
 WHERE OMNI_Modifs.ID=' . $ComparaisonID . ' AND !ISNULL(Sauvegarde)'));
 
-//Récupérer les modifs plus récentes :
+//RÃ©cupÃ©rer les modifs plus rÃ©centes :
 $Nouveaux=SQL::query('SELECT OMNI_Modifs.ID, Date,Sauvegarde, OMNI_Auteurs.Auteur
 FROM OMNI_Modifs
 LEFT JOIN OMNI_Auteurs ON (OMNI_Modifs.Auteur=OMNI_Auteurs.ID)
@@ -40,14 +40,14 @@ if(mysql_num_rows($Nouveaux)==0)
 	ORDER BY OMNI_Modifs.ID DESC
 	LIMIT 1,1'));
 
-	//Récupérer les modifs plus récentes :
+	//RÃ©cupÃ©rer les modifs plus rÃ©centes :
 	$Nouveaux=SQL::query('SELECT OMNI_Modifs.ID, Date,Sauvegarde, OMNI_Auteurs.Auteur
 	FROM OMNI_Modifs
 	LEFT JOIN OMNI_Auteurs ON (OMNI_Modifs.Auteur=OMNI_Auteurs.ID)
 	WHERE !ISNULL(Sauvegarde) AND Reference=' . $Article->ID . '
 	ORDER BY OMNI_Modifs.ID DESC
 	LIMIT 1');
-	$C['Message']='Comparaison de la dernière version avec la révision précédente.';
+	$C['Message']='Comparaison de la derniÃ¨re version avec la rÃ©vision prÃ©cÃ©dente.';
 	$C['MessageClass'] = 'info';
 }
 
@@ -95,7 +95,7 @@ function diff(array $old, array $new)
 
 function htmlDiff($old, $new)
 {
-	$Search=array('’','[',']','{','}',',','.');
+	$Search=array('Â’','[',']','{','}',',','.');
 	$Replace=array('\'','[ ',' ]','{ ',' }',' ,',' .');
 	$old=str_replace($Search,$Replace,$old);
 	$new=str_replace($Search,$Replace,$new);
@@ -115,7 +115,7 @@ $C['Sections'] = array();
 $C['Original'] = $Origine;
 $C['Article'] = $Article;
 $C['TOC']=array();
-$isFirst=true;//Le premier passage est spécial.
+$isFirst=true;//Le premier passage est spÃ©cial.
 while($Nouveau=mysql_fetch_assoc($Nouveaux))
 {
 	$C['TOC'][] = '<a href="#log-' . $Nouveau['ID'] . '"><small>' . $Nouveau['Date'] . '</small> par ' . $Nouveau['Auteur'] . '</a>';
@@ -124,7 +124,7 @@ while($Nouveau=mysql_fetch_assoc($Nouveaux))
 		'ID'=>$Nouveau['ID'],
 		'Date'=>$Nouveau['Date'],
 		'Auteur'=>$Nouveau['Auteur'],
-		'Header'=>(!$isFirst?'<p class="petitTexte"><a href="/admin/Diff/' . $Nouveau['ID'] . '">Comparer à partir de cette version.</a></p>':'<p class="important centre">Ceci est la version actuelle.</p>'),
+		'Header'=>(!$isFirst?'<p class="petitTexte"><a href="/admin/Diff/' . $Nouveau['ID'] . '">Comparer Ã  partir de cette version.</a></p>':'<p class="important centre">Ceci est la version actuelle.</p>'),
 		'Content'=>($Origine['Sauvegarde']==$Nouveau['Sauvegarde']?'<p style="text-align:left;">Il n\'y a aucune modification avec l\'original.</p>':'<p style="text-align:left;"><tt>' . nl2br(htmlDiff($Origine['Sauvegarde'],$Nouveau['Sauvegarde'])) . '</tt></p>'),
 	);
 

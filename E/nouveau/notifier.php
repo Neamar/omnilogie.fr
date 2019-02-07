@@ -1,10 +1,10 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::NOUVEAU
 *
 * Envoie une notification aux admins.
-* Les admins peuvent configurer la façon de recevoir cette alerte : rien, mail, sms, notification GCalendar.
+* Les admins peuvent configurer la faÃ§on de recevoir cette alerte : rien, mail, sms, notification GCalendar.
 */
 
-External::notify('« ' . $Article->Titre . ' » par ' . AUTHOR,'Par ' . AUTHOR . ' (ID ' . AUTHOR_ID . ')' . ' connecté sur ' . $_SERVER["REMOTE_ADDR"] . ', le ' . time());
+External::notify('Â« ' . $Article->Titre . 'Â Â» par ' . AUTHOR,'Par ' . AUTHOR . ' (ID ' . AUTHOR_ID . ')' . ' connectÃ© sur ' . $_SERVER["REMOTE_ADDR"] . ', le ' . time());

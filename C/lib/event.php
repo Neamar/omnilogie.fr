@@ -1,38 +1,38 @@
 <?php
 /**
-* But : simuler une gestion d'évenements en PHP.
-* Permet d'enregistrer des actions, et de déclencher des fonctions sur ces actions.
+* But : simuler une gestion d'Ã©venements en PHP.
+* Permet d'enregistrer des actions, et de dÃ©clencher des fonctions sur ces actions.
 */
 //Omni
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 
 class Event
 {
-	const NOUVEAU = 'Création de l\'omnilogisme';
+	const NOUVEAU = 'CrÃ©ation de l\'omnilogisme';
 	const EDITION = 'Correction des erreurs';
-	const TAGGAGE = 'Modification des mots clés de l\'omnilogisme';
-	const LOADING = 'Chargement des données distantes';
+	const TAGGAGE = 'Modification des mots clÃ©s de l\'omnilogisme';
+	const LOADING = 'Chargement des donnÃ©es distantes';
 	const ACCROCHAGE = 'Ajout d\'une accroche';
 	const PARUTION = 'Parution officielle de l\'omnilogisme';
-	const ACCEPTE = 'Statut changé vers ACCEPTE';
-	const BANNIERE = 'Ajout d\'une bannière';
-	const A_CORRIGER = 'Statut changé vers A_CORRIGER';
-	const REF = 'Modification des références';
-	const CHANGEMENT_GENERIQUE = 'Modification d\'une des données de l\'article';
+	const ACCEPTE = 'Statut changÃ© vers ACCEPTE';
+	const BANNIERE = 'Ajout d\'une banniÃ¨re';
+	const A_CORRIGER = 'Statut changÃ© vers A_CORRIGER';
+	const REF = 'Modification des rÃ©fÃ©rences';
+	const CHANGEMENT_GENERIQUE = 'Modification d\'une des donnÃ©es de l\'article';
 
-	//Constantes non associées à un article en particulier
+	//Constantes non associÃ©es Ã  un article en particulier
 	const NOUVELLE_PROPOSITION = 'Nouvelle proposition';
-	const NOUVELLE_CATEGORIE = 'Nouvelle catégorie';
+	const NOUVELLE_CATEGORIE = 'Nouvelle catÃ©gorie';
 
 	private static $Events = array();
 
 	/**
-	* Transmet un événement aux écouteurs associés.
-	* @param Event:String l'évenement à dispatcher. Théoriquement une constante statique de Event ;)
-	* @param Article:Omni l'article concerné par la modification. Dans certains cas particuliers, il s'agit d'une info non pertinente (par exemple à l'enregistrement d'une proposition) auquel cas $Article est considéré comme null.
+	* Transmet un Ã©vÃ©nement aux Ã©couteurs associÃ©s.
+	* @param Event:String l'Ã©venement Ã  dispatcher. ThÃ©oriquement une constante statique de Event ;)
+	* @param Article:Omni l'article concernÃ© par la modification. Dans certains cas particuliers, il s'agit d'une info non pertinente (par exemple Ã  l'enregistrement d'une proposition) auquel cas $Article est considÃ©rÃ© comme null.
 	*/
 	public static function dispatch($Event, Omni $Article = null)
 	{
@@ -41,11 +41,11 @@ class Event
 
 		$EventType = array_search($Event,self::$Events);
 
-		//S'il y a des listeners associés :
+		//S'il y a des listeners associÃ©s :
 		if($EventType!=false && is_dir(PATH . '/E/' . strtolower($EventType)))
 		{
 
-			//Les lister et les exécuter.
+			//Les lister et les exÃ©cuter.
 			$handle = opendir(PATH . '/E/' .strtolower($EventType));
 			while (false !== ($file = readdir($handle)))
 			{
@@ -60,11 +60,11 @@ class Event
 	}
 
 	/**
-	* Appelle un évenement générique.
-	* Les événements génériques sont des évènements qui peuvent être déclenchés de plusieurs façons ; pour éviter de dupliquer le code on les met dans le dossier _generic.
+	* Appelle un Ã©venement gÃ©nÃ©rique.
+	* Les Ã©vÃ©nements gÃ©nÃ©riques sont des Ã©vÃ¨nements qui peuvent Ãªtre dÃ©clenchÃ©s de plusieurs faÃ§ons ; pour Ã©viter de dupliquer le code on les met dans le dossier _generic.
 	* @param $File le nom du fichier
 	* @example
-	* //Cette ligne redispatche l'évenement sur un fichier générique de même nom.
+	* //Cette ligne redispatche l'Ã©venement sur un fichier gÃ©nÃ©rique de mÃªme nom.
 	* Event::callGeneric(basename(__FILE__));
 	*/
 	public static function callGeneric($File)
@@ -73,7 +73,7 @@ class Event
 	}
 
 	/**
-	* Logge un événement quelconque : crash d'une page, dispatche d'un événement, action externe, bref toute action potentiellement intéressante (et crashable).
+	* Logge un Ã©vÃ©nement quelconque : crash d'une page, dispatche d'un Ã©vÃ©nement, action externe, bref toute action potentiellement intÃ©ressante (et crashable).
 	* Format : timestamp	IP	Auteur	Action
 	*/
 	public static function log($Event)
@@ -100,13 +100,13 @@ class Event
 	}
 
 	/**
-	* Récupérer les $Limites dernières actions répondant à $Condition
-	* @param Limit:int le nombre d'actions à renvoyer
+	* RÃ©cupÃ©rer les $Limites derniÃ¨res actions rÃ©pondant Ã  $Condition
+	* @param Limit:int le nombre d'actions Ã  renvoyer
 	* @param Condition:String une condition SQL
 	*/
 	public static function getLast($Limite,$Condition='1',$Pattern='%DATE% %LIEN% : %MODIF% par %AUTEUR%')
 	{
-		$Actions = SQL::query('SELECT Modifs.ID, DATE_FORMAT(Date, "%d/%m/%Y à %T") as Date, Titre, Modification, Auteurs.Auteur, !ISNULL(Sauvegarde) AS Svg
+		$Actions = SQL::query('SELECT Modifs.ID, DATE_FORMAT(Date, "%d/%m/%Y Ã  %T") as Date, Titre, Modification, Auteurs.Auteur, !ISNULL(Sauvegarde) AS Svg
 		FROM OMNI_Modifs Modifs
 		LEFT JOIN OMNI_Omnilogismes Omnilogismes ON (Reference=Omnilogismes.ID)
 		LEFT JOIN OMNI_Auteurs Auteurs ON (Modifs.Auteur=Auteurs.ID)

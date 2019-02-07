@@ -2,13 +2,13 @@
 /**
 * Layout :
 * - Article
-* Menu : répartition par statut
+* Menu : rÃ©partition par statut
 */
 //Afficher les articles
 ?>
 <h3 id="h3_toc"><span>Top des articles</span></h3>
-<p>Cette page affiche le meilleur article de chaque mois, tel qu'il a été voté par les internautes.<br />
-N'hésitez pas à <a href="/Vote">donner votre opinion pour élire le meilleur article du mois dernier</a> !</p>
+<p>Cette page affiche le meilleur article de chaque mois, tel qu'il a Ã©tÃ© votÃ© par les internautes.<br />
+N'hÃ©sitez pas Ã  <a href="/Vote">donner votre opinion pour Ã©lire le meilleur article du mois dernier</a> !</p>
 
 <?php
 //Articles

@@ -1,11 +1,11 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::NOUVELLE_CATEGORIE
 *
 * @standalone
 * @access taggers
-* Mettre à jour la page affichant l'arbre des catégories
+* Mettre Ã  jour la page affichant l'arbre des catÃ©gories
 */
 if(Cache::exists('Page', 'liste'))
 	Cache::remove('Page','liste');

@@ -1,26 +1,26 @@
 <?php
 /**
-* But : Contrôler l'existence d'un article avant de charger le modèle approprié.
-* Permet de rediriger ou de faire échouer le script si nécessaire.
+* But : ContrÃ´ler l'existence d'un article avant de charger le modÃ¨le appropriÃ©.
+* Permet de rediriger ou de faire Ã©chouer le script si nÃ©cessaire.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
-//Récupérer le titre de la page
+//RÃ©cupÃ©rer le titre de la page
 
 $Category = Encoding::decodeFromGet('Categorie');
 
 
-//Vérifier que la catégorie existe
+//VÃ©rifier que la catÃ©gorie existe
 
 //1 : Pas d'espace :
 if(strpos($_GET['Categorie'],' ')!==false)
 	Debug::redirect(Link::category($Category),301);
 
-//La catégorie existe-t-elle ?
+//La catÃ©gorie existe-t-elle ?
 if(!Category::exists($Category))
 {
-	$C['CustomError'] = 'La catégorie <tt>' . $Category . '</tt> est introuvable.';
+	$C['CustomError'] = 'La catÃ©gorie <tt>' . $Category . '</tt> est introuvable.';
 	return Debug::status(404);
 }

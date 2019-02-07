@@ -43,5 +43,5 @@ $URL='//chart.apis.google.com/chart?1';
 foreach($Param as $Opt=>$Val)
 	$URL .= '&amp;' . $Opt . '=' . str_replace('_','+',$Val);
 
-$envContent='<p class="centre no_lettrine"><img class="nonflottant" alt="Graphique de données" src="' . $URL . '" /></p>';
+$envContent='<p class="centre no_lettrine"><img class="nonflottant" alt="Graphique de donnÃ©es" src="' . $URL . '" /></p>';
 ?>

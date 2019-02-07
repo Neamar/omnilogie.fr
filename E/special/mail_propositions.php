@@ -1,12 +1,12 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::SPECIAL
 *
 * @standalone
 * @access admins
 *
-* Envoie un mail aux personnes ayant réservé une proposition sans l'avoir effectuée
+* Envoie un mail aux personnes ayant rÃ©servÃ© une proposition sans l'avoir effectuÃ©e
 */
 SQL::query('SET SESSION group_concat_max_len = 50000');
 
@@ -38,17 +38,17 @@ while($Auteur=mysql_fetch_assoc($Auteurs))
 	$Hash = $Auteur['Hash'];
 	$Texte = <<<FIN
 <p>Bonjour $Pseudo !<br />
-Vous êtes membre sur Omnilogie et nous vous en remercions.</p>
+Vous Ãªtes membre sur Omnilogie et nous vous en remercions.</p>
 
-<p>Lors d'une de vos précédentes visites, vous avez réservé des propositions d'article, indiquant que vous vous sentiez prêt à rédiger un omnilogisme sur le sujet.</p>
+<p>Lors d'une de vos prÃ©cÃ©dentes visites, vous avez rÃ©servÃ© des propositions d'article, indiquant que vous vous sentiez prÃªt Ã  rÃ©diger un omnilogisme sur le sujet.</p>
 
 $Propositions
 
-<p>Vous pouvez commencer à <a href="http://omnilogie.fr/membres/Redaction?membre=$Hash">rédiger votre article</a> dès maintenant !<br />
+<p>Vous pouvez commencer Ã  <a href="http://omnilogie.fr/membres/Redaction?membre=$Hash">rÃ©diger votre article</a> dÃ¨s maintenant !<br />
 <br />
 Merci d'avance pour votre contribution.</p>
 
-<p><small>Note : ce mail automatique n'est pas envoyé à intervalle régulier, mais uniquement lorsque le stock d'articles disponibles sur le site est excessivement bas.</small></p>
+<p><small>Note : ce mail automatique n'est pas envoyÃ© Ã  intervalle rÃ©gulier, mais uniquement lorsque le stock d'articles disponibles sur le site est excessivement bas.</small></p>
 
 FIN;
 

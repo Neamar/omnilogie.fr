@@ -1,17 +1,17 @@
 <?php
 /**
-* But : offrir des fonctions pour faciliter le débuggage. En changeant la constante define DEBUG sur false, les informations ne sont plus affichées, ce qui correspond à mettre le site en production.
+* But : offrir des fonctions pour faciliter le dÃ©buggage. En changeant la constante define DEBUG sur false, les informations ne sont plus affichÃ©es, ce qui correspond Ã  mettre le site en production.
 *
 */
 //Debug
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Debug
 {
 	/**
-	* Appelé quand une requête SQL produit une erreur.
+	* AppelÃ© quand une requÃªte SQL produit une erreur.
 	* Affiche l'erreur SQL et la pile d'appel.
 	*/
 	public static function sqlFail()
@@ -20,15 +20,19 @@ class Debug
 	}
 
 	/**
-	* Appelé quand une erreur se produit / est déclenchée par le code et nécessite l'affichage d'un message d'erreur.
-	* Note : cette fonction est préférable à exit() car elle facilite le débuggage et le trace des erreurs en production.
-	* @param Msg:String Le message à afficher
+	* AppelÃ© quand une erreur se produit / est dÃ©clenchÃ©e par le code et nÃ©cessite l'affichage d'un message d'erreur.
+	* Note : cette fonction est prÃ©fÃ©rable Ã  exit() car elle facilite le dÃ©buggage et le trace des erreurs en production.
+	* @param Msg:String Le message Ã  afficher
 	* @return :void La fonction ne retourne jamais, le script est interrompu.
 	*/
 	public static function fail($Msg)
 	{
+		if(headers_sent())
+		{
+			http_response_code(500);
+		}
 
-		echo '<p style="border:1px dashed red;"><strong>Désolé, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs délais.</strong></p>';
+		echo '<p style="border:1px dashed red;"><strong>DÃ©solÃ©, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs dÃ©lais.</strong></p>';
 
 		$trace = self::getDebugLog();
 
@@ -44,13 +48,13 @@ class Debug
 	}
 
 	/**
-	* Gestionnaire personnalisé d'erreurs défini avec set_error_handler.
-	* Permet d'éviter d'afficher les erreurs PHP à l'utilisateur, et de récupérer proprement, par exemple en affichant une page d'erreur et en envoyant un mail à l'administrateur avec le contexte de l'erreur.
-	* @param errno:int le numéro de l'erreur, inutile.
+	* Gestionnaire personnalisÃ© d'erreurs dÃ©fini avec set_error_handler.
+	* Permet d'Ã©viter d'afficher les erreurs PHP Ã  l'utilisateur, et de rÃ©cupÃ©rer proprement, par exemple en affichant une page d'erreur et en envoyant un mail Ã  l'administrateur avec le contexte de l'erreur.
+	* @param errno:int le numÃ©ro de l'erreur, inutile.
 	* @param errstr:String la description de l'erreur, plus utile ;)
 	* @param errfile:String le fichier dans lequel s'est produit l'erreur
 	* @param errline:int la ligne du fichier
-	* @param errcontext:array un gros tableau (très gros tableau même dans la plupart des cas) qui contient la liste des variables définies au moment du bug.
+	* @param errcontext:array un gros tableau (trÃ¨s gros tableau mÃªme dans la plupart des cas) qui contient la liste des variables dÃ©finies au moment du bug.
 	* @return :void La fonction ne retourne jamais, le script est interrompu.
 	*/
 	public static function err_handler($errno, $errstr, $errfile, $errline, array $errcontext)
@@ -60,7 +64,7 @@ class Debug
 	}
 
 	/**
-	* Arrête le script sans message, par exemple suite à une redirection HTML.
+	* ArrÃªte le script sans message, par exemple suite Ã  une redirection HTML.
 	* @return :void La fonction ne retourne jamais, le script est interrompu.
 	*/
 	public static function stop()
@@ -79,9 +83,9 @@ class Debug
 	);
 
 	/**
-	* Arrête le script en faisant une redirection HTML avec le code d'erreur spécifié.
+	* ArrÃªte le script en faisant une redirection HTML avec le code d'erreur spÃ©cifiÃ©.
 	* @param Location:String le chemin absolu du nouvel emplacement
-	* @param Code:Int le code d'erreur à renvoyer ; 301 si non spécifié.
+	* @param Code:Int le code d'erreur Ã  renvoyer ; 301 si non spÃ©cifiÃ©.
 	* @return :void La fonction ne retourne jamais, le script est interrompu.
 	*/
 	public static function redirect($Location,$Code=301)
@@ -92,13 +96,13 @@ class Debug
 	}
 
 	/**
-	* Change le code HTTP associé à la page.
-	* S'il s'agit d'un code d'erreur, l'exécution du script est déviée vers la page de gestion d'erreur.
+	* Change le code HTTP associÃ© Ã  la page.
+	* S'il s'agit d'un code d'erreur, l'exÃ©cution du script est dÃ©viÃ©e vers la page de gestion d'erreur.
 	* @param Code:int Le nouveau code qui remplace l'ancien.
 	* @example
-	*	//Depuis un contrôleur
-	*	//Renvoie un code 404, ce qui changera la page demandée pour erreur lors du chargement des modèles et vues.
-	*	//Le return est important pour arrêter le premier contrôleur.
+	*	//Depuis un contrÃ´leur
+	*	//Renvoie un code 404, ce qui changera la page demandÃ©e pour erreur lors du chargement des modÃ¨les et vues.
+	*	//Le return est important pour arrÃªter le premier contrÃ´leur.
 	* 	return Debug::status(404);
 	*/
 	public static function status($Code)

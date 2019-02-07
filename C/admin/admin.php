@@ -1,16 +1,16 @@
 <?php
 /**
-* Contrôleur : admin/admin.php
-* But : enregistrer les modifications de statut apportées à un article.
-* Charge un tableau $Articles pour le modèle.
+* ContrÃ´leur : admin/admin.php
+* But : enregistrer les modifications de statut apportÃ©es Ã  un article.
+* Charge un tableau $Articles pour le modÃ¨le.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 $DefaultWhere = 'Omnilogismes.Statut="INDETERMINE" OR Omnilogismes.Statut="EST_CORRIGE"';
 
-//Récupérer le titre de la page
+//RÃ©cupÃ©rer le titre de la page
 
 
 $Prefixe = 'statut';

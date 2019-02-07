@@ -1,12 +1,12 @@
 <?php
 /**
-* Contrôleur : membres/index.php
-* But : Enregistrer les modifications du membre si nécessaire.
+* ContrÃ´leur : membres/index.php
+* But : Enregistrer les modifications du membre si nÃ©cessaire.
 */
 define('DEFAUT_PRESENTATION','Entrez votre histoire. Ce champ ne sert pas pour un omnilogisme !');
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 if(!empty($_POST['auteur']))
 {
 	if($_POST['password']!=$_POST['password2'] && $_POST['password2']!='')
@@ -44,12 +44,12 @@ if(!empty($_POST['auteur']))
 		}
 		
 		if(!SQL::update('OMNI_Auteurs',AUTHOR_ID,$Update))
-			$C['Message']='Impossible de mettre à jour votre profil.' . mysql_error();
+			$C['Message']='Impossible de mettre Ã  jour votre profil.' . mysql_error();
 		else
 		{
-			//Rediriger pour mettre à jour AUTHOR.
+			//Rediriger pour mettre Ã  jour AUTHOR.
 			$_SESSION['Membre']['Pseudo'] = stripslashes($_POST['auteur']);
-			$_SESSION['FutureMessage']='Informations modifiées !';
+			$_SESSION['FutureMessage']='Informations modifiÃ©es !';
 			$_SESSION['FutureMessageClass']='info';
 			Debug::redirect('/membres/');
 		}

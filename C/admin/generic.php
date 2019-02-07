@@ -1,10 +1,10 @@
 <?php
 /**
-* Contrôleur : admin/generic.php
-* But : authentification, gérer les messages différés.
+* ContrÃ´leur : admin/generic.php
+* But : authentification, gÃ©rer les messages diffÃ©rÃ©s.
 */
 
-//Accès demandés pour les pages :
+//AccÃ¨s demandÃ©s pour les pages :
 $_Pages = array(
 	'arbre'=>array('taggers'),
 	'correction'=>array('censeurs'),
@@ -21,25 +21,25 @@ $_Pages = array(
 
 $Page = basename($_GET['P'],'.php');
 
-//Page non repértoriée : il faut être un admin obligatoirement !
+//Page non repÃ©rtoriÃ©e : il faut Ãªtre un admin obligatoirement !
 if(!isset($_Pages[$Page]))
 	$_Pages[$Page]=array();
 
-//Les admins ont tous les accès !
+//Les admins ont tous les accÃ¨s !
 array_unshift($_Pages[$Page],'admins');
 
 //Authentifier l'utilisateur.
 if(!in_array('everybody',$_Pages[$Page]))
 {
 	Authenticate::login($_Pages[$Page]);
-	//Une fois authentifié, l'admin est aussi un membre :
+	//Une fois authentifiÃ©, l'admin est aussi un membre :
 	include(PATH . '/C/membres/generic.php');
 }
 
-//Affichage des articles à paraître :
-$C['Pods']['publiable']['Title']='Articles à paraître';
+//Affichage des articles Ã  paraÃ®tre :
+$C['Pods']['publiable']['Title']='Articles Ã  paraÃ®tre';
 $C['Pods']['publiable']['Content']=Formatting::makeList(Omni::getTrailers(Admin::getProchains()));
 
-//Affichage des dernières actions
-$C['Pods']['lastactions']['Title']='Dernières actions';
+//Affichage des derniÃ¨res actions
+$C['Pods']['lastactions']['Title']='DerniÃ¨res actions';
 $C['Pods']['lastactions']['Content']=Formatting::makeList(Event::getLast(15, 1,'%DATE% %LIEN% : %MODIF% par %AUTEUR% %DIFF%'));

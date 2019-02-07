@@ -12,9 +12,9 @@
 
 <?php
 if(!isset($C['Original']['Date']))
-{?><p>Rien à afficher.</p><?php return; }?>
+{?><p>Rien Ã  afficher.</p><?php return; }?>
 
-<p>Version comparée : <?php echo Template::put('Date','Original');?> par <?php echo Template::put('Auteur','Original');?></p>
+<p>Version comparÃ©e : <?php echo Template::put('Date','Original');?> par <?php echo Template::put('Auteur','Original');?></p>
 
 <?php
 foreach($C['Sections'] as &$Section)

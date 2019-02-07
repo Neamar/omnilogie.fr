@@ -9,7 +9,7 @@
 
 <?php if(!defined('NOOB_MODE')) { ?>
 <p>Liste de vos articles, avec le nombre de visionnages.<br />
-Un visionnage correspond à un affichage de l'article en entier.</p>
+Un visionnage correspond Ã  un affichage de l'article en entier.</p>
 
 <p><?php Template::put('StatsAuteur'); ?></p>
 <p><?php Template::put('StatsAuteur2'); ?></p>
@@ -22,7 +22,7 @@ Un visionnage correspond à un affichage de l'article en entier.</p>
 
 <section>
 <h3><span>Statistiques sur les articles</span></h3>
-<p>Total : <?php Template::put('StatsTotal'); ?> articles visionnés.<br />Liste décroissante triée selon le nombre de vues.</p>
+<p>Total : <?php Template::put('StatsTotal'); ?> articles visionnÃ©s.<br />Liste dÃ©croissante triÃ©e selon le nombre de vues.</p>
 
 <?php echo Formatting::makeList($C['StatsArticles']) ?>
 

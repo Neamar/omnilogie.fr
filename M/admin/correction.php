@@ -1,16 +1,16 @@
 <?php
 /**
-* Modèle : admin/edit
-* But : liens vers les articles à modifer
-* Prérequis : aucun.
+* ModÃ¨le : admin/edit
+* But : liens vers les articles Ã  modifer
+* PrÃ©requis : aucun.
 */
 
 $C['PageTitle']='Page d\'accueil des censeurs';
 $C['CanonicalURL']='/admin/Edit/';
 
 /**
-* Récupère une liste de trailers correspondant à l'objet Param, puis change le lien de /O/ vers /admin/Edit, puis renvoie le tableau
-* @param Param:SqlParam les paramètres de récupération.
+* RÃ©cupÃ¨re une liste de trailers correspondant Ã  l'objet Param, puis change le lien de /O/ vers /admin/Edit, puis renvoie le tableau
+* @param Param:SqlParam les paramÃ¨tres de rÃ©cupÃ©ration.
 * @return :array un tableau de trailer.
 */
 function getEditTrailers(SqlParam $Param)
@@ -28,12 +28,12 @@ function getEditTrailers(SqlParam $Param)
 $Param = Omni::buildParam(OMNI_TRAILER_PARAM);
 
 
-//Articles à corriger.
+//Articles Ã  corriger.
 $Param->Where = 'Statut="A_CORRIGER"';
 $C['ACorriger'] = getEditTrailers($Param);
 
 
-//Articles indeterminés
+//Articles indeterminÃ©s
 $Param->Where = 'Statut="INDETERMINE"';
 $C['Indetermines'] = getEditTrailers($Param);
 

@@ -1,11 +1,11 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::NOUVELLE_CATEGORIE
 *
 * @standalone
 * @access taggers
-* Rafraîchir l'arbre de données des catégories
+* RafraÃ®chir l'arbre de donnÃ©es des catÃ©gories
 */
 
 //MAJ du fichier avec l'arborescence.
@@ -26,4 +26,5 @@ while($Feuille=mysql_fetch_assoc($Arborescence))
 	if($Feuille['Heritage']!='')
 		$Liste[$Feuille['Categorie']][]=explode(',',$Feuille['Heritage']);
 }
+echo(serialize($Liste))
 file_put_contents(DATA_PATH . 'categories',serialize($Liste));

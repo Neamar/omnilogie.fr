@@ -1,19 +1,19 @@
 <?php
 /**
-* Contrôleur : membres/inscription.php
+* ContrÃ´leur : membres/inscription.php
 * But : Effectuer l'inscription si possible.
-* En cas de succès, rediriger vers /membres/
+* En cas de succÃ¨s, rediriger vers /membres/
 * Sinon, afficher le formulaire.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 if(!empty($_POST['pseudo']) && isset($_POST['password']))
 {
 	$Hash = md5('OMNI_LOGIEv2' . uniqid());
 	if($_POST['password']=='')
-		$C['Message']='Le mot de passe ne doit pas être vide.';
+		$C['Message']='Le mot de passe ne doit pas Ãªtre vide.';
 	elseif($_POST['password']!=$_POST['password2'])
 		$C['Message']='Les deux mots de passe ne concordent pas :)';
 	elseif(!preg_match('#^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$#i',$_POST['mail']))
@@ -22,7 +22,7 @@ if(!empty($_POST['pseudo']) && isset($_POST['password']))
 		$C['Message'] = 'Impossible de vous enregistrer avec cet identifiant / cet e-mail.' . mysql_error();
 	else
 	{
-		//Réussi !
+		//RÃ©ussi !
 		//Connecter le membre :
 		$_SESSION['Membre'] = array('ID'=>mysql_insert_id(),'Pseudo'=>stripslashes($_POST['pseudo']), 'Hash' =>$Hash);
 		//Et afficher son espace membre :

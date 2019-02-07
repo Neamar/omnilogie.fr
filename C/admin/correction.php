@@ -1,5 +1,5 @@
 <?php
 /**
-* Contrôleur : admin/correction.php
+* ContrÃ´leur : admin/correction.php
 * But : Corriger un article du membre
 */

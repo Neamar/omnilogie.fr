@@ -1,18 +1,18 @@
 <?php
 /**
-* But : Contrôler l'existence d'un auteur
-* Permet de rediriger ou de faire échouer le script si nécessaire.
+* But : ContrÃ´ler l'existence d'un auteur
+* Permet de rediriger ou de faire Ã©chouer le script si nÃ©cessaire.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
-//Récupérer le titre de la page
+//RÃ©cupÃ©rer le titre de la page
 
 $Author = Encoding::decodeFromGet('Auteur');
 
 
-//Vérifier que l'auteur existe
+//VÃ©rifier que l'auteur existe
 
 //1 : Pas d'espace :
 if(strpos($_GET['Auteur'],' ')!==false)

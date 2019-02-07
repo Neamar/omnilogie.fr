@@ -1,12 +1,12 @@
 <?php
 /**
-* Modèle : admin/admin
+* ModÃ¨le : admin/admin
 * But : changer le statut des articles
-* Prérequis : $Articles, chargé par le contrôleur.
+* PrÃ©requis : $Articles, chargÃ© par le contrÃ´leur.
 */
 
 $C['PageTitle']='Page principale d \'administration';
 $C['CanonicalURL']='/admin/';
 
-//Valeurs par défaut :
+//Valeurs par dÃ©faut :
 $C['Articles']=$Articles;

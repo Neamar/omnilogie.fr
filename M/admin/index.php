@@ -1,8 +1,8 @@
 <?php
 /**
-* ModËle : admin
-* But : charger les diffÈrents pods d'administration
-* PrÈrequis : $Articles, chargÈ par le contrÙleur.
+* Mod√®le : admin
+* But : charger les diff√©rents pods d'administration
+* Pr√©requis : $Articles, charg√© par le contr√¥leur.
 */
 
 $C['PageTitle']='Page principale d\'administration';
@@ -15,7 +15,7 @@ $C['CanonicalURL']='/admin/';
 //Virer certains pods pour gagner de la place :
 unset($C['Pods']['author-stats'],$C['Pods']['modifiable'],$C['Pods']['randomArticle'],$C['Pods']['catCloud'],$C['Pods']['activeAuthor'],$C['Pods']['twitter']);
 
-//Mettre ‡ jour les pods avec les modifs
+//Mettre √† jour les pods avec les modifs
 $C['Pods']['publiable']['Content']= Formatting::makeList(Omni::getTrailers(Admin::getProchains()));
 $C['Pods']['lastactions']['Content']= Formatting::makeList(Event::getLast(15, 1,'%DATE% %LIEN% : %MODIF% par %AUTEUR% %DIFF%'));
 
@@ -32,14 +32,21 @@ $Standalone = "";
 if(Cache::exists('Datas', 'Events'))
 	$Standalone = unserialize(Cache::get('Datas','Events'));
 else
-	$Standalone = array();
+	$Standalone = array(
+		'generique' => array(
+			'/E/generique/evenements_cache.php' => array(
+				'Access' => array('any'),
+				'Description' => 'G√©n√©rer la liste des √©v√®nements'
+			)
+		)
+	);
 
 $HTML = '
 <form method="post" action="">
 <select name="custom-event">';
 foreach($Standalone as $Event=>$Files)
 {
-	$HTML .='<optgroup label="…vÈnement &lt;' . ucfirst($Event) . '&gt;">';
+	$HTML .='<optgroup label="√âv√©nement &lt;' . ucfirst($Event) . '&gt;">';
 	foreach($Files as $File=>$Infos)
 	{
 		//Le membre a-t-il le droit de faire cette action ?
@@ -53,11 +60,11 @@ foreach($Standalone as $Event=>$Files)
 			}
 		}
 
-		//Faut-il dÈclencher un Èvenement ?
+		//Faut-il d√©clencher un √©venement ?
 		if(isset($_POST['custom-event']) && $_POST['custom-event']==$File && $Autorise)
 		{
 			include(PATH . $File);
-			$C['Message'] = '…vÈnÈment simulÈ avec succËs. Rechargez la page pour le constater.';
+			$C['Message'] = '√âv√©n√©ment simul√© avec succ√®s. Rechargez la page pour le constater.';
 		}
 
 		$HTML .= '<option value="' . $File . '"' . ($Autorise?'':'disabled="disabled"') . '>' . $Infos['Description'] . '</option>';
@@ -66,11 +73,11 @@ foreach($Standalone as $Event=>$Files)
 	$HTML .= '</optgroup>';
 }
 $HTML .='</select><br />
-<input type="submit" value="Simuler l\'ÈvÈnenement" />
+<input type="submit" value="Simuler l\'√©v√©nenement" />
 </form>';
 
-$C['Sections']['Events']['Titre'] = 'DÈclencheur manuel d\'ÈvÈnements';
-$C['Sections']['Events']['Description'] = 'Simuler le dÈclenchement d\'un ÈvÈnement';
+$C['Sections']['Events']['Titre'] = 'D√©clencheur manuel d\'√©v√©nements';
+$C['Sections']['Events']['Description'] = 'Simuler le d√©clenchement d\'un √©v√©nement';
 $C['Sections']['Events']['HTML'] = $HTML;
 
 $Autre = array();
@@ -84,9 +91,6 @@ if(Member::is(AUTHOR,'propositions'))
 if(Member::is(AUTHOR,'censeurs'))
 	$Autre[] = '<a href="/admin/Omnilogistes">Informations sur les membres</a>';
 
-if(Member::is(AUTHOR,'admins'))
-	$Autre[] = '<a href="/admin/Logs">Infos techniques et connexions</a>';
-
 if(Member::is(AUTHOR,'censeurs'))
 	$Autre[] = '<a href="/admin/Edit/">Accueil des censeurs</a>';
 
@@ -97,7 +101,7 @@ if(count($Autre)!=0)
 	$C['Sections']['Autre']['HTML'] = Formatting::makeList($Autre);
 }
 
-//Table des matiËres et paramËtres par dÈfauts
+//Table des mati√®res et param√®tres par d√©fauts
 $C['TOC']=array();
 foreach($C['Sections'] as $ID=>&$Section)
 {

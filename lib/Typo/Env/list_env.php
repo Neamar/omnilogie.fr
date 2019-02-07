@@ -13,7 +13,7 @@ $envContent='<' . $ListeType . ' ' . $Attributs . '>' . "\n";
 
 foreach($listItems as $listItem)
 {
-	if(strpos(substr($listItem,0,-1),"\n")===false)//pas besoin d'avoir des éléments blocks.
+	if(strpos(substr($listItem,0,-1),"\n")===false)//pas besoin d'avoir des Ã©lÃ©ments blocks.
 		$Item=$listItem;
 	else
 		$Item=Typo_parseLines($listItem);

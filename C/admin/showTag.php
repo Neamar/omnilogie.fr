@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : admin/showTag.php
+* ContrÃ´leur : admin/showTag.php
 * But : tagger un article
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 function redirectToUntagged()
 {
@@ -22,7 +22,7 @@ function redirectToUntagged()
 		Debug::redirect(Link::omni($Article['Titre'],'/admin/Tag/'));
 	else
 	{
-		$_SESSION['FutureMessage'] .= ' Et voilà qui met fin à la séance tagging :)';
+		$_SESSION['FutureMessage'] .= ' Et voilÃ  qui met fin Ã  la sÃ©ance tagging :)';
 		Debug::redirect('/admin/');
 	}
 }
@@ -34,12 +34,12 @@ if(empty($_GET['Titre']))
 	exit();
 }
 
-//Récupérer le titre de la page
+//RÃ©cupÃ©rer le titre de la page
 
 $TitreOmni = Encoding::decodeFromGet('Titre');
 
 
-//Vérifier que l'article existe :
+//VÃ©rifier que l'article existe :
 
 //L'article existe-t-il ?
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
@@ -61,10 +61,10 @@ if(isset($_POST['KW']))
 
 
 	if(!isset($_POST['goNext']))
-		$C['Message'] = 'Article taggé !';
+		$C['Message'] = 'Article taggÃ© !';
 	else
 	{
-		$_SESSION['FutureMessage'] = 'Article taggé !';
+		$_SESSION['FutureMessage'] = 'Article taggÃ© !';
 		redirectToUntagged();
 	}
 }

@@ -1,13 +1,13 @@
 <?php
 /**
-* Modèle : membres/Inscription
+* ModÃ¨le : membres/Inscription
 * But : offir un formulaire de connexion au membre.
-* Données à charger : Rien.
+* DonnÃ©es Ã  charger : Rien.
 *
 */
 
-$C['PageTitle']='Inscription à Omnilogie';
+$C['PageTitle']='Inscription Ã  Omnilogie';
 $C['CanonicalURL']='/membres/Inscription';
 
 if(isset($_SESSION['Membres']['ID']))
-	$C['Message'] = 'Vous êtes déjà connecté ! <a href="/membres/">Cliquez ici pour accéder à votre espace membre</a>.';
+	$C['Message'] = 'Vous Ãªtes dÃ©jÃ  connectÃ© ! <a href="/membres/">Cliquez ici pour accÃ©der Ã  votre espace membre</a>.';

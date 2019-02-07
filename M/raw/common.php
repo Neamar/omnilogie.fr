@@ -9,7 +9,7 @@ foreach($params as $name => $param)
 		$_GET[$name] = $param['default'];
 
 	if(!preg_match('`' . $param['regexp'] . '`', $_GET[$name]))
-		Debug::fail('Paramètre défini de façon incorrecte : ' . $name);
+		Debug::fail('ParamÃ¨tre dÃ©fini de faÃ§on incorrecte : ' . $name);
 }
 
 function vue($json)

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="iso-8859-1" />
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
-	<link rel="stylesheet" media="all" href="/CSS/omni.responsive<?php if(!isset($_SESSION['Membre']['Pseudo']) || $_SESSION['Membre']['Pseudo']!='Licoti'){ echo '.min'; }?>.css?v5509" />
+	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5510" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title><?php Template::put('PageTitle') ?></title>
@@ -39,7 +38,7 @@
 	?>
 </head>
 <body>
-<!--En-tête du site-->
+<!--En-tÃªte du site-->
 <div id="fond-top">
 
 	<div id="fond-top-c">
@@ -62,8 +61,8 @@
 	<ul>
 		<li id="accueil"><a title="Accueil" accesskey="1" href="/">Accueil <span>Les derniers articles parus</span></a></li>
 		<li id="article"><a title="Liste des articles" accesskey="2" href="/O/">Articles <span>La liste des articles parus sur le site</span></a></li>
-		<li id="categorie"><a title="Liste des catégories" href="/Liste/"  accesskey="3">Catégories <span>Liste des catégories d'articles</span></a></li>
-		<li id="tops"><a title="Best-of Omnilogie" href="/Top">Top <span>Sélection des meilleurs articles</span></a></li>
+		<li id="categorie"><a title="Liste des catÃ©gories" href="/Liste/"  accesskey="3">CatÃ©gories <span>Liste des catÃ©gories d'articles</span></a></li>
+		<li id="tops"><a title="Best-of Omnilogie" href="/Top">Top <span>SÃ©lection des meilleurs articles</span></a></li>
 	</ul>
 </nav>
 
@@ -108,7 +107,7 @@
 			<?php Template::includeFile('lib/Footers.php'); ?>
 		</aside>
 		<div id="bas">
-			<p id="ribbon"><small><a href="/Ligne" accesskey="8">Ligne éditoriale</a> | <a href="/Contact" accesskey="7">Contact</a> | <a href="/flux.rss">RSS</a> | <a href="/Mail">Recevoir l'article par mail</a> | <a href="/App">Applications smartphone Omnilogie</a></small></p>
+			<p id="ribbon"><small><a href="/Ligne" accesskey="8">Ligne Ã©ditoriale</a> | <a href="/Contact" accesskey="7">Contact</a> | <a href="/flux.rss">RSS</a> | <a href="/Mail">Recevoir l'article par mail</a> | <a href="/App">Applications smartphone Omnilogie</a></small></p>
 			<p id="html5-valid">HTML5 valid</p>
 		</div>
 	</div>

@@ -1,11 +1,11 @@
 <?php
 /**
-* Modèle : admin/showTag
+* ModÃ¨le : admin/showTag
 * But : permettre de tagger un article
-* Prérequis : l'article
+* PrÃ©requis : l'article
 */
 
-$C['PageTitle']='Taggage : « ' . $Article->Titre . ' »';
+$C['PageTitle']='Taggage : Â« ' . $Article->Titre . ' Â»';
 $C['CanonicalURL']='';
 /*
 * MODIFICATION DES PODS.
@@ -25,7 +25,7 @@ unset(
 );
 
 
-//Liste des mots clés de l'article
+//Liste des mots clÃ©s de l'article
 $KeywordsSQL = SQL::query('SELECT Categorie
 FROM OMNI_Liens
 WHERE News=' . $Article->ID);
@@ -34,7 +34,7 @@ $Keywords=array();
 while($Keyword = mysql_fetch_assoc($KeywordsSQL))
 	$Keywords[] = $Keyword['Categorie'];
 
-//Liste des mots clés existants
+//Liste des mots clÃ©s existants
 $ListeCategorieSQL=SQL::query('SELECT DISTINCT(Categorie) FROM OMNI_Categories');
 $Liste=array();
 while($Category = mysql_fetch_assoc($ListeCategorieSQL))
@@ -83,4 +83,4 @@ FROM OMNI_Omnilogismes O
 WHERE ID NOT IN (SELECT DISTINCT News FROM OMNI_Liens)
 AND Statut = "ACCEPTE"');
 
-prependPod("author-stats","À tagger...","<p>" . $Total['S'] . ' à tagger (dont ' . $TotalParus['S'] . ' parus)</p>');
+prependPod("author-stats","Ã€ tagger...","<p>" . $Total['S'] . ' Ã  tagger (dont ' . $TotalParus['S'] . ' parus)</p>');

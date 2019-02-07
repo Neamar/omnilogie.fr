@@ -31,15 +31,15 @@ if(isset($_GET['CheckNewVersion']))
 	{
 		$DistantFile=preg_replace('#\.([a-z]+)#','@$1',$File);
 		if(!isset($DistantTree[$DistantFile]) || $DistantTree[$DistantFile]<$Time)
-		{//Si le fichier n'existe pas encore, ou s'il a été modifié récemment.
+		{//Si le fichier n'existe pas encore, ou s'il a Ã©tÃ© modifiÃ© rÃ©cemment.
 			$ListeNouveau[]=$File;
 		}
 	}
 	echo serialize($ListeNouveau);
 }
 elseif(isset($_GET['GetDirs']))
-{//Voir si de nouveau répéertoires ont été crées
-	//Liste des répértoires
+{//Voir si de nouveau rÃ©pÃ©ertoires ont Ã©tÃ© crÃ©es
+	//Liste des rÃ©pÃ©rtoires
 	function browseDir($Dir,&$Tree)
 	{
 		$dir_handle = opendir($Dir);

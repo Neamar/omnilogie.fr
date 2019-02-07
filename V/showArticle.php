@@ -33,7 +33,7 @@ if($C['Categories']!='')
 if(count($C['URLs'])!=0)
 {?>
 <aside role="note" class="more-links">
-<p>Sources, références et liens pour en savoir plus&nbsp;:</p>
+<p>Sources, rÃ©fÃ©rences et liens pour en savoir plus&nbsp;:</p>
 <ul>
 <?php
 foreach($C['URLs'] as $URL=>$Title)
@@ -56,7 +56,7 @@ foreach($C['URLs'] as $URL=>$Title)
 if(isset($C['DidYouKnow']))
 {?>
 <aside role="complementary" id="did-you-know">
-	<h3><span>Le petit plus pour briller en société</span></h3>
+	<h3><span>Le petit plus pour briller en sociÃ©tÃ©</span></h3>
 	<?php Template::put('DidYouKnow') ?>
 	<?php if($C['DidYouKnowSource']!=''){?><p class="source-anecdote"><a href="<?php echo Template::put('DidYouKnowSource') ?>">(source)</a></p><?php }?>
 </aside>
@@ -69,7 +69,7 @@ if(isset($C['DidYouKnow']))
 <?php
 if(!is_null($C['Similar']))
 {?>
-<h3><span>Ces articles vous plairont sûrement :</span></h3>
+<h3><span>Ces articles vous plairont sÃ»rement :</span></h3>
 <aside role="note" class="similar">
 <?php echo Formatting::makeList($C['Similar']) ?>
 </aside>
@@ -79,7 +79,7 @@ if(!is_null($C['Similar']))
 
 <?php
 if(isset($C['Veille'])) {?>
-<p class="article-veille">Article précédent : <?php Template::put('Veille'); ?></p>
+<p class="article-veille">Article prÃ©cÃ©dent : <?php Template::put('Veille'); ?></p>
 <?php }
 if(isset($C['Lendemain'])) {?>
 <p class="article-lendemain">Article suivant : <?php Template::put('Lendemain'); ?></p>

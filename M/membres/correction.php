@@ -1,15 +1,15 @@
 <?php
 /**
-* Modèle : membres/correction
-* But : éditer un article
-* Données à charger : liste des propositions réservées
-* Prérequis : $Article, chargé par le contrôleur.
+* ModÃ¨le : membres/correction
+* But : Ã©diter un article
+* DonnÃ©es Ã  charger : liste des propositions rÃ©servÃ©es
+* PrÃ©requis : $Article, chargÃ© par le contrÃ´leur.
 */
 
 $C['PageTitle']='Modification de ' . $Article->Titre;
 $C['CanonicalURL']=Link::omni($Article->Titre,'/membres/Edit/');
 
-//Valeurs par défaut :
+//Valeurs par dÃ©faut :
 $C['Valeurs']=array(
 'id'=>$Article->ID,
 'titre'=>$Article->Titre,

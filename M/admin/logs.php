@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : admin/logs
+* ModÃ¨le : admin/logs
 * But : charger les logs
-* Prérequis : aucun.
+* PrÃ©requis : aucun.
 */
 
 $C['PageTitle']='Logs d\'Omnilogie';

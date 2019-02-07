@@ -1,13 +1,13 @@
 <?php
 /**
-* ContrÙleur : admin/ref.php
-* But : enregistrer les modifications apportÈes ‡ un article.
+* Contr√¥leur : admin/ref.php
+* But : enregistrer les modifications apport√©es √† un article.
 */
 
 //////////////////////////////////////////////////////
-//FonctionnalitÈs du contrÙleur :
+//Fonctionnalit√©s du contr√¥leur :
 
-//RÈcupÈrer le titre de la page
+//R√©cup√©rer le titre de la page
 
 $TitreOmni = Encoding::decodeFromGet('Titre');
 
@@ -19,7 +19,7 @@ if(isset($_GET['Search']))
 	{
 		if(strlen($Mot)<=5 && count($Mots)>1)
 			continue;
-		//$RPattern = 'Omnilogisme REGEXP "\\\\\\\\ref\\\\[[a-z0-9A-ZÈË‡ÁÍ…» ¿«,!?_;().: -]+\\\\]\\\\{[a-z0-9A-ZÈË‡ÁÍ…» ¿«,!?_;().: -]*' . preg_quote($Mot) . '[a-z0-9A-ZÈË‡ÁÍ…» ¿«,!?_;().: -]*\\\\}"';
+		//$RPattern = 'Omnilogisme REGEXP "\\\\\\\\ref\\\\[[a-z0-9A-Z√©√®√†√ß√™√â√à√ä√Ä√á,!?_;().: -]+\\\\]\\\\{[a-z0-9A-Z√©√®√†√ß√™√â√à√ä√Ä√á,!?_;().: -]*' . preg_quote($Mot) . '[a-z0-9A-Z√©√®√†√ß√™√â√à√ä√Ä√á,!?_;().: -]*\\\\}"';
 		$RPattern = 'Omnilogisme REGEXP "\\\\\\\\ref\\\\[.+\\\\]\\\\{.*' . str_replace('\\','\\\\',preg_quote($Mot)) . '"';
 
 		$Similaires = SQL::query('SELECT Titre, Omnilogisme
@@ -31,7 +31,7 @@ if(isset($_GET['Search']))
 		{
 			if(preg_match('`\\\\ref\\[(.+)\\]{.*' . preg_quote($Mot) . '.*}`iU',$Similaire['Omnilogisme'],$Ref))
 			{
-				$Retour[$Ref[1]] = '<li>' . utf8_encode('<a href="#" title="Mot ´&nbsp;' . $Mot . '&nbsp;ª, article ´&nbsp;' . $Similaire['Titre'] . '&nbsp;ª" onclick="prepareRef(\'' . addslashes($Ref[1]) . '\')">' . str_replace('_',' ',$Ref[1])) . '</a></li>';
+				$Retour[$Ref[1]] = '<li>' . utf8_encode('<a href="#" title="Mot ¬´&nbsp;' . $Mot . '&nbsp;¬ª, article ¬´&nbsp;' . $Similaire['Titre'] . '&nbsp;¬ª" onclick="prepareRef(\'' . addslashes($Ref[1]) . '\')">' . str_replace('_',' ',$Ref[1])) . '</a></li>';
 			}
 		}
 	}
@@ -41,7 +41,7 @@ if(isset($_GET['Search']))
 	exit();
 }
 
-//VÈrifier que l'article existe :
+//V√©rifier que l'article existe :
 
 //L'article existe-t-il ?
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
@@ -52,7 +52,7 @@ $Article = Omni::getSingle($Param);
 
 if(isset($_POST['titre']))
 {
-	//Nettoyer un peu les donnÈes :
+	//Nettoyer un peu les donn√©es :
 	$_POST['article'] = Input::prepareOmni($_POST['article']);
 	$_POST['titre']= str_replace(array('\"','&'),array('','et'),$_POST['titre']);
 
@@ -65,17 +65,17 @@ if(isset($_POST['titre']))
 	if($_POST['titre']=='')
 		$C['Message'] = 'Impossible de supprimer le titre d\'un article.';
 	elseif($_POST['article']=='')
-		$C['Message'] = 'Vandalisme dÈtectÈ. Aucune modification enregistrÈe.';
+		$C['Message'] = 'Vandalisme d√©tect√©. Aucune modification enregistr√©e.';
 	elseif(!SQL::update('OMNI_Omnilogismes', $Article->ID, $ToUpdate))
-		$C['Message'] = 'Impossible d\'enregistrer les modifs. Le titre est peut-Ítre dÈj‡ pris ?';
+		$C['Message'] = 'Impossible d\'enregistrer les modifs. Le titre est peut-√™tre d√©j√† pris ?';
 	else
 	{
 		//Logger la modification
 		$Article->registerModif(Event::REF,OMNI_SAVE);
 
-		//RÈussi !
-		if(!isset($C['Message']))//Exemple de isset : Èchec lors du chargement de l'image.
-			$C['Message'] = 'Modifications enregistrÈes !';
+		//R√©ussi !
+		if(!isset($C['Message']))//Exemple de isset : √©chec lors du chargement de l'image.
+			$C['Message'] = 'Modifications enregistr√©es !';
 		$C['MessageClass'] = 'info';
 
 
@@ -83,7 +83,7 @@ if(isset($_POST['titre']))
 		if(strtolower($Article->Titre)!=strtolower(stripslashes($_POST['titre'])))
 			Debug::redirect(Link::omni(stripslashes($_POST['titre']),'/admin/Edit/'));
 
-		//Remettre ‡ jour l'article :
+		//Remettre √† jour l'article :
 		$Article = Omni::getSingle($Param);
 	}
 }

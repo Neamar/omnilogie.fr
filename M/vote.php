@@ -1,17 +1,17 @@
 <?php
 /**
-* Modèle : Vote
+* ModÃ¨le : Vote
 * But : Voter pour l'article favori du dernier mois
-* Données à charger : les articles du dernier mois, sous forme de teaser.
+* DonnÃ©es Ã  charger : les articles du dernier mois, sous forme de teaser.
 */
 
-$C['PageTitle'] = 'Élisez le meilleur article';
+$C['PageTitle'] = 'Ã‰lisez le meilleur article';
 
 $C['CanonicalURL'] = '/Vote';
 /*
 
-//Récupérer tous les articles parus.
-//Utiliser le système de pagination
+//RÃ©cupÃ©rer tous les articles parus.
+//Utiliser le systÃ¨me de pagination
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 
 $Param->Where = '
@@ -30,7 +30,7 @@ foreach($articles as $article)
 
 $C['DateTop'] = Top::$monthReadable;
 
-//Gérer le menu
+//GÃ©rer le menu
 $Param->Order = 'Omnilogismes.NbVotes DESC';
 $Param->Limit = 5;
 
@@ -40,7 +40,7 @@ WHERE Sortie LIKE "' . Top::$month . '"
 ORDER BY NbVotes DESC
 LIMIT 5';
 
-$articlesGraphique = Stats::GraphIt($VotesMois, array('cht'=>'bhs','chs'=>'240x150', 'chtt'=>'Articles les plus votés','chxt'=>'y','chxl'=>'0:|$ABSCISSES','chbh'=>'a'),false);
+$articlesGraphique = Stats::GraphIt($VotesMois, array('cht'=>'bhs','chs'=>'240x150', 'chtt'=>'Articles les plus votÃ©s','chxt'=>'y','chxl'=>'0:|$ABSCISSES','chbh'=>'a'),false);
 
 prependPod("pod-votes", "Meilleurs votes actuels", Formatting::makeList(Omni::getTrailers($Param)) . $articlesGraphique);
 */

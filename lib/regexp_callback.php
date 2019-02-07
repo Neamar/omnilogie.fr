@@ -1,6 +1,6 @@
 <?php
 
 function ParseMath($buffer)
-{//Fonction appelée à la fin de l'éxecution du script si on a demandé à utiliser les balises mathématiques.
+{//Fonction appelÃ©e Ã  la fin de l'Ã©xecution du script si on a demandÃ© Ã  utiliser les balises mathÃ©matiques.
 	return preg_replace('#\<math\>(.+)\<\/math\>#isU', '\\($1\\)',$buffer);
 }

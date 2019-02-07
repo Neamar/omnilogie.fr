@@ -2,7 +2,7 @@
 /**
 * Classe Cache, permettant d'abstraire la logique du cache.
 * Primitives bas niveau : set(), get().
-* L'idée de base est de regrouper par namespace les fichiers de cache, et de masquer la mise en oeuvre pour pouvoir passer à des solutions plus effectives quand cela deviendra nécessaire (memcache par exemple)
+* L'idÃ©e de base est de regrouper par namespace les fichiers de cache, et de masquer la mise en oeuvre pour pouvoir passer Ã  des solutions plus effectives quand cela deviendra nÃ©cessaire (memcache par exemple)
 */
 //External
 
@@ -13,9 +13,9 @@ class Cache
 	public static $pageId;
 
 	/**
-	* Enregistre un nouvel élément dans le cache.
-	* @param namespace:String l'espace de nom à utiliser, par exemple "pods"
-	* @param name:String le nom de l'élément à cacher
+	* Enregistre un nouvel Ã©lÃ©ment dans le cache.
+	* @param namespace:String l'espace de nom Ã  utiliser, par exemple "pods"
+	* @param name:String le nom de l'Ã©lÃ©ment Ã  cacher
 	*/
 	public static function set($namespace,$name,$content)
 	{
@@ -26,11 +26,11 @@ class Cache
 	}
 
 	/**
-	* Récupère un élément précédemment enregistré dans le cache.
-	* @param namespace:String l'espace de nom à utiliser, par exemple "pods"
-	* @param name:String le nom de l'élément à récupérer dans l'espace de nom spécifié.
-	* @return :String le cache associé
-	* @throws exit crashe en cas d'accès à un élément inconnu. Vérifier l'existence avant avec Cache::exists() si le cache peut ne pas exister.
+	* RÃ©cupÃ¨re un Ã©lÃ©ment prÃ©cÃ©demment enregistrÃ© dans le cache.
+	* @param namespace:String l'espace de nom Ã  utiliser, par exemple "pods"
+	* @param name:String le nom de l'Ã©lÃ©ment Ã  rÃ©cupÃ©rer dans l'espace de nom spÃ©cifiÃ©.
+	* @return :String le cache associÃ©
+	* @throws exit crashe en cas d'accÃ¨s Ã  un Ã©lÃ©ment inconnu. VÃ©rifier l'existence avant avec Cache::exists() si le cache peut ne pas exister.
 	*/
 	public static function get($namespace,$name)
 	{
@@ -38,10 +38,10 @@ class Cache
 	}
 
 	/**
-	* Supprime un élément du cache.
-	* @param namespace:String l'espace de nom à utiliser, par exemple "pods"
-	* @param name:String le nom de l'élément à supprimer dans l'espace de nom spécifié.
-	* @throws exit crashe en cas d'accès à un élément inconnu. Vérifier l'existence avant avec Cache::exists() si le cache peut ne pas exister.
+	* Supprime un Ã©lÃ©ment du cache.
+	* @param namespace:String l'espace de nom Ã  utiliser, par exemple "pods"
+	* @param name:String le nom de l'Ã©lÃ©ment Ã  supprimer dans l'espace de nom spÃ©cifiÃ©.
+	* @throws exit crashe en cas d'accÃ¨s Ã  un Ã©lÃ©ment inconnu. VÃ©rifier l'existence avant avec Cache::exists() si le cache peut ne pas exister.
 	*/
 	public static function remove($namespace,$name)
 	{
@@ -49,10 +49,10 @@ class Cache
 	}
 
 	/**
-	* Récupère la date de dernière modification d'un élément.
-	* @param namespace:String l'espace de nom à utiliser, par exemple "pods"
-	* @param name:String le nom de l'élément à tester dans l'espace de nom spécifié.
-	* @return :int le timestamp de derniere modification, ou 0 si l'élément n'existe pas.
+	* RÃ©cupÃ¨re la date de derniÃ¨re modification d'un Ã©lÃ©ment.
+	* @param namespace:String l'espace de nom Ã  utiliser, par exemple "pods"
+	* @param name:String le nom de l'Ã©lÃ©ment Ã  tester dans l'espace de nom spÃ©cifiÃ©.
+	* @return :int le timestamp de derniere modification, ou 0 si l'Ã©lÃ©ment n'existe pas.
 	*/
 	public static function modified($namespace,$name)
 	{
@@ -63,10 +63,10 @@ class Cache
 	}
 
 	/**
-	* Récupère la date de dernière modification d'un élément.
-	* @param namespace:String l'espace de nom à utiliser, par exemple "pods"
-	* @param name:String le nom de l'élément à tester dans l'espace de nom spécifié.
-	* @return :bool true si l'élément existe.
+	* RÃ©cupÃ¨re la date de derniÃ¨re modification d'un Ã©lÃ©ment.
+	* @param namespace:String l'espace de nom Ã  utiliser, par exemple "pods"
+	* @param name:String le nom de l'Ã©lÃ©ment Ã  tester dans l'espace de nom spÃ©cifiÃ©.
+	* @return :bool true si l'Ã©lÃ©ment existe.
 	*/
 	public static function exists($namespace,$name)
 	{
@@ -74,8 +74,8 @@ class Cache
 	}
 
 	/**
-	* Nettoie un namespace en supprimant toutes les données en cache.
-	* @param namespace:String l'espace de nom à utiliser, par exemple "pods"
+	* Nettoie un namespace en supprimant toutes les donnÃ©es en cache.
+	* @param namespace:String l'espace de nom Ã  utiliser, par exemple "pods"
 	*/
 	public static function removeNamespace($namespace)
 	{
@@ -90,13 +90,13 @@ class Cache
 	}
 
 	/**
-	* Met en cache une page complète.
-	* Cette fonction peut être appelée à n'importe quel moment, le plus utile étant bien évidemment au tout début du contrôleur pour éviter d'appeler inutilement des fonctions.
-	* Au prochain appel, modèle et contrôleur (après l'appel de la fonction) seront passés pour renvoyer directement la vue
-	* @param uniqid:String un identifiant définissant de façon unique la page en cours. Si non spécifié, l'url de la page en cours.
-	* @return :bool true si un cache existe déjà, à charge au contrôleur de s'arrêter dans ce cas là, false si le cache n'est pas présent et qu'il va être généré ce coup-ci.
+	* Met en cache une page complÃ¨te.
+	* Cette fonction peut Ãªtre appelÃ©e Ã  n'importe quel moment, le plus utile Ã©tant bien Ã©videmment au tout dÃ©but du contrÃ´leur pour Ã©viter d'appeler inutilement des fonctions.
+	* Au prochain appel, modÃ¨le et contrÃ´leur (aprÃ¨s l'appel de la fonction) seront passÃ©s pour renvoyer directement la vue
+	* @param uniqid:String un identifiant dÃ©finissant de faÃ§on unique la page en cours. Si non spÃ©cifiÃ©, l'url de la page en cours.
+	* @return :bool true si un cache existe dÃ©jÃ , Ã  charge au contrÃ´leur de s'arrÃªter dans ce cas lÃ , false si le cache n'est pas prÃ©sent et qu'il va Ãªtre gÃ©nÃ©rÃ© ce coup-ci.
 	* @example
-	* //Depuis un contrôleur :
+	* //Depuis un contrÃ´leur :
 	* if(Cache::page())
 	* 	return;
 	*/

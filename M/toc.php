@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : toc
-* But : Générer la liste des articles existants
-* Données à charger :
+* ModÃ¨le : toc
+* But : GÃ©nÃ©rer la liste des articles existants
+* DonnÃ©es Ã  charger :
 * - Tous les articles !
 */
 

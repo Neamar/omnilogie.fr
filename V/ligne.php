@@ -13,10 +13,10 @@
 <ul>
 	<li><a href="#ligne-lecteurs">Informations pour les lecteurs</a></li>
 	<li><a href="#ligne-auteurs">Informations pour les auteurs</a></li>
-	<li><a href="#ligne-publicite">Informations pour la publicité</a></li>
+	<li><a href="#ligne-publicite">Informations pour la publicitÃ©</a></li>
 	<li><a href="#ligne-plus">Informations pour la recherche</a></li>
 	<li><a href="#ligne-administrateurs">Informations sur les administrateurs</a></li>
-	<li><a href="#ligne-copyright">Informations sur la propriété intellectuelle</a></li>
+	<li><a href="#ligne-copyright">Informations sur la propriÃ©tÃ© intellectuelle</a></li>
 </ul>
 
 <style>
@@ -25,7 +25,7 @@
 }
 </style>
 
-<p>Ce qui suit est un recueil de textes explicatifs &ndash; le style de chaque texte est différent, ne s'adressant pas à la même personne.</p>
+<p>Ce qui suit est un recueil de textes explicatifs &ndash; le style de chaque texte est diffÃ©rent, ne s'adressant pas Ã  la mÃªme personne.</p>
 </section>
 
 <section>
@@ -39,7 +39,7 @@
 </section>
 
 <section>
-<h3 id="ligne-publicite"><span>Informations sur la publicité</span></h3>
+<h3 id="ligne-publicite"><span>Informations sur la publicitÃ©</span></h3>
 <?php Template::put('Pub'); ?>
 </section>
 
@@ -54,6 +54,6 @@
 </section>
 
 <section>
-<h3 id="ligne-copyright"><span>Informations sur la propriété intellectuelle</span></h3>
+<h3 id="ligne-copyright"><span>Informations sur la propriÃ©tÃ© intellectuelle</span></h3>
 <?php Template::put('Licence'); ?>
 </section>

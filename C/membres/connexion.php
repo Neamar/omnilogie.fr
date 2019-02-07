@@ -1,22 +1,22 @@
 <?php
 /**
-* Contrôleur : membres/connexion.php
+* ContrÃ´leur : membres/connexion.php
 * But : Effectuer la connexion si possible.
-* En cas de succès, rediriger vers /membres/
+* En cas de succÃ¨s, rediriger vers /membres/
 * Sinon, afficher le formulaire.
-* Note: on peut se connecter de deux façons. Soit via le fomulaire disponibles sur membres/connexion, soit en spéciifiant la variable GET "membre" avec le hash de l'utilisateur.
+* Note: on peut se connecter de deux faÃ§ons. Soit via le fomulaire disponibles sur membres/connexion, soit en spÃ©ciifiant la variable GET "membre" avec le hash de l'utilisateur.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 
 if((!empty($_POST['pseudo']) && !empty($_POST['password'])) || isset($_GET['membre']) || (isset($_SERVER['REMOTE_USER'])  && isset($_SERVER['SAFE_LOG'])))
 {
-	//Personnes tentant de se connecter à l'ancienne, avec un hash directement dans l'URL (venant d'un mail probablement)
+	//Personnes tentant de se connecter Ã  l'ancienne, avec un hash directement dans l'URL (venant d'un mail probablement)
 	if(isset($_GET['membre']))
 		$Where ='Hash="' . mysql_real_escape_string($_GET['membre']) . '"';
-	//Personnes authentifiées par HTTP (cf Authenticate::)
+	//Personnes authentifiÃ©es par HTTP (cf Authenticate::)
 	elseif(isset($_SERVER['REMOTE_USER']) && isset($_SERVER['SAFE_LOG']))
 		$Where = 'Auteur="' . mysql_real_escape_string($_SERVER['REMOTE_USER']) . '"';
 	//Authentification POST depuis /membres/connexion
@@ -29,10 +29,10 @@ if((!empty($_POST['pseudo']) && !empty($_POST['password'])) || isset($_GET['memb
 	WHERE ' . $Where);
 
 	if(!is_numeric($Auteur['ID']))
-		$C['Message'] = 'Uh oh... impossible de vous identifier avec ces valeurs. Merci de réessayer !';
+		$C['Message'] = 'Uh oh... impossible de vous identifier avec ces valeurs. Merci de rÃ©essayer !';
 	else
 	{
-		//Rediriger vers l'espace membre, ou vers la page d'où on vient de se faire jeter.
+		//Rediriger vers l'espace membre, ou vers la page d'oÃ¹ on vient de se faire jeter.
 		$RedirectTo = (isset($_SESSION['Membre']['RedirectTo'])?$_SESSION['Membre']['RedirectTo']:'/membres/');
 
 		$_SESSION['Membre'] = array(
@@ -43,12 +43,12 @@ if((!empty($_POST['pseudo']) && !empty($_POST['password'])) || isset($_GET['memb
 			);
 
 		//Charger la liste des articles de l'auteur pour pouvoir afficher facilement des liens.
-		//Cette liste doit être mise à jour lors de la rédaction d'un article !
+		//Cette liste doit Ãªtre mise Ã  jour lors de la rÃ©daction d'un article !
 		$Articles=SQL::query('SELECT ID, Titre FROM OMNI_Omnilogismes WHERE Auteur=' . $Auteur['ID']);
 		while($Article = mysql_fetch_assoc($Articles))
 			$_SESSION['Membre']['Articles'][$Article['ID']]=$Article['Titre'];
 
-		$_SESSION['FutureMessage'] = 'Vous êtes connecté ! <a href="/membres/Redaction">Cliquez pour rédiger un nouvel article.</a>';
+		$_SESSION['FutureMessage'] = 'Vous Ãªtes connectÃ© ! <a href="/membres/Redaction">Cliquez pour rÃ©diger un nouvel article.</a>';
 		$_SESSION['FutureMessageClass'] = 'info';
 
 		session_write_close();

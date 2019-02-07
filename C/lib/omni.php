@@ -1,31 +1,31 @@
 <?php
 /**
 * But : interagir facilement avec les articles.
-* Un des principaux contrôleurs.
+* Un des principaux contrÃ´leurs.
 */
 //Omni
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 
 
-//Cette classe est construite directement par mysql_fetch_object, et déroge en conséquence aux règles de nommage des variables en anglais.
+//Cette classe est construite directement par mysql_fetch_object, et dÃ©roge en consÃ©quence aux rÃ¨gles de nommage des variables en anglais.
 class Omni
 {
 	//Uniquement le titre et l'accroche (et l'ID).
 	const TRAILER_PARAM = 0;
 
-	//Minimiser la récupération d'information, et les jointures effectuées sur la requête.
+	//Minimiser la rÃ©cupÃ©ration d'information, et les jointures effectuÃ©es sur la requÃªte.
 	const TEASER_PARAM = 1;
 
-	//Normal : récupérer les infos pour l'affichage, et faire les jointures sur l'auteur. Pas les catégories.
+	//Normal : rÃ©cupÃ©rer les infos pour l'affichage, et faire les jointures sur l'auteur. Pas les catÃ©gories.
 	const SMALL_PARAM = 2;
 
-	//Maximiser les infos récupérées, pour l'affichage complet ; par exemple dans le flux RSS. Ajoute les catégories
+	//Maximiser les infos rÃ©cupÃ©rÃ©es, pour l'affichage complet ; par exemple dans le flux RSS. Ajoute les catÃ©gories
 	const FULL_PARAM = 3;
 
-	//Maximiser les infos récupérées, pour l'affichage complet. Ajoute l'article suivant et les dernières modifications.
+	//Maximiser les infos rÃ©cupÃ©rÃ©es, pour l'affichage complet. Ajoute l'article suivant et les derniÃ¨res modifications.
 	const HUGE_PARAM = 4;
 
 
@@ -43,35 +43,35 @@ class Omni
 	public $Omnilogisme;
 	public $Statut;
 	public $Accroche;
-	public $Mots;		//Les mots-clés asosciés à l'article
-	public $Categories;	//Les catégories DE PREMIER NIVEAU, pas l'arbre.
-	public $TitreSuivant;	//L'article qui suit celui-là
-	public $AccrocheSuivant;	//L'article qui suit celui-là
-	public $TitrePrecedent;	//Et celui qui le précède.
-	public $AccrochePrecedent;	//Et celui qui le précède.
+	public $Mots;		//Les mots-clÃ©s asosciÃ©s Ã  l'article
+	public $Categories;	//Les catÃ©gories DE PREMIER NIVEAU, pas l'arbre.
+	public $TitreSuivant;	//L'article qui suit celui-lÃ 
+	public $AccrocheSuivant;	//L'article qui suit celui-lÃ 
+	public $TitrePrecedent;	//Et celui qui le prÃ©cÃ¨de.
+	public $AccrochePrecedent;	//Et celui qui le prÃ©cÃ¨de.
 	public $NbVues;
 	public $Anecdote;
 	public $SourceAnecdote;
 
 	/**
 	* Enregistre une modification sur l'article.
-	* @param Action:String L'action à enregistrer, e.g. "Correction des erreurs". Théoriquement (mais pas obligatoire) une constante statique sur Event::
-	* @param Svg:String cette modification nécessite-t-elle de logger le contenu pour comparaisons ultérieures ?
-	* @param $Author:int l'auteur qui a effectué cette modification. Si non défini, c'est l'auteur actuellement connecté qui est choisi. Si non défini et que personne n'est connecté, la page s'arrête.
+	* @param Action:String L'action Ã  enregistrer, e.g. "Correction des erreurs". ThÃ©oriquement (mais pas obligatoire) une constante statique sur Event::
+	* @param Svg:String cette modification nÃ©cessite-t-elle de logger le contenu pour comparaisons ultÃ©rieures ?
+	* @param $Author:int l'auteur qui a effectuÃ© cette modification. Si non dÃ©fini, c'est l'auteur actuellement connectÃ© qui est choisi. Si non dÃ©fini et que personne n'est connectÃ©, la page s'arrÃªte.
 	*/
 	public function registerModif($Action,$Svg=false,$Author=-1)
 	{
 		if($Author==-1)
 		{
 			if(!isset($_SESSION['Membre']['ID']))
-				Debug::fail('Impossible d\'enregistrer une action effectuée par un membre non connecté !');
+				Debug::fail('Impossible d\'enregistrer une action effectuÃ©e par un membre non connectÃ© !');
 			$Author = $_SESSION['Membre']['ID'];
 		}
 
 		$Modifs=array(
 			'Auteur'=>$Author,
 			'Reference'=>$this->ID,
-			'Modification'=>addslashes($Action),
+			'Modification'=>$Action,
 			'_Date'=>'NOW()'
 			);
 
@@ -81,19 +81,19 @@ class Omni
 		if(!SQL::insert('OMNI_Modifs',$Modifs))
 			Debug::fail(mysql_error());
 
-		//Appeler les listeners associés :
+		//Appeler les listeners associÃ©s :
 		Event::dispatch($Action,$this);
 		Event::dispatch(Event::CHANGEMENT_GENERIQUE,$this);
 	}
 
 	/**
-	* Renvoie la liste des sources utilisées (si il y en a) dans une liste.
+	* Renvoie la liste des sources utilisÃ©es (si il y en a) dans une liste.
 	* @return :array une liste des sources, sous la forme URL=>Titre
 	*/
 	public function getURLs()
 	{
 		static $Replacements=array('&'=>'&amp;');
-		static $SpecialsChars=array('Ã©'=>'é','&'=>'&amp;','Ã¨'=>'è','Ã¢'=>'â','Ã'=>'à');
+		static $SpecialsChars=array('ÃƒÂ©'=>'Ã©','&'=>'&amp;','ÃƒÂ¨'=>'Ã¨','ÃƒÂ¢'=>'Ã¢','Ãƒ'=>'Ã ');
 
 		$URL_SQL=Sql::query('SELECT URL,Titre FROM OMNI_More WHERE Reference=' . intval($this->ID) . ' ORDER BY ID');
 
@@ -112,9 +112,9 @@ class Omni
 	}
 
 	/**
-	* Renvoie une image HTML représentant la bannière de l'article.
-	* Si la bannière n'existe pas, une image générique est renvoyée.
-	* @param Type:(BIG_BANNER|THUMB_BANNER) récupérer l'URL de la bannière, ou de la miniature. BIG_BANNER par défaut.
+	* Renvoie une image HTML reprÃ©sentant la banniÃ¨re de l'article.
+	* Si la banniÃ¨re n'existe pas, une image gÃ©nÃ©rique est renvoyÃ©e.
+	* @param Type:(BIG_BANNER|THUMB_BANNER) rÃ©cupÃ©rer l'URL de la banniÃ¨re, ou de la miniature. BIG_BANNER par dÃ©faut.
 	*/
 	public function getBanner($Type = Omni::BIG_BANNER)
 	{
@@ -132,7 +132,7 @@ class Omni
 	}
 
 	/**
-	* Renvoie la liste des catégories.
+	* Renvoie la liste des catÃ©gories.
 	* @return :array
 	*/
 	public function getCategories()
@@ -141,7 +141,7 @@ class Omni
 	}
 
 	/**
-	* Renvoie l'accroche de l'article mise en forme, pour éviter par exemple d'avoir un "?" qui se balade en début de ligne !
+	* Renvoie l'accroche de l'article mise en forme, pour Ã©viter par exemple d'avoir un "?" qui se balade en dÃ©but de ligne !
 	* @return:String
 	*/
 	public function getAccroche()
@@ -157,7 +157,7 @@ class Omni
 
 	/**
 	* Renvoie uniquement le titre de l'article, mis en forme avec un lien.
-	* Les préfixes inutiles comme "Le", "La", "Les", "L'" sont mis en petit
+	* Les prÃ©fixes inutiles comme "Le", "La", "Les", "L'" sont mis en petit
 	* @return :String <a href="/O/Titre" title="Accroche">Titre mis en forme</a>
 	*/
 	public function outputTrailer()
@@ -184,7 +184,7 @@ class Omni
 
 	/**
 	* Renvoie tout l'article mis en forme.
-	* Met à jour le nombre de vues de l'article aussi.
+	* Met Ã  jour le nombre de vues de l'article aussi.
 	* @return :String l'article mis en forme.
 	*/
 	public function outputFull()
@@ -196,7 +196,7 @@ class Omni
 
 	/**
 	* Renvoie le premier paragraphe de l'article.
-	* @return :String le début de l'article mis en forme.
+	* @return :String le dÃ©but de l'article mis en forme.
 	*/
 	public function outputStart()
 	{
@@ -215,7 +215,7 @@ class Omni
 	* h1 Titre
 	* h2 Accroche
 	* p.by-line Par .author le time[pubdate]
-	* @param Style:enum(NORMAL_HEADER,SMALL_HEADER) Permet de contrôler le nombre d'informations à afficher.
+	* @param Style:enum(NORMAL_HEADER,SMALL_HEADER) Permet de contrÃ´ler le nombre d'informations Ã  afficher.
 	*
 	*/
 	public function outputHeader($Style=OMNI_NORMAL_HEADER)
@@ -236,7 +236,7 @@ class Omni
 		if($this->Date!='')
 			$Retour .='le <time datetime="' . date('Y-m-d',$this->Timestamp) . '" pubdate="pubdate">' . $this->Date . '</time>';
 		else if($this->Statut == 'DEJA_TRAITE')
-			$Retour .='<span class="unpublished">[un article similaire est déjà paru, celui-ci ne sera donc pas publié]</span>';
+			$Retour .='<span class="unpublished">[un article similaire est dÃ©jÃ  paru, celui-ci ne sera donc pas publiÃ©]</span>';
 		else
 			$Retour .='<span class="unpublished">[pas encore paru]</span>';
 
@@ -253,7 +253,7 @@ class Omni
 
 	/**
 	* Renvoie tout l'article sans aucune mise en forme, en texte pur.
-	* Utilise DOMDocument pour récupérer le texte du document HTML parsé.
+	* Utilise DOMDocument pour rÃ©cupÃ©rer le texte du document HTML parsÃ©.
 	* @return :String l'article en texte pur.
 	*/
 	public function outputRaw()
@@ -272,13 +272,13 @@ class Omni
 	}
 
 	/**
-	* Renvoie une liste de $Nb articles au contenu similaire qui peuvent intéresser le lecteur
-	* @param Nb:int le nombre d'article similaires à afficher, OMNI_NB_SIMILAR par défaut.
-	* @return :SQLParam un objet permettant de récupérer les articles similaires.
+	* Renvoie une liste de $Nb articles au contenu similaire qui peuvent intÃ©resser le lecteur
+	* @param Nb:int le nombre d'article similaires Ã  afficher, OMNI_NB_SIMILAR par dÃ©faut.
+	* @return :SQLParam un objet permettant de rÃ©cupÃ©rer les articles similaires.
 	*/
 	public function outputSimilar($Nb=OMNI_NB_SIMILAR)
 	{
-		//Article pas encore classifié.
+		//Article pas encore classifiÃ©.
 		if(is_null($this->Categories))
 			return null;
 
@@ -304,15 +304,15 @@ class Omni
 	//////////////////////////////
 
 	/**
-	* Permet de construire un objet SqlParam avec les options par défaut pour récupérer un omnilogisme.
-	* @param Type:enum(OMNI_NORMAL_PARAM,OMNI_SMALL_PARAM,OMNI_VERY_SMALL_PARAM) Définit la quantité d'information à récupérer. Si SMALL, on ne prend que l'auteur, le titre et l'accroche.
-	* @return :SqlParam un objet paramétré pour une récupération d'omnilogismes de base.
+	* Permet de construire un objet SqlParam avec les options par dÃ©faut pour rÃ©cupÃ©rer un omnilogisme.
+	* @param Type:enum(OMNI_NORMAL_PARAM,OMNI_SMALL_PARAM,OMNI_VERY_SMALL_PARAM) DÃ©finit la quantitÃ© d'information Ã  rÃ©cupÃ©rer. Si SMALL, on ne prend que l'auteur, le titre et l'accroche.
+	* @return :SqlParam un objet paramÃ©trÃ© pour une rÃ©cupÃ©ration d'omnilogismes de base.
 	*/
 	public static function buildParam($Type=OMNI_TRAILER_PARAM)
 	{
 		$Param = new SqlParam();
 
-		// à %T pour rétablir l'heure.
+		// Ã  %T pour rÃ©tablir l'heure.
 		if($Type==OMNI_TRAILER_PARAM)
 			$Param->Select = 'ID, Titre, Accroche';
 		elseif($Type==OMNI_TEASER_PARAM)
@@ -327,13 +327,13 @@ class Omni
 	}
 
 	/**
-	* Récupère une liste d'article satisfaisant les critères énoncés par l'objet SqlParam passé en paramètre.
-	* @param Param:SqlParam les paramètres contrôlant les articles à renvoyer.
+	* RÃ©cupÃ¨re une liste d'article satisfaisant les critÃ¨res Ã©noncÃ©s par l'objet SqlParam passÃ© en paramÃ¨tre.
+	* @param Param:SqlParam les paramÃ¨tres contrÃ´lant les articles Ã  renvoyer.
 	* @return :array<Omni> un tableau d'article satisfaisant les conditions.
 	*/
 	public static function get(SqlParam &$Param)
 	{
-		//Calculer les tables à joindre :
+		//Calculer les tables Ã  joindre :
 		$Joins = array();
 		$Champs = $Param->Select . $Param->Where;
 		if(strpos($Champs,'Auteurs.')!==false)//Table des auteurs sur les omnilogismes
@@ -373,21 +373,21 @@ class Omni
 	}
 
 	/**
-	* Récupère un unique article satisfaisant les critères énoncés par l'objet SqlParam passé en paramètre.
-	* @param Param:SqlParam les paramètres contrpolant les articles à renvoyer.
+	* RÃ©cupÃ¨re un unique article satisfaisant les critÃ¨res Ã©noncÃ©s par l'objet SqlParam passÃ© en paramÃ¨tre.
+	* @param Param:SqlParam les paramÃ¨tres contrpolant les articles Ã  renvoyer.
 	* @return :Omni un tableau d'article satisfaisant les conditions.
 	*/
 	public static function getSingle(SqlParam &$Param)
 	{
 		$Article = Omni::get($Param);
 		if(count($Article)==0)
-			Debug::fail('Impossible de récupérer l\'article demandé.');
+			Debug::fail('Impossible de rÃ©cupÃ©rer l\'article demandÃ©.');
 		return $Article[0];
 	}
 
 	/**
-	* Récupère un unique article satisfaisant les critères énoncés par l'objet SqlParam passé en paramètre.
-	* @param Param:SqlParam les paramètres contrpolant les articles à renvoyer.
+	* RÃ©cupÃ¨re un unique article satisfaisant les critÃ¨res Ã©noncÃ©s par l'objet SqlParam passÃ© en paramÃ¨tre.
+	* @param Param:SqlParam les paramÃ¨tres contrpolant les articles Ã  renvoyer.
 	* @return :Omni un tableau d'article satisfaisant les conditions.
 	*/
 	public static function getSingleOrThrow(SqlParam &$Param)
@@ -399,8 +399,8 @@ class Omni
 	}
 
 	/**
-	* Récupère une liste d'article satisfaisant les critères énoncés par l'objet SqlParam passé en paramètre, et renvoie une liste affichable.
-	* @param Param:SqlParam les paramètres controlant les articles à renvoyer, normalement construit avec OMNI_TRAILER_PARAM
+	* RÃ©cupÃ¨re une liste d'article satisfaisant les critÃ¨res Ã©noncÃ©s par l'objet SqlParam passÃ© en paramÃ¨tre, et renvoie une liste affichable.
+	* @param Param:SqlParam les paramÃ¨tres controlant les articles Ã  renvoyer, normalement construit avec OMNI_TRAILER_PARAM
 	* @return :array un tableau de trailer.
 	*/
 	public static function getTrailers(SqlParam $Param)

@@ -1,7 +1,7 @@
 <?php
 /**
 * Vue : contact
-* Layout : Présentation / Formulaire
+* Layout : PrÃ©sentation / Formulaire
 *
 */
 ?>

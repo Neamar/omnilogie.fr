@@ -1,6 +1,6 @@
 <?php
 /**
-* Classe Top, permettant de gérer les "Top" : les articles du mois.
+* Classe Top, permettant de gÃ©rer les "Top" : les articles du mois.
 *
 */
 //Top
@@ -15,7 +15,7 @@ class Top
 
 	/**
 	 * Le mois pour lequel les votes sont actuellement ouverts
-	 * Sous forme abrégée (01/10)
+	 * Sous forme abrÃ©gÃ©e (01/10)
 	 */
 	public static $monthAbridged;
 
@@ -26,11 +26,11 @@ class Top
 	public static $monthReadable;
 
 	/**
-	* Ajoute une notification dans l'agenda de la personne définie par GOOGLE_PSEUDO et GOOGLE_PASSWORD.
-	* L'enregistrement de l'évènement se fait en fin de page, afin de ne pas ralentir l'affichage.
+	* Ajoute une notification dans l'agenda de la personne dÃ©finie par GOOGLE_PSEUDO et GOOGLE_PASSWORD.
+	* L'enregistrement de l'Ã©vÃ¨nement se fait en fin de page, afin de ne pas ralentir l'affichage.
 	* @param Title:String le titre de la notification
-	* @param Desc:String la description associée.
-	* @param Date:int timestamp la date à laquelle il faut ajouter l'évenement. NOW() + 2 minutes par défaut.
+	* @param Desc:String la description associÃ©e.
+	* @param Date:int timestamp la date Ã  laquelle il faut ajouter l'Ã©venement. NOW() + 2 minutes par dÃ©faut.
 	*/
 	public static function init()
 	{
@@ -48,7 +48,7 @@ class Top
 	 */
 	public static function goNextMonth()
 	{
-		//Récupérer le timestamp du concours actuellement
+		//RÃ©cupÃ©rer le timestamp du concours actuellement
 		list($mois, $annee) = explode('/', self::$monthAbridged);
 		$ts = mktime(0, 0, 0, $mois, 1, $annee);
 		$ts = $ts + 35 * 24 * 3600;
@@ -56,7 +56,7 @@ class Top
 
 		self::$month = date('Y-m-%', $ts);
 		self::$monthAbridged = date('m/y', $ts);
-		self::$monthReadable = str_replace(array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'), date('M Y', $ts));
+		self::$monthReadable = str_replace(array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'), array('janvier', 'fÃ©vrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aoÃ»t', 'septembre', 'octobre', 'novembre', 'dÃ©cembre'), date('M Y', $ts));
 	}
 }
 

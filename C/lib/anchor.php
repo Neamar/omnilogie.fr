@@ -1,21 +1,21 @@
 <?php
 /**
-* But : Récupérer des liens HTML pour différents éléments.
+* But : RÃ©cupÃ©rer des liens HTML pour diffÃ©rents Ã©lÃ©ments.
 *
 */
 //Anchor
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Anchor
 {
 	private static $Voyelles=array('a','e','i','o','u');
 
 	/**
-	* Créer une ancre à partir d'un article
+	* CrÃ©er une ancre Ã  partir d'un article
 	* @param Omni:Omni un article
-	* @param Class:String la classe CSS à appliquer. Si rien n'est spécifié, c'est le statut de l'article qui sert de classe.
+	* @param Class:String la classe CSS Ã  appliquer. Si rien n'est spÃ©cifiÃ©, c'est le statut de l'article qui sert de classe.
 	* @return :String un lien HTML
 	*/
 	public static function omni(Omni $Omni,$Class=null)
@@ -30,7 +30,7 @@ class Anchor
 	}
 
 	/**
-	* Créer une ancre à partir d'un article vers l'URL raccourcie
+	* CrÃ©er une ancre Ã  partir d'un article vers l'URL raccourcie
 	* @param ID:int l'identifiant de l'article
 	* @return :String un lien HTML
 		*/
@@ -41,7 +41,7 @@ class Anchor
 	}
 
 	/**
-	* Créer une ancre à partir d'un auteur
+	* CrÃ©er une ancre Ã  partir d'un auteur
 	* @param Author:String un auteur
 	* @return :String un lien HTML
 	*/
@@ -52,13 +52,13 @@ class Anchor
 	}
 
 	/**
-	* Créer une ancre à partir d'une catégorie
+	* CrÃ©er une ancre Ã  partir d'une catÃ©gorie
 	* @param Category:String un auteur
 	* @return :String un lien HTML
 	*/
 	public static function category($Category)
 	{
-		return '<a href="' . Link::category($Category) . '" title="Liste des articles dans la catégorie ' . $Category . '">' . $Category . '</a>';
+		return '<a href="' . Link::category($Category) . '" title="Liste des articles dans la catÃ©gorie ' . $Category . '">' . $Category . '</a>';
 	}
 
 }

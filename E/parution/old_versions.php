@@ -1,6 +1,6 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::PARUTION
 *
 * @standalone
