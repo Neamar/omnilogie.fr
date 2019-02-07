@@ -27,6 +27,10 @@ class Debug
 	*/
 	public static function fail($Msg)
 	{
+		if(headers_sent())
+		{
+			http_response_code(500);
+		}
 
 		echo '<p style="border:1px dashed red;"><strong>Désolé, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs délais.</strong></p>';
 
