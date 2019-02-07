@@ -32,7 +32,14 @@ $Standalone = "";
 if(Cache::exists('Datas', 'Events'))
 	$Standalone = unserialize(Cache::get('Datas','Events'));
 else
-	$Standalone = array();
+	$Standalone = array(
+		'generique' => array(
+			'evenements_cache.php' => array(
+				'Access' => 'any'
+				'Description' => 'Générer la liste des évènements'
+			)
+		)
+	);
 
 $HTML = '
 <form method="post" action="">
