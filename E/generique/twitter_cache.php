@@ -1,9 +1,9 @@
 <?php
 /**
-* Fichier d'évènement générique
+* Fichier d'Ã©vÃ¨nement gÃ©nÃ©rique
 *
 * @standalone
-* Mettre à jour le pod "Twitter"
+* Mettre Ã  jour le pod "Twitter"
 */
 //return;
 
@@ -26,4 +26,4 @@ $T = array
 
 Cache::set('Pods','twitter','<p><a href="http://twitter.com/' . $T['ScreenName'] . '">' . $T['User'] . '</a> ' . $T['Tweet'] . '<br />
 
-<small>Posté <a href="http://twitter.com/' . $T['ScreenName'] . '/status/' . $T['ID'] . '">il y a ' . $T['Ecart'] . ' heure' .($T['Ecart']>1?'s':'') . '</a>.</small></p>');
+<small>PostÃ© <a href="http://twitter.com/' . $T['ScreenName'] . '/status/' . $T['ID'] . '">il y a ' . $T['Ecart'] . ' heure' .($T['Ecart']>1?'s':'') . '</a>.</small></p>');

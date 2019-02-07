@@ -1,6 +1,6 @@
 <?php
 /**
-* ×××××××××××××××××××××××××××××××××
+* ÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃ
 * CE FICHIER EST EN UTF-8
 * Layout :
 
@@ -8,8 +8,8 @@
 //Flux
 
 /**
-* Raccourci pour encoder en utf8 les données
-* @param $Data:String les données à afficher
+* Raccourci pour encoder en utf8 les donnÃ©es
+* @param $Data:String les donnÃ©es Ã  afficher
 */
 function utf($data)
 {
@@ -29,7 +29,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 		<title>Admin</title>
 		<link>http://omnilogie.fr</link>
 	</image>
-	<description>Modifications du site en quasi temps réel.</description>
+	<description>Modifications du site en quasi temps rÃ©el.</description>
 	<managingEditor>omni@neamar.fr (Administrateurs Omnilogie)</managingEditor>
 	<language>fr-FR</language>
 

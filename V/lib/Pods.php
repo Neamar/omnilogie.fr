@@ -1,13 +1,13 @@
 <?php
 //Permet la gestion de pods
-//Chaque pod se conforme à la structure
+//Chaque pod se conforme Ã  la structure
 /*
 [id] => Array(
-[Title] le titre du pod à afficher
+[Title] le titre du pod Ã  afficher
 [Content] le contenu
 */
 if(isset($C['SpecialPods']))
-	Debug::fail('Special Pods dépréciés.');
+	Debug::fail('Special Pods dÃ©prÃ©ciÃ©s.');
 
 foreach($C['Pods'] as $PodID=>$Pod)
 {?>

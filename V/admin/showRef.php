@@ -9,14 +9,14 @@
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/start/jquery-ui.css" type="text/css" rel="stylesheet" />
 
 
-<h3><span>Référencement d'article</span></h3>
-<p>Lien vers l'article tel qu'il sera affiché : <?php Template::put('LienDirect'); ?><br />
-<p><a href="/admin/Edit/">Liste des articles à modifier</a></p>
+<h3><span>RÃ©fÃ©rencement d'article</span></h3>
+<p>Lien vers l'article tel qu'il sera affichÃ© : <?php Template::put('LienDirect'); ?><br />
+<p><a href="/admin/Edit/">Liste des articles Ã  modifier</a></p>
 <p><a href="<?php echo Link::omni($C['Titre'],'/admin/'); ?>">Administrer l'article</a></p>
 </section>
 
 <section>
-<h3><span>Formulaire de référencement</span></h3>
+<h3><span>Formulaire de rÃ©fÃ©rencement</span></h3>
 <form method="post" action="">
 <label for="titre">Titre :</label><br />
 <input type="text" name="titre" id="titre" value="<?php Template::put('titre','Valeurs') ?>" /><br />
@@ -30,11 +30,11 @@ Typo::renderIDE(array('Name'=>'article','Rows'=>17,'Preview'=>array('URL'=>'/mem
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 
 <div id="modal-window">
-	<h3><span>Référencement interactif</span></h3>
-	<p>Texte sélectionné : <tt id="select-preview"></tt></p>
+	<h3><span>RÃ©fÃ©rencement interactif</span></h3>
+	<p>Texte sÃ©lectionnÃ© : <tt id="select-preview"></tt></p>
 	<select id="liste-article"></select><br />
 	<ul id="liste-similaire" style="max-height:300px; overflow:auto;"></ul>
-	<p>Code : <tt id="render-preview"><span style="color:#f00000;">\ref</span>[<span id="render-preview-ref" style="color:#00e000"></span>]{<span style='color:#0000d0;' id="render-preview-text">Énorme</span>}</tt></p>
+	<p>Code : <tt id="render-preview"><span style="color:#f00000;">\ref</span>[<span id="render-preview-ref" style="color:#00e000"></span>]{<span style='color:#0000d0;' id="render-preview-text">Ã‰norme</span>}</tt></p>
 </div>
 <script type="text/javascript">
 var Articles = [<?php echo implode(',',$C['Articles']) ?>];
@@ -56,12 +56,12 @@ $(function()
 {
 	$( "#modal-window" ).dialog({
 			autoOpen: false,
-			title: 'Boîte de référencement',
+			title: 'BoÃ®te de rÃ©fÃ©rencement',
 			height: 500,
 			width: '50%',
 			modal: true,
 			buttons: {
-				"Référencer": function() {
+				"RÃ©fÃ©rencer": function() {
 					insertAtCaret($('textarea#article')[0],'\\ref[' + ArticleRef + ']{' + Texte + '}');
 					$( this ).dialog( "close" );
 				},
@@ -106,9 +106,9 @@ $(function()
 
 <hr />
 
-<p>Aperçu de l'article modifié :</p>
+<p>AperÃ§u de l'article modifiÃ© :</p>
 <div id="Typo_preview">
-<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br />
+<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="FlÃ¨che" class="TexPic"> au dessus de l'interface d'Ã©dition pour afficher ici un aperÃ§u de votre texte.<br />
 Version actuelle :</p>
 <div class="omnilogisme">
 <?php Template::put('Apercu') ?>

@@ -1,35 +1,35 @@
 <?php
 /**
-* But : offrir des primitives facilement accessibles pour interagir avec les différents encodages.
+* But : offrir des primitives facilement accessibles pour interagir avec les diffÃ©rents encodages.
 *
 */
 //Encoding
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Encoding
 {
 	/**
-	* Décode la variable $_GET[$key] en prenant en compte l'encodage.
-	* @param key:String la clé de l'index
-	* @return :String la clé nettoyée.
+	* DÃ©code la variable $_GET[$key] en prenant en compte l'encodage.
+	* @param key:String la clÃ© de l'index
+	* @return :String la clÃ© nettoyÃ©e.
 	*/
 	public static function decodeFromGet($key)
 	{
 
 		if(!isset($_GET[$key]))
-			Debug::fail('Impossible de décoder la clé ' . $key);
+			Debug::fail('Impossible de dÃ©coder la clÃ© ' . $key);
 
-		//Le "?" en fin de requête fait bugger l'URL rewriting car ? est un caractère spécial. Il faut l'ajouter manuellement
+		//Le "?" en fin de requÃªte fait bugger l'URL rewriting car ? est un caractÃ¨re spÃ©cial. Il faut l'ajouter manuellement
 		if(substr($_SERVER['REQUEST_URI'],-1)=='?')
 			$_GET[$key] .='?';
 
-		//Enregistrer. Noter qu'il s'agit d'une variable protégée contre l'injection SQL.
+		//Enregistrer. Noter qu'il s'agit d'une variable protÃ©gÃ©e contre l'injection SQL.
 		$Value = Link::unescape(stripslashes($_GET[$key]));
 
 		//Noter aussi que le serveur nous envoie l'URL en UTF8, et qu'on travaille ici en ISO-8859-15.
-		//Cependant, le navigateur peut avoir échappé l'URL auquel cas est sera en iso. Bref, il faut tester pour savoir !
+		//Cependant, le navigateur peut avoir Ã©chappÃ© l'URL auquel cas est sera en iso. Bref, il faut tester pour savoir !
 		if(self::isUtf8($Value))
 			$Value= utf8_decode($Value);
 
@@ -41,9 +41,9 @@ class Encoding
 	}
 
 	/**
-	* Détermine si une chaine est encodée en utf8.
-	* @param str:String la chaine à tester
-	* @return :bool Renvoie true si $str est encodé en utf8, false sinon.
+	* DÃ©termine si une chaine est encodÃ©e en utf8.
+	* @param str:String la chaine Ã  tester
+	* @return :bool Renvoie true si $str est encodÃ© en utf8, false sinon.
 	*/
 	public static function isUtf8($str)
 	{

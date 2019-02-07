@@ -1,6 +1,6 @@
 <?php
 /**
-* Modèle : Stats
+* ModÃ¨le : Stats
 * But : Afficher des statistiques inutiles
 */
 //Article
@@ -60,7 +60,7 @@ ORDER BY HOUR(Date)';
 
 $ActionDelai = 'SELECT FORMAT(AVG(TO_DAYS(Parution.Date)-TO_DAYS(Creation.Date)),1) AS Moyenne,MAX(TO_DAYS(Parution.Date)-TO_DAYS(Creation.Date)) AS Maximum
 FROM OMNI_Modifs AS Parution
-LEFT JOIN OMNI_Modifs AS Creation ON (Creation.Modification LIKE "Création%" AND Creation.Reference=Parution.Reference)
+LEFT JOIN OMNI_Modifs AS Creation ON (Creation.Modification LIKE "CrÃ©ation%" AND Creation.Reference=Parution.Reference)
 WHERE Parution.Modification LIKE "Parution%"';
 
 $TailleFile = "SELECT DATE(Calendrier.Sortie) AS Abscisse, COUNT(File.Parution) AS Ordonnee
@@ -71,7 +71,7 @@ LEFT JOIN
 	FROM OMNI_Omnilogismes Omnilogismes
 	JOIN
 	(
-		SELECT Reference, Date FROM OMNI_Modifs WHERE Modification='Statut changé vers ACCEPTE' GROUP BY Reference
+		SELECT Reference, Date FROM OMNI_Modifs WHERE Modification='Statut changÃ© vers ACCEPTE' GROUP BY Reference
 	) Acceptation ON Acceptation.Reference = Omnilogismes.ID
 	JOIN
 	(
@@ -122,19 +122,19 @@ $C['Stats'] = array(
 	'Auteurs les plus lus'=>array(
 		Stats::Its($PlusLus,'<a href="/Omnilogistes/$Abscisse">$Abscisse</a></span> ($Ordonnee vues)','Ordonnee','Autres articles : $Ordonnee vues'),
 		Stats::GraphIt($PlusLus,array('cht'=>'p3','chtt'=>'Auteurs lus','chco'=>'FF0000,00FF00,88AAD6','chl'=>'$ABSCISSES'))),
-	'Pondération lectures / nombre d\'articles'=>array(
+	'PondÃ©ration lectures / nombre d\'articles'=>array(
 		Stats::Its($PlusLusMoyenne,'<a href="/Omnilogistes/$Abscisse" class="lienDiscret auteur">$Abscisse</a></span> ($Ordonnee vues)','Ordonnee'),
 		Stats::GraphIt($PlusLusMoyenne,array('cht'=>'p3','chtt'=>'Moyenne vues par articles','chco'=>'FF0000,00FF00,88AAD6','chl'=>'$ABSCISSES'),NO_OTHER_COLUMN)),
 	),
 'Actions'=>array(
-	'Top actions réalisées'=>array(
+	'Top actions rÃ©alisÃ©es'=>array(
 		Stats::Its($PlusAction,'$Abscisse : $Ordonnee','Ordonnee','Autres : $Ordonnee'),
-		Stats::It($PlusActionOneLiner,'<p>Total : $Somme modifications sur $CountDistinct articles (moyenne : $Avg modifications par article) réparties sur $DateSpan jours ($ActionJour modifs / jour).<br />$Versions articles versionnés actuellements enregistrés (suppression automatique après 30 jours).</p>'),	Stats::GraphIt($PlusAction,array('cht'=>'p3','chs'=>'800x200','chtt'=>'Actions','chco'=>'FF0000,00FF00,88AAD6','chl'=>'$ABSCISSES'))),
+		Stats::It($PlusActionOneLiner,'<p>Total : $Somme modifications sur $CountDistinct articles (moyenne : $Avg modifications par article) rÃ©parties sur $DateSpan jours ($ActionJour modifs / jour).<br />$Versions articles versionnÃ©s actuellements enregistrÃ©s (suppression automatique aprÃ¨s 30 jours).</p>'),	Stats::GraphIt($PlusAction,array('cht'=>'p3','chs'=>'800x200','chtt'=>'Actions','chco'=>'FF0000,00FF00,88AAD6','chl'=>'$ABSCISSES'))),
 	'Qui fait quoi quand ?'=>array(
 		Stats::GraphIt($ModifsJour,array('chtt'=>'Modifications par jour','chxt'=>'y','chxr'=>'0,0,$MAX'),NO_OTHER_COLUMN),
 		Stats::GraphIt($ModifsHeure,array('cht'=>'bvs','chtt'=>'Modifications par heure','chxt'=>'x,y','chxl'=>'0:|$ABSCISSES|1:|0|$MAX','chbh'=>'a'),NO_OTHER_COLUMN)),
 	'Temps'=>array(
-		Stats::It($ActionDelai,'<p>Délai moyen entre la création d\'un article et sa parution : $Moyenne jours<br />Maximum : $Maximum jours.</p>')),
+		Stats::It($ActionDelai,'<p>DÃ©lai moyen entre la crÃ©ation d\'un article et sa parution : $Moyenne jours<br />Maximum : $Maximum jours.</p>')),
 	'Longueur de la file de parution'=>array(
 		Stats::GraphIt($TailleFile,array('chtt'=>'Nombre d\'articles en file d\'attente','chxt'=>'y','chxr'=>'0,0,$MAX'),NO_OTHER_COLUMN)),
 	),
@@ -142,11 +142,11 @@ $C['Stats'] = array(
 	'Articles les plus vus'=>array(
 		Stats::Its($PlusVus,'$Abscisse <span class="petitTexte">par <a href="/Omnilogistes/$Auteur" class="lienDiscret auteur">$Auteur</a></span> ($Ordonnee vues)','Ordonnee'),
 		Stats::GraphIt($PlusVus,array('cht'=>'p3','chtt'=>'Visionnages des articles','chco'=>'FF0000,00FF00,88AAD6','chl'=>'$ABSCISSES'),NO_OTHER_COLUMN),
-		Stats::It($TotalVue,'<p>Total : $Somme articles visionnés.</p>')),
+		Stats::It($TotalVue,'<p>Total : $Somme articles visionnÃ©s.</p>')),
 	'Nombre de vues'=>array(
 		Stats::GraphIt($NbVuesTemps,array('chtt'=>'Nombre de vues des articles','chxt'=>'y','chxr'=>'0,0,$MAX'),NO_OTHER_COLUMN)),
 	'Longueur'=>array(
-		Stats::It($LongueurInfo,'<p>Longueur moyenne : $Moyenne caractères ($AvgWord mots)<br />Maximum : $Maximum caractères ($MaxWord mots)<br />Minimum : $Minimum caractères ($MinWord mots).</p>'),
+		Stats::It($LongueurInfo,'<p>Longueur moyenne : $Moyenne caractÃ¨res ($AvgWord mots)<br />Maximum : $Maximum caractÃ¨res ($MaxWord mots)<br />Minimum : $Minimum caractÃ¨res ($MinWord mots).</p>'),
 		Stats::GraphIt($LongueurTemps,array('chtt'=>'Taille des articles au fil du temps','chxt'=>'y','chxr'=>'0,0,$MAX'),NO_OTHER_COLUMN)),
 	'Articles et statuts'=>array(
 		Stats::Its($ListeStatut,'Dans le statut "<span class="$PetitStatut">$Abscisse</span>" : $Ordonnee'),

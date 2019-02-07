@@ -3,7 +3,7 @@
 * Vue : membres/Propositions
 * Layout : Ajout
 * Propositions libres
-* Propositions réservées
+* Propositions rÃ©servÃ©es
 *
 */
 ?>
@@ -12,13 +12,13 @@
 <ol>
 <li><a href="#h3_propositions">Ajout de proposition</a></li>
 <li><a href="#h3_propositions_libres">Propositions disponibles</a></li>
-<li><a href="#h3_propositions_reservees">Consulter les propositions réservées</a></li>
+<li><a href="#h3_propositions_reservees">Consulter les propositions rÃ©servÃ©es</a></li>
 </ol>
 
 <form method="post" action="">
 <fieldset>
 <legend>Ajout d'une proposition</legend>
-<label for="proposition">Votre idée :</label><br />
+<label for="proposition">Votre idÃ©e :</label><br />
 <textarea name="proposition" id="proposition" required></textarea><br />
 
 <label for="lien">Un lien pour en savoir plus :</label>
@@ -36,20 +36,20 @@
 foreach($C['PropositionsLibres'] as $ID=>$Prop)
 {?>
 <li>
-	<p><a href="/membres/Propositions-<?php echo $ID; ?>">Réserver cette idée</a> ?</p>
+	<p><a href="/membres/Propositions-<?php echo $ID; ?>">RÃ©server cette idÃ©e</a> ?</p>
 	<div class="proposition"><?php echo $Prop['Proposition']; ?></div></li>
 <?php } ?>
 </ul>
 </section>
 
 <section>
-<h3 id="h3_propositions_reservees"><span>Propositions réservées</span></h3>
+<h3 id="h3_propositions_reservees"><span>Propositions rÃ©servÃ©es</span></h3>
 <ul id="ul_propositions_reservees">
 <?php
 foreach($C['PropositionsReservees'] as $ID=>$Prop)
 {?>
 <li>
-	<p>Idée réservée par <?php echo Anchor::author($Prop['ReservePar']); ?></p>
+	<p>IdÃ©e rÃ©servÃ©e par <?php echo Anchor::author($Prop['ReservePar']); ?></p>
 	<div class="proposition"><?php echo $Prop['Proposition']; ?></div></li>
 <?php } ?>
 </ul>

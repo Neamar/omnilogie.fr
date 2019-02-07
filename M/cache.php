@@ -1,11 +1,11 @@
 <?php
 /**
-* Modèle : Cache
+* ModÃ¨le : Cache
 * But : Mettre en page une cache
 */
 //Cache
 
-//Si le cache existe déjà, on charge le titre et l'adresse canonique... et c'est tout
+//Si le cache existe dÃ©jÃ , on charge le titre et l'adresse canonique... et c'est tout
 if(Cache::$pageExists)
 {
 	$C = array_merge($C,unserialize(Cache::get('Datas','Cache-' . Cache::$pageId)));
@@ -13,7 +13,7 @@ if(Cache::$pageExists)
 }
 else
 {
-	//Sinon, on inclut le modèle qui aurait dû être chargé sans le cache
+	//Sinon, on inclut le modÃ¨le qui aurait dÃ» Ãªtre chargÃ© sans le cache
 	include 'M/' . Cache::$pageCachee . '.php';
 }
 

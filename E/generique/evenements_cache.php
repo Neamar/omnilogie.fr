@@ -1,11 +1,11 @@
 <?php
 /**
-* Fichier d'évènement générique
+* Fichier d'Ã©vÃ¨nement gÃ©nÃ©rique
 *
 * @standalone
 * @access admins
-* Mettre à jour le menu listant les événements disponibles pours les administrateurs
-* Mettre à jour ce menu
+* Mettre Ã  jour le menu listant les Ã©vÃ©nements disponibles pours les administrateurs
+* Mettre Ã  jour ce menu
 */
 
 $EventsFiles = glob(PATH . '/E/*/*.php');
@@ -17,7 +17,7 @@ foreach($EventsFiles as $EventFile)
 	//Le fichier a-t-il le flag standalone ?
 	if(strpos($File,'@standalone')!==false)
 	{
-		//Trouver l'évenement associé
+		//Trouver l'Ã©venement associÃ©
 		preg_match('`/(?P<event>[^/]+)/(?P<file>[^/]+)\.php$`',$EventFile,$EventType);
 		preg_match('`@access (.+)\s`',$File,$Access);
 		preg_match("`\* (.+)\n\*/`",$File,$Description);

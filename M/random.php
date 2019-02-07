@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : Random
-* But : Afficher 20 articles séléctionnés au hasard
-* Données à charger : 20 articles, sous forme de teaser.
+* ModÃ¨le : Random
+* But : Afficher 20 articles sÃ©lÃ©ctionnÃ©s au hasard
+* DonnÃ©es Ã  charger : 20 articles, sous forme de teaser.
 */
 //Articles
 $C['PageTitle'] = 'Articles au hasard';
@@ -10,8 +10,8 @@ $C['PageTitle'] = 'Articles au hasard';
 $C['CanonicalURL'] = '/Random';
 
 
-//Récupérer tous les articles parus.
-//Utiliser le système de pagination
+//RÃ©cupÃ©rer tous les articles parus.
+//Utiliser le systÃ¨me de pagination
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 
 $Param->Where = '
@@ -21,7 +21,7 @@ AND Statut="ACCEPTE"';
 $Param->Order = 'RAND()';
 $Param->Limit = 20;
 
-//Récupérer les articles
+//RÃ©cupÃ©rer les articles
 $Articles = Omni::get($Param);
 foreach($Articles as &$Article)
 {

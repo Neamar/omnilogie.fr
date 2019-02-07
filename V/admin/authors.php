@@ -7,13 +7,13 @@
 ?>
 
 <h3><span>Liste des auteurs</span></h3>
-<h1>Données auteurs</h1>
+<h1>DonnÃ©es auteurs</h1>
 <?php Template::put('Membres') ?>
 </section>
 
 <section>
-<h3><span>Envoi de mail à tous</span></h3>
-<p>Cette fonctionnalité permet d'envoyer un mail à tous les auteurs d'un coup.</p>
+<h3><span>Envoi de mail Ã  tous</span></h3>
+<p>Cette fonctionnalitÃ© permet d'envoyer un mail Ã  tous les auteurs d'un coup.</p>
 <form method="post" action="">
 
 <label for="sujet">Sujet du mail :</label><input type="text" name="sujet" id="sujet" value="<?php echo (isset($_POST['sujet'])?stripslashes($_POST['sujet']):'') ?>"/>
@@ -23,10 +23,10 @@ Typo::renderIDE(array('Name'=>'mail','Rows'=>10,'Preview'=>array('URL'=>'/membre
 ?>
 
 <div id="Typo_preview">
-<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="Flèche" class="TexPic"> au dessus de l'interface d'édition pour afficher ici un aperçu de votre texte.<br /></p>
+<p>Cliquez sur l'icone <img src="https://neamar.fr/lib/markitup/sets/Typo/images/preview.png" alt="FlÃ¨che" class="TexPic"> au dessus de l'interface d'Ã©dition pour afficher ici un aperÃ§u de votre texte.<br /></p>
 </div>
 
-<input type="checkbox" name="test" id="test" checked="checked" /><label for="test">Envoyer juste pour test (uniquement à neamar@neamar.fr)</label>
+<input type="checkbox" name="test" id="test" checked="checked" /><label for="test">Envoyer juste pour test (uniquement Ã  neamar@neamar.fr)</label>
 <br />
 <input type="submit" value="Envoyer !" />
 </form>

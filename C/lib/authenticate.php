@@ -1,11 +1,11 @@
 <?php
 /**
-* But : réaliser une authentification HTTP en n'utilisant que PHP (sans passer par le .htaccess de Apache)
+* But : rÃ©aliser une authentification HTTP en n'utilisant que PHP (sans passer par le .htaccess de Apache)
 *
 */
 //Authenticate
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 class Authenticate
 {
 
@@ -13,9 +13,9 @@ class Authenticate
 
 	/**
 	* Tente de connecter l'utilisateur qui veut voir la page.
-	* Utilise une authentification HTTP si l'utilisateur n'est pas encore enregistré. S'il est déjà connecté, vérifier ses permissions.
-	* @param roles:array les rôles autorisés. L'utilisateur qui se connecte doit faire partie d'au moins un des groupes de $roles pour être autorisé.
-	* @return :boolean true si l'identification a fonctionné ; si elle échoue le script s'arrête.
+	* Utilise une authentification HTTP si l'utilisateur n'est pas encore enregistrÃ©. S'il est dÃ©jÃ  connectÃ©, vÃ©rifier ses permissions.
+	* @param roles:array les rÃ´les autorisÃ©s. L'utilisateur qui se connecte doit faire partie d'au moins un des groupes de $roles pour Ãªtre autorisÃ©.
+	* @return :boolean true si l'identification a fonctionnÃ© ; si elle Ã©choue le script s'arrÃªte.
 	*/
 	public static function login(array $roles)
 	{
@@ -23,18 +23,18 @@ class Authenticate
 			$Login = $_SESSION['Membre']['Pseudo'];
 		else
 		{
-			//Est-on connecté ?
+			//Est-on connectÃ© ?
 			if(empty($_SERVER['REDIRECT_REDIRECT_LOGIN']))
 				self::askForLogin();
 
-			//Récupérer les infos de connexion entrées :
+			//RÃ©cupÃ©rer les infos de connexion entrÃ©es :
 			$Login = base64_decode(substr($_SERVER['REDIRECT_REDIRECT_LOGIN'],5));
 
 			$Infos = explode(':',$Login,2);
 
 			$Login = $Infos[0];
 
-			//Récupérer le mot de passe de l'utilisateur :
+			//RÃ©cupÃ©rer le mot de passe de l'utilisateur :
 			$Liste = file(DATA_PATH . '/.admin',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 			foreach($Liste as $Membre)
 			{
@@ -46,8 +46,8 @@ class Authenticate
 					break;
 			}
 
-			//A-t-il entré le bon mot de passe ?
-			//Pour cela, on crypte en salant avec le hash en mémoire, et on compare avec ce même hash : les résultats doivent être similaires.
+			//A-t-il entrÃ© le bon mot de passe ?
+			//Pour cela, on crypte en salant avec le hash en mÃ©moire, et on compare avec ce mÃªme hash : les rÃ©sultats doivent Ãªtre similaires.
 			if($Membre[0]==$Login && crypt($Infos[1],$Membre[1])==$Membre[1])
 			{
 				$_SERVER['REMOTE_USER'] = $Login;
@@ -56,7 +56,7 @@ class Authenticate
 			else
 				self::askForLogin();
 
-			//Si un admin était connecté sur un faux compte, la condition qui suit permet de le déconnecter du pseudo et de la repasser sur son compte admin, qui dispose des droits d'accès.
+			//Si un admin Ã©tait connectÃ© sur un faux compte, la condition qui suit permet de le dÃ©connecter du pseudo et de la repasser sur son compte admin, qui dispose des droits d'accÃ¨s.
 			if(!isset($_SESSION['Membre']['Pseudo']) || $Login != $_SESSION['Membre']['Pseudo'])
 			{
 				//Si tout est OK, le connecter en tant que membre (en plus d'admin)
@@ -65,7 +65,7 @@ class Authenticate
 			}
 		}
 
-		//L'utilisateur est-il autorisé ?
+		//L'utilisateur est-il autorisÃ© ?
 		$estAutorise=false;
 		foreach($roles as $role)
 		{
@@ -84,7 +84,7 @@ class Authenticate
 
 	/**
 	* Envoie les headers demandant la connexion du visiteur.
-	* Bloque après self::NB_ESSAIS_AVANT_BAN essais infructueux.
+	* Bloque aprÃ¨s self::NB_ESSAIS_AVANT_BAN essais infructueux.
 	*/
 	private static function askForLogin()
 	{
@@ -94,13 +94,13 @@ class Authenticate
 		$_SESSION['NbEssaiConnexion']++;
 
 		if($_SESSION['NbEssaiConnexion'] > self::NB_ESSAIS_AVANT_BAN && 0)
-			exit("Bon, soyons franc... t'as aucune idée du mot de passe ! Passe ton chemin, le site a des pages intéressantes même quand on n'est pas admin ;)");
+			exit("Bon, soyons franc... t'as aucune idÃ©e du mot de passe ! Passe ton chemin, le site a des pages intÃ©ressantes mÃªme quand on n'est pas admin ;)");
 		else
 		{
 			header('HTTP/1.1 401 Authorization Required');
-			header('WWW-Authenticate: Basic realm="Pages protégées"');
+			header('WWW-Authenticate: Basic realm="Pages protÃ©gÃ©es"');
 
-			exit("L'accès à ces pages est protégé.");
+			exit("L'accÃ¨s Ã  ces pages est protÃ©gÃ©.");
 		}
 	}
 

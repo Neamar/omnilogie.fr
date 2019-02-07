@@ -1,7 +1,7 @@
 <?php
 /**
-* Classe External, permettant de connecter Omnilogie au reste du monde en rÈcupÈrant des donnÈes distantes.
-* Pour accÈlerer le rendu des pages, la plupart des actions sont dÈfÈrÈe en fin de script.
+* Classe External, permettant de connecter Omnilogie au reste du monde en r√©cup√©rant des donn√©es distantes.
+* Pour acc√©lerer le rendu des pages, la plupart des actions sont d√©f√©r√©e en fin de script.
 *
 */
 //External
@@ -9,12 +9,12 @@
 class External
 {
 	/**
-	* RÈcupËre une ressource distante.
-	* @param URL:String l'url ‡ tÈlÈcharger
-	* @param OutFile:String l'emplacement o˘ sauvegarder le fichier. Si null, on place tout dans le cache du site.
-	* @param POST:array les donnÈes POST ‡ simuler
-	* @param CacheTime:int la durÈe de cache en secondes. 0 dÈsactive le cache
-	* @return :String le chemin vers le fichier sauvegardÈ.
+	* R√©cup√®re une ressource distante.
+	* @param URL:String l'url √† t√©l√©charger
+	* @param OutFile:String l'emplacement o√π sauvegarder le fichier. Si null, on place tout dans le cache du site.
+	* @param POST:array les donn√©es POST √† simuler
+	* @param CacheTime:int la dur√©e de cache en secondes. 0 d√©sactive le cache
+	* @return :String le chemin vers le fichier sauvegard√©.
 	*/
 	public static function fetch($URL,$CacheTime=0)
 	{
@@ -32,7 +32,7 @@ class External
 
 		/*
 
-		//DÈterminer l'emplacement de sauvegarde.
+		//D√©terminer l'emplacement de sauvegarde.
 		if(is_null($OutFile))
 			$OutFile = '/Cache/' . md5($URL);
 
@@ -50,9 +50,9 @@ class External
 	}
 
 	/**
-	* Tweete le message demandÈ sur le compte dÈfini par TWITTER_PSEUDO et TWITTER_PASSWORD.
-	* NOTE: Message sera encodÈ en UTF-8.
-	* @param Message:String le message ‡ envoyer.
+	* Tweete le message demand√© sur le compte d√©fini par TWITTER_PSEUDO et TWITTER_PASSWORD.
+	* NOTE: Message sera encod√© en UTF-8.
+	* @param Message:String le message √† envoyer.
 	* @return
 	*/
 	public static function tweet($Message)
@@ -62,7 +62,7 @@ class External
 	}
 
 	/**
-	* Envoie un mail ‡ $to.
+	* Envoie un mail √† $to.
 	* L'envoi du mail se fait en fin de page, afin de ne pas ralentir l'affichage.
 	* @param To:String le destinataire du message
 	* @param Subject:String le sujet du mail
@@ -72,29 +72,29 @@ class External
 	{
 		// Disabled
 		return;
-		// Pour envoyer un mail HTML, l'en-tÍte Content-type doit Ítre dÈfini
+		// Pour envoyer un mail HTML, l'en-t√™te Content-type doit √™tre d√©fini
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-		// En-tÍtes additionnels
+		// En-t√™tes additionnels
 		$headers .= 'From: Omnilogue <' . $from . '>' . "\r\n";//admin@omnilogie.fr est une liste de diffusion vers les administrateurs.
 
 		register_shutdown_function("mail",$to, $subject, $message, $headers);
 
 		$fichier = fopen(DATA_PATH . '/mail_logs', 'a'); //Ouvrir le fichier
-		fputs($fichier, time() . '| ' . $to . '=>' . $subject);//Puis enregistrer les donnÈes
+		fputs($fichier, time() . '| ' . $to . '=>' . $subject);//Puis enregistrer les donn√©es
 		fputs($fichier, "\n");
 		fclose($fichier); //Et fermer le fichier
 
-		Event::log('Envoi de mail ‡ ' . $to . ' : ' . $subject);
+		Event::log('Envoi de mail √† ' . $to . ' : ' . $subject);
 	}
 
 	/**
-	* Ajoute une notification dans l'agenda de la personne dÈfinie par GOOGLE_PSEUDO et GOOGLE_PASSWORD.
-	* L'enregistrement de l'ÈvËnement se fait en fin de page, afin de ne pas ralentir l'affichage.
+	* Ajoute une notification dans l'agenda de la personne d√©finie par GOOGLE_PSEUDO et GOOGLE_PASSWORD.
+	* L'enregistrement de l'√©v√®nement se fait en fin de page, afin de ne pas ralentir l'affichage.
 	* @param Title:String le titre de la notification
-	* @param Desc:String la description associÈe.
-	* @param Date:int timestamp la date ‡ laquelle il faut ajouter l'Èvenement. NOW() + 2 minutes par dÈfaut.
+	* @param Desc:String la description associ√©e.
+	* @param Date:int timestamp la date √† laquelle il faut ajouter l'√©venement. NOW() + 2 minutes par d√©faut.
 	*/
 	public static function notify($Title,$Desc='',$Date=null)
 	{
@@ -103,13 +103,13 @@ class External
 
 	public static function _notify($Title,$Desc='',$Date=null)
 	{
-		//Aucune date spÈcifiÈe : envoyer la notification imÈmdiatement.
+		//Aucune date sp√©cifi√©e : envoyer la notification im√©mdiatement.
 		if($Date==null)
 			$Date=time() + 3*60 + 10 - date('s');
 		$Title = utf8_encode($Title);
 		$Desc = utf8_encode($Desc);
 
-		//1 : rÈgler le chemin vers la librairie Google
+		//1 : r√©gler le chemin vers la librairie Google
 		include_once(LIB_PATH .  '/google.php');
 
 		//2 : Charger ce qui nous interesse
@@ -121,12 +121,12 @@ class External
 		$client = Zend_Gdata_ClientLogin::getHttpClient(GOOGLE_PSEUDO,GOOGLE_PASSWORD,$service);
 
 
-		//4 : Insertion de l'ÈlÈment
+		//4 : Insertion de l'√©l√©ment
 
 		$startDate = date('Y-m-d',$Date);//2009-11-23
 		$startTime = date('H:i',$Date);
 
-		//Moduler le fuseau horaitre en fonction de l'heure d'ÈtÈ / d'hiver.
+		//Moduler le fuseau horaitre en fonction de l'heure d'√©t√© / d'hiver.
 
 		if(date('I',$Date)==0)
 			$tzOffset = '+01';

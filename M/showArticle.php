@@ -1,9 +1,9 @@
 <?php
 /**
-* Modèle : Article
-* But : Afficher un article sur sa page dédiée /O/
-* Données à charger : Article, sources, articles similaires, sagas dont l'article fait partie dans les menus, anecdote
-* Modèles particulièrement court, les données étant récupérées directement dans le contrôleur pour valider l'article.
+* ModÃ¨le : Article
+* But : Afficher un article sur sa page dÃ©diÃ©e /O/
+* DonnÃ©es Ã  charger : Article, sources, articles similaires, sagas dont l'article fait partie dans les menus, anecdote
+* ModÃ¨les particuliÃ¨rement court, les donnÃ©es Ã©tant rÃ©cupÃ©rÃ©es directement dans le contrÃ´leur pour valider l'article.
 */
 
 //Article
@@ -36,7 +36,7 @@ $C['Header'] = str_replace(
 
 
 
-if($Article->Adsense != '' && $Article->ID > 1000) //Ne pas afficher de publicités sur les anciens articles.
+if($Article->Adsense != '' && $Article->ID > 1000) //Ne pas afficher de publicitÃ©s sur les anciens articles.
 {
 	$C['Adsense'] = $Article->Adsense;
 }
@@ -51,7 +51,7 @@ else
 	$C['Suivant'] = '';
 
 if($Article->TitrePrecedent!='')
-	$C['Precedent'] = '<p class="read-previous-article"><a href="' . Link::omni($Article->TitrePrecedent) . '" title="' . $Article->AccrochePrecedent . '">Avant de lire cet article, assurez-vous d\'avoir lu l\'épisode précédent !</a></p>';
+	$C['Precedent'] = '<p class="read-previous-article"><a href="' . Link::omni($Article->TitrePrecedent) . '" title="' . $Article->AccrochePrecedent . '">Avant de lire cet article, assurez-vous d\'avoir lu l\'Ã©pisode prÃ©cÃ©dent !</a></p>';
 else
 	$C['Precedent'] = '';
 
@@ -64,7 +64,7 @@ if(isset($ArbreCategories['Sagas']))
 	unset($C['Pods']['lastArticles']);
 }
 
-//à placer après la construction des sagas car l'arbre est modifié par outputTree.
+//Ã  placer aprÃ¨s la construction des sagas car l'arbre est modifiÃ© par outputTree.
 $C['Categories'] = Category::outputTree($ArbreCategories);
 $C['Similar'] = $Article->outputSimilar();
 
@@ -76,8 +76,8 @@ if($Article->Anecdote!='')
 }
 
 
-//Déterminer les liens complémentaires.
-//Infos complémentaires
+//DÃ©terminer les liens complÃ©mentaires.
+//Infos complÃ©mentaires
 $Complementary = array(
 	'Lien court : ' . Anchor::omniShort($Article->ID),
 	'<a href="/Contact#' . Link::omni($Article->Titre) . '">Signaler une erreur ou une faute</a>',
@@ -104,7 +104,7 @@ if(isset($_SESSION['Membre']['Pseudo']))
 		}
 		if(Member::is($_SESSION['Membre']['Pseudo'],'reffeurs'))
 		{
-			$Complementary[] = '<a href="' . Link::omni($Article->Titre,'/admin/Ref/') . '">Référencer l\'article</a>';
+			$Complementary[] = '<a href="' . Link::omni($Article->Titre,'/admin/Ref/') . '">RÃ©fÃ©rencer l\'article</a>';
 		}
 		if(Member::is($_SESSION['Membre']['Pseudo'],'taggers'))
 			$Complementary[] = '<a href="' . Link::omni($Article->Titre,'/admin/Tag/') . '">Classifier l\'article</a>';
@@ -136,7 +136,7 @@ if(!is_null($Article->Timestamp))
 	{
 		if($DateParutionProchainArticle - time() < 24 * 3600)
 		{
-			$C['Lendemain'] = 'ce soir, à minuit...';
+			$C['Lendemain'] = 'ce soir, Ã  minuit...';
 		}
 		else
 		{
@@ -147,7 +147,7 @@ if(!is_null($Article->Timestamp))
 	unset($Suivant, $Precedent);
 }
 
-prependPod('complementary', 'Informations complémentaires', Formatting::makeList($Complementary));
+prependPod('complementary', 'Informations complÃ©mentaires', Formatting::makeList($Complementary));
 
 unset($Article);
 

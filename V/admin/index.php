@@ -6,7 +6,7 @@
 
 ?>
 <h3><span>Page d'accueil de l'administration</span></h3>
-<blockquote><p>Un grand pouvoir implique de grandes responsabilités. </p></blockquote>
+<blockquote><p>Un grand pouvoir implique de grandes responsabilitÃ©s. </p></blockquote>
 <?php echo Formatting::makeList($C['TOC'],'ul','admin_actions'); ?>
 
 <?php

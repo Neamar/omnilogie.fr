@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : admin/authors
-* But : enregistrer les nouvelles catégories
+* ContrÃ´leur : admin/authors
+* But : enregistrer les nouvelles catÃ©gories
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 if(isset($_POST['mail']) && AUTHOR_ID==1)
 {
@@ -46,7 +46,7 @@ if(isset($_POST['mail']) && AUTHOR_ID==1)
 	Typo::setTexte(stripslashes($_POST['mail']));
 	$Patron = Typo::Parse() . '<hr />
 	<ul>
-		<li><a href="/membres/Redaction?membre=%Hash%">Rédiger un article</a></li>
+		<li><a href="/membres/Redaction?membre=%Hash%">RÃ©diger un article</a></li>
 		<li><a href="/membres/Propositions?membre=%Hash%">Propositions d\'article</a></li>
 	</ul>';
 
@@ -67,5 +67,5 @@ if(isset($_POST['mail']) && AUTHOR_ID==1)
 		if(isset($_POST['test']))
 			break;
 	}
-	$C['Message'] = 'Envoi terminé ! (' . $NbMailsEnvoyes . ' mails envoyés)';
+	$C['Message'] = 'Envoi terminÃ© ! (' . $NbMailsEnvoyes . ' mails envoyÃ©s)';
 }

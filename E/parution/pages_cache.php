@@ -1,10 +1,10 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::PARUTION
 *
 * @standalone
-* Supprime toutes les pages en cache pour la journée.
+* Supprime toutes les pages en cache pour la journÃ©e.
 */
 
 if(Cache::exists('Page','index'))

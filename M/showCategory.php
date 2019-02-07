@@ -1,19 +1,19 @@
 <?php
 /**
-* Modèle : showCategory
-* But : Générer les données nécessaire à l'affichage de la page d'accueil
-* Données à charger : 
-* - Catégories entourantes
-* - Articles dans la catégorie.
-* Pré requis du contrôleur associé : la variable $Category avec l'entrée propre demandée.
+* ModÃ¨le : showCategory
+* But : GÃ©nÃ©rer les donnÃ©es nÃ©cessaire Ã  l'affichage de la page d'accueil
+* DonnÃ©es Ã  charger : 
+* - CatÃ©gories entourantes
+* - Articles dans la catÃ©gorie.
+* PrÃ© requis du contrÃ´leur associÃ© : la variable $Category avec l'entrÃ©e propre demandÃ©e.
 */
 
 $C['PageActuelle'] = (isset($_GET['Page'])?' : page ' . intval($_GET['Page']):'');
-$C['PageTitle'] = 'Liste des articles dans la catégorie ' . $Category . $C['PageActuelle'];
+$C['PageTitle'] = 'Liste des articles dans la catÃ©gorie ' . $Category . $C['PageActuelle'];
 $C['CanonicalURL'] = Link::category($Category) . (isset($_GET['Page'])?'Page-' . $_GET['Page']:'');
 $C['Category'] = $Category;
 
-//Catégories entourantes :
+//CatÃ©gories entourantes :
 $Siblings = Category::getSiblings($Category);
 $Tree = Category::getTree($Siblings);
 
@@ -23,7 +23,7 @@ if(isset($Tree['Sagas']) && is_array($Tree['Sagas']))
 
 $C['AroundTree']=Category::outputTree($Tree);
 
-//Récupérer les articles
+//RÃ©cupÃ©rer les articles
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 
 $Param->Where = '

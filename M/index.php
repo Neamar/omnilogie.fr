@@ -1,21 +1,21 @@
 <?php
 /**
-* Modèle : index.php
-* But : Générer les données nécessaire à l'affichage de la page d'accueil
-* Données à charger :
+* ModÃ¨le : index.php
+* But : GÃ©nÃ©rer les donnÃ©es nÃ©cessaire Ã  l'affichage de la page d'accueil
+* DonnÃ©es Ã  charger :
 * - Article du jour complet
-* - Articles précédents raccourcis.
+* - Articles prÃ©cÃ©dents raccourcis.
 */
 
 
 
-//Général
-$C['PageTitle'] = 'Omnilogie.fr : la culture générale au quotidien';
+//GÃ©nÃ©ral
+$C['PageTitle'] = 'Omnilogie.fr : la culture gÃ©nÃ©rale au quotidien';
 $C['CanonicalURL'] = '/';
 
 unset($C['Pods']['lastArticles']);
 
-//Récupérer les derniers articles
+//RÃ©cupÃ©rer les derniers articles
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 $Param->Where = 'Sortie <> "" AND Auteurs.Auteur != "Top"';
 $Param->Order = 'RAND() DESC';
@@ -32,7 +32,7 @@ $C['Contenu'] = $Article->outputFull();
 $C['Categories']=Category::outputTree(Category::getTree($Article->getCategories()));
 $C['Similar'] = $Article->outputSimilar();
 
-//Articles précédents
+//Articles prÃ©cÃ©dents
 foreach($Articles as &$Article)
 {
 	$C['Articles'][$Article->ID]['Header'] = $Article->outputHeader(OMNI_SMALL_HEADER);

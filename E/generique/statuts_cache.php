@@ -1,21 +1,21 @@
 <?php
 /**
-* Fichier d'évènement générique
+* Fichier d'Ã©vÃ¨nement gÃ©nÃ©rique
 *
 * @standalone
-* Mettre à jour le pod "Statuts" listant les articles par statuts
+* Mettre Ã  jour le pod "Statuts" listant les articles par statuts
 */
 
 //Special pods : liste des statuts
 $Status=array(
-	'ACCEPTE'=>'accepté%s',
+	'ACCEPTE'=>'acceptÃ©%s',
 	'BROUILLON'=>' en gestation',
-	'INDETERMINE'=>' à valider',
-	'A_CORRIGER'=>' à corriger',
-	'REVOIR_FOND'=>' dont le fond est à revoir',
-	'REVOIR_FORME'=>' dont la forme est à revoir',
-	'REFUSE'=>' refusé%s',
-	'DEJA_TRAITE'=>' sur un sujet déjà abordé',
+	'INDETERMINE'=>' Ã  valider',
+	'A_CORRIGER'=>' Ã  corriger',
+	'REVOIR_FOND'=>' dont le fond est Ã  revoir',
+	'REVOIR_FORME'=>' dont la forme est Ã  revoir',
+	'REFUSE'=>' refusÃ©%s',
+	'DEJA_TRAITE'=>' sur un sujet dÃ©jÃ  abordÃ©',
 	'MYSTIQUE'=>' "fermeture mystique"',
 	'EST_CORRIGE'=>' en validation imminente',
 	);

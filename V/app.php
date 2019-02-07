@@ -2,12 +2,12 @@
 /**
 * Layout :
 * - Liste des applications
-* Menu : répartition par statut
+* Menu : rÃ©partition par statut
 */
 //Afficher les articles
 ?>
 <h3><span>Omnilogie sur smartphone </span></h3>
-<p>En plus de son site internet, vous pouvez accéder à toute la culture d'Omnilogie depuis votre smartphone !</p>
+<p>En plus de son site internet, vous pouvez accÃ©der Ã  toute la culture d'Omnilogie depuis votre smartphone !</p>
 
 <ul>
 <?php
@@ -27,7 +27,7 @@ foreach($C['Apps'] as $t => $app)
 	<h3 id="' . preg_replace('`[^a-z]`', '', $t) . '"><span>' . $t . '</span></h3>
 	<p style="text-align:center;"><img src="' . $app['img'] . '" alt="' . $t . '" /></p>
 	<p>' . $app['desc'] . '<br />
-	<small>Application développée par : ' . $app['dev'] . '</small>.</p>
-	<p class="message">&rarr; <a href="' . $app['url'] . '">Télécharger l\'application</a></p>' . "\n";
+	<small>Application dÃ©veloppÃ©e par : ' . $app['dev'] . '</small>.</p>
+	<p class="message">&rarr; <a href="' . $app['url'] . '">TÃ©lÃ©charger l\'application</a></p>' . "\n";
 }
 ?>

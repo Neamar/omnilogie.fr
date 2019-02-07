@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : Articles
+* ModÃ¨le : Articles
 * But : Afficher la liste des articles
-* Données à charger : tous les articles, sous forme de teaser.
+* DonnÃ©es Ã  charger : tous les articles, sous forme de teaser.
 * Liste des statuts en specialPods
 */
 //Articles
@@ -13,8 +13,8 @@ $C['PageTitle'] = 'Liste des articles' . $C['PageActuelle'];
 $C['CanonicalURL'] = '/O/'  . (isset($_GET['Page'])?'Page-' . $_GET['Page']:'');
 
 
-//Récupérer tous les articles parus.
-//Utiliser le système de pagination
+//RÃ©cupÃ©rer tous les articles parus.
+//Utiliser le systÃ¨me de pagination
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 
 $Param->Where = '

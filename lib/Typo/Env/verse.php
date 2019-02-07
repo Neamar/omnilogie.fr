@@ -1,4 +1,4 @@
 <?php
-//Environnement pour afficher de la poésie
+//Environnement pour afficher de la poÃ©sie
 $envContent='<div class="verse">' . "\n" . Typo_ParseLines($envContent) . "\n" . '</div>';
 ?>

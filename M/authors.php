@@ -1,9 +1,9 @@
 <?php
 /**
-* Modèle : Authors
+* ModÃ¨le : Authors
 * But : Afficher la liste des auteurs
-* Données à charger : Les auteurs avec le nombre d'articles écrits
-* Les derniers auteurs inscrits ayant participé
+* DonnÃ©es Ã  charger : Les auteurs avec le nombre d'articles Ã©crits
+* Les derniers auteurs inscrits ayant participÃ©
 */
 //Categories
 
@@ -12,7 +12,7 @@ $C['CanonicalURL'] = '/Omnilogistes/';
 
 $C['Roles'] = Member::$Roles;
 
-//Récuperer la liste des auteurs, la traiter pour l'afficher facilement.
+//RÃ©cuperer la liste des auteurs, la traiter pour l'afficher facilement.
 //Assez sensible, l'utilisation du WITH ROLLUP SQL n'arrange pas les choses.
 $Authors=SQL::query('SELECT OMNI_Auteurs.Auteur, COUNT(*) As Nombre, Statut
 	FROM OMNI_Omnilogismes
@@ -24,14 +24,14 @@ $Authors=SQL::query('SELECT OMNI_Auteurs.Auteur, COUNT(*) As Nombre, Statut
 $C['AuthorList']=array();
 
 $Status=array(
-	'ACCEPTE'=>'accepté%s',
+	'ACCEPTE'=>'acceptÃ©%s',
 	'BROUILLON'=>' en gestation%s',
-	'INDETERMINE'=>' à valider',
-	'A_CORRIGER'=>' à corriger',
-	'REVOIR_FOND'=>' dont le fond est à revoir',
-	'REVOIR_FORME'=>' dont la forme est à revoir',
-	'REFUSE'=>' refusé%s',
-	'DEJA_TRAITE'=>' sur un sujet déjà abordé',
+	'INDETERMINE'=>' Ã  valider',
+	'A_CORRIGER'=>' Ã  corriger',
+	'REVOIR_FOND'=>' dont le fond est Ã  revoir',
+	'REVOIR_FORME'=>' dont la forme est Ã  revoir',
+	'REFUSE'=>' refusÃ©%s',
+	'DEJA_TRAITE'=>' sur un sujet dÃ©jÃ  abordÃ©',
 	'MYSTIQUE'=>' fermeture mystique',
 	'EST_CORRIGE'=>' en validation imminente',
 	);
@@ -55,9 +55,9 @@ while($Author=mysql_fetch_assoc($Authors))
 		$Total=$Author['Nombre'];//Le dernier rollup
 }
 
-//Derniers auteurs inscrits (et qui ont écrit)
+//Derniers auteurs inscrits (et qui ont Ã©crit)
 
-//On pourrait utiliser SqlParam, mais on ne récupère pas vraiment des auteurs. On fait donc la requête directement.
+//On pourrait utiliser SqlParam, mais on ne rÃ©cupÃ¨re pas vraiment des auteurs. On fait donc la requÃªte directement.
 $LastAuthor = SQL::query('SELECT DISTINCT(OMNI_Auteurs.Auteur) AS Auteur
 FROM OMNI_Omnilogismes
 LEFT JOIN OMNI_Auteurs ON (OMNI_Auteurs.ID=OMNI_Omnilogismes.Auteur)

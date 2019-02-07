@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : /Liste/
+* ContrÃ´leur : /Liste/
 * But : mettre en cache l'arbre
 *
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 Cache::page('timeline');

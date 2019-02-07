@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : admin
-* But : charger les différents pods d'administration
-* Prérequis : $Articles, chargé par le contrôleur.
+* ModÃ¨le : admin
+* But : charger les diffÃ©rents pods d'administration
+* PrÃ©requis : $Articles, chargÃ© par le contrÃ´leur.
 */
 
 $C['PageTitle']='Page principale d\'administration';
@@ -15,7 +15,7 @@ $C['CanonicalURL']='/admin/';
 //Virer certains pods pour gagner de la place :
 unset($C['Pods']['author-stats'],$C['Pods']['modifiable'],$C['Pods']['randomArticle'],$C['Pods']['catCloud'],$C['Pods']['activeAuthor'],$C['Pods']['twitter']);
 
-//Mettre à jour les pods avec les modifs
+//Mettre Ã  jour les pods avec les modifs
 $C['Pods']['publiable']['Content']= Formatting::makeList(Omni::getTrailers(Admin::getProchains()));
 $C['Pods']['lastactions']['Content']= Formatting::makeList(Event::getLast(15, 1,'%DATE% %LIEN% : %MODIF% par %AUTEUR% %DIFF%'));
 
@@ -39,7 +39,7 @@ $HTML = '
 <select name="custom-event">';
 foreach($Standalone as $Event=>$Files)
 {
-	$HTML .='<optgroup label="Événement &lt;' . ucfirst($Event) . '&gt;">';
+	$HTML .='<optgroup label="Ã‰vÃ©nement &lt;' . ucfirst($Event) . '&gt;">';
 	foreach($Files as $File=>$Infos)
 	{
 		//Le membre a-t-il le droit de faire cette action ?
@@ -53,11 +53,11 @@ foreach($Standalone as $Event=>$Files)
 			}
 		}
 
-		//Faut-il déclencher un évenement ?
+		//Faut-il dÃ©clencher un Ã©venement ?
 		if(isset($_POST['custom-event']) && $_POST['custom-event']==$File && $Autorise)
 		{
 			include(PATH . $File);
-			$C['Message'] = 'Événément simulé avec succès. Rechargez la page pour le constater.';
+			$C['Message'] = 'Ã‰vÃ©nÃ©ment simulÃ© avec succÃ¨s. Rechargez la page pour le constater.';
 		}
 
 		$HTML .= '<option value="' . $File . '"' . ($Autorise?'':'disabled="disabled"') . '>' . $Infos['Description'] . '</option>';
@@ -66,11 +66,11 @@ foreach($Standalone as $Event=>$Files)
 	$HTML .= '</optgroup>';
 }
 $HTML .='</select><br />
-<input type="submit" value="Simuler l\'événenement" />
+<input type="submit" value="Simuler l\'Ã©vÃ©nenement" />
 </form>';
 
-$C['Sections']['Events']['Titre'] = 'Déclencheur manuel d\'événements';
-$C['Sections']['Events']['Description'] = 'Simuler le déclenchement d\'un événement';
+$C['Sections']['Events']['Titre'] = 'DÃ©clencheur manuel d\'Ã©vÃ©nements';
+$C['Sections']['Events']['Description'] = 'Simuler le dÃ©clenchement d\'un Ã©vÃ©nement';
 $C['Sections']['Events']['HTML'] = $HTML;
 
 $Autre = array();
@@ -97,7 +97,7 @@ if(count($Autre)!=0)
 	$C['Sections']['Autre']['HTML'] = Formatting::makeList($Autre);
 }
 
-//Table des matières et paramètres par défauts
+//Table des matiÃ¨res et paramÃ¨tres par dÃ©fauts
 $C['TOC']=array();
 foreach($C['Sections'] as $ID=>&$Section)
 {

@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : 
+* ModÃ¨le : 
 * But :
-* Données à charger : 
+* DonnÃ©es Ã  charger : 
 *
 */
 

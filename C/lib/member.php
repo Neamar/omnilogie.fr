@@ -1,33 +1,33 @@
 <?php
 /**
-* But : faciliter les opérations des membres.
+* But : faciliter les opÃ©rations des membres.
 *
 */
 //Member
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Member
 {
 	/**
 	* Liste des administrateurs du site.
-	* Tableau rempli dynamiquement au chargement de la classe à partir des groupes Apache.
+	* Tableau rempli dynamiquement au chargement de la classe Ã  partir des groupes Apache.
 	* Structure : Auteur=>role
 	*/
 	public static $Admins=array();
 
 	/**
-	* Liste des rôles sur le site.
-	* Tableau rempli dynamiquement au chargement de la classe à partir des groupes Apache.
-	* Structure : Role=>explication du rôle
+	* Liste des rÃ´les sur le site.
+	* Tableau rempli dynamiquement au chargement de la classe Ã  partir des groupes Apache.
+	* Structure : Role=>explication du rÃ´le
 	*/
 	public static $Roles=array();
 
 	/**
-	* Récupérer la classe CSS à appliquer à un auteur.
-	* Utilisée par Anchor::author().
-	* @param Membre:String le membre à vérifier
+	* RÃ©cupÃ©rer la classe CSS Ã  appliquer Ã  un auteur.
+	* UtilisÃ©e par Anchor::author().
+	* @param Membre:String le membre Ã  vÃ©rifier
 	* @return :String la classe CSS.
 	*/
 	public static function getClassFor($Membre)
@@ -39,8 +39,8 @@ class Member
 	}
 
 	/**
-	* Récupère le rôle principal d'un utilisateur.
-	* @param Membre:String le membre à vérifier
+	* RÃ©cupÃ¨re le rÃ´le principal d'un utilisateur.
+	* @param Membre:String le membre Ã  vÃ©rifier
 	* @return :String
 	*/
 	public static function getRoleFor($Membre)
@@ -49,9 +49,9 @@ class Member
 	}
 
 	/**
-	* Récupère tous les rôles d'un utilisateur.
-	* Si l'utilisateur n'a aucun rôle, un tableau vide est renvoyé.
-	* @param Membre:String le membre à vérifier
+	* RÃ©cupÃ¨re tous les rÃ´les d'un utilisateur.
+	* Si l'utilisateur n'a aucun rÃ´le, un tableau vide est renvoyÃ©.
+	* @param Membre:String le membre Ã  vÃ©rifier
 	* @return :array
 	*/
 	public static function getRolesFor($Membre)
@@ -62,7 +62,7 @@ class Member
 	/**
 	* Renvoie true sur $membre appartient au groupe $role.
 	* NOTE: Les admins font partie de tous les groupes.
-	* NOTE: Le rôle 'any' est attribué à toutes les personnes qui sont plus que de simples membres.
+	* NOTE: Le rÃ´le 'any' est attribuÃ© Ã  toutes les personnes qui sont plus que de simples membres.
 	* @param Membre:String
 	* @param Role:String le role, e.g. admins, censeurs, any.
 	* @return :boolean
@@ -76,7 +76,7 @@ class Member
 	}
 }
 
-//Créer le tableau des Admins :
+//CrÃ©er le tableau des Admins :
 $Liste = file(DATA_PATH . '/.groupes',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 foreach($Liste as $Categorie)
 {
@@ -91,7 +91,7 @@ foreach($Liste as $Categorie)
 	$Membres = explode(' ',$Categorie[1]);
 	foreach($Membres as $Membre)
 	{
-		//Le fichier de groupe est classé par ordre croissant de responsabilité, l'élément 0 du tableau est donc le rôle principal de l'utilisateur.
+		//Le fichier de groupe est classÃ© par ordre croissant de responsabilitÃ©, l'Ã©lÃ©ment 0 du tableau est donc le rÃ´le principal de l'utilisateur.
 		if(!isset(Member::$Admins[$Membre]))
 			Member::$Admins[$Membre] = array($AdminType);
 		else

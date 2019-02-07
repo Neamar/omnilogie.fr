@@ -1,10 +1,10 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::CHANGEMENT_GENERIQUE
 *
 * @standalone
-* Mettre à jour le pod "auteurs actifs récemment"
+* Mettre Ã  jour le pod "auteurs actifs rÃ©cemment"
 */
 
 $Datas = SQL::query(

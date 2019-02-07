@@ -1,11 +1,11 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::NOUVELLE_CATEGORIE
 *
 * @standalone
 * @access taggers
-* Rafraîchir l'arbre de données des catégories
+* RafraÃ®chir l'arbre de donnÃ©es des catÃ©gories
 */
 
 //MAJ du fichier avec l'arborescence.

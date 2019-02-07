@@ -1,12 +1,12 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::PARUTION
 *
 * @standalone
 * @access admins
 *
-* Télécharge 8 sources "pour aller plus loin" et met leur titre.
+* TÃ©lÃ©charge 8 sources "pour aller plus loin" et met leur titre.
 */
 
 function getTitle($URL)
@@ -35,7 +35,7 @@ function getTitle($URL)
 			ob_end_clean();
 		}
 		else
-		{//URL Wikipédia facilement compréhensible
+		{//URL WikipÃ©dia facilement comprÃ©hensible
 			$Titre = str_replace('_',' ',urldecode($Wikilike[1]));
 		}
 	}

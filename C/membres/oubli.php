@@ -1,11 +1,11 @@
 <?php
 /**
-* ContrÙleur : membres/oubli
+* Contr√¥leur : membres/oubli
 * But : Renvoyer un nouveau mot de passe
 */
 
 //////////////////////////////////////////////////////
-//FonctionnalitÈs du contrÙleur :
+//Fonctionnalit√©s du contr√¥leur :
 
 
 
@@ -34,14 +34,14 @@ if(isset($_POST['mail']))
 		// Return the string
 		$Mdp = $string;
 
-		External::mail($Membre['Mail'],'Remise ‡ zÈro du mot de passe','<p>Bonjour,</p>
-		<p>Vous avez fait une demande pour rÈinitialiser votre mot de passe sur Omnilogie.fr.</p>
+		External::mail($Membre['Mail'],'Remise √† z√©ro du mot de passe','<p>Bonjour,</p>
+		<p>Vous avez fait une demande pour r√©initialiser votre mot de passe sur Omnilogie.fr.</p>
 		<p>Votre nouveau mot de passe : <strong>' . $Mdp . '</strong></p>
 		<p>Vous pouvez aussi vous connecter directement en <a href="' . URL . '/membres/?membre=' . $Membre['Hash'] . '">cliquant sur ce lien</a> (le changement de mot de passe reste effectif)</p>
-		<p><small>Vous n\'avez rien demandÈ ? RÈpondez ‡ ce mail en incluant ce message. IP du demandeur : ' . $_SERVER['REMOTE_ADDR'] . '</p>');
+		<p><small>Vous n\'avez rien demand√© ? R√©pondez √† ce mail en incluant ce message. IP du demandeur : ' . $_SERVER['REMOTE_ADDR'] . '</p>');
 
 		SQL::update('OMNI_Auteurs',$Membre['ID'],array('Pass'=>sha1($Mdp)));
-		$_SESSION['FutureMessage']='Mot de passe correctement rÈinitialisÈ.';
+		$_SESSION['FutureMessage']='Mot de passe correctement r√©initialis√©.';
 		$_SESSION['FutureMessageClass'] = 'info';
 		Debug::redirect('/membres/Connexion');
 	}

@@ -1,16 +1,16 @@
 <?php
 /**
-* But : Fonctions génériques pour les administrateurs
+* But : Fonctions gÃ©nÃ©riques pour les administrateurs
 *
 */
 //Admin
 
 
-//Infos pour la création des bannières
+//Infos pour la crÃ©ation des banniÃ¨res
 define('BANNER_PATH',PATH . '/images/Banner');
 define('ORIGINAL_WIDTH',690);
 define('ORIGINAL_HEIGHT',95);
-//Combien virer de chaque côté
+//Combien virer de chaque cÃ´tÃ©
 define('SIDE_SHRINK',150);
 //Quel rapport appliquer
 define('REDUCE_FACTOR',.75);
@@ -20,22 +20,22 @@ define('THUMB_HEIGHT',round(REDUCE_FACTOR*ORIGINAL_HEIGHT));
 
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Admin
 {
 	const ADMIN_SELECT= '
 <select name="statut-%ID">
-	<option value="INDETERMINE">Indéterminé</option>
+	<option value="INDETERMINE">IndÃ©terminÃ©</option>
 <optgroup label="Oui">
-	<option value="ACCEPTE">Accepté</option>
-	<option value="A_CORRIGER">À corriger</option>
+	<option value="ACCEPTE">AcceptÃ©</option>
+	<option value="A_CORRIGER">Ã€ corriger</option>
 </optgroup>
 <optgroup label="Non">
 	<option value="REFUSE">Non, non et non</option>
 	<option value="REVOIR_FOND">Revoir le fond</option>
 	<option value="REVOIR_FORME">Revoir la forme</option>
-	<option value="DEJA_TRAITE">Sujet déjà traité</option>
+	<option value="DEJA_TRAITE">Sujet dÃ©jÃ  traitÃ©</option>
 	<option value="MYSTIQUE">Non mystique</option>
 </optgroup>
 </select>
@@ -43,8 +43,8 @@ class Admin
 	static $DernierAuteur=-1;
 
 	/**
-	* Récupère la liste des articles à paraître dans l'ordre prévu.
-	* Notons que cet ordre est modifié à chaque ajout d'un article en file d'attente / à chaque parution.
+	* RÃ©cupÃ¨re la liste des articles Ã  paraÃ®tre dans l'ordre prÃ©vu.
+	* Notons que cet ordre est modifiÃ© Ã  chaque ajout d'un article en file d'attente / Ã  chaque parution.
 	* @return array<Omni>
 	*/
 	public static function getProchains()
@@ -65,8 +65,8 @@ class Admin
 	}
 
 	/**
-	* Récupère la liste des articles avec une bannière.
-	* @return :array un tableau d'ID des articles avec bannières.
+	* RÃ©cupÃ¨re la liste des articles avec une banniÃ¨re.
+	* @return :array un tableau d'ID des articles avec banniÃ¨res.
 	*/
 	public static function getBanner()
 	{
@@ -85,14 +85,14 @@ class Admin
 	}
 
 	/**
-	* Récupère le contrôleur de l'interface d'administration.
-	* Ce contrôleur va analyser les données POST, regarder si elles correspondent au préfixe $Prefixe et si l'article concerné est bien dans $Where.
-	* S'il trouve une valeur correspondante, il appellera la fonction $Callback, avec en paramètre l'objet Omni et la valeur POST.
-	* @param Where:String les articles à récupérer
-	* @param Prefixe:String le préfixe à surveiller sur les valeurs _POST
-	* @param Callback:Function la fonction à appeler si un paramètre matche.
-	* @param Order:String l'ordre dans lequel les articles doivent être affichés, la date de création par défaut.
-	* @param getAgainCallback:Function si au moins un article est modifié, la fonction à appeler avant de recharger les données. Prototype : function($Where:String):String
+	* RÃ©cupÃ¨re le contrÃ´leur de l'interface d'administration.
+	* Ce contrÃ´leur va analyser les donnÃ©es POST, regarder si elles correspondent au prÃ©fixe $Prefixe et si l'article concernÃ© est bien dans $Where.
+	* S'il trouve une valeur correspondante, il appellera la fonction $Callback, avec en paramÃ¨tre l'objet Omni et la valeur POST.
+	* @param Where:String les articles Ã  rÃ©cupÃ©rer
+	* @param Prefixe:String le prÃ©fixe Ã  surveiller sur les valeurs _POST
+	* @param Callback:Function la fonction Ã  appeler si un paramÃ¨tre matche.
+	* @param Order:String l'ordre dans lequel les articles doivent Ãªtre affichÃ©s, la date de crÃ©ation par dÃ©faut.
+	* @param getAgainCallback:Function si au moins un article est modifiÃ©, la fonction Ã  appeler avant de recharger les donnÃ©es. Prototype : function($Where:String):String
 	*/
 	public static function getControleur($Where,$Prefixe,$Callback,$Order='Omnilogismes.ID',$getAgainCallback=null)
 	{
@@ -103,7 +103,7 @@ class Admin
 
 		$Articles = Omni::get($Param);
 
-		//Faut-il remettre à jour $Articles ?
+		//Faut-il remettre Ã  jour $Articles ?
 		$getAgain = false;
 
 		foreach($Articles as $Article)
@@ -117,7 +117,7 @@ class Admin
 			}
 		}
 
-		//Remettre à jour la liste si elle a été potentiellement modifiée :
+		//Remettre Ã  jour la liste si elle a Ã©tÃ© potentiellement modifiÃ©e :
 		if($getAgain)
 		{
 			if(!is_null($getAgainCallback))
@@ -130,18 +130,18 @@ class Admin
 
 	/**
 	* Affiche le formulaire dans le style "admin".
-	* @param Articles:array<Omni> les articles à afficher
-	* @param Callback:Function la fonction à appeler qui prend en paramètre l'article et renvoie le contenu à afficher avant le titre.
-	* @param Max:int le nombre maximum d'articles à afficher.
+	* @param Articles:array<Omni> les articles Ã  afficher
+	* @param Callback:Function la fonction Ã  appeler qui prend en paramÃ¨tre l'article et renvoie le contenu Ã  afficher avant le titre.
+	* @param Max:int le nombre maximum d'articles Ã  afficher.
 	* @param fileForm:Boolean s'il s'agit d'un formulaire de transfert de fichier
-	* @param SubmitCaption:String la chaîne à afficher sur le bouton d'envoi. Si non défini, il n'y a pas de bouton.
+	* @param SubmitCaption:String la chaÃ®ne Ã  afficher sur le bouton d'envoi. Si non dÃ©fini, il n'y a pas de bouton.
 	* @return :String le contenu du formulaire.
 	*/
 	public static function getVue($Articles,$Callback,$Max=10,$Action='',$fileForm=false,$SubmitCaption='Enregistrer les modifications')
 	{
 		if(count($Articles)==0)
 		{
-			echo '<p>Module propre, tout a été traité !</p>';
+			echo '<p>Module propre, tout a Ã©tÃ© traitÃ© !</p>';
 			return;
 		}
 		$Nb = $Max;
@@ -152,7 +152,7 @@ class Admin
 			$Nb--;
 			if($Nb==0 && count($Articles)>$Max)
 			{
-				$Retour .='<header class="message">Ce module est tronqué aux ' . $Max . ' premiers articles. Effectuez les actions nécessaires pour faire apparaître la suite (' . (count($Articles)-$Max). ' restant' . (count($Articles)-$Max>1?'s':'') .').</header>';
+				$Retour .='<header class="message">Ce module est tronquÃ© aux ' . $Max . ' premiers articles. Effectuez les actions nÃ©cessaires pour faire apparaÃ®tre la suite (' . (count($Articles)-$Max). ' restant' . (count($Articles)-$Max>1?'s':'') .').</header>';
 				break;
 			}
 		}
@@ -182,10 +182,10 @@ class Admin
 		else
 		{
 			//Logger la modification
-			$Article->registerModif('Statut changé vers ' . $Valeur);
+			$Article->registerModif('Statut changÃ© vers ' . $Valeur);
 
-			//Réussi !
-			$C['Message'] = 'Modifications enregistrées !';
+			//RÃ©ussi !
+			$C['Message'] = 'Modifications enregistrÃ©es !';
 			$C['MessageClass'] = 'info';
 		}
 	}
@@ -197,7 +197,7 @@ class Admin
 		if($Article->Accroche == $Valeur)
 			return;
 
-		$Valeur = preg_replace('#"([^"]+)"#U','« $1 »',$Valeur);
+		$Valeur = preg_replace('#"([^"]+)"#U','Â« $1 Â»',$Valeur);
 
 		$ToUpdate = array
 		(
@@ -211,8 +211,8 @@ class Admin
 			//Logger la modification
 			$Article->registerModif(Event::ACCROCHAGE);
 
-			//Réussi !
-			$C['Message'] = 'Accroche ajoutée !';
+			//RÃ©ussi !
+			$C['Message'] = 'Accroche ajoutÃ©e !';
 			$C['MessageClass'] = 'info';
 		}
 	}
@@ -239,8 +239,8 @@ class Admin
 			//Logger la modification
 			$Article->registerModif('Ajout d\'une suite');
 
-			//Réussi !
-			$C['Message'] = 'Cet article est maintenant suivi par « ' . $Valeur . ' »';
+			//RÃ©ussi !
+			$C['Message'] = 'Cet article est maintenant suivi par Â« ' . $Valeur . ' Â»';
 			$C['MessageClass'] = 'info';
 		}
 	}
@@ -264,7 +264,7 @@ class Admin
 			//Logger la modification
 			$Article->registerModif('Ajout d\'une anecdote');
 
-			//Réussi !
+			//RÃ©ussi !
 			$C['Message'] = 'Cet article est maintenant muni de votre anecdote, merci.';
 			$C['MessageClass'] = 'info';
 		}
@@ -287,7 +287,7 @@ class Admin
 			//Logger la modification
 			$Article->registerModif('Ajout d\'un message');
 
-			//Réussi !
+			//RÃ©ussi !
 			$C['Message'] = 'Cet article est maintenant muni de votre message, merci.';
 			$C['MessageClass'] = 'info';
 		}
@@ -299,29 +299,29 @@ class Admin
 
 		$ID = $Article->ID;
 
-		//Fichier correctement uploadé
+		//Fichier correctement uploadÃ©
 		if ($_FILES['banniere-' . $ID]['error'] > 0)
 		{
-			$C['Message'] = 'Erreur lors de l\'envoi de la bannière.';
+			$C['Message'] = 'Erreur lors de l\'envoi de la banniÃ¨re.';
 			return false;
 		}
 		//Extension valide
 		$ext = substr(strrchr($_FILES['banniere-' . $ID]['name'],'.'),1);
 		if (strtolower($ext)!='png')
 		{
-			$C['Message'] = 'Extension non autorisée pour les bannières, uniquement png.';
+			$C['Message'] = 'Extension non autorisÃ©e pour les banniÃ¨res, uniquement png.';
 			return false;
 		}
 
 		$ID = $Article->ID;
 
-		//Déplacement
+		//DÃ©placement
 		move_uploaded_file($_FILES['banniere-' . $ID]['tmp_name'],BANNER_PATH . '/Originaux/' . $ID . '.png');
 		return self::banniereEffet($Article);
 	}
 
 	/**
-	 * Applique les effets sur la bannière en supposant que l'original (sans effet) est présent.
+	 * Applique les effets sur la banniÃ¨re en supposant que l'original (sans effet) est prÃ©sent.
 	 */
 	public static function banniereEffet(Omni $Article, $forceAuthorId = -1)
 	{
@@ -335,14 +335,14 @@ class Admin
 		//Taille
 		if (imagesx($Original)!= 690 || imagesy($Original)!=95)
 		{
-			$C['Message'] = 'Les dimensions de la bannière sont incorrectes ; redimensionner en 690x95.';
+			$C['Message'] = 'Les dimensions de la banniÃ¨re sont incorrectes ; redimensionner en 690x95.';
 			return false;
 		}
 
 		/**
-		* Construire la version griffée
+		* Construire la version griffÃ©e
 		*/
-		//Récupérer la luminosité moyenne de l'ensemble
+		//RÃ©cupÃ©rer la luminositÃ© moyenne de l'ensemble
 		$Moyenne = imagecreatetruecolor(1,1);
 		imagecopyresampled($Moyenne, $Original, 0, 0, 0, 0, 1,1,imagesx($Original), imagesy($Original));
 
@@ -370,7 +370,7 @@ class Admin
 		*/
 		$Thumbnail = imagecreatetruecolor(THUMB_WIDTH,THUMB_HEIGHT);
 
-		//Réduire l'image
+		//RÃ©duire l'image
 		imagecopyresampled($Thumbnail,$Original,0,0,SIDE_SHRINK,0,THUMB_WIDTH,THUMB_HEIGHT, ORIGINAL_WIDTH - 2*SIDE_SHRINK,ORIGINAL_HEIGHT);
 
 		//Enregistrer
@@ -421,7 +421,7 @@ class Admin
 
 	public static function refVueCallback(Omni $Article)
 	{
-		return '<a href="' . str_replace('/O/','/admin/Ref/',Link::omni($Article->Titre)) . '">Référencer</a> | ';
+		return '<a href="' . str_replace('/O/','/admin/Ref/',Link::omni($Article->Titre)) . '">RÃ©fÃ©rencer</a> | ';
 	}
 
 	public static function anecdoteVueCallback(Omni $Article)

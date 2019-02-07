@@ -1,12 +1,12 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::PARUTION
 *
 * @standalone
-* @access bannières
+* @access banniÃ¨res
 *
-* Mettre à jour la version minifiée du CSS
+* Mettre Ã  jour la version minifiÃ©e du CSS
 */
 //echo filemtime(PATH . '/CSS/omni.min.css') . ' | ' . filemtime(PATH . '/CSS/omni.css');
 
@@ -16,7 +16,7 @@ if(filemtime(PATH . '/CSS/omni.css') + 3600 > $derniereMin || filemtime(PATH . '
 
 	$buffer = file_get_contents(PATH . '/CSS/Typo.css') . "\n\n" . file_get_contents(PATH . '/CSS/omni.css');
 
-//Enlever l'aération du code, les commentaires.
+//Enlever l'aÃ©ration du code, les commentaires.
 	$buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
 	$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
 	$buffer = str_replace(array('{ ',', ',': ','; ','} ',';}','}'), array('{',',',':',';','}','}',"}\n"), $buffer);

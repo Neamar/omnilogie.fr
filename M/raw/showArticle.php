@@ -1,6 +1,6 @@
 <?php
 /**
-* Modèle : Articles
+* ModÃ¨le : Articles
 * But : Afficher la liste des articles
 */
 $params = array(
@@ -55,13 +55,13 @@ WHERE ' . $where . '
 LIMIT 1'));
 
 /**
- * "CONTRÔLEUR" : équivalent des vérifications
+ * "CONTRÃ”LEUR" : Ã©quivalent des vÃ©rifications
  */
-//Vérifier la cohérence de la requête (article inconnu ?)
+//VÃ©rifier la cohÃ©rence de la requÃªte (article inconnu ?)
 if(!isset($article['ID']))
 	exit('Article introuvable.');
 
-//Ajouter une vue à l'article
+//Ajouter une vue Ã  l'article
 SQL::update('OMNI_Omnilogismes', $article['ID'],array('_NbVues'=>'NbVues+1', '_NbVuesMobile'=>'NbVuesMobile+1'));
 
 
@@ -88,7 +88,7 @@ SQL::update('OMNI_Omnilogismes', $article['ID'],array('_NbVues'=>'NbVues+1', '_N
 
 
 /**
- * "MODÈLE" : mise en forme des données
+ * "MODÃˆLE" : mise en forme des donnÃ©es
  */
 
 // Mettre en forme
@@ -105,10 +105,10 @@ Typo::setTexte(utf8_decode($article['O']));
 $article['O'] = ParseMath(utf8_encode(Typo::parse()));
 
 
-//Gérer les articles suivants / précédents
+//GÃ©rer les articles suivants / prÃ©cÃ©dents
 if(!is_null($article['Prev']))
 {
-	$article['O'] = '<p class="read-previous-article"><a href="' . Link::omni($article['Prev']) . '">Avant de lire cet article, assurez-vous d\'avoir lu ' . utf8_encode('l\'épisode précédent') . ' !</a></p>' . "\n" . $article['O'];
+	$article['O'] = '<p class="read-previous-article"><a href="' . Link::omni($article['Prev']) . '">Avant de lire cet article, assurez-vous d\'avoir lu ' . utf8_encode('l\'Ã©pisode prÃ©cÃ©dent') . ' !</a></p>' . "\n" . $article['O'];
 }
 if(!is_null($article['Next']))
 {
@@ -116,7 +116,7 @@ if(!is_null($article['Next']))
 }
 unset($article['Prev'], $article['Next']);
 
-// Ajouter la bannière si nécessaire
+// Ajouter la banniÃ¨re si nÃ©cessaire
 $bannerPath = '/images/Banner/' . $article['ID'] . '.png';
 if(is_file(PATH . $bannerPath))
 	$article['B'] = 'https://omnilogie.fr' . $bannerPath;
@@ -144,6 +144,6 @@ while($source = mysql_fetch_assoc($sources))
 
 
 /**
- * "VUE" : renvoyer les données.
+ * "VUE" : renvoyer les donnÃ©es.
  */
 vue($article);

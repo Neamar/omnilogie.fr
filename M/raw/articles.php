@@ -1,6 +1,6 @@
 <?php
 /**
-* Modèle : Articles
+* ModÃ¨le : Articles
 * But : Afficher la liste des articles
 */
 $params = array(
@@ -48,7 +48,7 @@ LIMIT ' . $_GET['start'] . ',' . $_GET['limit']);
 
 while($article = mysql_fetch_assoc($articles))
 {
-	// Ajouter la bannière si nécessaire
+	// Ajouter la banniÃ¨re si nÃ©cessaire
 	$bannerPath = '/images/Banner/Thumbs/' . $article['ID'] . '.png';
 	if(is_file(PATH . $bannerPath))
 		$article['B'] = 'https://omnilogie.fr' . $bannerPath;

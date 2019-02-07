@@ -1,13 +1,13 @@
 <?php
 /**
-* Modèle : showAuthor
+* ModÃ¨le : showAuthor
 * But : Afficher la page d'un auteur
-* Données à charger :
+* DonnÃ©es Ã  charger :
 * - Statut de l'auteur
 * - Bio de l'auteur
-* - Articles rédigés par l'auteur
+* - Articles rÃ©digÃ©s par l'auteur
 * - Nuage de tags de l'auteur
-* Pré requis du contrôleur associé : la variable $Author avec l'entrée propre demandée.
+* PrÃ© requis du contrÃ´leur associÃ© : la variable $Author avec l'entrÃ©e propre demandÃ©e.
 */
 $C['PageActuelle'] = (isset($_GET['Page'])?' : page ' . intval($_GET['Page']):'');
 $C['PageTitle'] = 'Articles de ' . $Author . ' sur Omnilogie.fr' . $C['PageActuelle'];
@@ -22,7 +22,7 @@ $C['Author'] = $Author;
 $C['AuthorRole']='';
 foreach(Member::getRolesFor($Author) as $Role)
 {
-	$C['AuthorRole'] .='<div class="message">' . $Author . ' fait partie de l\'équipe des <strong class="' . $Role . '">' . $Role . '</strong>.<br />' . Member::$Roles[$Role] . '</div>';
+	$C['AuthorRole'] .='<div class="message">' . $Author . ' fait partie de l\'Ã©quipe des <strong class="' . $Role . '">' . $Role . '</strong>.<br />' . Member::$Roles[$Role] . '</div>';
 }
 
 unset($Liste,$Categorie,$AdminType,$Membres,$Membre,$Roles,$Role,$AuthorRoles);
@@ -43,7 +43,7 @@ unset($Liste,$Categorie,$AdminType,$Membres,$Membre,$Roles,$Role,$AuthorRoles);
 //Informations sur l'auteur :
 //mail,
 //histoire,
-//activité...
+//activitÃ©...
 $AuthorData = SQL::singleQuery('SELECT Mail, MailPublic, Histoire, GooglePlus, DATE_FORMAT(DPremiereAction, "%d/%m/%Y") AS PremiereAction, DATE_FORMAT(DDerniereAction, "%d/%m/%Y") AS DerniereAction, DATEDIFF(CURDATE(),DDerniereAction) AS NbJoursInactif
 FROM OMNI_Auteurs
 LEFT JOIN
@@ -62,7 +62,7 @@ else
 
 $C['GooglePlus'] = $AuthorData['GooglePlus'];
 
-//Afficher l'histoire si définie
+//Afficher l'histoire si dÃ©finie
 if($AuthorData['Histoire']!='')
 {
 	Typo::setTexte($AuthorData['Histoire']);
@@ -71,7 +71,7 @@ if($AuthorData['Histoire']!='')
 else
 	$C['Histoire'] = '';
 
-//Première et dernière action :
+//PremiÃ¨re et derniÃ¨re action :
 $C['FirstAction'] = $AuthorData['PremiereAction'];
 $C['LastAction'] = $AuthorData['DerniereAction'];
 
@@ -92,8 +92,8 @@ else
 
 
 
-//Dernières actions de l'auteur
-//Cinq dernières actions effectuées sur le site, ne pas afficher l'auteur (c'est forcément $Author !)
+//DerniÃ¨res actions de l'auteur
+//Cinq derniÃ¨res actions effectuÃ©es sur le site, ne pas afficher l'auteur (c'est forcÃ©ment $Author !)
 $C['Actions'] = Formatting::makeList(Event::getLast(5,'Modifs.Auteur = ' . $AuthorID,'%DATE% %LIEN% : %MODIF%'));
 
 
@@ -106,8 +106,8 @@ $C['Actions'] = Formatting::makeList(Event::getLast(5,'Modifs.Auteur = ' . $Auth
 
 
 
-//Récupérer les articles de l'auteur.
-//Utiliser le système de pagination
+//RÃ©cupÃ©rer les articles de l'auteur.
+//Utiliser le systÃ¨me de pagination
 $Param = Omni::buildParam(OMNI_SMALL_PARAM);
 
 $Param->Where = '
@@ -127,7 +127,7 @@ Formatting::makePage($Param,Link::author($Author));
 
 
 //Nuage de tags de l'auteur
-//En fonction des tags associés aux articles qu'il a écrit
+//En fonction des tags associÃ©s aux articles qu'il a Ã©crit
 $Datas = SQL::query(
 'SELECT Categorie, COUNT(*) AS Nb
 FROM OMNI_Liens

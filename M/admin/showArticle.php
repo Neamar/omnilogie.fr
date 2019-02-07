@@ -1,9 +1,9 @@
 <?php
 /**
-* Modèle : admin/showArticle
+* ModÃ¨le : admin/showArticle
 */
 
-$C['PageTitle']='Modification : « ' . $Titre . ' »';
+$C['PageTitle']='Modification : Â« ' . $Titre . ' Â»';
 $C['CanonicalURL']='';
 /*
 * MODIFICATION DES PODS.
@@ -12,11 +12,11 @@ $C['CanonicalURL']='';
 //Virer certains pods pour gagner de la place :
 unset($C['Pods']['author-stats'],$C['Pods']['modifiable'],$C['Pods']['publiable']);
 
-//Affichage des dernières actions
+//Affichage des derniÃ¨res actions
 $C['Pods']['lastactions']['Content']=Formatting::makeList(Event::getLast(15,$Where,'%DATE% %MODIF% par %AUTEUR% %DIFF%'));
 
 
-//Table des matières et paramètres par défauts
+//Table des matiÃ¨res et paramÃ¨tres par dÃ©fauts
 $C['TOC']=array();
 foreach($C['Sections'] as $ID=>&$Section)
 {

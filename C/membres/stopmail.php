@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : membres/stopmail.php
-* But : désactiver l'envoi de mail
+* ContrÃ´leur : membres/stopmail.php
+* But : dÃ©sactiver l'envoi de mail
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 SQL::update('OMNI_Auteurs',AUTHOR_ID,array('DernierMail'=>'2020-01-01'));
 

@@ -1,5 +1,5 @@
 <?php
-//Permet la gestion de pods spéciaux et différants selon les pages.
+//Permet la gestion de pods spÃ©ciaux et diffÃ©rants selon les pages.
 //Par exemple, les articles dans une saga quand on affiche la saga.
 
 if(isset($C['SpecialPods']))

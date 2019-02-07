@@ -2,12 +2,12 @@
 /**
 * Layout :
 * - Arbre entourant
-* - Articles dans la catégorie
+* - Articles dans la catÃ©gorie
 */
 
-//Afficher la catégorie
+//Afficher la catÃ©gorie
 ?>
-<h3><span>La page des catégories</span></h3>
+<h3><span>La page des catÃ©gories</span></h3>
 <h1><?php Template::put('Category') ?></h1>
 <?php Template::put('AroundTree') ?>
 
@@ -18,15 +18,15 @@
 <?php
 if(isset($C['Articles']))
 {
-	//Module de pagination (si nécessaire)
+	//Module de pagination (si nÃ©cessaire)
 	Template::put('Pager');
-	//Articles dans la catégorie
+	//Articles dans la catÃ©gorie
 	foreach($C['Articles'] as $Article)
 	{
 		echo $Article['Teaser'];
 	}
-	//Module de pagination (si nécessaire)
+	//Module de pagination (si nÃ©cessaire)
 	Template::put('Pager');
 }
 else
-{?><p>Aucun article dans cette catégorie.</p><?php }?>
+{?><p>Aucun article dans cette catÃ©gorie.</p><?php }?>

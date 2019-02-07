@@ -5,7 +5,7 @@
 	unset(self::$SpecialChar['ae']);//Pas de ligature du ae
 	unset(self::$SpecialChar['AE']);
 	unset(self::$SpecialChar['Ae']);
-	self::$SpecialChar[' - ']='&mdash;';//Tiret full cardatin sans espaces insécables
+	self::$SpecialChar[' - ']='&mdash;';//Tiret full cardatin sans espaces insÃ©cables
 	self::$SpecialChar[' -,']='&mdash;,';
 	self::$SpecialChar[' -;']='&mdash;;';
 
@@ -13,11 +13,11 @@
 //La ponctuation
 	self::$Ponctuation["#\s?([;:!?])\s?#isU"]='$1 ';// Le point vigule
 
-	self::$Ponctuation['#\s?"\'(.+)\'"\s?#isU']=' «$1» ';	//Guillemets internes : les guillemets à l'intérieur de guillemet. Ils sont signalés dans le texte par des "' texte '".
+	self::$Ponctuation['#\s?"\'(.+)\'"\s?#isU']=' Â«$1Â» ';	//Guillemets internes : les guillemets Ã  l'intÃ©rieur de guillemet. Ils sont signalÃ©s dans le texte par des "' texte '".
 	self::$Ponctuation['#(\s)?"(.+)"(\s)?#isU']='$1&ldquo;$2&rdquo;$3';//Guillemets : remplacer les guillemets typographiques par des guillemets anglais.
-	self::$Ponctuation['#« (.+) »#Us']='«&nbsp;$1&nbsp;»';//Et les guillemets manuels doivent être modifiés aussi.
-	unset(self::$Ponctuation['#»([a-z0-9].+)«#iU']);
-	self::$Ponctuation['#\&rdquo;([a-z0-9].+)\&ldquo;#iU']=' «&nbsp;$1&nbsp;» ';//Tenter de rattraper les imbrications de guillemets mal faites
+	self::$Ponctuation['#Â« (.+) Â»#Us']='Â«&nbsp;$1&nbsp;Â»';//Et les guillemets manuels doivent Ãªtre modifiÃ©s aussi.
+	unset(self::$Ponctuation['#Â»([a-z0-9].+)Â«#iU']);
+	self::$Ponctuation['#\&rdquo;([a-z0-9].+)\&ldquo;#iU']=' Â«&nbsp;$1&nbsp;Â» ';//Tenter de rattraper les imbrications de guillemets mal faites
 
 	self::$Ponctuation['#\n- #isU']="\n&mdash;";//Entames de dialogues
 ?>

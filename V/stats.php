@@ -11,7 +11,7 @@
 //Afficher l'article
 ?>
 <h3><span>Statistiques</span></h3>
-<p>Cette page regroupe de nombreuses statistiques à l'utilité plus que contestable.</p>
+<p>Cette page regroupe de nombreuses statistiques Ã  l'utilitÃ© plus que contestable.</p>
 <ol>
 <?php
 foreach($C['Stats'] as $Titre=>$Section)

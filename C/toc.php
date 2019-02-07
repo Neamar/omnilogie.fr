@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : toc
+* ContrÃ´leur : toc
 * But : Mettre en cache la liste des articles
 *
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 Cache::page('toc');

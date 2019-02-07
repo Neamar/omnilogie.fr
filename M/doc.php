@@ -3,7 +3,7 @@ include_once(PATH . '/../../lib/PhpDoc/PhpDoc.php');
 
 $C['PageTitle'] = 'Documentation des classes';
 $C['CanonicalURL'] = '/Doc';
-$C['SubTitle'] = 'Aide à la programmation d\'Omnilogie';
+$C['SubTitle'] = 'Aide Ã  la programmation d\'Omnilogie';
 $C['Author'] = 'Neamar';
 $C['PubDateReadable'] = '27 avril 2010';
 $C['PubDate'] = date('Y-m-d',time());

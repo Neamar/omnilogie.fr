@@ -1,13 +1,13 @@
 <?php
 /**
-* Modèle : flux
-* But : Générer le flux XML du site
-* Données à charger :
+* ModÃ¨le : flux
+* But : GÃ©nÃ©rer le flux XML du site
+* DonnÃ©es Ã  charger :
 * - Derniers articles
-* Spécial : la vue est directement appelée par le modèle, afin de ne pas charger le template
+* SpÃ©cial : la vue est directement appelÃ©e par le modÃ¨le, afin de ne pas charger le template
 */
 
-//Récupérer les articles
+//RÃ©cupÃ©rer les articles
 $Param = Omni::buildParam(OMNI_HUGE_PARAM);
 
 $Param->Where = 'Omnilogismes.Statut="ACCEPTE" AND !ISNULL(Omnilogismes.Sortie)';

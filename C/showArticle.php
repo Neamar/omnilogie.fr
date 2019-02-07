@@ -1,19 +1,19 @@
 <?php
 /**
-* But : Contrôler l'existence d'un article avant de charger le modèle approprié.
-* Permet de rediriger ou de faire échouer le script si nécessaire.
-* Charge dans $Article les données relatives à l'article.
+* But : ContrÃ´ler l'existence d'un article avant de charger le modÃ¨le appropriÃ©.
+* Permet de rediriger ou de faire Ã©chouer le script si nÃ©cessaire.
+* Charge dans $Article les donnÃ©es relatives Ã  l'article.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
-//Récupérer le titre de la page
+//RÃ©cupÃ©rer le titre de la page
 
 $TitreOmni = Encoding::decodeFromGet('Titre');
 $TitreOmniSql = mysql_real_escape_string($TitreOmni);
 
-//Vérifier que l'article existe :
+//VÃ©rifier que l'article existe :
 
 //1 : Pas d'espace, pas de /o/ minuscule :
 if(strpos($_GET['Titre'],' ')!==false || strpos($_SERVER['REQUEST_URI'],'/o/')!==false)
@@ -42,7 +42,7 @@ if(count($Article)==0)
 	if(count($Article)!=0)
 		Debug::redirect(Link::omni($Article[0]->Titre));
 
-	//Dernière chance : un petit coup de levenshtein
+	//DerniÃ¨re chance : un petit coup de levenshtein
 	$Articles = SQL::query('SELECT Titre FROM OMNI_Omnilogismes');
 	$DistanceMin = 100;
 	$TitreMin = null;
@@ -65,22 +65,22 @@ if(count($Article)==0)
 	if(count($C['Liens'])==1)
 		Debug::redirect(Link::omni(key($C['Liens'])));
 
-	//Bon et sinon c'est officiel, on jette l'éponge.
+	//Bon et sinon c'est officiel, on jette l'Ã©ponge.
 	$C['CustomError'] = 'L\'article <tt>' . $TitreOmni . '</tt> est introuvable.';
 	return Debug::status(404);
 }
 
-//Sinon, l'article existe. L'enregistrer, puis passer au modèle.
+//Sinon, l'article existe. L'enregistrer, puis passer au modÃ¨le.
 $Article = $Article[0];
 
 
 
 
 /*
-//Mettre la page en cache en l'identifiant à partir de son ID.
+//Mettre la page en cache en l'identifiant Ã  partir de son ID.
 if(false && Cache::page('omni-' . $Article->ID))
 {
 
-	//Si la mise en cache est active, on tient quand même à jour le compteur :
+	//Si la mise en cache est active, on tient quand mÃªme Ã  jour le compteur :
 	SQL::update('OMNI_Omnilogismes',$Article->ID,array('_NbVues'=>'NbVues+1'));
 }*/

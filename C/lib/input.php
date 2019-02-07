@@ -1,26 +1,26 @@
 <?php
 /**
-* But : gérer les données en entrée pour les sécuriser / les nettoyer / les préparer
+* But : gÃ©rer les donnÃ©es en entrÃ©e pour les sÃ©curiser / les nettoyer / les prÃ©parer
 *
 */
 //Input
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Input
 {
 	private static $Remplacements = array(
-		'’'=>"'",
-		'…'=>'...',
-		'œ'=>'oe',
-		' '=>' ',//espace insécable
+		'Â’'=>"'",
+		'Â…'=>'...',
+		'Âœ'=>'oe',
+		'Â '=>' ',//espace insÃ©cable
 	);
 
 	/**
-	* Prépare un omnilogisme à son insertion en base de données.
-	* @param Data:String les données à nettoyer
-	* @return :String les données nettoyées. Remplit aussi $_POST['keywords'].
+	* PrÃ©pare un omnilogisme Ã  son insertion en base de donnÃ©es.
+	* @param Data:String les donnÃ©es Ã  nettoyer
+	* @return :String les donnÃ©es nettoyÃ©es. Remplit aussi $_POST['keywords'].
 	*/
 	public static function prepareOmni($Omni)
 	{
@@ -32,8 +32,8 @@ class Input
 
 	/**
 	* Supprime les aberrations typographiques qui sont automatiquement faites par le typographe.
-	* @param Data:String les données à nettoyer
-	* @return :String les données nettoyées
+	* @param Data:String les donnÃ©es Ã  nettoyer
+	* @return :String les donnÃ©es nettoyÃ©es
 	*/
 	public static function sanitize($Data)
 	{
@@ -43,13 +43,13 @@ class Input
 	}
 
 	/**
-	* Télécharge toutes les images contenues dans $Texte en local
+	* TÃ©lÃ©charge toutes les images contenues dans $Texte en local
 	* @param Texte:String le texte qui contient les images
-	* @return :String le texte avec l'url des images distantes remplacées par la version locale.
+	* @return :String le texte avec l'url des images distantes remplacÃ©es par la version locale.
 	*/
 	public static function downloadImages($Texte)
 	{
-		//Télécharge les images distantes en local :
+		//TÃ©lÃ©charge les images distantes en local :
 		$Externes=array();
 		preg_match_all('#\\\\image\\[.+\\]{http://(.+)}#iU',$Texte,$Externes);
 		foreach($Externes[1] as $Match)
@@ -80,7 +80,7 @@ class Input
 					{
 						global $C;
 						$Relatif = 'http://' . $Match;
-						$C['Message'] = 'Impossible de charger l\'image ' . $Relatif . '. Merci d\'en vérifier l\'adresse !';
+						$C['Message'] = 'Impossible de charger l\'image ' . $Relatif . '. Merci d\'en vÃ©rifier l\'adresse !';
 					}
 
 				}
@@ -92,20 +92,20 @@ class Input
 	}
 
 	/**
-	* Récupérer une liste de mots clés à partir de $Texte
-	* @param Texte:String le texte dont il faut extraire les mots clés
+	* RÃ©cupÃ©rer une liste de mots clÃ©s Ã  partir de $Texte
+	* @param Texte:String le texte dont il faut extraire les mots clÃ©s
 	* @return :void la fonction remplit directement le tableau $_POST['keywords']
 	*/
 	public static function getKeyWords($Texte)
 	{
-		//Générer les mots clés
+		//GÃ©nÃ©rer les mots clÃ©s
 		Typo::setTexte(stripslashes($Texte));
 
 		$Raw=strtolower(preg_replace('#&(\S)+;#','',preg_replace('#\<([^\<]+)\>#','',ParseMath(Typo::Parse()))));
 
-		$Words=preg_split('(\s|[-,\'\.«»:\(\)\?!;"&])',$Raw);
+		$Words=preg_split('(\s|[-,\'\.Â«Â»:\(\)\?!;"&])',$Raw);
 		array_map('trim',$Words);
-		$Freq=array_count_values($Words);//Équivalent du GROUP BY.
+		$Freq=array_count_values($Words);//Ã‰quivalent du GROUP BY.
 		arsort($Freq);//Trier par nombre d'apparition du mot.
 
 		$KeyWords=array();

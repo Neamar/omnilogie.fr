@@ -7,12 +7,12 @@ $envContent='
 	<thead>
 		<tr>
 			<th>Question</th>
-			<th>Réponse</th>
+			<th>RÃ©ponse</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td colspan="2" class="centre petitTexte">(passez votre souris sur une question pour afficher la réponse)</td>
+			<td colspan="2" class="centre petitTexte">(passez votre souris sur une question pour afficher la rÃ©ponse)</td>
 		</tr>
 ';
 

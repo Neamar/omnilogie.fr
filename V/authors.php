@@ -13,7 +13,7 @@
 <h3 id="h3_authors"><span>Omnilogistes participants</span></h3>
 
 <h4 id="code_couleur">Code couleur des auteurs</h4>
-<p>Omnilogie se sert d'un code couleur pour identifier les membres disposant de pouvoirs supérieurs à la normale ; voici l'explication des couleurs :</p>
+<p>Omnilogie se sert d'un code couleur pour identifier les membres disposant de pouvoirs supÃ©rieurs Ã  la normale ; voici l'explication des couleurs :</p>
 
 <ul id="liste_code_couleur">
 <?php foreach($C['Roles'] as $Role=>$Explication) { ?>

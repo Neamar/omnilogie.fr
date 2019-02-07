@@ -1,5 +1,5 @@
 <section id="catCloud" class="menu">
-<h3>Nuage de catégories</h3>
+<h3>Nuage de catÃ©gories</h3>
 
 <?php
 foreach($C['Menus']['catCloud'] as $Category)

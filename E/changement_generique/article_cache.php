@@ -1,6 +1,6 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::CHANGEMENT_GENERIQUE
 *
 * Supprimer le cache de l'article et son image

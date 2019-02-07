@@ -1,22 +1,22 @@
 <?php
 /**
-* Modèle : index.php
+* ModÃ¨le : index.php
 * But : Afficher la page d'accueil
 * Layout :
 * - Article du jour
-* - Articles précédents *4
+* - Articles prÃ©cÃ©dents *4
 */
 
 //Article du jour
 /*
-<h3 id="article-of-the-day"><span>En grève ?</span></h3>
-<header class="message">Par pénurie d'article, Omnilogie est au chômage technique.<br />
-Nous faisons donc une pause jusqu'au 24 décembre avant de repartir, en espérant voir le stock revenu à un niveau correct.<br /><br />
+<h3 id="article-of-the-day"><span>En grÃ¨ve ?</span></h3>
+<header class="message">Par pÃ©nurie d'article, Omnilogie est au chÃ´mage technique.<br />
+Nous faisons donc une pause jusqu'au 24 dÃ©cembre avant de repartir, en espÃ©rant voir le stock revenu Ã  un niveau correct.<br /><br />
 
-Cela fait maintenant presque un mois que l'article de minuit est écrit dans l'après-midi. Cette situation est trop difficile à conjuguer avec les impératifs de la vie, et est la raison de cette interruption que nous espérons momentanée.<br /><br />
-À la reprise, il est possible que nous passions à un rythme plus facile à soutenir (par exemple, un article toutes les 48h) ou que nous modifions la formule afin qu'Omnilogie ne soit pas une corvée, mais un plaisir pour tous.<br /><br />
+Cela fait maintenant presque un mois que l'article de minuit est Ã©crit dans l'aprÃ¨s-midi. Cette situation est trop difficile Ã  conjuguer avec les impÃ©ratifs de la vie, et est la raison de cette interruption que nous espÃ©rons momentanÃ©e.<br /><br />
+Ã€ la reprise, il est possible que nous passions Ã  un rythme plus facile Ã  soutenir (par exemple, un article toutes les 48h) ou que nous modifions la formule afin qu'Omnilogie ne soit pas une corvÃ©e, mais un plaisir pour tous.<br /><br />
 
-Rédacteurs, n'hésitez pas à écrire pendant cette trêve hivernale !</p>
+RÃ©dacteurs, n'hÃ©sitez pas Ã  Ã©crire pendant cette trÃªve hivernale !</p>
 */
 ?>
 
@@ -34,9 +34,9 @@ Rédacteurs, n'hésitez pas à écrire pendant cette trêve hivernale !</p>
 <hr />
 
 <section id="previous-article">
-<h3><span>Les articles précédents</span></h3>
+<h3><span>Les articles prÃ©cÃ©dents</span></h3>
 <?php
-//Articles précédents :
+//Articles prÃ©cÃ©dents :
 foreach($C['Articles'] as $Article)
 {
 ?>

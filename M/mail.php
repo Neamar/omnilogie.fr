@@ -1,6 +1,6 @@
 <?php
 /**
-* Modèle : mail
+* ModÃ¨le : mail
 */
 
 $C['PageTitle']='Recevoir par mail l\'article du jour';

@@ -1,13 +1,13 @@
 <?php
 /**
-* Contrôleur : admin/admin.php
-* But : enregistrer les modifications de statut apportées à un article.
-* Charge un tableau $Articles pour le modèle.
-* Modèle et contrôleur sont mélangés dans cette interface.
+* ContrÃ´leur : admin/admin.php
+* But : enregistrer les modifications de statut apportÃ©es Ã  un article.
+* Charge un tableau $Articles pour le modÃ¨le.
+* ModÃ¨le et contrÃ´leur sont mÃ©langÃ©s dans cette interface.
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 $C['Sections']=array();
 
 $Titre = Encoding::decodeFromGet('Titre');
@@ -25,7 +25,7 @@ if(Member::is(AUTHOR,'admins'))
 if(Member::is(AUTHOR,'censeurs'))
 {
 	$C['Sections']['edit']['Titre'] = 'Correction de l\'article';
-	$C['Sections']['edit']['Description'] = 'Ce pod affiche les articles qui ont peut-être besoin d\'être corrigés (jamais relus par un censeur).';
+	$C['Sections']['edit']['Description'] = 'Ce pod affiche les articles qui ont peut-Ãªtre besoin d\'Ãªtre corrigÃ©s (jamais relus par un censeur).';
 	$C['Sections']['edit']['Articles'] = Admin::getControleur($Where,'edit',null);
 	$C['Sections']['edit']['Vue'] = array('Admin','editVueCallback');
 	$C['Sections']['edit']['Max'] = -1;
@@ -35,15 +35,15 @@ if(Member::is(AUTHOR,'censeurs'))
 if(Member::is(AUTHOR,'censeurs'))
 {
 	$C['Sections']['message']['Titre'] = 'Gestion du message';
-	$C['Sections']['message']['Description'] = 'Ce pod permet de mettre un message important en en-tête des articles.';
+	$C['Sections']['message']['Description'] = 'Ce pod permet de mettre un message important en en-tÃªte des articles.';
 	$C['Sections']['message']['Articles'] = Admin::getControleur($Where,'message',array('Admin','messageControleurCallback'));
 	$C['Sections']['message']['Vue'] = array('Admin','messageVueCallback');
 }
 
-if(Member::is(AUTHOR,'bannières'))
+if(Member::is(AUTHOR,'banniÃ¨res'))
 {
-	$C['Sections']['bannieres']['Titre'] = 'Gestion de la bannière';
-	$C['Sections']['bannieres']['Description'] = 'Ce pod affiche les articles qui n\'ont pas de bannière.';
+	$C['Sections']['bannieres']['Titre'] = 'Gestion de la banniÃ¨re';
+	$C['Sections']['bannieres']['Description'] = 'Ce pod affiche les articles qui n\'ont pas de banniÃ¨re.';
 	$C['Sections']['bannieres']['Articles'] = Admin::getControleur($Where,'banniere', array('Admin','banniereControleurCallback'));
 	$C['Sections']['bannieres']['Vue'] = array('Admin','banniereVueCallback');
 	$C['Sections']['bannieres']['Max'] = 2;
@@ -53,7 +53,7 @@ if(Member::is(AUTHOR,'bannières'))
 if(Member::is(AUTHOR,'accrocheurs'))
 {
 	$C['Sections']['accroches']['Titre'] = 'Gestion de l\'accroche';
-	$C['Sections']['accroches']['Description'] = 'Ce pod affiche les articles qui ont besoin d\'être accrochés.';
+	$C['Sections']['accroches']['Description'] = 'Ce pod affiche les articles qui ont besoin d\'Ãªtre accrochÃ©s.';
 	$C['Sections']['accroches']['Articles'] = Admin::getControleur($Where,'accroche',array('Admin','accrocheControleurCallback'));
 	$C['Sections']['accroches']['Vue'] = array('Admin','accrocheVueCallback');
 }
@@ -69,7 +69,7 @@ if(Member::is(AUTHOR,'censeurs'))
 if(Member::is(AUTHOR,'any'))
 {
 	$C['Sections']['anecdote']['Titre'] = 'Anecdote';
-	$C['Sections']['anecdote']['Description'] = 'Ce pod permet d\'ajouter une anecdote à l\'article.';
+	$C['Sections']['anecdote']['Description'] = 'Ce pod permet d\'ajouter une anecdote Ã  l\'article.';
 	$C['Sections']['anecdote']['Articles'] = Admin::getControleur($Where,'anecdote',array('Admin','anecdoteControleurCallback'));
 	$C['Sections']['anecdote']['Vue'] = array('Admin','anecdoteVueCallback');
 }

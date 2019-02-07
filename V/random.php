@@ -7,7 +7,7 @@
 
 ?>
 <h3 id="h3_toc"><span>Articles au hasard</span></h3>
-<p>Vous trouverez ici 20 articles sélectionnés au hasard.<br />
+<p>Vous trouverez ici 20 articles sÃ©lectionnÃ©s au hasard.<br />
 Ils ne vous plaisent pas ? <a href="/Random">Cliquez pour recharger !</a></p>
 
 <?php

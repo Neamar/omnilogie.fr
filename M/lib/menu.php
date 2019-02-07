@@ -1,13 +1,13 @@
 <?php
 
 /**
-* Modèle : menu
-* But : préparer à l'affichage des menus dans la vue.
+* ModÃ¨le : menu
+* But : prÃ©parer Ã  l'affichage des menus dans la vue.
 */
 
 /**
-* Ajoute un pod au début de la liste
-* @param ID:String la clé du pod. Attention, si une clé de ce nom existe déjà elle sera écrasée.
+* Ajoute un pod au dÃ©but de la liste
+* @param ID:String la clÃ© du pod. Attention, si une clÃ© de ce nom existe dÃ©jÃ  elle sera Ã©crasÃ©e.
 * @param Title:String le titre du pod.
 * @param Content:String le contenu
 */
@@ -35,18 +35,18 @@ if(Cache::exists('Pods', 'lastArticles')) {
 }
 
 
-//Second menu : nuage de catégories
+//Second menu : nuage de catÃ©gories
 if(Cache::exists('Datas', 'catCloud')) {
 	$Datas = unserialize(Cache::get('Datas','catCloud'));
 
-	//Mélanger
+	//MÃ©langer
 	shuffle($Datas);
 
 	$Contenu='';
 	for($i=0;$i<CAT_CLOUD;$i++)
 		$Contenu .= $Datas[$i];
 
-	$C['Pods']['catCloud']['Title'] = 'Nuage de catégories';
+	$C['Pods']['catCloud']['Title'] = 'Nuage de catÃ©gories';
 	$C['Pods']['catCloud']['Content'] = $Contenu;
 }
 
@@ -54,9 +54,9 @@ if(Cache::exists('Datas', 'catCloud')) {
 
 
 
-//Troisième menu : auteurs actifs récemment
+//TroisiÃ¨me menu : auteurs actifs rÃ©cemment
 if(Cache::exists('Pods', 'activeAuthor')) {
-	$C['Pods']['activeAuthor']['Title'] = 'Auteurs actifs récemment';
+	$C['Pods']['activeAuthor']['Title'] = 'Auteurs actifs rÃ©cemment';
 	$C['Pods']['activeAuthor']['Content'] = Cache::get('Pods','activeAuthor');
 }
 
@@ -88,7 +88,7 @@ $C['Pods']['twitter']['Title'] = 'Omnilogie en direct';
 $C['Pods']['twitter']['Content'] = Cache::get('Pods','twitter');
 */
 
-$C['Footers']['about']['Title'] = 'À propos';
+$C['Footers']['about']['Title'] = 'Ã€ propos';
 $C['Footers']['about']['Content'] = file_get_contents(DATA_PATH . '/about');
 
 
@@ -101,10 +101,10 @@ $ALire = array(
 $A = '';
 foreach($ALire as $URL=>$Caption)
 	$A .='<li><a href="' . $URL . '">' . $Caption . '</a></li>' . "\n";
-$C['Footers']['alire']['Title']='À lire...';
+$C['Footers']['alire']['Title']='Ã€ lire...';
 $C['Footers']['alire']['Content'] = '<ol>' . $A . '</ol>';
 
-// Topbar des utilisateurs connectés : nombres d'articles à paraître
+// Topbar des utilisateurs connectÃ©s : nombres d'articles Ã  paraÃ®tre
 if(isset($_SESSION['Membre']['ID']))
 {
 	$Nb = Sql::singleQuery('SELECT COUNT(*) AS ToBePublished FROM OMNI_Omnilogismes WHERE Statut="ACCEPTE" AND ISNULL(Sortie)');

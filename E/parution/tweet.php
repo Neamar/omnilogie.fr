@@ -1,9 +1,9 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::PARUTION
 *
-* Envoie un tweet sur Internet pour informer le monde entier de la naissance d'un nouveau bébé ;)
+* Envoie un tweet sur Internet pour informer le monde entier de la naissance d'un nouveau bÃ©bÃ© ;)
 */
 
 //External::tweet('http://omnilogie.fr' . Link::omniShort($Article->ID) . ' : ' . ($Article->Accroche!=''?$Article->Accroche:$Article->Titre));

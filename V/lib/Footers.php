@@ -1,9 +1,9 @@
 <?php
 //Permet la gestion des footers
-//Chaque footer se conforme à la structure
+//Chaque footer se conforme Ã  la structure
 /*
 [id] => Array(
-[Title] le titre du footer à afficher
+[Title] le titre du footer Ã  afficher
 [Content] le contenu
 */
 

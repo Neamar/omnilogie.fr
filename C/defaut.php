@@ -1,10 +1,10 @@
 <?php
 /**
-* Contrôleur :
+* ContrÃ´leur :
 * But :
 *
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 

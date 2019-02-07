@@ -1,8 +1,8 @@
 <?php
 /**
-* Modèle : contact
+* ModÃ¨le : contact
 * But : Permettre le contact des admins.
-* Données à charger : aucune, peut envoyer des mails si $_POST existe.
+* DonnÃ©es Ã  charger : aucune, peut envoyer des mails si $_POST existe.
 *
 */
 
@@ -17,17 +17,17 @@ if(isset($_POST['captcha']) && isset($_POST['mail']) && isset($_POST['message'])
 	elseif(empty($_POST['message']))
 		$C['Message'] = 'Message vide.';
 	elseif($_POST['captcha']!=2)
-		$C['Message'] = 'Robots, beware ! Remplissez la question de sécurité.';
+		$C['Message'] = 'Robots, beware ! Remplissez la question de sÃ©curitÃ©.';
 	else
 	{
 		if(strpos($_POST['titre'], 'Remarque sur : /O/') !== false)
 		{
 			preg_match('`/O/(.+)$`', $_POST['titre'], $Titre);
-			$_POST['message'] .= '</p><p><a href="http://omnilogie.fr' . $Titre[0] . '">Accéder à l\'article ' . str_replace('_', ' ', $Titre[1]) . '</a>';
+			$_POST['message'] .= '</p><p><a href="http://omnilogie.fr' . $Titre[0] . '">AccÃ©der Ã  l\'article ' . str_replace('_', ' ', $Titre[1]) . '</a>';
 		}
 
-		External::mail('admin@omnilogie.fr','[Contact] ' . stripslashes($_POST['titre']),'<p>Expéditeur : ' . $_POST['mail'] . '</p>' . '<p>' . nl2br(stripslashes($_POST['message'])) . '</p>',$_POST['mail']);
-		$C['Message'] = 'Message envoyé';
+		External::mail('admin@omnilogie.fr','[Contact] ' . stripslashes($_POST['titre']),'<p>ExpÃ©diteur : ' . $_POST['mail'] . '</p>' . '<p>' . nl2br(stripslashes($_POST['message'])) . '</p>',$_POST['mail']);
+		$C['Message'] = 'Message envoyÃ©';
 		$C['MessageClass'] = 'info';
 	}
 }

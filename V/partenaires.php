@@ -5,7 +5,7 @@
 * - Form
 */
 
-//Afficher la catégorie
+//Afficher la catÃ©gorie
 ?>
 <h3><span>Partenaires du site</span></h3>
 <p><a href="/Contact">Votre site ici ?</a></p>

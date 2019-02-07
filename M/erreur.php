@@ -1,13 +1,13 @@
 <?php
 /**
-* Modèle : Erreur
+* ModÃ¨le : Erreur
 * But : Afficher un message d'erreur
 */
 //Articles
 $Erreurs = array(
-'403'=>'Vous n\'avez pas les droits pour accéder à cette ressource.',
+'403'=>'Vous n\'avez pas les droits pour accÃ©der Ã  cette ressource.',
 '404'=>'La page que vous cherchez n\'existe pas ou plus !',
-'500'=>'Le serveur est actuellement en train de sucrer les fraises... revenez dans quelques minutes, elles seront délicieuses.'
+'500'=>'Le serveur est actuellement en train de sucrer les fraises... revenez dans quelques minutes, elles seront dÃ©licieuses.'
 );
 
 $C['CodeErreur'] = intval($_GET['Erreur']);
@@ -15,7 +15,7 @@ if(!isset($Erreurs[$C['CodeErreur']]) && !isset($C['CustomError']))
 	$C['Erreur'] = 'Une erreur inconnue est survenue !';
 elseif(isset($C['CustomError'])) //Erreur depuis le script
 	$C['Erreur'] = $C['CustomError'];
-else//Erreur dès le .htaccess
+else//Erreur dÃ¨s le .htaccess
 {
 	$C['Erreur'] = $Erreurs[$C['CodeErreur']];
 	Debug::status($C['CodeErreur']);
@@ -28,7 +28,7 @@ $C['CanonicalURL'] = '';
 $Liens = array(
 '<a href="/">Article du jour</a>',
 '<a href="/O/">Liste des articles</a>',
-'<a href="/Liste/">Catégories</a>',
+'<a href="/Liste/">CatÃ©gories</a>',
 '<a href="/Omnilogistes/">Auteurs</a>',
 );
 

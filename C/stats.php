@@ -1,11 +1,11 @@
 <?php
 /**
-* Contrôleur : stats
+* ContrÃ´leur : stats
 * But : mettre en cache les statistiques
 *
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 Cache::page('stats');

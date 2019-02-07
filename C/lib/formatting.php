@@ -1,12 +1,12 @@
 <?php
 /**
-* But : offrir des facilités de formatage HTML
+* But : offrir des facilitÃ©s de formatage HTML
 *
 */
 //Formatting
 
 //////////////////////////////////////////////////////
-//Fonctionnalités du contrôleur :
+//FonctionnalitÃ©s du contrÃ´leur :
 
 class Formatting
 {
@@ -16,7 +16,7 @@ class Formatting
 	* @return :String le nombre mis en forme.
 	* @example
 	* echo Formatting::makeNumber(250000);
-	* //Renverra 250 000 avec un espace insécable.
+	* //Renverra 250 000 avec un espace insÃ©cable.
 	*/
 	public static function makeNumber($Nb)
 	{
@@ -24,9 +24,9 @@ class Formatting
 	}
 
 	/**
-	* Créer une liste HTML à partir d'un tableau
-	* @param List:Array La liste à convertir en tableau
-	* @param Type:String Le type de la liste ; valeurs valide : ol, ul ; 'ul' par défaut.
+	* CrÃ©er une liste HTML Ã  partir d'un tableau
+	* @param List:Array La liste Ã  convertir en tableau
+	* @param Type:String Le type de la liste ; valeurs valide : ol, ul ; 'ul' par dÃ©faut.
 	* @return :String une liste HTML
 	*/
 	public static function makeList(array $List, $Type='ul',$Class='',$Id='')
@@ -42,41 +42,41 @@ class Formatting
 	}
 
 	/**
-	* Gère la pagination de toutes les pages devant afficher plus de OMNI_MAX_PAGE articles par page, sous forme de Teaser.
-	* @param Param:SqlParam Les paramètres pour récupérer l'article ; ils seront modifiés au niveau du LIMIT pour ne récupérer que la partie intéressante.
-	* @param URL:String le masque de l'URL à utiliser. Exemple : /Omnilogistes/Neamar/ (<-- notez le slash à la fin !) qui deviendra /Omnilogistes/Neamar/Page-2 (Page-1 renvoie directement vers l'URL de base).
+	* GÃ¨re la pagination de toutes les pages devant afficher plus de OMNI_MAX_PAGE articles par page, sous forme de Teaser.
+	* @param Param:SqlParam Les paramÃ¨tres pour rÃ©cupÃ©rer l'article ; ils seront modifiÃ©s au niveau du LIMIT pour ne rÃ©cupÃ©rer que la partie intÃ©ressante.
+	* @param URL:String le masque de l'URL Ã  utiliser. Exemple : /Omnilogistes/Neamar/ (<-- notez le slash Ã  la fin !) qui deviendra /Omnilogistes/Neamar/Page-2 (Page-1 renvoie directement vers l'URL de base).
 	* @param Page:int Lu directement depuis la variable $_GET['Page'].
-	* @return :array La fonction travaille directement avec $C : $C['Articles'] contient un tableau de Teaser, et $C['Pager'] contient la structure de contrôle si elle est nécessaire. Elle renvoie aussi le tableau des articles sélectionnés.
+	* @return :array La fonction travaille directement avec $C : $C['Articles'] contient un tableau de Teaser, et $C['Pager'] contient la structure de contrÃ´le si elle est nÃ©cessaire. Elle renvoie aussi le tableau des articles sÃ©lectionnÃ©s.
 	*/
 	public static function makePage(SqlParam $Param,$URL=null)
 	{
 		global $C;
 
-		//Contrôle de l'urldecode
+		//ContrÃ´le de l'urldecode
 		if(is_null($URL))
-			Debug::fail('Le paramètre URL ne doit pas être null');
+			Debug::fail('Le paramÃ¨tre URL ne doit pas Ãªtre null');
 
-		//Lecture du numéro de page demandé.
+		//Lecture du numÃ©ro de page demandÃ©.
 		if(!isset($_GET['Page']))
 			$Page = 0;
 		else
 			$Page = intval($_GET['Page']) - 1;
 
 		if($Page==-1)
-			Debug::fail('Désolé, la consultation des articles en avance sur le temps est actuellement interdite par la relativité restreinte ; merci de réessayer plus tard.');
+			Debug::fail('DÃ©solÃ©, la consultation des articles en avance sur le temps est actuellement interdite par la relativitÃ© restreinte ; merci de rÃ©essayer plus tard.');
 
 		//Modification du $Param :
 		$Param->Select = 'SQL_CALC_FOUND_ROWS ' . $Param->Select;
 		$Param->Limit = ($Page * OMNI_MAX_PAGE) . ',' . OMNI_MAX_PAGE;
 
-		//Récupérer les articles
+		//RÃ©cupÃ©rer les articles
 		$Articles = Omni::get($Param);
 		foreach($Articles as &$Article)
 		{
 			$C['Articles'][$Article->ID]['Teaser'] = $Article->outputTeaser();
 		}
 
-		//Faut-il afficher un module de contrôle pour la pagination ?
+		//Faut-il afficher un module de contrÃ´le pour la pagination ?
 		$Nb = SQL::singleQuery('SELECT FOUND_ROWS( ) AS Total');
 
 		if($Page * OMNI_MAX_PAGE>$Nb['Total'])
@@ -86,7 +86,7 @@ class Formatting
 			$C['Pager']='';
 		else
 		{
-			$C['Pager']='<aside class="pager">Aller à la page : ';
+			$C['Pager']='<aside class="pager">Aller Ã  la page : ';
 			$Pages=array();
 			$FirstPage = max(1, $Page + 1 - 5);
 			$TotalPage = ceil($Nb['Total'] / OMNI_MAX_PAGE);

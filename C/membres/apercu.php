@@ -1,19 +1,19 @@
 <?php
 /**
-* Contr�leur : membres/apercu.php
-* But : afficher un aper�u d'un article en cours de r�daction.
-* On ne touche pas � l'encodage des caract�res pour laisser le navigateur faire le boulot tout seul !
+* Contrôleur : membres/apercu.php
+* But : afficher un aperçu d'un article en cours de rédaction.
+* On ne touche pas à l'encodage des caractères pour laisser le navigateur faire le boulot tout seul !
 */
 
 //////////////////////////////////////////////////////
-//Fonctionnalit�s du contr�leur :
+//Fonctionnalités du contrôleur :
 
 header("Content-Type:text/plain; charset=utf-8");
 
-//Pr�paration du texte : (cas des guillemets typographiques directs)
+//Préparation du texte : (cas des guillemets typographiques directs)
 $Texte = str_replace
 (
-	array('«','»'),
+	array('Â«','Â»'),
 	array('&#171;','&#187;'),
 	$_POST['Texte']
 );
@@ -23,13 +23,13 @@ Typo::setTexte(stripslashes($Texte));
 //Parsage. (cas des guillemets typographiques standards)
 $Texte = str_replace
 (
-	array('û','�','�','«','»'),
+	array('Ã»','«','»','Â«','Â»'),
 	array('&ucirc;','&#171;','&#187;','&#171;','&#187;'),
 	ParseMath(Typo::Parse())
 );
 
 echo '<div class="omnilogisme">' . $Texte . '</div>';
 
-//Arr�ter le script ici.
+//Arrêter le script ici.
 exit();
 ?>

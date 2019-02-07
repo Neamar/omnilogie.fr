@@ -7,20 +7,20 @@
 ?>
 
 <h3><span>Taxinomie exhaustive</span></h3>
-<p>Cette page gère les actions sur l'arbre.</p>
+<p>Cette page gÃ¨re les actions sur l'arbre.</p>
 </section>
 
 <section>
-<h3><span>Ajout de catégorie</span></h3>
+<h3><span>Ajout de catÃ©gorie</span></h3>
 
 <form method="post" action="">
-<label for="parent">Catégorie mère :</label>
+<label for="parent">CatÃ©gorie mÃ¨re :</label>
 <select name="parent" id="parent">
 <?php foreach($C['ListeAjout'] as $ID=>$Item)
 	echo '<option value="' . $ID . '">' . $Item . '</option>'
 ?>
 </select><br />
-<label for="enfant">Nom de la nouvelle catégorie :</label>
+<label for="enfant">Nom de la nouvelle catÃ©gorie :</label>
 <input type="text" name="enfant" id="enfant" placeholder="Enfant"/><br />
 
-<input type="submit" value="Enregistrer la nouvelle catégorie" />
+<input type="submit" value="Enregistrer la nouvelle catÃ©gorie" />

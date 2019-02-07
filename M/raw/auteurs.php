@@ -1,6 +1,6 @@
 <?php
 /**
-* Modèle : Articles
+* ModÃ¨le : Articles
 * But : Afficher la liste des articles
 */
 $params = array(

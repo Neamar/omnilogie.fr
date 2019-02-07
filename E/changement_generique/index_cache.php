@@ -1,9 +1,9 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::CHANGEMENT_GENERIQUE
 *
-* Mettre à jour la page d'accueil si on modifie un article paru récemment.
+* Mettre Ã  jour la page d'accueil si on modifie un article paru rÃ©cemment.
 */
 if(is_numeric($Article->Timestamp) && $Article->Timestamp > time() - 4 * 24 * 3600)
 {

@@ -21,7 +21,7 @@ $envContent='
 				$envContent .='		<tr>' . "\n";
 				foreach($Colonne as $ID=>$Cellule)
 				{
-					if(strpos(substr($Cellule,0,-1),"\n")!==false)//pas besoin d'avoir des éléments blocks.
+					if(strpos(substr($Cellule,0,-1),"\n")!==false)//pas besoin d'avoir des Ã©lÃ©ments blocks.
 						$Cellule=Typo_parseLines($Cellule);
 
 					if(isset($Classes[$ID]))

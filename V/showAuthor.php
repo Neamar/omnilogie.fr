@@ -2,10 +2,10 @@
 /**
 * Layout :
 * - Arbre entourant
-* - Articles dans la catégorie
+* - Articles dans la catÃ©gorie
 */
 
-//Afficher la catégorie
+//Afficher la catÃ©gorie
 ?>
 <h3 id="author-page"><span>La page des auteurs</span></h3>
 <h1><?php Template::put('Author') ?></h1>
@@ -19,36 +19,36 @@
 </article>
 
 <?php if(!isset($C['FirstAction'])){?>
-<p><?php Template::put('Author') ?> est inscrit sur Omnilogie, mais il n'a jamais participé... ce qui est bien dommage ! Si vous le connaissez, pourquoi ne pas le remotiver ?</p>
+<p><?php Template::put('Author') ?> est inscrit sur Omnilogie, mais il n'a jamais participÃ©... ce qui est bien dommage ! Si vous le connaissez, pourquoi ne pas le remotiver ?</p>
 <?php } else {?>
 
 </section>
 
 <section id="last-activity">
-<h3><span>Dernières activités</span></h3>
-<p class="activity"><?php Template::put('Author') ?> est actif depuis le <?php Template::put('FirstAction') ?> sur <a href="/">Omnilogie</a>, et sa dernière action remonte au <?php Template::put('LastAction') ?> <?php Template::put('LastActionInDays') ?>.</p>
+<h3><span>DerniÃ¨res activitÃ©s</span></h3>
+<p class="activity"><?php Template::put('Author') ?> est actif depuis le <?php Template::put('FirstAction') ?> sur <a href="/">Omnilogie</a>, et sa derniÃ¨re action remonte au <?php Template::put('LastAction') ?> <?php Template::put('LastActionInDays') ?>.</p>
 
 <?php Template::put('Actions'); ?>
 
 </section>
 
 <section id="articles-from">
-<h3><span>Articles rédigés par <?php Template::put('Author') ?> <?php Template::put('PageActuelle') ?></span></h3>
+<h3><span>Articles rÃ©digÃ©s par <?php Template::put('Author') ?> <?php Template::put('PageActuelle') ?></span></h3>
 <?php
 if(isset($C['Articles']))
 {
-	//Module de pagination (si nécessaire)
+	//Module de pagination (si nÃ©cessaire)
 	Template::put('Pager');
 	//Articles de l'auteur
 	foreach($C['Articles'] as $Article)
 	{
 		echo $Article['Teaser'];
 	}
-	//Module de pagination (si nécessaire)
+	//Module de pagination (si nÃ©cessaire)
 	Template::put('Pager');
 }
 else
 { ?>
-<p><?php Template::put('Author') ?> n'a rédigé aucun article, c'est un membre spécial !</p>
+<p><?php Template::put('Author') ?> n'a rÃ©digÃ© aucun article, c'est un membre spÃ©cial !</p>
 <?php }
 }

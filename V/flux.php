@@ -1,6 +1,6 @@
 <?php
 /**
-* ×××××××××××××××××××××××××××××××××
+* ÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃ
 * CE FICHIER EST EN UTF-8
 * Layout :
 
@@ -8,8 +8,8 @@
 //Flux
 
 /**
-* Raccourci pour encoder en utf8 les données
-* @param $Data:String les données à afficher
+* Raccourci pour encoder en utf8 les donnÃ©es
+* @param $Data:String les donnÃ©es Ã  afficher
 */
 function utf($data)
 {
@@ -22,14 +22,14 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
 ?>
 <rss version="2.0">
 <channel>
-	<title>Omnilogismes du jour : questions et réponses de culture générale</title>
+	<title>Omnilogismes du jour : questions et rÃ©ponses de culture gÃ©nÃ©rale</title>
 	<link>http://omnilogie.fr</link>
 	<image>
 		<url>http://omnilogie.fr/images/Question.png</url>
-		<title>Omnilogismes du jour : questions et réponses de culture générale</title>
+		<title>Omnilogismes du jour : questions et rÃ©ponses de culture gÃ©nÃ©rale</title>
 		<link>http://omnilogie.fr</link>
 	</image>
-	<description>Chaque jour, un article de culture générale sur tout et n'importe quoi. Une infusion de savoir quotidienne !</description>
+	<description>Chaque jour, un article de culture gÃ©nÃ©rale sur tout et n'importe quoi. Une infusion de savoir quotidienne !</description>
 	<managingEditor>omni@neamar.fr (Administrateurs Omnilogie)</managingEditor>
 	<language>fr-FR</language>
 

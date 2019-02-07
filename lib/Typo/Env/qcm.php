@@ -37,7 +37,7 @@ for($qcm_i=0;$qcm_i<count($envArr);$qcm_i++)
 		$envContent .= '</div>' . "\n" . '</fieldset>';
 	}
 	elseif(trim($envArr[$qcm_i]!=''))
-		Typo::RaiseWarning("Paramètre inconnu dans le QCM. Abandon.");
+		Typo::RaiseWarning("ParamÃ¨tre inconnu dans le QCM. Abandon.");
 }
 
 $envContent .='

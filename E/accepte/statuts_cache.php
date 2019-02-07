@@ -1,10 +1,10 @@
 <?php
 /**
-* Fichier d'évènement
+* Fichier d'Ã©vÃ¨nement
 * Event::ACCEPTE
 *
-* Met à jour le cache listant les statuts
+* Met Ã  jour le cache listant les statuts
 */
 
-//Cet évenement peut être appelé de plusieurs endroits, il est donc "factorisé" dans un dossier à part.
+//Cet Ã©venement peut Ãªtre appelÃ© de plusieurs endroits, il est donc "factorisÃ©" dans un dossier Ã  part.
 Event::callGeneric(basename(__FILE__));
