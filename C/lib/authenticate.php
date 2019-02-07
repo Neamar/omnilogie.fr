@@ -24,10 +24,6 @@ class Authenticate
 		else
 		{
 			error_log("OMNI Not connected");
-			ob_start();
-			var_dump($_SERVER);
-			$result = ob_get_clean();
-			error_log($result);
 			//Est-on connecté ?
 			if(empty($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
 				self::askForLogin();
@@ -58,7 +54,7 @@ class Authenticate
 			//Pour cela, on crypte en salant avec le hash en mémoire, et on compare avec ce même hash : les résultats doivent être similaires.
 			error_log("OMNI PWD " . $Membre[1]);
 
-			if($Membre[0]==$Login && crypt($Infos[1],$Membre[1])==$Membre[1])
+			if($Membre[0]==$Login && password_verify($Infos[1],$Membre[1])==true)
 			{
 				error_log("OMNI LOGGED IN");
 				$_SERVER['REMOTE_USER'] = $Login;
