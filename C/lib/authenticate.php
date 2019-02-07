@@ -19,7 +19,7 @@ class Authenticate
 	*/
 	public static function login(array $roles)
 	{
-		if(isset($_SESSION['Membre']['Pseudo']) && empty($_SERVER['REDIRECT_REDIRECT_LOGIN']))
+		if(isset($_SESSION['Membre']['Pseudo']) && empty($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
 			$Login = $_SESSION['Membre']['Pseudo'];
 		else
 		{
@@ -29,11 +29,11 @@ class Authenticate
 			$result = ob_get_clean();
 			error_log($result);
 			//Est-on connecté ?
-			if(empty($_SERVER['REDIRECT_REDIRECT_LOGIN']))
+			if(empty($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
 				self::askForLogin();
 
 			//Récupérer les infos de connexion entrées :
-			$Login = base64_decode(substr($_SERVER['REDIRECT_REDIRECT_LOGIN'],5));
+			$Login = base64_decode(substr($_SERVER['REDIRECT_HTTP_AUTHORIZATION'],5));
 			error_log("OMNI " . $Login);
 
 			$Infos = explode(':',$Login,2);
