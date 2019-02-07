@@ -84,7 +84,7 @@ if(isset($_SESSION['FutureMessage']))
 //Personnes tentant de se connecter à l'ancienne, avec un hash directement dans l'URL (venant d'un mail probablement)
 if(preg_match('`membre=([0-9abcdef]{32})$`',$_SERVER['REQUEST_URI']))
 {
-	$_SESSION['Membre']['RedirectTo'] = $_SERVER['SCRIPT_URL'];
+	$_SESSION['Membre']['RedirectTo'] = $_SERVER['REQUEST_URI'];
 	$_GET['membre']=substr($_SERVER['REQUEST_URI'],-32);
 	include(PATH . '/C/membres/connexion.php');
 }
