@@ -26,4 +26,5 @@ while($Feuille=mysql_fetch_assoc($Arborescence))
 	if($Feuille['Heritage']!='')
 		$Liste[$Feuille['Categorie']][]=explode(',',$Feuille['Heritage']);
 }
+echo(serialize($Liste))
 file_put_contents(DATA_PATH . 'categories',serialize($Liste));
