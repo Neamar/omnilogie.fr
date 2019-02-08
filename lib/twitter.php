@@ -1,7 +1,7 @@
 <?php
 function postTweet($text)
 {
-    $tweet = utf8_encode($text);
+    $tweet = $text;
     $data_array = array('status' => $tweet);
     $postfields = http_build_query($data_array);
 
