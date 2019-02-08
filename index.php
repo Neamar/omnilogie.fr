@@ -16,10 +16,11 @@
 * Les noms sont en anglais.
 * Les vues génériques sont dans le dossier V/lib/
 */
-
 /////////////////////////////////////////////////////////////
 //PARTIE CONTRÔLE
 /////////////////////////////////////////////////////////////
+// Initialise composer
+require_once __DIR__ . '/vendor/autoload.php';
 //error_reporting(-1); //Inutile, un module set_error_handler se chargera de traiter ces exceptions.
 
 define('PATH',substr(__FILE__,0,strrpos(__FILE__,'/')));
