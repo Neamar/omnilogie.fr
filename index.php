@@ -35,7 +35,7 @@ $C=array('menus'=>array(), 'head'=>array());//Contiendra tout le contenu des pag
 * Cette fonction est appelée automatiquement par PHP lorsqu'il renconctre un appel à une classe qu'il ne connait pas encore.
 * @param Class:String la classe recherchée
 */
-spl_autoload_register(function autoloader($Class)
+spl_autoload_register(function ($Class)
 {
 	//Ne pas charger les classes de Zend
 	if(substr($Class,0,5)=='Zend_')
