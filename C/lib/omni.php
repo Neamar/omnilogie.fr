@@ -14,7 +14,6 @@
 class Omni
 {
 	function __construct() {
-    print "In BaseClass constructor\n";
   }
 
 	//Uniquement le titre et l'accroche (et l'ID).
