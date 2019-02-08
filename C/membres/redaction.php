@@ -49,7 +49,7 @@ if(isset($_POST['titre']))
 		//Tenir à jour la liste des articles
 		$_SESSION['Membre']['Articles'][$NouvelArticle->ID] = $NouvelArticle->ID;
 
-		//Notez la réalisation de la proposition si nécessaire :
+		//Noter la réalisation de la proposition si nécessaire :
 		if(isset($_POST['proposition']) && is_numeric($_POST['proposition']))
 			SQL::update('OMNI_Propositions',$_POST['proposition'],array('OmniID'=>$NouvelArticle->ID),'AND ReservePar=' . AUTHOR_ID);
 

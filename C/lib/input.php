@@ -51,7 +51,7 @@ class Input
 	{
 		//Télécharge les images distantes en local :
 		$Externes=array();
-		preg_match_all('#\\\\image\\[.+\\]{http://(.+)}#iU',$Texte,$Externes);
+		preg_match_all('#\\\\image\\[.+\\]{(https?://.+)}#iU',$Texte,$Externes);
 		foreach($Externes[1] as $Match)
 		{
 			$Extension= substr($Match, strrpos($Match,'.'));
@@ -79,12 +79,12 @@ class Input
 					else
 					{
 						global $C;
-						$Relatif = 'http://' . $Match;
+						$Relatif = $Match;
 						$C['Message'] = 'Impossible de charger l\'image ' . $Relatif . '. Merci d\'en vérifier l\'adresse !';
 					}
 
 				}
-				$Texte=str_replace('http://' . $Match,$Relatif,$Texte);
+				$Texte=str_replace($Match,$Relatif,$Texte);
 			}
 		}
 
