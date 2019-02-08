@@ -13,6 +13,10 @@
 //Cette classe est construite directement par mysql_fetch_object, et déroge en conséquence aux règles de nommage des variables en anglais.
 class Omni
 {
+	function __construct() {
+    print "In BaseClass constructor\n";
+  }
+
 	//Uniquement le titre et l'accroche (et l'ID).
 	const TRAILER_PARAM = 0;
 
