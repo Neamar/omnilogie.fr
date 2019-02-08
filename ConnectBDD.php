@@ -1,4 +1,7 @@
 <?php
+// mysql_ shim
+include('lib/php7-mysql-shim/lib/mysql.php');
+
 //  exit("L'intégralité des sites Neamar est en maintenance pour quelques minutes. Nous serons de retour pour 15h !");
 error_reporting(E_ALL ^ E_DEPRECATED);
 

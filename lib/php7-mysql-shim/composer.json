@@ -1,0 +1,33 @@
+{
+    "name": "dshafik/php7-mysql-shim",
+    "description": "A PHP 7 shim for ext/mysql",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Davey Shafik",
+            "email": "me@daveyshafik.com",
+            "homepage": "https://daveyshafik.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.6",
+        "ext-mysqli": "*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.3",
+        "friendsofphp/php-cs-fixer": "^1.9|^2.0",
+        "phpunit/phpunit": "^4.8|^5.2",
+        "phpstan/phpstan": "^0.6.2"
+    },
+    "autoload": {
+        "files": ["lib/mysql.php"]
+    },
+    "scripts": {
+        "test": "phpunit",
+        "fix-cs": [
+            "phpcbf --standard=PSR1,PSR2 ./libs ./tests",
+            "php-cs-fixer fix --rules=@PSR2 ./lib",
+            "php-cs-fixer fix --rules=@PSR2 ./tests"
+        ]
+    }
+}
