@@ -1,7 +1,7 @@
 {
     "require": {
-      "php": "~5.6.0",
-      "ext-mysql": "*",
+      "php": "~7.3.0",
+      "dshafik/php7-mysql-shim": "0.2.0",
       "ext-mbstring": "*",
       "ext-gd": "*"
     }

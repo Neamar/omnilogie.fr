@@ -16,10 +16,11 @@
 * Les noms sont en anglais.
 * Les vues génériques sont dans le dossier V/lib/
 */
-
 /////////////////////////////////////////////////////////////
 //PARTIE CONTRÔLE
 /////////////////////////////////////////////////////////////
+// Initialise composer
+require_once __DIR__ . '/vendor/autoload.php';
 //error_reporting(-1); //Inutile, un module set_error_handler se chargera de traiter ces exceptions.
 
 define('PATH',substr(__FILE__,0,strrpos(__FILE__,'/')));
@@ -35,7 +36,7 @@ $C=array('menus'=>array(), 'head'=>array());//Contiendra tout le contenu des pag
 * Cette fonction est appelée automatiquement par PHP lorsqu'il renconctre un appel à une classe qu'il ne connait pas encore.
 * @param Class:String la classe recherchée
 */
-function __autoload($Class)
+spl_autoload_register(function ($Class)
 {
 	//Ne pas charger les classes de Zend
 	if(substr($Class,0,5)=='Zend_')
@@ -48,7 +49,7 @@ function __autoload($Class)
 		include($File);
 	else
 		Debug::fail('Impossible de charger dynamiquement ' . $Class . ' dans ' . $File);
-}
+});
 
 //Si rien n'est spécifié, on demande l'index
 if(empty($_GET['P']))

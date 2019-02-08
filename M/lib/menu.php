@@ -14,7 +14,7 @@
 function prependPod($ID,$Title,$Content)
 {
 	global $C;
-	$C['Pods'] = array($ID=>'') + $C['Pods'];
+	$C['Pods'] = array($ID=>array()) + $C['Pods'];
 
 	$C['Pods'][$ID]['Title']=$Title;
 	$C['Pods'][$ID]['Content']=$Content;
