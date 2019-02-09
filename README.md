@@ -40,3 +40,6 @@ dokku storage:mount omnilogie /var/lib/dokku/data/storage/omnilogie/prochain:/ap
 ```
 * Set up the volumes
 * Push to Heroku / dokku / whatever
+
+### Update dependencies
+You don't need to setup PHP locally, just install composer and run `composer update --ignore-platform-reqs` after updating `composer.json`.
