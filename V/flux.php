@@ -13,7 +13,7 @@
 */
 function utf($data)
 {
-	echo utf8_encode($data);
+	echo $data;
 }
 
 header('Content-Type: application/rss+xml; charset=utf-8');
