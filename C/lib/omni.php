@@ -233,8 +233,6 @@ class Omni
 
 		$Retour .='<p class="byline">' . "\n";
 		$Retour .='Par ' . Anchor::author($this->Auteur) . ' ';
-		if(strlen($this->GooglePlus) > 0)
-			$Retour .= '<small><a href="' . $this->GooglePlus . '?rel=author">g+</a></small> ';
 
 		if($this->Date!='')
 			$Retour .='le <time datetime="' . date('Y-m-d',$this->Timestamp) . '" pubdate="pubdate">' . $this->Date . '</time>';
