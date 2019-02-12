@@ -40,6 +40,10 @@ class Debug
 		{
 			exit('<pre>' . $trace . '</pre>');
 		}
+		else if(isset($_SESSION['Membre']['Pseudo']) && $_SESSION['Membre']['Pseudo']=='Neamar')
+		{
+			exit('<pre>' . $trace . '</pre>');
+		}
 		else
 		{
 			External::mail('neamar@neamar.fr','Debug::fail sur ' . $_SERVER['REQUEST_URI'],'<pre>' . $trace . '</pre>');
