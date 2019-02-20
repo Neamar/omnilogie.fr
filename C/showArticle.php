@@ -35,13 +35,6 @@ if(count($Article)==0)
 	if(count($Article)!=0)
 		Debug::redirect(Link::omni($Article[0]->Titre));
 
-	//Sinon, l'article n'existe vraiment pas :(
-	//Encore un essai pour corriger : trouver un titre qui sonne pareil (algorithme SOUNDEX)
-	$Param->Where = 'SOUNDEX(Titre) = SOUNDEX("' . $TitreOmniSql . '")';
-	$Article=Omni::get($Param);
-	if(count($Article)!=0)
-		Debug::redirect(Link::omni($Article[0]->Titre));
-
 	//Dernière chance : un petit coup de levenshtein
 	$Articles = SQL::query('SELECT Titre FROM OMNI_Omnilogismes');
 	$DistanceMin = 100;
