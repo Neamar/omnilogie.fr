@@ -30,7 +30,7 @@ if(count($Article)==0)
 {
 	//L'article tel quel n'existe pas. Regarder dans la table des redirections si on a un "match" :
 	$Param->Select = 'Omnilogismes.Titre';
-	$Param->Where = 'Omnilogismes.ID = (SELECT ID FROM OMNI_Redirection WHERE Histoire="' . $TitreOmniSql . '")';
+	$Param->Where = 'Omnilogismes.ID = (SELECT ID FROM OMNI_Redirection WHERE Histoire="' . $TitreOmniSql . '" COLLATE utf8_unicode_ci)';
 	$Article=Omni::get($Param);
 	if(count($Article)!=0)
 		Debug::redirect(Link::omni($Article[0]->Titre));
