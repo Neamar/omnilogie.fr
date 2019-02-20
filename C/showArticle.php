@@ -22,7 +22,7 @@ if(strpos($_GET['Titre'],' ')!==false || strpos($_SERVER['REQUEST_URI'],'/o/')!=
 //L'article existe-t-il ?
 $Param = Omni::buildParam(OMNI_HUGE_PARAM);
 
-$Param->Where = 'Omnilogismes.Titre="' . $TitreOmniSql . '"';
+$Param->Where = 'Omnilogismes.Titre="' . $TitreOmniSql . '" COLLATE utf8_unicode_ci';
 
 $Article = Omni::get($Param);
 
