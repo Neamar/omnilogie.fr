@@ -86,15 +86,5 @@ if(isset($C['Lendemain'])) {?>
 <?php }
 ?>
 
-
-<!-- Essai commentaires -->
 </section>
 
-<hr />
-
-<section id="comments">
-<h3><span>Envie de vous exprimer ?</span></h3>
-<div class="fb-comments" data-href="omnilogie.fr<?php echo str_replace('?', '%3F', $C['CanonicalURL']) ?>" data-num-posts="50" data-width="690" og:title="<?php echo $C['Title'] ?>"></div>
-</section>
-
-<script src="https://connect.facebook.net/en_US/all.js#xfbml=1" async></script>
