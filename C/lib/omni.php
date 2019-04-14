@@ -144,6 +144,16 @@ class Omni
 	}
 
 	/**
+	* Renvoie le titre de l'article mis en forme
+	* @return:String
+	*/
+	public function getTitre()
+	{
+			Typo::setTexte($this->Titre);
+			return Typo::parseLinear();
+	}
+
+	/**
 	* Renvoie l'accroche de l'article mise en forme, pour éviter par exemple d'avoir un "?" qui se balade en début de ligne !
 	* @return:String
 	*/
