@@ -2,7 +2,7 @@
 <html lang="fr-FR">
 <head>
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
-	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5510" />
+	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5511" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title><?php Template::put('PageTitle') ?></title>
@@ -45,10 +45,10 @@
 <div id="top">
 <header role="banner" id="banner">
 		<a href="/">
-	<hgroup id="logo">
-		<h1>Omnilogie.fr</h1>
-		<h2>Le manuel des castors seniors</h2>
-	</hgroup>
+			<div id="logo">
+				<p>Omnilogie.fr</p>
+				<p>Le manuel des castors seniors</p>
+			</div>
 		</a>
 </header>
 <?php flush() ?>

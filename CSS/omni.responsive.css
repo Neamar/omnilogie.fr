@@ -18,7 +18,7 @@ Changements rÃ©cents : responsive
 10. Contenu de gauche ------------------------  Le contenu (gauche)
 11. Les Titres -------------------------------  Les diffÃ©rents titres (h1, h2, h3) + le top
 12. Les Messages -----------------------------  Les messages (avertissement, erreur, attention...)
-13. La page des catÃ©gories -------------------  *
+13. La page des catégories -------------------  *
 14. La page d'administration -----------------  *
 15. Textes en fin d'article ------------------  Le petit plus, etc..
 16. Les sÃ©parations --------------------------  les HR
@@ -36,7 +36,7 @@ Changements rÃ©cents : responsive
 /*-------------------------------------------------------- 0. CSS Reset -----------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 body { margin: 0; padding: 0; font-family: "Trebuchet MS", Arial, Helvetica, FreeSans, sans-serif;font-size: 0.8em; line-height: 1.4;background-color:#efefed;/*F2F2F2*/ height: 100%;}
-article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {display: block;}
+article, aside, dialog, figure, footer, header, menu, nav, section {display: block;}
 ul, ol { margin: .75em 0 .75em 10px;  padding: 0; list-style-type: none; } /* Listes */
 li { padding-left: 10px; margin-bottom: 5px;}
 tt { font-size:12px;}
@@ -209,7 +209,7 @@ height:242px;
 	background-position:-10px -303px;
 	}
 /* ------------------------------------- Header - Logo - --*/
-header hgroup#logo{
+header #logo{
 position:absolute;
 /*left:33px;
 top:40px;*/
