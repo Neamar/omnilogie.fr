@@ -149,7 +149,7 @@ if(!is_null($Article->Timestamp))
 
 // Meta description
 if(strlen($Article->Accroche) > 0) {
-	$C['head'][] = '<meta name="description" content="' . htmlspecialchars($Article->Titre . '&nbsp;: ' . lcfirst($Article->Accroche)) . '"/>';
+	$C['head'][] = '<meta name="description" content="' . str_replace('"', '&quot;', Typo::parseLinear($this->Titre) . '&nbsp;: ' . lcfirst($Article->getAccroche())) . '"/>';
 }
 
 prependPod('complementary', 'Informations complémentaires', Formatting::makeList($Complementary));
