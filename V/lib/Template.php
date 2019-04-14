@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr">
 <head>
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
-	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5511" />
+	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5512" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title><?php Template::put('PageTitle') ?></title>
-	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+
 	<link rel="canonical" href="https://omnilogie.fr<?php Template::put('CanonicalURL') ?>" />
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4257957-3"></script>
+	<script async src="//www.googletagmanager.com/gtag/js?id=UA-4257957-3"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -26,7 +24,7 @@
 		tex2jax: {inlineMath: [['\\(','\\)']]}
 	});
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 	<?php echo implode("\n", $C['head']); ?>
 
 	<?php

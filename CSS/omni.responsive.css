@@ -219,7 +219,7 @@ background: url('logo/logo.jpg') no-repeat;
 width:298px;
 height:70px;
 }
-	#banner h2, #banner h1 {
+	#logo p {
 	text-indent: -5000px;
 	margin:0;
 	line-height:0;
