@@ -147,6 +147,11 @@ if(!is_null($Article->Timestamp))
 	unset($Suivant, $Precedent);
 }
 
+// Meta description
+if(strlen($Article->Accroche) > 0) {
+	$C['head'][] = '<meta name="description" content="' . htmlspecialchars($Article->Titre . '&nbsp;: ' . lcfirst($Article->Accroche)) . '"/>';
+}
+
 prependPod('complementary', 'Informations complémentaires', Formatting::makeList($Complementary));
 
 unset($Article);
