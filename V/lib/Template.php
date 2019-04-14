@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
 <head>
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
 	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5510" />
