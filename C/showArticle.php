@@ -43,7 +43,8 @@ if(count($Article)==0)
 	$C['Liens']=array();
 	while($Article=mysql_fetch_assoc($Articles))
 	{
-		$D = levenshtein($Article['Titre'],$TitreOmni);
+		// Ensure title in the URL isn't too long, as levenshtein complexity increases in O(m*n)
+		$D = levenshtein($Article['Titre'],substr($TitreOmni,0,120));
 		if($D<$DistanceMin)
 		{
 			$DistanceMin = $D;
