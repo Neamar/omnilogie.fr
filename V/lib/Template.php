@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
-	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5513" />
+	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5514" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title><?php Template::put('PageTitle') ?></title>
@@ -106,7 +106,6 @@
 		</aside>
 		<div id="bas">
 			<p id="ribbon"><small><a href="/Ligne" accesskey="8">Ligne éditoriale</a> | <a href="/Contact" accesskey="7">Contact</a> | <a href="/flux.rss">RSS</a> | <a href="/Mail">Recevoir l'article par mail</a> | <a href="/App">Applications smartphone Omnilogie</a></small></p>
-			<p id="html5-valid">HTML5 valid</p>
 		</div>
 	</div>
 </footer>

@@ -1847,15 +1847,6 @@ top:2px;
 		color:#aeaeae;
 		}
 
-	#html5-valid{
-	color:#8d8d8d;
-	margin-top:12px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:10px;
-	float:left;
-	margin-left:495px;
-	}
-
 /* ligne editoriale */
 h3[id*="ligne"] p {
 margin-left:20px;
@@ -1936,10 +1927,6 @@ margin-left:20px;
 
   #content #fond-cont {
     width: 100%;
-  }
-
-  #html5-valid {
-    display: none;
   }
 
   #fond-top-c {
