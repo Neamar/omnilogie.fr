@@ -17,7 +17,7 @@
 	<input type="email" name="_replyto" id="mail" autofocus required/></p>
 	<input type="hidden" name="_language" value="fr" />
 	<p><label for="titre">Titre :</label>
-	<input type="text" name="titre" id="_subject" value="<?php echo (isset($_POST['titre'])?$_POST['titre']:'') ?>" /></p>
+	<input type="text" name="_subject" id="titre" value="<?php echo (isset($_POST['titre'])?$_POST['titre']:'') ?>" /></p>
 
 	<p><label for="message">Message :</label><br />
 	<textarea cols="25" rows="7" id="message" name="message" required style="width:90%"><?php echo (isset($_POST['message'])?$_POST['message']:'') ?></textarea></p>
