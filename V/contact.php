@@ -12,7 +12,7 @@
 
 <p>Besoin d'entrer en contact avec les administrateurs du site ? Utilisez ce formulaire pour signaler une erreur sur un article, une faute, un probl&egrave;me, un bug, une suggestion, un partenariat, votre admiration sans bornes, votre haine, ou tout ce qui vous passe par la t&ecirc;te vaguement en rapport avec Omnilogie.</p>
 
-<form method="post" action="https://formspree.io/contact@neamar.fr" accept-charset="utf-8">
+<form method="post" action="https://neamar.fr/email.php" accept-charset="utf-8">
 	<p><label for="mail">Votre e-mail :</label>
 	<input type="email" name="_replyto" id="mail" autofocus required/></p>
 	<input type="hidden" name="_language" value="fr" />
