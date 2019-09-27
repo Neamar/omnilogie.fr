@@ -24,12 +24,3 @@
 
 	<p><input type="submit" value="Envoyer le message" /></p>
 </form>
-
-<script type="text/javascript">
-function contactSujet()
-{
-if(document.location.hash && document.location.hash!='')
-	document.getElementById('_subject').value = 'Remarque sur : ' + document.location.hash.replace('#','');
-}
-inits.push(contactSujet);
-</script>
