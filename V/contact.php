@@ -15,7 +15,7 @@
 <form method="post" action="https://neamar.fr/email.php" accept-charset="utf-8">
 	<p><label for="mail">Votre e-mail :</label>
 	<input type="email" name="_replyto" id="mail" autofocus required/></p>
-	<input type="hidden" name="_language" value="fr" />
+	<input type="hidden" name="_to" value="neamar@neamar.fr" />
 	<p><label for="titre">Titre :</label>
 	<input type="text" name="_subject" id="titre" value="<?php echo (isset($_POST['titre'])?$_POST['titre']:'') ?>" /></p>
 
