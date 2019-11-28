@@ -160,3 +160,8 @@ unset($Article);
 $C['head'][] = '<meta property="fb:app_id" content="194500927293463"/>';
 $C['head'][] = '<meta name="twitter:card" content="summary" />';
 $C['head'][] = '<meta name="twitter:site" content="@Omnilogie" />';
+
+if($Article->Statut != 'INDETERMINE' && $Article->Statut != 'ACCEPTE' && $Article->Statut != 'A_CORRIGER') {
+	// Les articles refusés ne doivent pas être indexés
+	$C['head'][] = '<meta name="robots" content="noindex">';
+}
