@@ -154,8 +154,6 @@ if($Article->Accroche != '') {
 
 prependPod('complementary', 'Informations complémentaires', Formatting::makeList($Complementary));
 
-unset($Article);
-
 //Administration des commentaires
 $C['head'][] = '<meta property="fb:app_id" content="194500927293463"/>';
 $C['head'][] = '<meta name="twitter:card" content="summary" />';
@@ -165,3 +163,5 @@ if($Article->Statut != 'INDETERMINE' && $Article->Statut != 'ACCEPTE' && $Articl
 	// Les articles refusés ne doivent pas être indexés
 	$C['head'][] = '<meta name="robots" content="noindex">';
 }
+
+unset($Article);
