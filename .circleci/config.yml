@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.8
+      - image: cimg/base:2020.01
 
     working_directory: ~/repo
 
