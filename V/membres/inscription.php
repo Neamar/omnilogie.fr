@@ -9,7 +9,7 @@
 
 <h3><span>Inscription au site</span></h3>
 
-<p>Omnilogie n'accepte malheureusement plus les nouveaux membres. Merci pour votre int�r�t !</p>
+<p>Omnilogie n'accepte malheureusement plus les nouveaux membres. Merci pour votre intérêt !</p>
 
 <!--
 <p><strong>Omnilogie</strong> fonctionne gr�ce aux articles des membres.<br />
@@ -38,10 +38,5 @@ En vous inscrivant vous avez la possibilit� d'�crire des articles et de part
 </form>
 
 <?php } ?>
-<<<<<<< HEAD
-
-<p><a href="/membres/Connexion">Déjà inscrit ?</a></p>
-=======
 -->
-<p><a href="/membres/Connexion">D�j� inscrit ?</a></p>
->>>>>>> parent of 6162961 (Reopen inscription cause why not)
+<p><a href="/membres/Connexion">Déjà inscrit ?</a></p>
