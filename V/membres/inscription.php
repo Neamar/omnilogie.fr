@@ -9,8 +9,11 @@
 
 <h3><span>Inscription au site</span></h3>
 
-<p><strong>Omnilogie</strong> fonctionne grâce aux articles des membres.<br />
-En vous inscrivant vous avez la possibilité d'écrire des articles et de partager votre culture avec le monde &ndash; comme défini dans la <a href="/Ligne">ligne éditoriale</a> du site.</p>
+<p>Omnilogie n'accepte malheureusement plus les nouveaux membres. Merci pour votre int�r�t !</p>
+
+<!--
+<p><strong>Omnilogie</strong> fonctionne gr�ce aux articles des membres.<br />
+En vous inscrivant vous avez la possibilit� d'�crire des articles et de partager votre culture avec le monde &ndash; comme d�fini dans la <a href="/Ligne">ligne �ditoriale</a> du site.</p>
 
 <p>L'inscription n'engage à rien ; vous pouvez n'écrire qu'un article, des dizaines... nous les accueillerons avec le même plaisir !</p>
 
@@ -20,7 +23,7 @@ En vous inscrivant vous avez la possibilité d'écrire des articles et de partag
 
 <form method="post" action="" id="inscriptionMembre">
 	<p><label for="pseudo">Pseudo :</label>
-	<input type="text" name="pseudo" id="pseudo" maxlength="17" /></p>
+	<input type="text" name="pseudo" id="pseudo" /></p>
 
 	<p><label for="password">Mot de passe :</label>
 	<input type="password" name="password" id="password" /></p>
@@ -35,5 +38,10 @@ En vous inscrivant vous avez la possibilité d'écrire des articles et de partag
 </form>
 
 <?php } ?>
+<<<<<<< HEAD
 
 <p><a href="/membres/Connexion">Déjà inscrit ?</a></p>
+=======
+-->
+<p><a href="/membres/Connexion">D�j� inscrit ?</a></p>
+>>>>>>> parent of 6162961 (Reopen inscription cause why not)
