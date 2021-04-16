@@ -8,15 +8,7 @@
 	<title><?php Template::put('PageTitle') ?></title>
 
 	<link rel="canonical" href="https://omnilogie.fr<?php Template::put('CanonicalURL') ?>" />
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="//www.googletagmanager.com/gtag/js?id=UA-4257957-3"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-4257957-3');
-	</script>
+	<script async defer data-domain="omnilogie.fr" src="https://t.neamar.fr/js/plausible.js"></script>
 
 	<script type="text/javascript" src="/images/script.js" async></script>
 	<script type="text/x-mathjax-config">
