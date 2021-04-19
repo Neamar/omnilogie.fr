@@ -21,3 +21,5 @@
 <?php echo Formatting::makeList($C['Liens']); ?>
 
 <p>Si vous tenez vraiment à trouver cette page, utilisez l'outil de recherche dans le coin en haut à droite ;)</p>
+
+<script>plausible("404",{ props: { path: document.location.pathname } });</script>
