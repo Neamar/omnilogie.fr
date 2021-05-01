@@ -8,7 +8,7 @@
 	<title><?php Template::put('PageTitle') ?></title>
 
 	<link rel="canonical" href="https://omnilogie.fr<?php Template::put('CanonicalURL') ?>" />
-	<script async defer data-domain="omnilogie.fr" src="https://t.neamar.fr/js/plausible.js"></script>
+	<script async defer data-domain="omnilogie.fr" src="https://t.neamar.fr/js/pls.js"></script>
 	<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
 	<script type="text/javascript" src="/images/script.js" async></script>
