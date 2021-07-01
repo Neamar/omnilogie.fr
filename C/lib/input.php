@@ -67,6 +67,7 @@ class Input
 					curl_setopt($DL, CURLOPT_RETURNTRANSFER, true);
 					curl_setopt($DL, CURLOPT_FOLLOWLOCATION, true);
 					curl_setopt($DL, CURLOPT_MAXREDIRS, 5);
+					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0');
 
 					$image = curl_exec($DL);
 					if(curl_getinfo($DL,CURLINFO_HTTP_CODE)==200)
