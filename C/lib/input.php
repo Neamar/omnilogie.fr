@@ -51,7 +51,7 @@ class Input
 	{
 		//Télécharge les images distantes en local :
 		$Externes=array();
-		preg_match_all('#\\\\image\\[.+\\]{(https?://.+)}#iU',$Texte,$Externes);
+		preg_match_all('#\\\\(?:label)?image\\[.+\\]{(https?://.+)}#iU',$Texte,$Externes);
 		foreach($Externes[1] as $Match)
 		{
 			$Extension= substr($Match, strrpos($Match,'.'));
