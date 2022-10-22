@@ -257,9 +257,12 @@ if(!isset($_SESSION['Membre']['Pseudo']))
 		<img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0B5K4VK2P&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=bcnr-21&language=fr_FR" >
 		<br>Culture générale 2022
 	</a>
-	<img src="https://ir-fr.amazon-adsystem.com/e/ir?t=bcnr-21&language=fr_FR&l=li2&o=8&a=B0B5K4VK2P" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />';
+	<img src="https://ir-fr.amazon-adsystem.com/e/ir?t=omnilogie-21&language=fr_FR&l=li2&o=8&a=B0B5K4VK2P" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />';
 	prependPod('special-pod','Plus de lecture ?','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
 }
+
+
+
 
 
 
