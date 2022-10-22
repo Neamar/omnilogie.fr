@@ -249,32 +249,17 @@ if(isset($C['Message']))
 	Event::log('Message : ' . $C['Message'] . (isset($C['MessageClass']) && $C['MessageClass']!='info'?'[' . $C['MessageClass'] . ']':''));
 
 
-if(isset($_SERVER['HTTP_USER_AGENT']) && stripos($_SERVER['HTTP_USER_AGENT'], 'android') === false)
+
+if(!isset($_SESSION['Membre']['Pseudo']))
 {
-	if(!isset($_SESSION['Membre']['Pseudo']))
-	{
-		$C['SpecialPod'] = '<p>Omnilogie est un site collaboratif ouvert à tous&nbsp;: chaque jour, nous faisons paraître un court article de culture générale. Pour cela, nous avons besoin de rédacteurs : <a href="https://omnilogie.fr/membres/Inscription">n\'hésitez pas à participer</a>. Tous, nous avons quelque chose à partager&nbsp;!</p>
-		<p>&rarr; <a href="/membres/Inscription">Je m\'inscris !</a></p>';
-		prependPod('special-pod','Engagez-vous !','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
-	}
+	$C['SpecialPod'] = '
+	<a href="https://www.amazon.fr/culture-g%C3%A9n%C3%A9rale-2022-Survivez-soci%C3%A9t%C3%A9/dp/B0B5K4VK2P?&linkCode=li2&tag=omnilogie-21&linkId=cb4fc75d3d119a3d289a140cc1fda1a2&language=fr_FR&ref_=as_li_ss_il" target="_blank" style="text-align: center; display: block; padding-right: 20px;>
+		<img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0B5K4VK2P&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=bcnr-21&language=fr_FR" >
+		<br>Culture générale 2022
+	</a>
+	<img src="https://ir-fr.amazon-adsystem.com/e/ir?t=bcnr-21&language=fr_FR&l=li2&o=8&a=B0B5K4VK2P" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />';
+	prependPod('special-pod','Plus de lecture ?','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
 }
-else
-{
-	//Menu spécial pour Android
-	$C['SpecialPod'] = '<p style="text-align:center"><img src="/images/app/android.png" alt="Market" /><p>Vous pouvez aussi consulter Omnilogie depuis l\'application Android dédiée</p>
-	<p>&rarr; <a href="https://market.android.com/details?id=fr.omnilogie.app">Je la télécharge !</a></p>';
-
-	prependPod('special-pod','Le saviez-vous ?','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
-}
-
-
-
-
-
-
-
-
-
 
 
 
