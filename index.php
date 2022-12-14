@@ -250,15 +250,15 @@ if(isset($C['Message']))
 
 
 
-if(!isset($_SESSION['Membre']['Pseudo']))
-{
-	$C['SpecialPod'] = '
-	<a href="https://www.amazon.fr/culture-g%C3%A9n%C3%A9rale-2022-Survivez-soci%C3%A9t%C3%A9/dp/B0B5K4VK2P?&linkCode=sl1&tag=omnilogie-21&linkId=354031eabbb124378289dc29b9eca7fc&language=fr_FR&ref_=as_li_ss_tl" target="_blank" style="text-align: center; display: block; padding-right: 20px;">
-		<img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0B5K4VK2P&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=bcnr-21&language=fr_FR" >
-		<br>Culture générale 2022
-	</a>';
-	prependPod('special-pod','Plus de lecture ?','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
-}
+// if(!isset($_SESSION['Membre']['Pseudo']))
+// {
+// 	$C['SpecialPod'] = '
+// 	<a href="https://www.amazon.fr/culture-g%C3%A9n%C3%A9rale-2022-Survivez-soci%C3%A9t%C3%A9/dp/B0B5K4VK2P?&linkCode=sl1&tag=omnilogie-21&linkId=354031eabbb124378289dc29b9eca7fc&language=fr_FR&ref_=as_li_ss_tl" target="_blank" style="text-align: center; display: block; padding-right: 20px;">
+// 		<img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0B5K4VK2P&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=bcnr-21&language=fr_FR" >
+// 		<br>Culture générale 2022
+// 	</a>';
+// 	prependPod('special-pod','Plus de lecture ?','<div id="div-special-pod">' . $C['SpecialPod'] . '</div>');
+// }
 
 
 
