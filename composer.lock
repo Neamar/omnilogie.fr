@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fecc7938cbbf5328c50e41657fe0706",
+    "content-hash": "3063ec9ac7c95746d38a78ad43f502ec",
     "packages": [
         {
             "name": "dshafik/php7-mysql-shim",
@@ -46,6 +46,10 @@
                 }
             ],
             "description": "A PHP 7 shim for ext/mysql",
+            "support": {
+                "issues": "https://github.com/dshafik/php7-mysql-shim/issues",
+                "source": "https://github.com/dshafik/php7-mysql-shim/tree/master"
+            },
             "time": "2016-10-03T19:25:05+00:00"
         }
     ],
@@ -56,9 +60,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.4.0",
+        "php": "~8.3.10",
         "ext-mbstring": "*",
         "ext-gd": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
 }
