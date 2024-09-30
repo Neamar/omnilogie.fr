@@ -59,7 +59,7 @@ class Category
 		self::buildInitialTree();
 
 		$KeyWords=array();
-		error_log($Categories);
+		error_log(print_r($Categories, TRUE));
 		foreach($Categories as $Category)
 			self::getTreeR($Category,$KeyWords);
 		return $KeyWords;
