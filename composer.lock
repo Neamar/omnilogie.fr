@@ -4,29 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ea4373854f263c751471019d987b901",
+    "content-hash": "85b3e3bf4c80fe98102e2b2f458efce3",
     "packages": [
         {
             "name": "dshafik/php7-mysql-shim",
-            "version": "0.2.0",
+            "version": "1.0.0beta4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dshafik/php7-mysql-shim.git",
-                "reference": "615fb0f4111d584d5a36a9abc5f0c28e417a9c7e"
+                "reference": "8a940feaa8870daa0f71cb2fdc5976b0eca05a14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dshafik/php7-mysql-shim/zipball/615fb0f4111d584d5a36a9abc5f0c28e417a9c7e",
-                "reference": "615fb0f4111d584d5a36a9abc5f0c28e417a9c7e",
+                "url": "https://api.github.com/repos/dshafik/php7-mysql-shim/zipball/8a940feaa8870daa0f71cb2fdc5976b0eca05a14",
+                "reference": "8a940feaa8870daa0f71cb2fdc5976b0eca05a14",
                 "shasum": ""
             },
             "require": {
-                "ext-mysqli": "*"
+                "ext-mysqli": "*",
+                "php": ">=5.3.6"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.9",
-                "phpunit/phpunit": "^5.2",
-                "squizlabs/php_codesniffer": "^2.3"
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "squizlabs/php_codesniffer": "^3.5",
+                "yoast/phpunit-polyfills": "^0.2.0"
             },
             "type": "library",
             "autoload": {
@@ -48,15 +49,17 @@
             "description": "A PHP 7 shim for ext/mysql",
             "support": {
                 "issues": "https://github.com/dshafik/php7-mysql-shim/issues",
-                "source": "https://github.com/dshafik/php7-mysql-shim/tree/master"
+                "source": "https://github.com/dshafik/php7-mysql-shim/tree/1.0.0beta4"
             },
-            "time": "2016-10-03T19:25:05+00:00"
+            "time": "2020-12-14T07:30:06+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "dshafik/php7-mysql-shim": 10
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
