@@ -60,6 +60,7 @@ class Category
 
 		$KeyWords=array();
 		foreach($Categories as $Category)
+			error_log($Category);
 			self::getTreeR($Category,$KeyWords);
 		return $KeyWords;
 	}
@@ -274,9 +275,6 @@ class Category
 		$Depart=&$Base;
 
 		//S'il s'agit d'une catégorie maitresse (du type Science, Au quotidien) qui n'a pas de parents.
-		error_log("CATEGORY");
-		error_log($Category);
-		error_log(print_r(self::$Datas, TRUE));
 
 		if(self::$Datas[$Category]==array() && !isset($Base[$Category]))
 			$Base[$Category]=1;
