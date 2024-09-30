@@ -55,10 +55,6 @@ spl_autoload_register(function ($Class)
 if(empty($_GET['P']))
 	$_GET['P']='index';
 
-if (extension_loaded('newrelic')) { // Ensure PHP agent is available
-  newrelic_name_transaction($_GET['P']);
-}
-
 //Charger les constantes utiles au site.
 Constants::load();
 

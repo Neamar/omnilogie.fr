@@ -61,7 +61,7 @@ class Debug
 	* @param errcontext:array un gros tableau (très gros tableau même dans la plupart des cas) qui contient la liste des variables définies au moment du bug.
 	* @return :void La fonction ne retourne jamais, le script est interrompu.
 	*/
-	public static function err_handler($errno, $errstr, $errfile, $errline, array $errcontext)
+	public static function err_handler($errno, $errstr, $errfile, $errline)
 	{
 		if(error_reporting()!=0)
 			Debug::fail('Erreur PHP : ' . $errstr);
