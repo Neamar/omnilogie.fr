@@ -59,8 +59,8 @@ class Category
 		self::buildInitialTree();
 
 		$KeyWords=array();
+		error_log($Categories);
 		foreach($Categories as $Category)
-			error_log($Category);
 			self::getTreeR($Category,$KeyWords);
 		return $KeyWords;
 	}
