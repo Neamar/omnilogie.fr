@@ -32,7 +32,7 @@ class Debug
 			http_response_code(500);
 		}
 
-		echo '<p style="border:1px dashed red;"><strong>Désolé, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs délais.</strong></p>';
+		echo '<p style="border:1px dashed red;"><strong>Désolé, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs délais.</strong></p><p>' . $Msg . '</p>';
 
 		$trace = self::getDebugLog();
 
