@@ -140,7 +140,7 @@ class Omni
 	*/
 	public function getCategories()
 	{
-		return explode(',',$this->Categories || array());
+		return explode(',',$this->Categories || []);
 	}
 
 	/**
