@@ -55,6 +55,7 @@ class Omni
 	public $NbVues;
 	public $Anecdote;
 	public $SourceAnecdote;
+	public $NbVotes;
 
 	/**
 	* Enregistre une modification sur l'article.
