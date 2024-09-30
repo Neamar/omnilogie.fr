@@ -140,7 +140,8 @@ class Omni
 	*/
 	public function getCategories()
 	{
-		return explode(',',$this->Categories || []);
+		error_log(print_r($this->Categories, TRUE));
+		return explode(',',$this->Categories);
 	}
 
 	/**
