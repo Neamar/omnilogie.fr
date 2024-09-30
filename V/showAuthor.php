@@ -13,9 +13,6 @@
 	<aside class="roles"><?php Template::put('AuthorRole') ?></aside>
 	<aside class="mail"><?php Template::put('Mail') ?></aside>
 	<?php Template::put('Histoire') ?>
-	<?php if(strlen($C['GooglePlus']) > 0) {?>
-	<p class="message">Sur Google+&nbsp;: <a rel="me" href="<?php Template::put('GooglePlus') ?>?rel=author"><?php Template::put('Author') ?></a></p>
-	<?php } ?>
 </article>
 
 <?php if(!isset($C['FirstAction'])){?>
