@@ -28,7 +28,7 @@ if((!empty($_POST['pseudo']) && !empty($_POST['password'])) || isset($_GET['memb
 	FROM OMNI_Auteurs
 	WHERE ' . $Where);
 
-	if(!is_numeric($Auteur['ID']))
+	if(is_null($Auteur) || !is_numeric($Auteur['ID']))
 		$C['Message'] = 'Uh oh... impossible de vous identifier avec ces valeurs. Merci de réessayer !';
 	else
 	{
