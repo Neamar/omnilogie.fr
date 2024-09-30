@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ea4373854f263c751471019d987b901",
+    "content-hash": "685f60da0a3fc3752433699e0dec7d1a",
     "packages": [
         {
             "name": "dshafik/php7-mysql-shim",
@@ -61,8 +61,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": "~8.3.10",
-        "ext-mbstring": "*",
-        "ext-gd": "*"
+        "ext-mbstring": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
