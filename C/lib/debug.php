@@ -46,7 +46,16 @@ class Debug
 		}
 		else
 		{
-			External::mail('neamar@neamar.fr','Debug::fail sur ' . $_SERVER['REQUEST_URI'],'<pre>' . $trace . '</pre>');
+			$subject = 'Debug::fail sur ' . $_SERVER['REQUEST_URI'];
+
+			$email = new \SendGrid\Mail\Mail();
+			$email->setFrom('contact@neamar.fr');
+			$email->setReplyTo('contact@neamar.fr');
+			$email->setSubject($subject);
+			$email->addTo('neamar@neamar.fr');
+			$email->addContent("text/plain", $trace);
+			$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+			$sendgrid->send($email);
 			exit();
 		}
 	}

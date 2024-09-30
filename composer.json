@@ -6,6 +6,7 @@
     "php": "~8.3.10",
     "dshafik/php7-mysql-shim": "1.0.0beta4",
     "ext-mbstring": "*",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "sendgrid/sendgrid": "~7"
   }
 }
