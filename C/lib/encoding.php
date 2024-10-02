@@ -28,7 +28,7 @@ class Encoding
 		//Enregistrer. Noter qu'il s'agit d'une variable protégée contre l'injection SQL.
 		$Value = Link::unescape(stripslashes($_GET[$key]));
 
-		if($Value[strlen($Value)-1]=='\\')
+		if(strlen($Value) > 0 && $Value[strlen($Value)-1]=='\\')
 			$Value = substr($Value,0,strlen($Value)-1);
 
 		$Value = str_replace('"','\\"', $Value);
