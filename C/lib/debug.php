@@ -46,6 +46,13 @@ class Debug
 		}
 		else
 		{
+			try {
+				class_exists('\\Composer\\CaBundle\\CaBundle');
+			} catch (Exception $e) {
+				// this class doesn't exist, but sendgrid will try to load it and crash
+				// https://github.com/sendgrid/php-http-client/blob/ec09bcfccabeb21d69e245a1e1c0e51f2813fc35/lib/Client.php#L411C13-L411C59
+				// so this ensures the email is sent properly
+			}
 			$subject = 'Debug::fail sur ' . $_SERVER['REQUEST_URI'];
 
 			$email = new \SendGrid\Mail\Mail();
