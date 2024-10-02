@@ -48,7 +48,7 @@ spl_autoload_register(function ($Class)
 	if(is_file($File))
 		include($File);
 	else
-		Debug::fail('Impossible de charger dynamiquement ' . $Class . ' dans ' . $File);
+		error_log('Impossible de charger dynamiquement ' . $Class . ' dans ' . $File);
 });
 
 //Si rien n'est spécifié, on demande l'index
