@@ -53,7 +53,7 @@ class Debug
 			$email->setReplyTo('contact@neamar.fr');
 			$email->setSubject($subject);
 			$email->addTo('neamar@neamar.fr');
-			$email->addContent("text/plain", $trace);
+			$email->addContent("text/html", "<p><strong>" . $Msg . "</strong></p>" . $trace);
 			$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 			$sendgrid->send($email);
 			exit();
