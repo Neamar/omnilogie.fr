@@ -120,7 +120,7 @@ class Stats
 			$Abscisses = array_reverse($Abscisses);
 		}
 
-		$Abscisses=utf8_encode(implode('|',$Abscisses));
+		$Abscisses=mb_convert_encoding(implode('|',$Abscisses), 'UTF-8', 'ISO-8859-1');
 
 		//Rentrer les données
 		$Settings['chd']='s:';
