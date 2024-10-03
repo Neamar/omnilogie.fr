@@ -222,7 +222,7 @@ class Omni
 		if($Texte == '')
 			$Texte = substr($noImgTexte,0,strpos($noImgTexte,"\n\n"));
 		Typo::setTexte($Texte);
-		return ParseMath(preg_replace('`<img.+/>`U','',Typo::Parse()));
+		return ParseMath(preg_replace('`<img.+/>`U','',Typo::Parse() ?? ''));
 	}
 
 	/**
