@@ -11,11 +11,11 @@
 define('MODE_DEBUG',true);
 
 //Chemin vers les librairies
-define('LIB_PATH','/app/lib/');
+define('LIB_PATH','/workspace/lib/');
 
 //Chemin vers les données
-define('DATA_PATH','/app/raw/');
-define('PROCHAIN_PATH','/app/prochain/prochain');
+define('DATA_PATH','/workspace/raw/');
+define('PROCHAIN_PATH','/workspace/prochain/prochain');
 
 //L'adresse sur laquelle le site est hébergé. Utile pour les redirections ou les liens qu'on doit placer en absolu.
 define('URL','https://omnilogie.fr');
