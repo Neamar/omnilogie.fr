@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 /**
 * But : offrir des fonctions pour faciliter le débuggage. En changeant la constante define DEBUG sur false, les informations ne sont plus affichées, ce qui correspond à mettre le site en production.
 *
@@ -46,16 +49,40 @@ class Debug
 		}
 		else
 		{
-			$subject = 'Debug::fail sur ' . $_SERVER['REQUEST_URI'];
+			$smtpHost = getenv('SMTP_HOST');
+			$smtpUser = getenv('SMTP_USER');
+			$smtpPass = getenv('SMTP_PASS');
 
-			$email = new \SendGrid\Mail\Mail();
-			$email->setFrom('contact@neamar.fr');
-			$email->setReplyTo('contact@neamar.fr');
-			$email->setSubject($subject);
-			$email->addTo('neamar@neamar.fr');
-			$email->addContent("text/html", "<p><strong>" . $Msg . "</strong></p><pre>" . $trace . '</pre>');
-			$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-			$sendgrid->send($email);
+			$from = 'contact@neamar.fr';
+			$to = 'neamar@neamar.fr';
+			$subject = 'Debug::fail sur ' . $_SERVER['REQUEST_URI'];
+			$body = "<p><strong>" . $Msg . "</strong></p><pre>" . $trace . '</pre>';
+			$mailer = new PHPMailer(true);
+
+			try {
+				//Server settings
+				$mailer->isSMTP();
+				$mailer->Host       = $smtpHost;
+				$mailer->SMTPAuth   = true;
+				$mailer->Username   = $smtpUser;
+				$mailer->Password   = $smtpPass;
+				$mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+				$mailer->Port       = 465;
+
+				//Recipients
+				$mailer->setFrom($from);
+				$mailer->addAddress($_POST['_to']);
+				$mailer->addReplyTo($to);
+
+				//Content
+				$mailer->Subject = $subject;
+				$mailer->Body    = $body;
+
+				$mailer->send();
+			} catch (Exception $e) {
+					http_response_code(500);
+					echo "<p><strong>Debug::fail : cette page n'est pas disponible. Impossible d'envoyer le mail de débug</strong></p>";
+			}
 			exit();
 		}
 	}
