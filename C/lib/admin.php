@@ -340,8 +340,9 @@ class Admin
 		}
 
 		/**
-		* Construire la version griffée
+		 * Construire la version griffée
 		*/
+		/*
 		//Récupérer la luminosité moyenne de l'ensemble
 		$Moyenne = imagecreatetruecolor(1,1);
 		imagecopyresampled($Moyenne, $Original, 0, 0, 0, 0, 1,1,imagesx($Original), imagesy($Original));
@@ -356,14 +357,15 @@ class Admin
 
 		//Charger le bon masque
 		$Masque = '/Masques/Masque-' . floor(($L)/100) . '.png';
-		$Masque=@imagecreatefrompng(BANNER_PATH . $Masque);
+		$Masque=imagecreatefrompng(BANNER_PATH . $Masque);
 
 		//Appliquer le masque
 		imagecopy($Original,$Masque,0,0,0,0,imagesx($Masque),imagesy($Masque));
+		imagedestroy($Masque);
+		*/
 
 		//Enregistrer
 		imagepng($Original,BANNER_PATH . '/' . $ID . '.png');
-		imagedestroy($Masque);
 
 		/**
 		* Construire la miniature
