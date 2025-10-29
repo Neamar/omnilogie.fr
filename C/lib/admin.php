@@ -356,7 +356,7 @@ class Admin
 
 		//Charger le bon masque
 		$Masque = '/Masques/Masque-' . floor(($L)/100) . '.png';
-		$Masque=imagecreatefrompng(BANNER_PATH . $Masque);
+		$Masque=@imagecreatefrompng(BANNER_PATH . $Masque);
 
 		//Appliquer le masque
 		imagecopy($Original,$Masque,0,0,0,0,imagesx($Masque),imagesy($Masque));
