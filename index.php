@@ -136,8 +136,6 @@ if($Date<$time) //IL FAUT QU'ELLES S'EXECUTENT D'UN BLOC
 		SQL::update('OMNI_Omnilogismes', $Article->ID, array('_Sortie'=>'FROM_UNIXTIME(' . $Date . ')'));
 		$Article->registerModif(Event::PARUTION,false,50);
 	}
-	else
-		External::mail('omni@neamar.fr','Erreur critique.','Impossible de faire paraître un article, la liste est vide. Réagissez !');
 }
 
 $DateParutionProchainArticle = $Date;
