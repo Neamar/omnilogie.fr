@@ -79,7 +79,7 @@ class Cache
 	*/
 	public static function removeNamespace($namespace)
 	{
-		$dh = opendir((PATH . '/Cache/' . $namespace . '/'));
+		$dh = opendir('/tmp/' . $namespace . '/');
 
 		while (($file = readdir($dh)) !== false)
 		{
