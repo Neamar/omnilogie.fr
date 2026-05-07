@@ -32,8 +32,13 @@ class Sql
 	*/
 	public static function query($Query)
 	{
-		$R = mysql_query($Query) or Debug::sqlFail();
-		return $R;
+		$span = self::startSentrySpan($Query);
+		try {
+			$R = mysql_query($Query) or Debug::sqlFail();
+			return $R;
+		} finally {
+			self::finishSentrySpan($span);
+		}
 	}
 
 	/**
@@ -43,7 +48,38 @@ class Sql
 	*/
 	public static function queryNoFail($Query)
 	{
-		return mysql_query($Query) or error_log(mysql_error());
+		$span = self::startSentrySpan($Query);
+		try {
+			return mysql_query($Query) or error_log(mysql_error());
+		} finally {
+			self::finishSentrySpan($span);
+		}
+	}
+
+	private static function startSentrySpan($Query)
+	{
+		if (!class_exists('\\Sentry\\SentrySdk')) {
+			return null;
+		}
+		$parent = \Sentry\SentrySdk::getCurrentHub()->getSpan();
+		if ($parent === null) {
+			return null;
+		}
+		$ctx = (new \Sentry\Tracing\SpanContext())
+			->setOp('db.sql.query')
+			->setDescription($Query);
+		$span = $parent->startChild($ctx);
+		\Sentry\SentrySdk::getCurrentHub()->setSpan($span);
+		return ['span' => $span, 'parent' => $parent];
+	}
+
+	private static function finishSentrySpan($span)
+	{
+		if ($span === null) {
+			return;
+		}
+		$span['span']->finish();
+		\Sentry\SentrySdk::getCurrentHub()->setSpan($span['parent']);
 	}
 
 	/**

@@ -21,6 +21,7 @@
 /////////////////////////////////////////////////////////////
 // Initialise composer
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/C/lib/sentry_init.php';
 //error_reporting(-1); //Inutile, un module set_error_handler se chargera de traiter ces exceptions.
 
 define('PATH',substr(__FILE__,0,strrpos(__FILE__,'/')));
@@ -66,8 +67,25 @@ if(!is_file('M/' . $_GET['P'] . '.php') && !is_file('V/' . $_GET['P'] . '.php') 
 //On démarre la session
 session_start();
 
+if (function_exists('sentry_attach_session_scope')) {
+	sentry_attach_session_scope();
+}
+
 //Démarrer le serveur SQL
 Sql::connect();
+
+// Sentry transaction pour la requête courante (no-op si Sentry n'est pas init).
+$sentryTransaction = null;
+if (class_exists('\\Sentry\\SentrySdk') && \Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
+	$transactionContext = (new \Sentry\Tracing\TransactionContext())
+		->setName($_GET['P'])
+		->setOp('http.server');
+	$sentryTransaction = \Sentry\startTransaction($transactionContext);
+	\Sentry\SentrySdk::getCurrentHub()->setSpan($sentryTransaction);
+	register_shutdown_function(function () use ($sentryTransaction) {
+		$sentryTransaction->finish();
+	});
+}
 
 //Démarrer le gestionnaire d'erreurs
 set_error_handler('Debug::err_handler',-1);
