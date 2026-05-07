@@ -19,7 +19,7 @@ if(strpos($_GET['Auteur'],' ')!==false)
 	Debug::redirect(Link::author($Author),301);
 
 //L'auteur existe-t-il ?
-$AuthorID = SQL::singleQuery('SELECT ID FROM OMNI_Auteurs WHERE Auteur="' . mysql_real_escape_string($Author) . '"');
+$AuthorID = SQL::singleQuery('SELECT ID FROM OMNI_Auteurs WHERE Auteur="' . mysql_real_escape_string($Author) . '" COLLATE utf8_unicode_ci');
 if(is_null($AuthorID))
 {
 	$C['CustomError'] = 'L\'auteur <tt>' . $Author . '</tt> est introuvable.';
