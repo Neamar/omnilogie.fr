@@ -11,6 +11,7 @@ if (empty($sentryDsn)) {
     'dsn' => $sentryDsn,
     'traces_sample_rate' => 0.2,
     'environment' => getenv('DEBUG') == 1 ? 'dev' : 'prod',
+    'send_default_pii' => true,
     'before_send' => function (\Sentry\Event $event): \Sentry\Event {
         $request = $event->getRequest();
         if (!empty($request)) {

@@ -250,7 +250,13 @@ class Typo
 	public static function RaiseError($e)
 	{
 		if(!isset(self::$Options[RAISE_NO_ERROR]))
+		{
 			echo('<p><strong>ERREUR dans la classe <em>Typo</em></strong> : ' . $e . '</p>');
+
+			if (class_exists('\\Sentry\\SentrySdk') && \Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
+				\Sentry\captureMessage('Typo: ' . $e, \Sentry\Severity::warning());
+			}
+		}
 	}
 
 	public static function preg_match_wb($Regexp,$Texte,&$Resultat)
