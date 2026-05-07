@@ -752,7 +752,7 @@ margin-left:-13px;
 background: url('img/sprite01.png') no-repeat;
 background-position:206px -567px;
 }
-#catCloud, #catCloudAuthor {width:250px;}
+#catCloud, #catCloudAuthor {width:250px; overflow-wrap:anywhere;}
 	#catCloud > span, #catCloudAuthor > span {
 	position:relative;
 	top:-8px;
