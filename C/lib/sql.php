@@ -58,9 +58,6 @@ class Sql
 
 	private static function startSentrySpan($Query)
 	{
-		if (!class_exists('\\Sentry\\SentrySdk')) {
-			return null;
-		}
 		$parent = \Sentry\SentrySdk::getCurrentHub()->getSpan();
 		if ($parent === null) {
 			return null;

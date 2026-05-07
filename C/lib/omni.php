@@ -200,6 +200,28 @@ class Omni
 	}
 
 	/**
+	* Exécute $render en attachant l'article courant au scope Sentry (tag + contexte),
+	* pour que toute exception levée pendant le rendu soit reportée avec l'ID/titre/URL.
+	*/
+	private function renderWithSentryScope(callable $render)
+	{
+		if (\Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
+			$Article = $this;
+			return \Sentry\withScope(function (\Sentry\State\Scope $scope) use ($Article, $render) {
+				$scope->setTag('article_id', (string)$Article->ID);
+				$scope->setContext('article', [
+					'id' => $Article->ID,
+					'title' => $Article->Titre,
+					'url' => Link::omni($Article->Titre),
+				]);
+				return $render();
+			});
+		}
+
+		return $render();
+	}
+
+	/**
 	* Renvoie tout l'article mis en forme.
 	* Met à jour le nombre de vues de l'article aussi.
 	* @return :String l'article mis en forme.
@@ -207,8 +229,10 @@ class Omni
 	public function outputFull()
 	{
 		SQL::update('OMNI_Omnilogismes',$this->ID,array('_NbVues'=>'NbVues+1'));
-		Typo::setTexte($this->Omnilogisme);
-		return ParseMath(Typo::Parse());
+		return $this->renderWithSentryScope(function () {
+			Typo::setTexte($this->Omnilogisme);
+			return ParseMath(Typo::Parse());
+		});
 	}
 
 	/**
@@ -217,12 +241,14 @@ class Omni
 	*/
 	public function outputStart()
 	{
-		$noImgTexte = preg_replace('`^\s*\\\\image.+}\r\n`iU','',$this->Omnilogisme);
-		$Texte = substr($noImgTexte,0,strpos($noImgTexte,"\r\n\r\n"));
-		if($Texte == '')
-			$Texte = substr($noImgTexte,0,strpos($noImgTexte,"\n\n"));
-		Typo::setTexte($Texte);
-		return ParseMath(preg_replace('`<img.+/>`U','',Typo::Parse() ?? ''));
+		return $this->renderWithSentryScope(function () {
+			$noImgTexte = preg_replace('`^\s*\\\\image.+}\r\n`iU','',$this->Omnilogisme);
+			$Texte = substr($noImgTexte,0,strpos($noImgTexte,"\r\n\r\n"));
+			if($Texte == '')
+				$Texte = substr($noImgTexte,0,strpos($noImgTexte,"\n\n"));
+			Typo::setTexte($Texte);
+			return ParseMath(preg_replace('`<img.+/>`U','',Typo::Parse() ?? ''));
+		});
 	}
 
 	/**

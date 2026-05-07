@@ -30,7 +30,7 @@ class Debug
 	*/
 	public static function fail($Msg)
 	{
-		if (class_exists('\\Sentry\\SentrySdk') && \Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
+		if (\Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
 			\Sentry\captureException(new \Exception($Msg));
 		}
 

@@ -76,7 +76,7 @@ Sql::connect();
 
 // Sentry transaction pour la requête courante (no-op si Sentry n'est pas init).
 $sentryTransaction = null;
-if (class_exists('\\Sentry\\SentrySdk') && \Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
+if (\Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
 	$transactionContext = (new \Sentry\Tracing\TransactionContext())
 		->setName($_GET['P'])
 		->setOp('http.server');
