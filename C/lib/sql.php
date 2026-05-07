@@ -85,7 +85,7 @@ class Sql
 			else
 			{
 				$Keys[] = $K;
-				$V = '"' . mysql_real_escape_string($V) . '"';
+				$V = '"' . mysql_real_escape_string(self::toLatin1Entities($V)) . '"';
 			}
 		}
 
@@ -128,11 +128,22 @@ class Sql
 			if($K[0]=='_')
 				$Set[] = substr($K,1) . '=' . $V . '';
 			else
-				$Set[] = $K . '="' . mysql_real_escape_string($V) . '"';
+				$Set[] = $K . '="' . mysql_real_escape_string(self::toLatin1Entities($V)) . '"';
 		}
 
 		return self::queryNoFail('UPDATE ' . $Table . ' SET ' . implode(',',$Set) . '
 		WHERE ID=' . intval($ID) . ' ' . $And . ' LIMIT ' . $Limit);
+	}
+
+	// Replicates the behaviour HTML forms used to provide automatically when the page
+	// declared a non-UTF8 charset: codepoints outside Latin1 (Arabic, emoji, CJK…) are
+	// converted to numeric HTML entities so they fit a latin1 column. Latin1 codepoints
+	// pass through and rely on MySQL's utf8mb4-connection-to-latin1-column transcoding.
+	private static function toLatin1Entities($V)
+	{
+		if(!is_string($V))
+			return $V;
+		return mb_encode_numericentity($V, [0x100, 0x10FFFF, 0, 0xFFFFFF], 'UTF-8');
 	}
 
 	/**
