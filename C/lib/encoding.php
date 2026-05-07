@@ -32,6 +32,13 @@ class Encoding
 			$Value = substr($Value,0,strlen($Value)-1);
 
 		$Value = str_replace('"','\\"', $Value);
+
+		// Old links sometimes use latin1 percent-encoding (e.g. %E9 for é) instead
+		// of UTF-8 (%C3%A9). Detect and transcode so the rest of the codebase only
+		// has to deal with UTF-8.
+		if(!mb_check_encoding($Value, 'UTF-8'))
+			$Value = mb_convert_encoding($Value, 'UTF-8', 'ISO-8859-1');
+
 		return $Value;
 	}
 }
