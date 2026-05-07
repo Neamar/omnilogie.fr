@@ -254,7 +254,10 @@ class Typo
 			echo('<p><strong>ERREUR dans la classe <em>Typo</em></strong> : ' . $e . '</p>');
 
 			if (class_exists('\\Sentry\\SentrySdk') && \Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
-				\Sentry\captureMessage('Typo: ' . $e, \Sentry\Severity::warning());
+				\Sentry\withScope(function (\Sentry\State\Scope $scope) use ($e): void {
+					$scope->setLevel(\Sentry\Severity::warning());
+					\Sentry\captureException(new \Exception('Typo: ' . $e));
+				});
 			}
 		}
 	}

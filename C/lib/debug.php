@@ -31,7 +31,7 @@ class Debug
 	public static function fail($Msg)
 	{
 		if (class_exists('\\Sentry\\SentrySdk') && \Sentry\SentrySdk::getCurrentHub()->getClient() !== null) {
-			\Sentry\captureMessage($Msg, \Sentry\Severity::error());
+			\Sentry\captureException(new \Exception($Msg));
 		}
 
 		if(!headers_sent())
