@@ -6,7 +6,7 @@
 * @standalone
 * @access admins
 *
-* Télécharge 8 sources "pour aller plus loin" et met leur titre.
+* Télécharge 20 sources "pour aller plus loin" et met leur titre.
 */
 
 function getTitle($URL)
@@ -27,12 +27,15 @@ function getTitle($URL)
 			curl_close($DL);
 			unset($DL);
 
-			ob_start();
-			$dom=new DOMDocument();
-			$dom->loadHTML($HTML);
-			$Titre=utf8_decode($dom->getElementsByTagName("title")->item(0)->textContent);
-			unset($dom,$HTML);
-			ob_end_clean();
+			if(!empty($HTML))
+			{
+				ob_start();
+				$dom=new DOMDocument();
+				$dom->loadHTML($HTML);
+				$Titre=utf8_decode($dom->getElementsByTagName("title")->item(0)->textContent);
+				unset($dom,$HTML);
+				ob_end_clean();
+			}
 		}
 		else
 		{//URL Wikipédia facilement compréhensible
@@ -50,7 +53,7 @@ FROM OMNI_More
 LEFT JOIN OMNI_Omnilogismes ON (OMNI_Omnilogismes.ID=OMNI_More.Reference)
 WHERE ISNULL(OMNI_More.Titre)
 AND !ISNULL(OMNI_Omnilogismes.Sortie)
-LIMIT 8
+LIMIT 20
 ');
 
 while($URL=mysql_fetch_assoc($URLs))
@@ -58,4 +61,3 @@ while($URL=mysql_fetch_assoc($URLs))
 	$URL['Titre']=getTitle($URL['URL']);
 	SQL::update('OMNI_More',$URL['ID'], array('Titre'=> addslashes($URL['Titre'])));
 }
-
