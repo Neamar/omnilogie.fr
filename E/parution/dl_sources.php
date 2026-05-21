@@ -58,6 +58,6 @@ LIMIT 20
 
 while($URL=mysql_fetch_assoc($URLs))
 {
-	$URL['Titre']=getTitle($URL['URL']);
+	$URL['Titre']=substr(getTitle($URL['URL']), 0, 255);
 	SQL::update('OMNI_More',$URL['ID'], array('Titre'=> addslashes($URL['Titre'])));
 }
