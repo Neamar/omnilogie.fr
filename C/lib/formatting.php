@@ -20,7 +20,7 @@ class Formatting
 	*/
 	public static function makeNumber($Nb)
 	{
-		return str_replace('@','&nbsp;',number_format($Nb,0,',','@'));
+		return str_replace('@','&nbsp;',number_format($Nb ?? 0,0,',','@'));
 	}
 
 	/**
