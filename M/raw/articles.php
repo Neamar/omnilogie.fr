@@ -55,13 +55,13 @@ while($article = mysql_fetch_assoc($articles))
 	else
 		$article['B'] = null;
 
-	Typo::setTexte(utf8_decode($article['T']));
-	$article['T'] = utf8_encode(Typo::parseLinear());
+	Typo::setTexte(Encoding::utf8ToLatin1($article['T']));
+	$article['T'] = Encoding::latin1ToUtf8(Typo::parseLinear());
 
 	if(isset($article['Q']))
 	{
-		Typo::setTexte(utf8_decode($article['Q']));
-		$article['Q'] = utf8_encode(Typo::parseLinear());
+		Typo::setTexte(Encoding::utf8ToLatin1($article['Q']));
+		$article['Q'] = Encoding::latin1ToUtf8(Typo::parseLinear());
 	}
 
 	$json[] = $article;

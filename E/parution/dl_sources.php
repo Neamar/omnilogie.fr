@@ -32,7 +32,7 @@ function getTitle($URL)
 				ob_start();
 				$dom=new DOMDocument();
 				$dom->loadHTML($HTML);
-				$Titre=utf8_decode($dom->getElementsByTagName("title")->item(0)->textContent);
+				$Titre=Encoding::utf8ToLatin1($dom->getElementsByTagName("title")->item(0)->textContent);
 				unset($dom,$HTML);
 				ob_end_clean();
 			}

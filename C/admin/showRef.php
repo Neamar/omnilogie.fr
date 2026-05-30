@@ -31,7 +31,7 @@ if(isset($_GET['Search']))
 		{
 			if(preg_match('`\\\\ref\\[(.+)\\]{.*' . preg_quote($Mot) . '.*}`iU',$Similaire['Omnilogisme'],$Ref))
 			{
-				$Retour[$Ref[1]] = '<li>' . utf8_encode('<a href="#" title="Mot «&nbsp;' . $Mot . '&nbsp;», article «&nbsp;' . $Similaire['Titre'] . '&nbsp;»" onclick="prepareRef(\'' . addslashes($Ref[1]) . '\')">' . str_replace('_',' ',$Ref[1])) . '</a></li>';
+				$Retour[$Ref[1]] = '<li>' . Encoding::latin1ToUtf8('<a href="#" title="Mot «&nbsp;' . $Mot . '&nbsp;», article «&nbsp;' . $Similaire['Titre'] . '&nbsp;»" onclick="prepareRef(\'' . addslashes($Ref[1]) . '\')">' . str_replace('_',' ',$Ref[1])) . '</a></li>';
 			}
 		}
 	}

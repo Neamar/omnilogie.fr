@@ -19,7 +19,7 @@ $T = array
 	'ID'=>$Tweet['id_str'],
 	'User'=>$Tweet['from_user'],
 	'ScreenName'=>$Tweet['from_user'],
-	'Tweet'=>utf8_decode($Tweet['text']),
+	'Tweet'=>Encoding::utf8ToLatin1($Tweet['text']),
 	'Date'=>$D,
 	'Ecart'=>floor((time() - $D)/3600)
 );

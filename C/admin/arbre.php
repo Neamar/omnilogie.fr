@@ -49,9 +49,9 @@ foreach($omnis as $omni) {
 
 	$dump = array(
 		'id' => $omni->ID,
-		'text' => utf8_encode(Typo::parseLinear()),
-		'titre' => utf8_encode($omni->Titre),
-		'accroche' => utf8_encode($omni->Accroche)
+		'text' => Encoding::latin1ToUtf8(Typo::parseLinear()),
+		'titre' => Encoding::latin1ToUtf8($omni->Titre),
+		'accroche' => Encoding::latin1ToUtf8($omni->Accroche)
 	);
 	$dumps[] = $dump;
 }

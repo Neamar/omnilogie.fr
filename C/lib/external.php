@@ -106,8 +106,8 @@ class External
 		//Aucune date spécifiée : envoyer la notification imémdiatement.
 		if($Date==null)
 			$Date=time() + 3*60 + 10 - date('s');
-		$Title = utf8_encode($Title);
-		$Desc = utf8_encode($Desc);
+		$Title = Encoding::latin1ToUtf8($Title);
+		$Desc = Encoding::latin1ToUtf8($Desc);
 
 		//1 : régler le chemin vers la librairie Google
 		include_once(LIB_PATH .  '/google.php');

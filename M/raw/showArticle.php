@@ -25,7 +25,7 @@ if($_GET['titre'] == 'last')
 	$where = '!ISNULL(O.Sortie) ORDER BY RAND()';
 } else if($_GET['titre'] != '')
 {
-	$titre = mysql_real_escape_string(utf8_encode(Encoding::decodeFromGet('titre')));
+	$titre = mysql_real_escape_string(Encoding::latin1ToUtf8(Encoding::decodeFromGet('titre')));
 	$where = '(O.Titre = "' . $titre . '" OR O.Titre = "' . $titre . '?")';
 }
 else
@@ -92,23 +92,23 @@ SQL::update('OMNI_Omnilogismes', $article['ID'],array('_NbVues'=>'NbVues+1', '_N
  */
 
 // Mettre en forme
-Typo::setTexte(utf8_decode($article['T']));
-$article['T'] = utf8_encode(Typo::parseLinear());
+Typo::setTexte(Encoding::utf8ToLatin1($article['T']));
+$article['T'] = Encoding::latin1ToUtf8(Typo::parseLinear());
 
 if(isset($article['Q']))
 {
-	Typo::setTexte(utf8_decode($article['Q']));
-	$article['Q'] = utf8_encode(Typo::parseLinear());
+	Typo::setTexte(Encoding::utf8ToLatin1($article['Q']));
+	$article['Q'] = Encoding::latin1ToUtf8(Typo::parseLinear());
 }
 
-Typo::setTexte(utf8_decode($article['O']));
-$article['O'] = ParseMath(utf8_encode(Typo::parse()));
+Typo::setTexte(Encoding::utf8ToLatin1($article['O']));
+$article['O'] = ParseMath(Encoding::latin1ToUtf8(Typo::parse()));
 
 
 //Gérer les articles suivants / précédents
 if(!is_null($article['Prev']))
 {
-	$article['O'] = '<p class="read-previous-article"><a href="' . Link::omni($article['Prev']) . '">Avant de lire cet article, assurez-vous d\'avoir lu ' . utf8_encode('l\'épisode précédent') . ' !</a></p>' . "\n" . $article['O'];
+	$article['O'] = '<p class="read-previous-article"><a href="' . Link::omni($article['Prev']) . '">Avant de lire cet article, assurez-vous d\'avoir lu ' . Encoding::latin1ToUtf8('l\'épisode précédent') . ' !</a></p>' . "\n" . $article['O'];
 }
 if(!is_null($article['Next']))
 {
@@ -129,7 +129,7 @@ $article['U'] = array();
 
 while($source = mysql_fetch_assoc($sources))
 {
-	$article['U'][] = array_map("utf8_decode", $source);
+	$article['U'][] = array_map(['Encoding', 'utf8ToLatin1'], $source);
 }
 
 
