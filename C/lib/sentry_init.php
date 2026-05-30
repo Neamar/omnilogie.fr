@@ -9,6 +9,7 @@ if (empty($sentryDsn)) {
 
 \Sentry\init([
     'dsn' => $sentryDsn,
+    'release' => getenv('GIT_REV') ?: null,
     'traces_sample_rate' => 0.2,
     'environment' => getenv('DEBUG') == 1 ? 'dev' : 'prod',
     'send_default_pii' => true,
