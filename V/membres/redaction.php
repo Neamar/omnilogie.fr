@@ -20,7 +20,7 @@ Si vous utilisez des sources externes (URL ou livres) n'hésitez pas à les cite
 <h3 id="h3_redaction_form"><span>Formulaire de création</span></h3>
 <form method="post" action="" id="ajout">
 <label for="titre">Titre :</label><small> Le titre peut être humoristique, jouer sur les mots ou ce qui vous plaît &ndash; mais essayez de rester relativement fidèle au contenu de votre article ! La règle ? Une fois l'article lu, le titre doit être pleinement compréhensible.</small><br />
-<input type="text" name="titre" id="titre" value="<?php Template::put('titre','Valeurs') ?>" maxlength="90" /><br />
+<input type="text" name="titre" id="titre" value="<?php Template::put('titre','Valeurs') ?>" maxlength="90" required /><br />
 
 <hr />
 
