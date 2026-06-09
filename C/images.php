@@ -17,7 +17,7 @@ if(isset($_GET['Titre']))
 $Param = Omni::buildParam(Omni::SMALL_PARAM);
 
 if(isset($TitreOmni))
-	$Param->Where = 'Omnilogismes.Titre="' . $TitreOmni . '" OR Omnilogismes.Titre="' . $TitreOmni . '?"';
+	$Param->Where = 'Omnilogismes.Titre="' . $TitreOmni . '" COLLATE utf8_unicode_ci OR Omnilogismes.Titre="' . $TitreOmni . '?" COLLATE utf8_unicode_ci';
 else
 {
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
