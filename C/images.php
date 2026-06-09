@@ -119,7 +119,7 @@ if(!is_file($File))
 	$Lignes = implode("\n",$LignesUtiles[0]);
 
 	$Taille=imagettfbbox(12,0,$TitreFont,$Lignes);
-	imagettftext($Draft, 11, 0, 298, 72 - .5*($Taille[1]-$Taille[7]), $grayMore,$TexteFont, $Lignes);
+	imagettftext($Draft, 11, 0, 298, (int) round(72 - .5*($Taille[1]-$Taille[7])), $grayMore,$TexteFont, $Lignes);
 
 
 
