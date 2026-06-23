@@ -247,7 +247,15 @@ class Omni
 			if($Texte == '')
 				$Texte = substr($noImgTexte,0,strpos($noImgTexte,"\n\n"));
 			Typo::setTexte($Texte);
-			return ParseMath(preg_replace('`<img.+/>`U','',Typo::Parse() ?? ''));
+			// L'extrait est une troncature brutale de l'article : Typo reçoit souvent un texte
+			// vide ou un environnement coupé en deux. Ces erreurs sont inhérentes à l'extrait,
+			// on les avale silencieusement (ni message HTML, ni report Sentry).
+			Typo::addOption(RAISE_NO_ERROR);
+			try {
+				return ParseMath(preg_replace('`<img.+/>`U','',Typo::Parse() ?? ''));
+			} finally {
+				Typo::removeOption(RAISE_NO_ERROR);
+			}
 		});
 	}
 
