@@ -39,17 +39,17 @@ class Debug
 			http_response_code(500);
 		}
 
-		echo '<p style="border:1px dashed red;"><strong>Désolé, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs délais.</strong></p><p>' . $Msg . '</p>';
+		echo '<p style="border:1px dashed red;"><strong>Désolé, une erreur critique s\'est produite. Nous tenterons de la corriger dans les plus brefs délais.</strong></p>';
 
 		$trace = self::getDebugLog();
 
 		if(getenv("DEBUG") == 1)
 		{
-			exit('<pre>' . $trace . '</pre>');
+			exit('<p>' . $Msg . '</p><pre>' . $trace . '</pre>');
 		}
 		else if(isset($_SESSION['Membre']['Pseudo']) && $_SESSION['Membre']['Pseudo']=='Neamar')
 		{
-			exit('<pre>' . $trace . '</pre>');
+			exit('<p>' . $Msg . '</p><pre>' . $trace . '</pre>');
 		}
 		else
 		{

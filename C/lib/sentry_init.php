@@ -56,8 +56,13 @@ function sentry_attach_session_scope(): void
             }
             $scope->setExtra('session', $session);
         }
+        // Under dokku, REMOTE_ADDR is the docker gateway; the real client IP comes
+        // from X-Forwarded-For. The SDK's RequestIntegration only fills ip_address when
+        // it is still null, so the value set here wins.
+        $user = ['ip_address' => Input::getClientIp()];
         if (!empty($_SESSION['Membre']['Pseudo'])) {
-            $scope->setUser(['username' => $_SESSION['Membre']['Pseudo']]);
+            $user['username'] = $_SESSION['Membre']['Pseudo'];
         }
+        $scope->setUser($user);
     });
 }

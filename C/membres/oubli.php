@@ -38,7 +38,7 @@ if(isset($_POST['mail']))
 		<p>Vous avez fait une demande pour réinitialiser votre mot de passe sur Omnilogie.fr.</p>
 		<p>Votre nouveau mot de passe : <strong>' . $Mdp . '</strong></p>
 		<p>Vous pouvez aussi vous connecter directement en <a href="' . URL . '/membres/?membre=' . $Membre['Hash'] . '">cliquant sur ce lien</a> (le changement de mot de passe reste effectif)</p>
-		<p><small>Vous n\'avez rien demandé ? Répondez à ce mail en incluant ce message. IP du demandeur : ' . $_SERVER['REMOTE_ADDR'] . '</p>');
+		<p><small>Vous n\'avez rien demandé ? Répondez à ce mail en incluant ce message. IP du demandeur : ' . Input::getClientIp() . '</p>');
 
 		SQL::update('OMNI_Auteurs',$Membre['ID'],array('Pass'=>sha1($Mdp)));
 		$_SESSION['FutureMessage']='Mot de passe correctement réinitialisé.';

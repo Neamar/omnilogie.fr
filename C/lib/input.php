@@ -121,4 +121,36 @@ class Input
 		}
 		$_POST['keywords'] = addslashes(implode(', ',$KeyWords));
 	}
+
+	/**
+	* Renvoie l'adresse IP réelle du client.
+	* L'application tourne derrière le nginx de dokku, qui réécrit systématiquement
+	* X-Forwarded-For sous la forme "<valeur envoyée par le client>, <IP réelle du peer>".
+	* Tout ce qui précède la dernière entrée est donc fourni par le client, et donc
+	* trivialement falsifiable : on lit la chaîne de droite à gauche, en sautant nos
+	* propres proxys.
+	* @return :String l'IP du client, ou REMOTE_ADDR si aucune valeur fiable n'est disponible.
+	*/
+	public static function getClientIp()
+	{
+		$Remote = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+
+		if(empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $Remote;
+
+		//Nombre de proxys de confiance devant l'application : 1 pour le nginx de dokku
+		//seul, 2 si un CDN (Cloudflare…) est intercalé devant lui, etc.
+		$Hops = (int) getenv('TRUSTED_PROXY_HOPS');
+		if($Hops < 1)
+			$Hops = 1;
+
+		$Chaine = array_map('trim',explode(',',$_SERVER['HTTP_X_FORWARDED_FOR']));
+
+		//La dernière entrée est celle ajoutée par notre nginx : on remonte de $Hops crans.
+		$Index = count($Chaine) - $Hops;
+		if($Index < 0)
+			return $Remote;
+
+		return filter_var($Chaine[$Index],FILTER_VALIDATE_IP) ? $Chaine[$Index] : $Remote;
+	}
 }
