@@ -11,7 +11,7 @@
 
 if(isset($_POST['mail']))
 {
-	$Membre = SQL::singleQuery('SELECT ID, Auteur, Mail, Hash FROM OMNI_Auteurs WHERE Mail="' . $_POST['mail'] . '"');
+	$Membre = SQL::singleQuery('SELECT ID, Auteur, Mail, Hash FROM OMNI_Auteurs WHERE Mail="' . mysql_real_escape_string($_POST['mail']) . '"');
 	if(!is_null($Membre))
 	{
 		$length = 8;
