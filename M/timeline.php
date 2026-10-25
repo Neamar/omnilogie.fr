@@ -13,7 +13,7 @@ $C['CanonicalURL'] = '/Timeline';
 //Ãtape 1 : récupérer toutes les dates
 $Param = Omni::buildParam(Omni::SMALL_PARAM);
 
-$Param->Where = '!ISNULL(Sortie) AND Statut="ACCEPTE" AND Omnilogisme REGEXP "([^0-9.]|^)(20[0-9]{2}|1[0-9]{3}|\\\\c(entury)?{-?[XVI]{1,3}}|\\\\date{-?[0-9]{0,4}})([^0-9]|$)"';
+$Param->Where = '!ISNULL(Sortie) AND Statut="ACCEPTE" AND Omnilogisme REGEXP "([^0-9.]|^)(20[0-9]{2}|1[0-9]{3}|c(entury)?[{]-?[XVI]{1,3}[}]|date[{]-?[0-9]{0,4}[}])([^0-9]|$)"';
 
 $Articles = Omni::get($Param);
 
