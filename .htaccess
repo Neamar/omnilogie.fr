@@ -113,7 +113,6 @@ RewriteRule ^raw/articles/(.+)\.json /index.php?P=raw/showArticle&titre=$1 [QSA,
 
 
 #Simplification des URLs
-RewriteRule ^Doc$ /index.php?P=doc [L]
 RewriteRule ^Ligne$ /index.php?P=ligne [L]
 RewriteRule ^TOC$ /index.php?P=toc [L]
 RewriteRule ^Contact$ /index.php?P=contact [L]
