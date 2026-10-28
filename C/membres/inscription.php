@@ -9,6 +9,9 @@
 //////////////////////////////////////////////////////
 //Fonctionnalités du contrôleur :
 
+//Les inscriptions sont fermées (cf. la vue) : ne pas traiter le formulaire.
+return;
+
 if(!empty($_POST['pseudo']) && isset($_POST['password']))
 {
 	$Hash = md5('OMNI_LOGIEv2' . uniqid());
