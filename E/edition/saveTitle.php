@@ -8,7 +8,7 @@
 
 try
 {
-  SQL::insert('OMNI_Redirection',array('Histoire'=>addslashes($Article->Titre),'ID'=>$Article->ID));
+  SQL::insert('OMNI_Redirection',array('Histoire'=>$Article->Titre,'ID'=>$Article->ID));
 } catch (Exception $e) {
   // name already exists
 }
