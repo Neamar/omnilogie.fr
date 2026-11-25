@@ -53,6 +53,7 @@ class Omni
 	public $TitrePrecedent;	//Et celui qui le précède.
 	public $AccrochePrecedent;	//Et celui qui le précède.
 	public $NbVues;
+	public $PerDay;	//Seulement pour les stats membres (vues par jour)
 	public $Anecdote;
 	public $SourceAnecdote;
 	public $NbVotes;
