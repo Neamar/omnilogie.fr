@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+	<defs>
+		<radialGradient id="body" cx="0.66" cy="0.78" r="0.8">
+			<stop offset="0" stop-color="#d8f8ff"/>
+			<stop offset="0.35" stop-color="#a9d6fb"/>
+			<stop offset="0.6" stop-color="#6aa8f6"/>
+			<stop offset="0.92" stop-color="#1381ed"/>
+		</radialGradient>
+		<linearGradient id="rim" x1="0.1" y1="0.2" x2="0.9" y2="0.8">
+			<stop offset="0" stop-color="#9ec0ff"/>
+			<stop offset="0.5" stop-color="#9ec0ff"/>
+			<stop offset="1" stop-color="#bffaff"/>
+		</linearGradient>
+		<linearGradient id="glint" x1="0.1" y1="0.3" x2="1" y2="0.6">
+			<stop offset="0.15" stop-color="#46ddeb" stop-opacity="0"/>
+			<stop offset="0.4" stop-color="#46ddeb"/>
+			<stop offset="0.8" stop-color="#04c0d1"/>
+			<stop offset="1" stop-color="#46ddeb" stop-opacity="0.6"/>
+		</linearGradient>
+	</defs>
+	<circle cx="7.75" cy="7.5" r="6.9" fill="url(#body)" stroke="url(#rim)" stroke-width="1.1"/>
+	<circle cx="7.75" cy="7.5" r="5.7" fill="none" stroke="url(#glint)" stroke-width="0.9"/>
+	<path d="M6.5 6.7C6.5 5.2 9.5 5.1 9.5 6.4C9.5 7.4 7.6 7.6 7.6 8.7" fill="none" stroke="#042561" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+	<circle cx="7.6" cy="10.5" r="0.75" fill="#042561"/>
+</svg>
