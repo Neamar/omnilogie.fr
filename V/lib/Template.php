@@ -4,6 +4,8 @@
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS des articles" href="/flux.rss" />
 	<link rel="stylesheet" media="all" href="/CSS/omni.responsive.min.css?v5515" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="/favicon.ico" sizes="16x16" />
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
 	<title><?php Template::put('PageTitle') ?></title>
 

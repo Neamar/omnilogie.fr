@@ -130,9 +130,9 @@ RewriteRule ^([A-Z0-9]{1,3})($|&.+$) /index.php?P=liencourt&Titre=$1 [L]
 
 #Favicon du site
 RewriteRule ^apple-touch-icon\.png /images/apple-touch-icon.png
-RewriteRule ^apple-touch-icon-precomposed\.png /images/apple-touch-icon-precomposed.png
-RewriteRule ^apple-touch-icon-114x114\.png /images/apple-touch-icon-114x114.png
-RewriteRule ^apple-touch-icon-114x114-precomposed\.png /images/apple-touch-icon-114x114-precomposed.png
+RewriteRule ^apple-touch-icon-precomposed\.png /images/apple-touch-icon.png
+RewriteRule ^apple-touch-icon-114x114\.png /images/apple-touch-icon.png
+RewriteRule ^apple-touch-icon-114x114-precomposed\.png /images/apple-touch-icon.png
 
 #--------------------------------------------------
 # Sauvegarde des anciennes URLs vers la nouvelle version
